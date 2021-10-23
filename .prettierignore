@@ -1,0 +1,15 @@
+node_modules
+.vscode
+/dist
+
+src/assets
+.gitignore
+.babelrc
+.eslintrc
+.prettierrc
+.prettierignore
+package.json
+package-lock.json
+
+tsconfig.json
+webpack.config.js
