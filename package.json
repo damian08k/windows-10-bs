@@ -14,16 +14,18 @@
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
+    "@types/styled-components": "^5.1.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-redux": "^7.2.5"
+    "react-redux": "^7.2.5",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
-    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.31",
@@ -32,6 +34,7 @@
     "@typescript-eslint/parser": "^5.1.0",
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.3",
+    "babel-plugin-styled-components": "^1.13.3",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.4.0",
@@ -45,6 +48,7 @@
     "fork-ts-checker-webpack-plugin": "^6.4.0",
     "html-webpack-plugin": "^5.4.0",
     "jest": "^27.3.1",
+    "jest-styled-components": "^7.0.5",
     "mini-css-extract-plugin": "^2.4.3",
     "node-sass": "^6.0.1",
     "prettier": "2.4.1",

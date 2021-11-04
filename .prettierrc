@@ -6,5 +6,6 @@
   "bracketSpacing": true,
   "arrowParens": "avoid",
   "requirePragma": false,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "endOfLine": "auto"
 }

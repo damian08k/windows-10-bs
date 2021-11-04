@@ -1,14 +1,14 @@
 import { FC } from 'react';
 
-import './App.scss';
-import star from './assets/star.png';
+import MobileView from './components/view/MobileView/MobileView';
+import GlobalStyles from './globalStyles';
 
 const App: FC = () => {
   return (
-    <div>
-      Hello World!
-      <img src={star} alt="" />
-    </div>
+    <>
+      <GlobalStyles />
+      <MobileView />
+    </>
   );
 };
 
