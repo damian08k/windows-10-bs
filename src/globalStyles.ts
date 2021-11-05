@@ -12,6 +12,13 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         font-family: Calibri, sans-serif;
     }
+    
+    :root {
+      --spacing: 5px;
+      
+      --black: #000;
+      --white: #fff;
+    }
 `;
 
 export default GlobalStyles;
