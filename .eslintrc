@@ -102,11 +102,13 @@
       "error",
       {
         "groups": [
-          "builtin",
+          ["builtin", "type"],
+          "index",
           "external",
+          "object",
+          "internal",
           "parent",
-          "sibling",
-          "index"
+          "sibling"
         ],
         "newlines-between": "always",
         "alphabetize": {
