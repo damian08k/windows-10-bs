@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
     }
     
     :root {
-      --spacing: 5px;
+      --spacing: 10px;
       
       --black: #000;
       --white: #fff;
