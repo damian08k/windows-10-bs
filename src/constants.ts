@@ -1,0 +1,1 @@
+export const MIN_SYSTEM_RESOLUTION = 1000;

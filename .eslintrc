@@ -55,7 +55,7 @@
       120,
       2
     ],
-    "no-console": "warn",
+    "no-console": "off",
     "comma-dangle": [
       "error",
       "only-multiline"
