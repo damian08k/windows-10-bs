@@ -5,7 +5,9 @@ import { DesktopViewContainer } from './StyledComponents';
 const DesktopView: FC = () => {
   return (
     <>
-      <DesktopViewContainer>{/* <p>hello world</p> */}</DesktopViewContainer>
+      <DesktopViewContainer data-testid="desktop-view">
+        {/* <p>hello world</p> */}
+      </DesktopViewContainer>
     </>
   );
 };
