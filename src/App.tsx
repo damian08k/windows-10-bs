@@ -1,14 +1,19 @@
 import { FC } from 'react';
 
-import './App.scss';
-import star from './assets/star.png';
+import DesktopView from './components/view/DesktopView/DesktopView';
+import MobileView from './components/view/MobileView/MobileView';
+import { MIN_SYSTEM_RESOLUTION } from './constants';
+import GlobalStyles from './globalStyles';
+import useScreenWidth from './hooks/useScreenWidth';
 
 const App: FC = () => {
+  const screenWidth = useScreenWidth();
+
   return (
-    <div>
-      Hello World!
-      <img src={star} alt="" />
-    </div>
+    <>
+      <GlobalStyles />
+      {screenWidth < MIN_SYSTEM_RESOLUTION ? <MobileView /> : <DesktopView />}
+    </>
   );
 };
 

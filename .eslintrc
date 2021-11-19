@@ -1,7 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "latest",
+    "ecmaVersion": 2021,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -13,11 +13,20 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx",
+          ".json"
+        ]
       }
     },
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
     }
   },
   "extends": [
@@ -26,24 +35,61 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:import/errors",
-    "plugin:import/warnings",   
+    "plugin:import/warnings",
     "plugin:import/typescript",
     "prettier"
   ],
-  "plugins": ["react", "prettier", "import"],
+  "plugins": [
+    "react",
+    "prettier",
+    "import"
+  ],
   "rules": {
     "semi": 0,
-    "react/jsx-indent": ["error", 2],
-    "max-len": [2, 120, 2],
-    "no-console": "warn",
-    "comma-dangle": ["error", "only-multiline"],
-    "react/prop-types": [2, { "ignore": ["history"] }],
+    "react/jsx-indent": [
+      "error",
+      2
+    ],
+    "max-len": [
+      2,
+      120,
+      2
+    ],
+    "no-console": "off",
+    "comma-dangle": [
+      "error",
+      "only-multiline"
+    ],
+    "react/prop-types": [
+      2,
+      {
+        "ignore": [
+          "history"
+        ]
+      }
+    ],
     "jsx-a11y/label-has-associated-control": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
+    "react/no-unescaped-entities": 0,
     "react/no-set-state": "off",
-    "prettier/prettier": ["error", {"endOfLine": "auto"}],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "react/jsx-props-no-spreading": "off",
     "prefer-promise-reject-errors": "off",
     "camelcase": "off",
@@ -55,7 +101,15 @@
     "import/order": [
       "error",
       {
-        "groups": ["builtin", "external", "parent", "sibling", "index"],
+        "groups": [
+          ["builtin", "type"],
+          "index",
+          "external",
+          "object",
+          "internal",
+          "parent",
+          "sibling"
+        ],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
