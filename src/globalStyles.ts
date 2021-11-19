@@ -16,8 +16,8 @@ const GlobalStyles = createGlobalStyle`
     :root {
       --spacing: 10px;
       
-      --black: #000;
-      --white: #fff;
+      --black: 0, 0, 0;
+      --white: 255, 255, 255;
     }
 `;
 
