@@ -21,18 +21,14 @@ export const LogoContainer = styled.div`
   align-items: center;
   width: 50px;
   height: 100%;
-
-  // &:hover {
-  //   backgroud-color: rgba(var(--black), 0.2);
-  // }
 `;
 
 export const LogoButton = styled.button`
+  width: 100%;
+  height: 100%;  
   border: none;
   background-color: rgb(var(--black));
   cursor: pointer;
-  width: 100%;
-  height: 100%;
 
   .w10Logo {
     width: 20px;
@@ -41,6 +37,7 @@ export const LogoButton = styled.button`
 
   &:hover {
     background-color: rgba(var(--white), 0.2);
+
     .w10Logo {
       filter: brightness(0) saturate(100%) invert(100%) sepia(27%) saturate(6087%) hue-rotate(18deg)
         brightness(101%) contrast(101%);
