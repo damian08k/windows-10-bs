@@ -18,6 +18,12 @@ const GlobalStyles = createGlobalStyle`
       
       --black: 0, 0, 0;
       --white: 255, 255, 255;
+
+      --menu-zIndex: 9999;
+    }
+
+    html {
+        font-size: 10px;
     }
 `;
 
