@@ -24,23 +24,24 @@ export const LogoContainer = styled.div`
 `;
 
 export const LogoButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;  
   border: none;
   background-color: rgb(var(--black));
   cursor: pointer;
 
-  .w10Logo {
-    width: 20px;
-    height: 20px;
+  .windowsLogo {
+    height: 70%;
   }
 
   &:hover {
-    background-color: rgba(var(--white), 0.2);
+    background-color: var(--hover);
 
-    .w10Logo {
-      filter: brightness(0) saturate(100%) invert(100%) sepia(27%) saturate(6087%) hue-rotate(18deg)
-        brightness(101%) contrast(101%);
+    .windowsLogo {
+      fill: rgb(187, 255, 15);
     }`;
 
 export const SearchContainer = styled.div`
@@ -56,12 +57,12 @@ export const SearchContainer = styled.div`
     height: 100%;
     font-size: 1.6rem;
   }
-`;
 
-export const SearchIcon = styled.div`
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 20px;
-  height: 20px;
+  .searchIcon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+  }
 `;

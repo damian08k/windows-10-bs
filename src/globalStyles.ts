@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
       
       --black: 0, 0, 0;
       --white: 255, 255, 255;
+      --hover: rgba(var(--white), 0.2);
 
       --menu-zIndex: 9999;
     }

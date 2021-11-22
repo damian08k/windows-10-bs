@@ -1,26 +1,18 @@
-import searchIcon from '../../assets/icons/search.svg';
-import w10Logo from '../../assets/icons/w10-logo.svg';
+import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
+import { ReactComponent as WindowsLogo } from '../../assets/icons/w10-logo.svg';
 
-import {
-  TaskbarContainer,
-  LogoContainer,
-  SearchContainer,
-  SearchIcon,
-  LogoButton,
-} from './StyledComponents';
+import { TaskbarContainer, LogoContainer, SearchContainer, LogoButton } from './StyledComponents';
 
 const Taskbar = () => {
   return (
     <TaskbarContainer>
       <LogoContainer>
         <LogoButton>
-          <img className="w10Logo" src={w10Logo} alt="Windows 10 logo" />
+          <WindowsLogo className="windowsLogo" />
         </LogoButton>
       </LogoContainer>
       <SearchContainer>
-        <SearchIcon>
-          <img src={searchIcon} />
-        </SearchIcon>
+        <SearchIcon className="searchIcon" />
         <input className="searchInput" type="text" placeholder="Type here to search" />
       </SearchContainer>
     </TaskbarContainer>
