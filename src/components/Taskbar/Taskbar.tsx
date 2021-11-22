@@ -1,5 +1,6 @@
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
 import { ReactComponent as WindowsLogo } from '../../assets/icons/w10-logo.svg';
+import TimeAndDate from '../TimeAndDate/TimeAndDate';
 
 import { TaskbarContainer, LogoContainer, SearchContainer, LogoButton } from './StyledComponents';
 
@@ -15,6 +16,7 @@ const Taskbar = () => {
         <SearchIcon className="searchIcon" />
         <input className="searchInput" type="text" placeholder="Type here to search" />
       </SearchContainer>
+      <TimeAndDate />
     </TaskbarContainer>
   );
 };
