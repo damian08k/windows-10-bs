@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Taskbar from '_taskbar/Taskbar/Taskbar';
+import Taskbar from 'Menu/Taskbar/Taskbar';
 
 import { DesktopViewContainer } from './DesktopView.styled';
 
