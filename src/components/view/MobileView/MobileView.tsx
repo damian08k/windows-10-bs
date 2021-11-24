@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { MobileViewContainer, MobileViewText } from './StyledComponents';
+import { MobileViewContainer, MobileViewText } from './MobileView.styled';
 
 export const MobileViewInfoText =
   "To get this app's full experience, please run it on a desktop (more than 1000px) resolution.";

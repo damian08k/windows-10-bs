@@ -1,4 +1,4 @@
-import { Container } from './StyledComponents';
+import { Container } from './CurrentDate.styled';
 
 const CurrentDate = () => {
   const newDate = new Date();

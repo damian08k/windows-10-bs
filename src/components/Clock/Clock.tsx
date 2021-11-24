@@ -1,4 +1,4 @@
-import { Container } from './StyledComponents';
+import { Container } from './Clock.styled';
 
 const Clock = () => {
   return <Container>Clock</Container>;

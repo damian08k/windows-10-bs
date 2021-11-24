@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import Taskbar from '../../Taskbar/Taskbar';
 
-import { DesktopViewContainer } from './StyledComponents';
+import { DesktopViewContainer } from './DesktopView.styled';
 
 const DesktopView: FC = () => {
   return (
