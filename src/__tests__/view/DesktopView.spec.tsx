@@ -2,7 +2,8 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { FC } from 'react';
 
-import DesktopView from '../../components/view/DesktopView/DesktopView';
+import DesktopView from 'view/DesktopView/DesktopView';
+
 import { MIN_SYSTEM_RESOLUTION } from '../../constants';
 
 type Props = {

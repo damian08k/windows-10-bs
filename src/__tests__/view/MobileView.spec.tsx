@@ -3,7 +3,8 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { FC } from 'react';
 
-import MobileView, { MobileViewInfoText } from '../../components/view/MobileView/MobileView';
+import MobileView, { MobileViewInfoText } from 'view/MobileView/MobileView';
+
 import { MIN_SYSTEM_RESOLUTION } from '../../constants';
 
 type Props = {
