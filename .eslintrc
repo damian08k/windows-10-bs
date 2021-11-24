@@ -11,22 +11,17 @@
     "react": {
       "version": "detect"
     },
-    "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx",
-          ".json"
-        ]
-      }
-    },
     "import/parsers": {
       "@typescript-eslint/parser": [
         ".ts",
         ".tsx"
       ]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
     }
   },
   "extends": [
@@ -93,7 +88,7 @@
     "react/jsx-props-no-spreading": "off",
     "prefer-promise-reject-errors": "off",
     "camelcase": "off",
-    "import/no-unresolved": "off",
+    "import/no-unresolved": "error",
     "import/named": "warn",
     "import/namespace": "warn",
     "import/no-named-as-default": "off",

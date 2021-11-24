@@ -86,6 +86,9 @@ export default {
     '\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/__mocks__/fileMock.ts',
     '\\.(css|less)$': '<rootDir>/__mocks__/fileMock.ts',
+    '^view/(.*)': '<rootDir>/src/components/view/$1',
+    '^hooks/(.*)': '<rootDir>/src/hooks/$1',
+    '^_taskbar/(.*)': '<rootDir>/src/components/_taskbar/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
