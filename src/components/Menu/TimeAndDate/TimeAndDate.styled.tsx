@@ -6,7 +6,8 @@ export const Container = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin: 0 var(--spacing) 0 auto;
-  width: 70px;
+  padding: 0 var(--spacing);
+  width: 90px;
   font-size: 1.6rem;
   text-align: center;
   color: rgb(var(--white));
