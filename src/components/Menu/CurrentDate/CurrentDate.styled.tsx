@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.time`
+export const CurrentDateContainer = styled.time`
   flex-basis: 100%;
 `;
