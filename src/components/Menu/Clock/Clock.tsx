@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { clockActions } from 'store/slices/clock.slice';
@@ -7,7 +7,7 @@ import { RootState } from 'types/store/clockState.type';
 
 import { Container } from './Clock.styled';
 
-const Clock = () => {
+const Clock: FC = () => {
   const time = useSelector((state: RootState) => state.updateClock.time);
   const dispatch = useAppDispatch();
 

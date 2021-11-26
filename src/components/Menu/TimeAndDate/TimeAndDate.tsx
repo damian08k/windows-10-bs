@@ -1,9 +1,11 @@
+import { FC } from 'react';
+
 import Clock from '../Clock/Clock';
 import CurrentDate from '../CurrentDate/CurrentDate';
 
 import { Container } from './TimeAndDate.styled';
 
-const TimeAndDate = () => {
+const TimeAndDate: FC = () => {
   return (
     <Container>
       <Clock />
