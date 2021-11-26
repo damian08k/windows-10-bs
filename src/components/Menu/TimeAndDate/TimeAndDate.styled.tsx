@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,9 @@ export const Container = styled.div`
   padding: 0 var(--spacing);
   width: 90px;
   font-size: 1.6rem;
+  border: none;
   text-align: center;
+  background-color: transparent;
   color: rgb(var(--white));
 
   &:hover {
