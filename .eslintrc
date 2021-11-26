@@ -51,6 +51,7 @@
       2
     ],
     "no-console": "off",
+    "no-debugger": "off",
     "comma-dangle": [
       "error",
       "only-multiline"

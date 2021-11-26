@@ -15,6 +15,8 @@ module.exports = merge(commonConfig, {
       assets: path.resolve(__dirname, '../src/assets'),
       hooks: path.resolve(__dirname, '../src/hooks'),
       view: path.resolve(__dirname, '../src/components/view'),
+      store: path.resolve(__dirname, '../src/store'),
+      types: path.resolve(__dirname, '../src/types'),
       Menu: path.resolve(__dirname, '../src/components/Menu'),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
