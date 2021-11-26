@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  --tooltipBorderColor: rgb(118, 118, 118);
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +29,7 @@ export const Container = styled.div`
     position: absolute;
     top: 100%;
     right: 0;
-    border: 1px solid var(--tooltipBorderColor);
+    border: 1px solid var(--grey);
     font-size: 1.3rem;
     white-space: nowrap;
     background-color: rgb(var(--white));

@@ -6,7 +6,6 @@ export const TaskbarContainer = styled.div`
 
   display: flex;
   position: absolute;
-  //   bottom: 0;
   top: 0;
   left: 0;
   width: 100%;
@@ -41,7 +40,7 @@ export const LogoButton = styled.button`
     background-color: var(--hover);
 
     .windowsLogo {
-      fill: rgb(187, 255, 15);
+      fill: rgb(var(--windowsGreen));
     }`;
 
 export const SearchContainer = styled.div`
@@ -56,6 +55,10 @@ export const SearchContainer = styled.div`
     width: 100%;
     height: 100%;
     font-size: 1.6rem;
+
+    &:hover {
+      border-color: var(--grey);
+    }
   }
 
   .searchIcon {
