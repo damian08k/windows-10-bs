@@ -7,7 +7,7 @@ import getCurrentDate from 'utils/getCurrentDate';
 import Clock from '../Clock/Clock';
 import CurrentDate from '../CurrentDate/CurrentDate';
 
-import { Container } from './TimeAndDate.styled';
+import * as S from './TimeAndDate.styled';
 
 const TimeAndDate: FC = () => {
   const dispatch = useAppDispatch();
@@ -19,10 +19,10 @@ const TimeAndDate: FC = () => {
   };
 
   return (
-    <Container data-title={currentDateNamesFormat} onClick={handleOpenPlans}>
+    <S.Container data-title={currentDateNamesFormat} onClick={handleOpenPlans}>
       <Clock />
       <CurrentDate />
-    </Container>
+    </S.Container>
   );
 };
 

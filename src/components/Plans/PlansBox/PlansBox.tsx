@@ -7,7 +7,7 @@ import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
 
 import getCurrentWindowHeight from './helpers/getCurrentWindowHeight';
-import { PlansBoxContainer } from './PlansBox.styled';
+import * as S from './PlansBox.styled';
 
 type Props = {
   transitionClassName: string;
@@ -27,13 +27,13 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
   });
 
   return (
-    <PlansBoxContainer
+    <S.PlansBoxContainer
       ref={plansBoxContainerRef}
       className={transitionClassName}
       windowHeight={windowHeight}
     >
       Plans
-    </PlansBoxContainer>
+    </S.PlansBoxContainer>
   );
 };
 

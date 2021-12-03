@@ -5,7 +5,7 @@ import { clockActions } from 'store/slices/clock.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
 
-import { Container } from './Clock.styled';
+import * as S from './Clock.styled';
 
 const Clock: FC = () => {
   const time = useSelector((state: RootState) => state.updateClock.time);
@@ -20,7 +20,7 @@ const Clock: FC = () => {
     return () => clearInterval(interval);
   }, [time]);
 
-  return <Container>{time}</Container>;
+  return <S.Container>{time}</S.Container>;
 };
 
 export default Clock;

@@ -9,30 +9,30 @@ import { RootState } from 'types/store/clockState.type';
 
 import TimeAndDate from '../TimeAndDate/TimeAndDate';
 
-import { TaskbarContainer, LogoContainer, SearchContainer, LogoButton } from './Taskbar.styled';
+import * as S from './Taskbar.styled';
 
 const Taskbar: FC = () => {
   const isPlanOpen = useSelector((state: RootState) => state.togglePlansVisibility.isPlanOpen);
   const hasTransitionedIn = useMountTransition(isPlanOpen, 1000);
 
   return (
-    <TaskbarContainer>
-      <LogoContainer>
-        <LogoButton>
+    <S.TaskbarContainer>
+      <S.LogoContainer>
+        <S.LogoButton>
           <WindowsLogo className="windowsLogo" />
-        </LogoButton>
-      </LogoContainer>
-      <SearchContainer>
+        </S.LogoButton>
+      </S.LogoContainer>
+      <S.SearchContainer>
         <SearchIcon className="searchIcon" />
         <input className="searchInput" type="text" placeholder="Type here to search" />
-      </SearchContainer>
+      </S.SearchContainer>
       <TimeAndDate />
       {(isPlanOpen || hasTransitionedIn) && (
         <PlansBox
           transitionClassName={`${hasTransitionedIn && 'in'} ${isPlanOpen && 'showPlans'}`}
         />
       )}
-    </TaskbarContainer>
+    </S.TaskbarContainer>
   );
 };
 
