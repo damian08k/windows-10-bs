@@ -1,5 +1,7 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
+import { plansActions } from 'store/slices/plans.slice';
+import { useAppDispatch } from 'store/store';
 import getCurrentDate from 'utils/getCurrentDate';
 
 import Clock from '../Clock/Clock';
@@ -8,14 +10,20 @@ import CurrentDate from '../CurrentDate/CurrentDate';
 import { Container } from './TimeAndDate.styled';
 
 const TimeAndDate: FC = () => {
+  const dispatch = useAppDispatch();
+
   const { currentDateNamesFormat } = getCurrentDate();
 
+  const handleOpenPlans = () => {
+    dispatch(plansActions.togglePlansVisibility(true));
+  };
+
   return (
-    <Container data-title={currentDateNamesFormat}>
+    <Container data-title={currentDateNamesFormat} onClick={handleOpenPlans}>
       <Clock />
       <CurrentDate />
     </Container>
   );
 };
 
-export default TimeAndDate;
+export default memo(TimeAndDate);

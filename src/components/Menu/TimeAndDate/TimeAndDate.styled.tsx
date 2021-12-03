@@ -43,5 +43,6 @@ export const Container = styled.button`
 
   &[data-title] {
     position: relative;
+    z-index: var(--menu-zIndex);
   }
 `;

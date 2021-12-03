@@ -16,13 +16,16 @@ const GlobalStyles = createGlobalStyle`
     :root {
       --spacing: 10px;
       
+      --taskbarHeight: 40px;
+
       --black: 0, 0, 0;
       --white: 255, 255, 255;
       --grey: 118, 118, 118;
       --hover: rgba(var(--white), 0.2);
       --windowsGreen: 187, 255, 15;
 
-      --menu-zIndex: 9999;
+      --menu-zIndex: 10;
+      --plans-zIndex: 9;
     }
 
     html {
