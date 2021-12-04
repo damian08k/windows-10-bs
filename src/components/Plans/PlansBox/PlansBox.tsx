@@ -6,7 +6,7 @@ import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
 
-import getCurrentWindowHeight from './helpers/getCurrentWindowHeight';
+import getCurrentWindowHeight from './helpers/getCurrentWindowSize';
 import * as S from './PlansBox.styled';
 
 type Props = {
@@ -18,7 +18,7 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
   const plansBoxContainerRef = useRef<HTMLDivElement>(null);
   const isPlanOpen = useSelector((state: RootState) => state.togglePlansVisibility.isPlanOpen);
 
-  const { windowHeight } = getCurrentWindowHeight();
+  const { windowHeight, windowWidth } = getCurrentWindowHeight();
 
   useOutsideClick(plansBoxContainerRef, () => {
     if (isPlanOpen) {
@@ -31,6 +31,7 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
       ref={plansBoxContainerRef}
       className={transitionClassName}
       windowHeight={windowHeight}
+      windowWidth={windowWidth}
     >
       Plans
     </S.PlansBoxContainer>

@@ -24,8 +24,8 @@ const GlobalStyles = createGlobalStyle`
       --hover: rgba(var(--white), 0.2);
       --windowsGreen: 187, 255, 15;
 
-      --menu-zIndex: 10;
-      --plans-zIndex: 9;
+      --desktop-zIndex: 100;
+      --plans-zIndex: -1;
     }
 
     html {

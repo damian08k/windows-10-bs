@@ -11,7 +11,6 @@ export const TaskbarContainer = styled.div`
   width: 100%;
   height: var(--taskbarHeight);
   background-color: var(--taskbar-color);
-  z-index: var(--menu-zIndex);
 `;
 
 export const LogoContainer = styled.div`
