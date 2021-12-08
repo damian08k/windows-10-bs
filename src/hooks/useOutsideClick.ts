@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from 'react';
 
-const useOutsideClick = <T extends HTMLElement = HTMLElement>(
+const useOutsideClick = <T extends HTMLElement>(
   ref: RefObject<T>,
   toggleVisibility: () => void,
 ): void => {

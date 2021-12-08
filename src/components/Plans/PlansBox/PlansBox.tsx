@@ -20,7 +20,7 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
 
   const { windowHeight, windowWidth } = getCurrentWindowHeight();
 
-  useOutsideClick(plansBoxContainerRef, () => {
+  useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
     if (isPlanOpen) {
       dispatch(plansActions.togglePlansVisibility(false));
     }
