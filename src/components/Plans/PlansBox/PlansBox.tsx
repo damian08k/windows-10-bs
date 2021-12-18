@@ -2,10 +2,12 @@ import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import useOutsideClick from 'hooks/useOutsideClick';
+import Clock from 'Menu/Clock/Clock';
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
 
+import { timeFormat } from './data';
 import getCurrentWindowHeight from './helpers/getCurrentWindowSize';
 import * as S from './PlansBox.styled';
 
@@ -33,7 +35,7 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
       windowHeight={windowHeight}
       windowWidth={windowWidth}
     >
-      Plans
+      <Clock timeFormat={timeFormat} />
     </S.PlansBoxContainer>
   );
 };

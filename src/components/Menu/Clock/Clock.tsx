@@ -7,13 +7,17 @@ import { RootState } from 'types/store/clockState.type';
 
 import * as S from './Clock.styled';
 
-const Clock: FC = () => {
+type Props = {
+  timeFormat: Intl.DateTimeFormatOptions;
+};
+
+const Clock: FC<Props> = ({ timeFormat }) => {
   const time = useSelector((state: RootState) => state.updateClock.time);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const newTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const newTime = new Date().toLocaleTimeString([], timeFormat);
       dispatch(clockActions.updateClock(newTime));
     }, 1000);
 

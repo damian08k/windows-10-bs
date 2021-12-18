@@ -7,6 +7,7 @@ import getCurrentDate from 'utils/getCurrentDate';
 import Clock from '../Clock/Clock';
 import CurrentDate from '../CurrentDate/CurrentDate';
 
+import { timeFormat } from './data';
 import * as S from './TimeAndDate.styled';
 
 const TimeAndDate: FC = () => {
@@ -20,7 +21,7 @@ const TimeAndDate: FC = () => {
 
   return (
     <S.Container data-title={currentDateNamesFormat} onClick={handleOpenPlans}>
-      <Clock />
+      <Clock timeFormat={timeFormat} />
       <CurrentDate />
     </S.Container>
   );
