@@ -7,10 +7,13 @@ import getCurrentDate from 'utils/getCurrentDate';
 import Clock from '../Clock/Clock';
 import CurrentDate from '../CurrentDate/CurrentDate';
 
-import { timeFormat } from './data';
 import * as S from './TimeAndDate.styled';
 
-const TimeAndDate: FC = () => {
+type Props = {
+  timeFormat: Intl.DateTimeFormatOptions;
+};
+
+const TimeAndDate: FC<Props> = ({ timeFormat }) => {
   const dispatch = useAppDispatch();
 
   const { currentDateNamesFormat } = getCurrentDate();

@@ -13,18 +13,21 @@ type Props = {
 
 const Clock: FC<Props> = ({ timeFormat }) => {
   const time = useSelector((state: RootState) => state.updateClock.time);
+  const timeWithSeconds = useSelector((state: RootState) => state.updateClock.timeWithSeconds);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const interval = setInterval(() => {
       const newTime = new Date().toLocaleTimeString([], timeFormat);
-      dispatch(clockActions.updateClock(newTime));
+      timeFormat.second
+        ? dispatch(clockActions.updateClockWithSeconds(newTime))
+        : dispatch(clockActions.updateClock(newTime));
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [time]);
+  }, [time, timeWithSeconds]);
 
-  return <S.Container>{time}</S.Container>;
+  return <S.Container>{timeFormat.second ? timeWithSeconds : time}</S.Container>;
 };
 
 export default Clock;

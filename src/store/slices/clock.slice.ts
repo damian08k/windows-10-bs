@@ -4,6 +4,7 @@ import { ClockState, Time } from 'types/store/clockState.type';
 
 export const initialClockState = {
   time: null,
+  timeSeconds: null,
 } as ClockState;
 
 const clockSlice = createSlice({
@@ -12,6 +13,9 @@ const clockSlice = createSlice({
   reducers: {
     updateClock(state, action: PayloadAction<Time>) {
       state.time = action.payload;
+    },
+    updateClockWithSeconds(state, action: PayloadAction<Time>) {
+      state.timeWithSeconds = action.payload;
     },
   },
 });

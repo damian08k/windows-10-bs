@@ -2,7 +2,7 @@ import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import useOutsideClick from 'hooks/useOutsideClick';
-import Clock from 'Menu/Clock/Clock';
+import TimeAndDate from 'Menu/TimeAndDate/TimeAndDate';
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
@@ -35,7 +35,7 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
       windowHeight={windowHeight}
       windowWidth={windowWidth}
     >
-      <Clock timeFormat={timeFormat} />
+      <TimeAndDate timeFormat={timeFormat} />
     </S.PlansBoxContainer>
   );
 };

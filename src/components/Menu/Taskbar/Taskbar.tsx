@@ -9,6 +9,7 @@ import { RootState } from 'types/store/clockState.type';
 
 import TimeAndDate from '../TimeAndDate/TimeAndDate';
 
+import { timeFormat } from './data';
 import * as S from './Taskbar.styled';
 
 const Taskbar: FC = () => {
@@ -26,7 +27,7 @@ const Taskbar: FC = () => {
         <SearchIcon className="searchIcon" />
         <input className="searchInput" type="text" placeholder="Type here to search" />
       </S.SearchContainer>
-      <TimeAndDate />
+      <TimeAndDate timeFormat={timeFormat} />
       {(isPlanOpen || hasTransitionedIn) && (
         <PlansBox
           transitionClassName={`${hasTransitionedIn && 'in'} ${isPlanOpen && 'showPlans'}`}

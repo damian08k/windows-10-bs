@@ -4,6 +4,7 @@ export type Time = string;
 
 export type ClockState = {
   time: Time | null;
+  timeWithSeconds?: Time | null;
 };
 
 export type RootState = ReturnType<typeof store.getState>;
