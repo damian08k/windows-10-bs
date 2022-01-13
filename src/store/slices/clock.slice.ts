@@ -3,8 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ClockState, Time } from 'types/store/clockState.type';
 
 export const initialClockState = {
-  time: null,
-  timeSeconds: null,
+  time: new Date().toLocaleTimeString(),
 } as ClockState;
 
 const clockSlice = createSlice({
@@ -13,9 +12,6 @@ const clockSlice = createSlice({
   reducers: {
     updateClock(state, action: PayloadAction<Time>) {
       state.time = action.payload;
-    },
-    updateClockWithSeconds(state, action: PayloadAction<Time>) {
-      state.timeWithSeconds = action.payload;
     },
   },
 });

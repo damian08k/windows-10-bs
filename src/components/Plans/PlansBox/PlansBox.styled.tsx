@@ -4,7 +4,6 @@ import { WindowSize } from 'types/components/plans/plans.type';
 
 export const PlansBoxContainer = styled.div<WindowSize>`
   --plansBackground: rgb(31, 31, 31);
-  --plansBorderColor: rgb(76, 76, 76);
 
   position: absolute;
   right: 0;

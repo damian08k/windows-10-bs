@@ -4,16 +4,12 @@ import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
 import getCurrentDate from 'utils/getCurrentDate';
 
-import Clock from '../Clock/Clock';
 import CurrentDate from '../CurrentDate/CurrentDate';
+import MenuClock from '../MenuClock/MenuClock';
 
 import * as S from './TimeAndDate.styled';
 
-type Props = {
-  timeFormat: Intl.DateTimeFormatOptions;
-};
-
-const TimeAndDate: FC<Props> = ({ timeFormat }) => {
+const TimeAndDate: FC = () => {
   const dispatch = useAppDispatch();
 
   const { currentDateNamesFormat } = getCurrentDate();
@@ -24,7 +20,7 @@ const TimeAndDate: FC<Props> = ({ timeFormat }) => {
 
   return (
     <S.Container data-title={currentDateNamesFormat} onClick={handleOpenPlans}>
-      <Clock timeFormat={timeFormat} />
+      <MenuClock />
       <CurrentDate />
     </S.Container>
   );
