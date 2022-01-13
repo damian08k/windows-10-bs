@@ -10,7 +10,7 @@ export const PlansBoxContainer = styled.div<WindowSize>`
   height: ${props => props.windowHeight * 0.7}px;
   max-height: 650px;
   width: ${props => props.windowWidth * 0.2}px;
-  max-width: 350px;
+  max-width: 360px;
   border: 1px solid var(--plansBorderColor);
   border-top: none;
   border-right: none;
