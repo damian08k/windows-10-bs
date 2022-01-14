@@ -2,15 +2,16 @@ import { CurrentDate } from 'types/components/menu/menu.type';
 
 const getCurrentDate = (): CurrentDate => {
   const newDate = new Date();
-  const dateDay = newDate.getDate();
-  const dateDayName = newDate.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-  const dateMonth = newDate.getMonth() + 1;
-  const dateMonthName = newDate.toLocaleDateString('en-US', { month: 'long' }).toLowerCase();
-  const dateYear = newDate.getFullYear();
-
-  const dateTime = `${dateYear}-${dateMonth}-${dateDay}`;
-  const currentDateDMYFormat = `${dateDay}.${dateMonth}.${dateYear}`;
-  const currentDateNamesFormat = `${dateDayName}, ${dateDay} ${dateMonthName} ${dateYear}`;
+  const dateTime = newDate.toISOString().split('T')[0];
+  const currentDateDMYFormat = newDate.toLocaleDateString();
+  const currentDateNamesFormat = newDate
+    .toLocaleDateString('en-AU', {
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    })
+    .toLowerCase();
 
   return {
     dateTime,
