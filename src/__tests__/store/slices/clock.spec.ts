@@ -3,7 +3,7 @@ import reducer, { clockActions } from 'store/slices/clock.slice';
 describe('updateClock reducer tests', () => {
   test('should return initial state', () => {
     const initialState = {
-      time: null,
+      time: new Date().toLocaleTimeString(),
     };
 
     const result = reducer(undefined, { type: undefined });
