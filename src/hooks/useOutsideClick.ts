@@ -12,8 +12,12 @@ const useOutsideClick = <T extends HTMLElement>(
 
   useEffect(() => {
     document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('visibilitychange', handleOutsideClick);
 
-    return () => document.removeEventListener('click', handleOutsideClick);
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener('visibilitychange', handleOutsideClick);
+    };
   }, [ref, handleOutsideClick]);
 };
 
