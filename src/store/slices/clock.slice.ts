@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ClockState, Time } from 'types/store/clockState.type';
 
 export const initialClockState = {
-  time: null,
+  time: new Date().toLocaleTimeString(),
 } as ClockState;
 
 const clockSlice = createSlice({

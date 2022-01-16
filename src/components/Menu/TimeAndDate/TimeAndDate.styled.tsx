@@ -37,7 +37,6 @@ export const Container = styled.button`
     background-color: rgb(var(--white));
     color: rgb(var(--black));
     opacity: 0;
-    z-index: var(--menu-zIndex);
     visibility: hidden;
   }
 

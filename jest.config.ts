@@ -88,8 +88,11 @@ export default {
     '\\.(css|less)$': '<rootDir>/__mocks__/fileMock.ts',
     '\\.svg': '<rootDir>/__mocks__/svgrMock.ts',
     '^view/(.*)': '<rootDir>/src/components/view/$1',
+    '^store/(.*)': '<rootDir>/src/store/$1',
+    '^utils/(.*)': '<rootDir>/src/utils/$1',
     '^hooks/(.*)': '<rootDir>/src/hooks/$1',
     '^Menu/(.*)': '<rootDir>/src/components/Menu/$1',
+    '^Plans/(.*)': '<rootDir>/src/components/Plans/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

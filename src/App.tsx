@@ -1,6 +1,10 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import useScreenWidth from 'hooks/useScreenWidth';
+import { clockActions } from 'store/slices/clock.slice';
+import { useAppDispatch } from 'store/store';
+import { RootState } from 'types/store/clockState.type';
 import DesktopView from 'view/DesktopView/DesktopView';
 
 import MobileView from './components/view/MobileView/MobileView';
@@ -9,6 +13,17 @@ import GlobalStyles from './globalStyles';
 
 const App: FC = () => {
   const screenWidth = useScreenWidth();
+
+  const time = useSelector((state: RootState) => state.updateClock.time);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newTime = new Date().toLocaleTimeString();
+      dispatch(clockActions.updateClock(newTime));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [time]);
 
   return (
     <>

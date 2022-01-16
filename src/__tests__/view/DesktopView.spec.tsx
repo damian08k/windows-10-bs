@@ -1,7 +1,9 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { FC } from 'react';
+import { Provider } from 'react-redux';
 
+import store from 'store/store';
 import DesktopView from 'view/DesktopView/DesktopView';
 
 import { MIN_SYSTEM_RESOLUTION } from '../../constants';
@@ -19,7 +21,11 @@ describe('DesktopView component', () => {
     const screenWidthLessThanMinResolution = MIN_SYSTEM_RESOLUTION - 500;
 
     const RenderDesktopView: FC<Props> = ({ screenWidth }) =>
-      screenWidth > MIN_SYSTEM_RESOLUTION ? <DesktopView /> : null;
+      screenWidth > MIN_SYSTEM_RESOLUTION ? (
+        <Provider store={store}>
+          <DesktopView />
+        </Provider>
+      ) : null;
 
     const { rerender } = render(
       <RenderDesktopView screenWidth={screenWidthMoreThanMinResolution} />,

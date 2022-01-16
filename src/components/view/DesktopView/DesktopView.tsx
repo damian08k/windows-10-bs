@@ -2,14 +2,14 @@ import { FC } from 'react';
 
 import Taskbar from 'Menu/Taskbar/Taskbar';
 
-import { DesktopViewContainer } from './DesktopView.styled';
+import * as S from './DesktopView.styled';
 
 const DesktopView: FC = () => {
   return (
     <>
-      <DesktopViewContainer data-testid="desktop-view">
+      <S.DesktopViewContainer data-testid="desktop-view">
         <Taskbar />
-      </DesktopViewContainer>
+      </S.DesktopViewContainer>
     </>
   );
 };

@@ -2,12 +2,14 @@ import { FC } from 'react';
 
 import getCurrentDate from 'utils/getCurrentDate';
 
-import { CurrentDateContainer } from './CurrentDate.styled';
+import * as S from './CurrentDate.styled';
 
 const CurrentDate: FC = () => {
   const { dateTime, currentDateDMYFormat } = getCurrentDate();
 
-  return <CurrentDateContainer dateTime={dateTime}>{currentDateDMYFormat}</CurrentDateContainer>;
+  return (
+    <S.CurrentDateContainer dateTime={dateTime}>{currentDateDMYFormat}</S.CurrentDateContainer>
+  );
 };
 
 export default CurrentDate;

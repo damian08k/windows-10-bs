@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { MobileViewContainer, MobileViewText } from './MobileView.styled';
+import * as S from './MobileView.styled';
 
 export const MobileViewInfoText =
   "To get this app's full experience, please run it on a desktop (more than 1000px) resolution.";
@@ -8,9 +8,9 @@ export const MobileViewInfoText =
 const MobileView: FC = () => (
   // TODO: Change text inside MobileViewText
 
-  <MobileViewContainer>
-    <MobileViewText data-testid="mobile-view">{MobileViewInfoText}</MobileViewText>
-  </MobileViewContainer>
+  <S.MobileViewContainer>
+    <S.MobileViewText data-testid="mobile-view">{MobileViewInfoText}</S.MobileViewText>
+  </S.MobileViewContainer>
 );
 
 export default MobileView;
