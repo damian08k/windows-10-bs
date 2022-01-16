@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import defaultWallpaper from '../../../assets/wallpapers/w10_default.jpg';
+import defaultWallpaper from 'assets/wallpapers/w10_default.jpg';
 
 export const DesktopViewContainer = styled.div`
   position: relative;

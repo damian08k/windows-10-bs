@@ -1,9 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
+import Calibri from 'assets/fonts/calibri.ttf';
+
 const GlobalStyles = createGlobalStyle`
     @font-face {
         font-family: "Calibri";
-        src: url("/assets/fonts/calibri.ttf") format("truetype");
+        src: url(${Calibri}) format("truetype");
     }
 
     * {
