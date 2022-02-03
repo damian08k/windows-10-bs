@@ -2,6 +2,7 @@ import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import useOutsideClick from 'hooks/useOutsideClick';
+import Calendar from 'Plans/Calendar/Calendar';
 import PlansBoxDate from 'Plans/PlansBoxDate/PlansBoxDate';
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
@@ -35,6 +36,7 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
       windowWidth={windowWidth}
     >
       <PlansBoxDate />
+      <Calendar />
     </S.PlansBoxContainer>
   );
 };
