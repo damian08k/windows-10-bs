@@ -9,7 +9,7 @@ export const CalendarContainer = styled.div`
 export const CalendarHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-bottom: var(--spacing);
+  padding-bottom: calc(var(--spacing) * 2);
 
   & > * {
     flex-basis: 40%;
@@ -35,4 +35,11 @@ export const ArrowsContainer = styled.div`
     height: 20px;
     cursor: pointer;
   }
+`;
+
+export const WeekDays = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--spacing);
+  text-transform: lowercase;
 `;

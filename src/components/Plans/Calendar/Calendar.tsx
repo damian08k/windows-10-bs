@@ -5,9 +5,11 @@ import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
 
 import * as S from './Calendar.styled';
 import getDateElements from './helpers/getDateElements';
+import getWeekDays from './helpers/getWeekDays';
 
 const Calendar: FC = () => {
   const { month, year } = getDateElements();
+  const weekDays = getWeekDays();
 
   const handleArrowDownClick = () => {
     console.log('down');
@@ -29,7 +31,11 @@ const Calendar: FC = () => {
           <ArrowDown onClick={handleArrowDownClick} />
         </S.ArrowsContainer>
       </S.CalendarHeader>
-      <div>dni tygodnia</div>
+      <S.WeekDays>
+        {weekDays.map(day => (
+          <p key={day}>{day}</p>
+        ))}
+      </S.WeekDays>
       <div>kalendarz</div>
     </S.CalendarContainer>
   );
