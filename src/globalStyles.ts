@@ -25,6 +25,7 @@ const GlobalStyles = createGlobalStyle`
       --grey: 118, 118, 118;
       --hover: rgba(var(--white), 0.2);
       --windowsGreen: 187, 255, 15;
+      --windowsGrey: 223, 223, 223;
       --plansBorderColor: rgb(76, 76, 76);
 
       --desktop-zIndex: 100;

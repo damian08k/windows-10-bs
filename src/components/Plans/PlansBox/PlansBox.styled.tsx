@@ -15,6 +15,7 @@ export const PlansBoxContainer = styled.div<WindowSize>`
   border-top: none;
   border-right: none;
   background-color: var(--plansBackground);
+  color: rgb(var(--windowsGrey));
   transform: translateY(-100%);
   transition: all 0.3s linear;
   visibility: hidden;
