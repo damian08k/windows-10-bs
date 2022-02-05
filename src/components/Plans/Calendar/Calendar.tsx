@@ -2,12 +2,14 @@ import { FC } from 'react';
 
 import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
 import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
+import useFillCalendar from 'hooks/useFillCalendar';
 
 import * as S from './Calendar.styled';
 import getDateElements from './helpers/getDateElements';
 import getWeekDays from './helpers/getWeekDays';
 
 const Calendar: FC = () => {
+  const listOfDays = useFillCalendar(new Date());
   const { month, year } = getDateElements();
   const weekDays = getWeekDays();
 
@@ -36,7 +38,13 @@ const Calendar: FC = () => {
           <p key={day}>{day}</p>
         ))}
       </S.WeekDays>
-      <div>kalendarz</div>
+      <S.Days>
+        {listOfDays.map(({ id, name, dayNumber }) => (
+          <div key={id} className={`day ${name}`}>
+            {dayNumber}
+          </div>
+        ))}
+      </S.Days>
     </S.CalendarContainer>
   );
 };
