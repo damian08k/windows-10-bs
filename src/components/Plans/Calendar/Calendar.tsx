@@ -12,7 +12,7 @@ import * as S from './Calendar.styled';
 import getDateElements from './helpers/getDateElements';
 import getWeekDays from './helpers/getWeekDays';
 
-const { TODAY } = DayName;
+const { TODAY, CURRENT_MONTH_DAY } = DayName;
 
 const Calendar: FC = () => {
   const today = useSelector((state: RootState) => state.showTodaysDay.today);
@@ -51,7 +51,9 @@ const Calendar: FC = () => {
         {listOfDays.map(({ id, name, dayNumber }) => (
           <div
             key={id}
-            className={`day ${name} ${dayNumber === new Date(dateTime).getDate() && TODAY}`}
+            className={`day ${name} ${
+              dayNumber === new Date(dateTime).getDate() && name === CURRENT_MONTH_DAY && TODAY
+            }`}
           >
             <div className="dayNumber">{dayNumber}</div>
           </div>
