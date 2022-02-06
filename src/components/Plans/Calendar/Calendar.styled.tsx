@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { DayName } from 'types/components/calendar/dayName.enum';
 
-const { PREVIOUS_MONTH_DAY, CURRENT_MONTH_DAY, NEXT_MONTH_DAY } = DayName;
+const { PREVIOUS_MONTH_DAY, NEXT_MONTH_DAY } = DayName;
 
 export const CalendarContainer = styled.div`
   padding: var(--spacing) calc(var(--spacing) * 2) calc(var(--spacing) * 2);
@@ -54,7 +54,6 @@ export const WeekDays = styled.div`
 
 export const Days = styled.div`
   --dayHoverBorder: rgb(121, 121, 121);
-  --notCurrentMonthDay: rgb(93, 93, 93);
 
   display: flex;
   flex-wrap: wrap;
@@ -71,6 +70,6 @@ export const Days = styled.div`
   }
 
   .${PREVIOUS_MONTH_DAY}, .${NEXT_MONTH_DAY} {
-    color: var(--notCurrentMonthDay);
+    color: rgba(var(--white), 0.5);
   }
 `;
