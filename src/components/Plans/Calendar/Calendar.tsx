@@ -41,7 +41,7 @@ const Calendar: FC = () => {
       <S.Days>
         {listOfDays.map(({ id, name, dayNumber }) => (
           <div key={id} className={`day ${name}`}>
-            {dayNumber}
+            <div className="dayNumber">{dayNumber}</div>
           </div>
         ))}
       </S.Days>

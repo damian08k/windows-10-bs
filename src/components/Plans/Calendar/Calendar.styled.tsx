@@ -1,8 +1,9 @@
+import { lighten } from 'polished';
 import styled from 'styled-components';
 
 import { DayName } from 'types/components/calendar/dayName.enum';
 
-const { PREVIOUS_MONTH_DAY, NEXT_MONTH_DAY } = DayName;
+const { PREVIOUS_MONTH_DAY, NEXT_MONTH_DAY, TODAY } = DayName;
 
 export const CalendarContainer = styled.div`
   padding: var(--spacing) calc(var(--spacing) * 2) calc(var(--spacing) * 2);
@@ -53,13 +54,17 @@ export const WeekDays = styled.div`
 `;
 
 export const Days = styled.div`
+  --daysSpacing: 2px;
   --dayHoverBorder: rgb(121, 121, 121);
+  --dayNumberBackground: rgb(158, 204, 41);
+  --todayBorderColor: rgb(158, 204, 41);
 
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: var(--daysSpacing);
 
   .day {
-    width: calc(100% / 7);
     line-height: 35px;
     border: 2px solid transparent;
     text-align: center;
@@ -71,5 +76,20 @@ export const Days = styled.div`
 
   .${PREVIOUS_MONTH_DAY}, .${NEXT_MONTH_DAY} {
     color: rgba(var(--white), 0.5);
+  }
+
+  .${TODAY} {
+    padding: var(--daysSpacing);
+    border: 2px solid var(--todayBorderColor);
+
+    .dayNumber {
+      background-color: var(--dayNumberBackground);
+      color: var(--white);
+      font-weight: bold;
+    }
+
+    &:hover {
+      border-color: ${lighten(0.3, 'rgb(158, 204, 41)')};
+    }
   }
 `;
