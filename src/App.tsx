@@ -2,11 +2,12 @@ import { FC, useEffect } from 'react';
 
 import useScreenWidth from 'hooks/useScreenWidth';
 import { clockActions } from 'store/slices/clock.slice';
+import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 import DesktopView from 'view/DesktopView/DesktopView';
 
 import MobileView from './components/view/MobileView/MobileView';
-import { MIN_SYSTEM_RESOLUTION } from './constants';
+import { MIDNIGHT, MIN_SYSTEM_RESOLUTION } from './constants';
 import GlobalStyles from './globalStyles';
 
 const App: FC = () => {
@@ -16,8 +17,14 @@ const App: FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const newTime = new Date().toLocaleTimeString();
-      dispatch(clockActions.updateClock(newTime));
+      const newTime = new Date();
+      const currentHour = newTime.toLocaleTimeString();
+
+      dispatch(clockActions.updateClock(currentHour));
+
+      if (currentHour === MIDNIGHT) {
+        dispatch(currentDateActions.updateDay(newTime.toLocaleDateString()));
+      }
     }, 1000);
     return () => clearInterval(interval);
   }, [dispatch]);

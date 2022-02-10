@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 import { DayElement } from 'types/components/calendar/dayElement.type';
 import { DayName } from 'types/components/calendar/dayName.enum';
 
-const { PREVIOUS_MONTH_DAY, CURRENT_MONTH_DAY, NEXT_MONTH_DAY, TODAY } = DayName;
+const { PREVIOUS_MONTH_DAY, CURRENT_MONTH_DAY, NEXT_MONTH_DAY } = DayName;
 
 const useFillCalendar = (date: Date): DayElement[] => {
   const [listOfDays, setListOfDays] = useState<DayElement[]>([]);
@@ -14,7 +14,7 @@ const useFillCalendar = (date: Date): DayElement[] => {
 
   const dateFullYear = date.getFullYear();
   const dateMonth = date.getMonth();
-  const today = date.getDate();
+  // const today = date.getDate();
 
   date.setDate(1);
 
@@ -37,7 +37,7 @@ const useFillCalendar = (date: Date): DayElement[] => {
     for (let dn = 1; dn <= currentMonthLastDay; dn++) {
       monthDays.push({
         id: uuid(),
-        name: dn === today ? TODAY : CURRENT_MONTH_DAY,
+        name: CURRENT_MONTH_DAY,
         dayNumber: dn,
       });
     }
