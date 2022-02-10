@@ -72,14 +72,7 @@ export default {
   // ],
 
   // An array of file extensions your modules use
-  // moduleFileExtensions: [
-  //   "js",
-  //   "jsx",
-  //   "ts",
-  //   "tsx",
-  //   "json",
-  //   "node"
-  // ],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
@@ -90,6 +83,7 @@ export default {
     '^view/(.*)': '<rootDir>/src/components/view/$1',
     '^store/(.*)': '<rootDir>/src/store/$1',
     '^utils/(.*)': '<rootDir>/src/utils/$1',
+    '^types/(.*)': '<rootDir>/src/types/$1',
     '^hooks/(.*)': '<rootDir>/src/hooks/$1',
     '^Menu/(.*)': '<rootDir>/src/components/Menu/$1',
     '^Plans/(.*)': '<rootDir>/src/components/Plans/$1',
