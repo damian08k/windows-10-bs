@@ -4,37 +4,45 @@ import { useSelector } from 'react-redux';
 import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
 import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
 import useFillCalendar from 'hooks/useFillCalendar';
+import { currentDateActions } from 'store/slices/currentDate.slice';
+import { useAppDispatch } from 'store/store';
 import { DayName } from 'types/components/calendar/dayName.enum';
 import { RootState } from 'types/store/clockState.type';
 import formatCurrentDate from 'utils/formatCurrentDate';
 
 import * as S from './Calendar.styled';
-import getDateElements from './helpers/getDateElements';
 import getWeekDays from './helpers/getWeekDays';
 
 const { TODAY, CURRENT_MONTH_DAY } = DayName;
 
 const Calendar: FC = () => {
   const today = useSelector((state: RootState) => state.showTodaysDay.today);
+  const month = useSelector((state: RootState) => state.showTodaysDay.month);
+  const year = useSelector((state: RootState) => state.showTodaysDay.year);
+
+  const dispatch = useAppDispatch();
+
   const { dateTime } = formatCurrentDate(today);
 
-  const listOfDays = useFillCalendar(new Date(dateTime));
-  const { month, year } = getDateElements();
+  const listOfDays = useFillCalendar(new Date(year, month, 1), month);
   const weekDays = getWeekDays();
 
+  console.log(listOfDays);
   const handleArrowDownClick = () => {
-    console.log('down');
+    dispatch(currentDateActions.updateMonth(month - 1));
   };
 
   const handleArrowUpClick = () => {
-    console.log('up');
+    dispatch(currentDateActions.updateMonth(month + 1));
   };
 
   return (
     <S.CalendarContainer>
       <S.CalendarHeader>
         <S.DateInformation>
-          <span className="month">{month}</span>
+          <span className="month">
+            {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(0, month))}
+          </span>
           <span>{year}</span>
         </S.DateInformation>
         <S.ArrowsContainer>

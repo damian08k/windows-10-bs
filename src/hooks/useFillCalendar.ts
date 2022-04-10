@@ -6,7 +6,7 @@ import { DayName } from 'types/components/calendar/dayName.enum';
 
 const { PREVIOUS_MONTH_DAY, CURRENT_MONTH_DAY, NEXT_MONTH_DAY } = DayName;
 
-const useFillCalendar = (date: Date): DayElement[] => {
+const useFillCalendar = (date: Date, month: number): DayElement[] => {
   const [listOfDays, setListOfDays] = useState<DayElement[]>([]);
   const previousDays: DayElement[] = [];
   const monthDays: DayElement[] = [];
@@ -14,7 +14,6 @@ const useFillCalendar = (date: Date): DayElement[] => {
 
   const dateFullYear = date.getFullYear();
   const dateMonth = date.getMonth();
-  // const today = date.getDate();
 
   date.setDate(1);
 
@@ -26,6 +25,8 @@ const useFillCalendar = (date: Date): DayElement[] => {
   const numberOfNextDays = 7 - currentMonthLastDayIndex;
 
   useEffect(() => {
+    setListOfDays([]);
+
     for (let dn = currentMonthFirstDayIndex; dn > 1; dn--) {
       previousDays.push({
         id: uuid(),
@@ -51,7 +52,7 @@ const useFillCalendar = (date: Date): DayElement[] => {
     }
 
     setListOfDays(old => [...old, ...previousDays, ...monthDays, ...nextDays]);
-  }, []);
+  }, [month]);
 
   return listOfDays;
 };
