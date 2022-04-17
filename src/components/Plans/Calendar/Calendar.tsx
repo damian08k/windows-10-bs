@@ -16,9 +16,8 @@ import getWeekDays from './helpers/getWeekDays';
 const { TODAY, CURRENT_MONTH_DAY } = DayName;
 
 const Calendar: FC = () => {
-  const today = useSelector((state: RootState) => state.showTodaysDay.today);
-  const month = useSelector((state: RootState) => state.showTodaysDay.month);
-  const year = useSelector((state: RootState) => state.showTodaysDay.year);
+  const { today, month, year } = useSelector((state: RootState) => state.showTodaysDay);
+
   const dispatch = useAppDispatch();
 
   const listOfDays = useFillCalendar(new Date(year, month, 1), month);

@@ -20,23 +20,23 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
   const dispatch = useAppDispatch();
   const plansBoxContainerRef = useRef<HTMLDivElement>(null);
   const isPlanOpen = useSelector((state: RootState) => state.togglePlansVisibility.isPlanOpen);
+  const today = useSelector((state: RootState) => state.showTodaysDay.today);
 
   const { windowHeight, windowWidth } = getCurrentWindowHeight();
 
   useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
+    const splittedToday = today.split('.');
+
     if (isPlanOpen) {
       dispatch(plansActions.togglePlansVisibility(false));
       dispatch(
         currentDateActions.updateMonthAndYear({
-          // Przechowuje obecną datę w stanie jako currentDate, może tego tu użyć?
-          month: new Date().getMonth(),
-          year: new Date().getFullYear(),
+          month: +splittedToday[1] - 1,
+          year: +splittedToday[2],
         }),
       );
     }
   });
-
-  console.log(new Date().getMonth(), new Date().getFullYear());
 
   return (
     <S.PlansBoxContainer
