@@ -56,8 +56,8 @@ export const WeekDays = styled.div`
 export const Days = styled.div`
   --daysSpacing: 2px;
   --dayHoverBorder: rgb(121, 121, 121);
-  --dayNumberBackground: rgb(158, 204, 41);
-  --todayBorderColor: rgb(158, 204, 41);
+  --dayNumberBackground: rgb(16, 124, 16);
+  --todayBorderColor: rgb(16, 124, 16);
 
   display: grid;
   grid-template-columns: repeat(7, 1fr);

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  --plansBoxDateColor: 191, 224, 106;
+  --plansBoxDateColor: 144, 214, 144;
   --plansBoxDateHoverColor: 165, 165, 165;
 
   padding: var(--spacing) calc(var(--spacing) * 2) calc(var(--spacing) * 2);
