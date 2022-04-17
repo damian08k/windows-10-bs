@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import useOutsideClick from 'hooks/useOutsideClick';
 import Calendar from 'Plans/Calendar/Calendar';
 import PlansBoxDate from 'Plans/PlansBoxDate/PlansBoxDate';
+import { currentDateActions } from 'store/slices/currentDate.slice';
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
@@ -25,8 +26,17 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
   useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
     if (isPlanOpen) {
       dispatch(plansActions.togglePlansVisibility(false));
+      dispatch(
+        currentDateActions.updateMonthAndYear({
+          // Przechowuje obecną datę w stanie jako currentDate, może tego tu użyć?
+          month: new Date().getMonth(),
+          year: new Date().getFullYear(),
+        }),
+      );
     }
   });
+
+  console.log(new Date().getMonth(), new Date().getFullYear());
 
   return (
     <S.PlansBoxContainer

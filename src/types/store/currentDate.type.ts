@@ -5,3 +5,8 @@ export type TodaysDay = {
   month: number;
   year: number;
 };
+
+export type UpdateDate = {
+  month: number;
+  year?: number;
+};

@@ -19,21 +19,19 @@ const Calendar: FC = () => {
   const today = useSelector((state: RootState) => state.showTodaysDay.today);
   const month = useSelector((state: RootState) => state.showTodaysDay.month);
   const year = useSelector((state: RootState) => state.showTodaysDay.year);
-
   const dispatch = useAppDispatch();
 
+  const listOfDays = useFillCalendar(new Date(year, month, 1), month);
+
+  const weekDays = getWeekDays();
   const { dateTime } = formatCurrentDate(today);
 
-  const listOfDays = useFillCalendar(new Date(year, month, 1), month);
-  const weekDays = getWeekDays();
-
-  console.log(listOfDays);
   const handleArrowDownClick = () => {
-    dispatch(currentDateActions.updateMonth(month - 1));
+    dispatch(currentDateActions.updateMonthAndYear({ month: month + 1 }));
   };
 
   const handleArrowUpClick = () => {
-    dispatch(currentDateActions.updateMonth(month + 1));
+    dispatch(currentDateActions.updateMonthAndYear({ month: month - 1 }));
   };
 
   return (

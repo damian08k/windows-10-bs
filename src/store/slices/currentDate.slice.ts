@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { CurrentDate, TodaysDay } from 'types/store/currentDate.type';
+import { CurrentDate, TodaysDay, UpdateDate } from 'types/store/currentDate.type';
 
 export const initialCurrentDateState = {
   today: new Date().toLocaleDateString('pl-PL', {
@@ -19,8 +19,12 @@ const currentDateSlice = createSlice({
     updateDay(state, action: PayloadAction<CurrentDate>) {
       state.today = action.payload;
     },
-    updateMonth(state, action: PayloadAction<number>) {
-      state.month = action.payload;
+    updateMonthAndYear(state, action: PayloadAction<UpdateDate>) {
+      state.month = action.payload.month;
+
+      if (action.payload.year) {
+        state.year = action.payload.year;
+      }
 
       if (state.month < 0) {
         state.month = 11;
