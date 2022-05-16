@@ -10,6 +10,7 @@ export const initialCurrentDateState = {
   }),
   month: new Date().getMonth(),
   year: new Date().getFullYear(),
+  isMonthsView: false,
 } as TodaysDay;
 
 const currentDateSlice = createSlice({
@@ -33,6 +34,9 @@ const currentDateSlice = createSlice({
         state.month = 0;
         state.year += 1;
       }
+    },
+    setIsMonthsView(state, action: PayloadAction<boolean>) {
+      state.isMonthsView = action.payload;
     },
   },
 });

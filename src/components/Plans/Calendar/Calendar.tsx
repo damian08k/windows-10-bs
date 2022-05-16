@@ -17,7 +17,9 @@ import getWeekDays from './helpers/getWeekDays';
 const { TODAY, CURRENT_MONTH_DAY } = DayName;
 
 const Calendar: FC = () => {
-  const { today, month, year } = useSelector((state: RootState) => state.showTodaysDay);
+  const { today, month, year, isMonthsView } = useSelector(
+    (state: RootState) => state.showTodaysDay,
+  );
 
   const dispatch = useAppDispatch();
 
@@ -34,10 +36,14 @@ const Calendar: FC = () => {
     dispatch(currentDateActions.updateMonthAndYear({ month: month - 1 }));
   };
 
+  const handleMonthClick = () => {
+    dispatch(currentDateActions.setIsMonthsView(!isMonthsView));
+  };
+
   return (
     <S.CalendarContainer>
       <S.CalendarHeader>
-        <S.DateInformation>
+        <S.DateInformation onClick={handleMonthClick}>
           <span className="month">
             {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(0, month))}
           </span>
@@ -48,26 +54,29 @@ const Calendar: FC = () => {
           <ArrowDown onClick={handleArrowDownClick} />
         </S.ArrowsContainer>
       </S.CalendarHeader>
-      {/* <>
-        <S.WeekDays>
-          {weekDays.map(day => (
-            <p key={day}>{day}</p>
-          ))}
-        </S.WeekDays>
-        <S.Days>
-          {listOfDays.map(({ id, name, dayNumber }) => (
-            <div
-              key={id}
-              className={`day ${name} ${
-                dayNumber === new Date(dateTime).getDate() && name === CURRENT_MONTH_DAY && TODAY
-              }`}
-            >
-              <div className="dayNumber">{dayNumber}</div>
-            </div>
-          ))}
-        </S.Days>
-      </> */}
-      <CalendarMonthsList />
+      {!isMonthsView ? (
+        <>
+          <S.WeekDays>
+            {weekDays.map(day => (
+              <p key={day}>{day}</p>
+            ))}
+          </S.WeekDays>
+          <S.Days>
+            {listOfDays.map(({ id, name, dayNumber }) => (
+              <div
+                key={id}
+                className={`day ${name} ${
+                  dayNumber === new Date(dateTime).getDate() && name === CURRENT_MONTH_DAY && TODAY
+                }`}
+              >
+                <div className="dayNumber">{dayNumber}</div>
+              </div>
+            ))}
+          </S.Days>
+        </>
+      ) : (
+        <CalendarMonthsList />
+      )}
     </S.CalendarContainer>
   );
 };

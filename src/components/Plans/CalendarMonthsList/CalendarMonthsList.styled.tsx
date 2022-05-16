@@ -18,4 +18,8 @@ export const MonthsContainer = styled.div`
       border: 1px solid var(--plansBorderColor);
     }
   }
+
+  .currentMonth {
+    background-color: rgb(16, 124, 16);
+  }
 `;
