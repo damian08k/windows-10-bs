@@ -28,7 +28,7 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
     const splittedToday = today.split('.');
 
     if (isPlanOpen) {
-      dispatch(plansActions.togglePlansVisibility(false));
+      // dispatch(plansActions.togglePlansVisibility(false));
       dispatch(
         currentDateActions.updateMonthAndYear({
           month: +splittedToday[1] - 1,
