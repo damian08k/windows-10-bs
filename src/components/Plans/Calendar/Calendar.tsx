@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
 import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
 import useFillCalendar from 'hooks/useFillCalendar';
+import CalendarMonthsList from 'Plans/CalendarMonthsList/CalendarMonthsList';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 import { DayName } from 'types/components/calendar/dayName.enum';
@@ -47,23 +48,26 @@ const Calendar: FC = () => {
           <ArrowDown onClick={handleArrowDownClick} />
         </S.ArrowsContainer>
       </S.CalendarHeader>
-      <S.WeekDays>
-        {weekDays.map(day => (
-          <p key={day}>{day}</p>
-        ))}
-      </S.WeekDays>
-      <S.Days>
-        {listOfDays.map(({ id, name, dayNumber }) => (
-          <div
-            key={id}
-            className={`day ${name} ${
-              dayNumber === new Date(dateTime).getDate() && name === CURRENT_MONTH_DAY && TODAY
-            }`}
-          >
-            <div className="dayNumber">{dayNumber}</div>
-          </div>
-        ))}
-      </S.Days>
+      {/* <>
+        <S.WeekDays>
+          {weekDays.map(day => (
+            <p key={day}>{day}</p>
+          ))}
+        </S.WeekDays>
+        <S.Days>
+          {listOfDays.map(({ id, name, dayNumber }) => (
+            <div
+              key={id}
+              className={`day ${name} ${
+                dayNumber === new Date(dateTime).getDate() && name === CURRENT_MONTH_DAY && TODAY
+              }`}
+            >
+              <div className="dayNumber">{dayNumber}</div>
+            </div>
+          ))}
+        </S.Days>
+      </> */}
+      <CalendarMonthsList />
     </S.CalendarContainer>
   );
 };

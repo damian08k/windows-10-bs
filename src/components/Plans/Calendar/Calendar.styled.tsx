@@ -24,9 +24,14 @@ export const CalendarHeader = styled.div`
 export const DateInformation = styled.div`
   display: flex;
   gap: 5%;
+  cursor: pointer;
 
   .month {
     text-transform: lowercase;
+  }
+
+  &:hover {
+    color: ${lighten(0.3, 'white')};
   }
 `;
 
