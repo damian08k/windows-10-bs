@@ -2,7 +2,9 @@ import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import useOutsideClick from 'hooks/useOutsideClick';
+import Calendar from 'Plans/Calendar/Calendar';
 import PlansBoxDate from 'Plans/PlansBoxDate/PlansBoxDate';
+import { currentDateActions } from 'store/slices/currentDate.slice';
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
@@ -18,12 +20,21 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
   const dispatch = useAppDispatch();
   const plansBoxContainerRef = useRef<HTMLDivElement>(null);
   const isPlanOpen = useSelector((state: RootState) => state.togglePlansVisibility.isPlanOpen);
+  const today = useSelector((state: RootState) => state.showTodaysDay.today);
 
   const { windowHeight, windowWidth } = getCurrentWindowHeight();
 
   useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
+    const splittedToday = today.split('.');
+
     if (isPlanOpen) {
       dispatch(plansActions.togglePlansVisibility(false));
+      dispatch(
+        currentDateActions.updateMonthAndYear({
+          month: +splittedToday[1] - 1,
+          year: +splittedToday[2],
+        }),
+      );
     }
   });
 
@@ -35,6 +46,7 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
       windowWidth={windowWidth}
     >
       <PlansBoxDate />
+      <Calendar />
     </S.PlansBoxContainer>
   );
 };

@@ -1,7 +1,7 @@
-import getCurrentDate from 'utils/getCurrentDate';
+import formatCurrentDate from 'utils/formatCurrentDate';
 
 test('function should return object with three strings', () => {
-  const result = getCurrentDate();
+  const result = formatCurrentDate(new Date().toLocaleDateString());
 
   expect(result).toStrictEqual(
     expect.objectContaining({
