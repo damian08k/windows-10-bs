@@ -1,4 +1,4 @@
-import getCurrentWindowSize from 'Plans/PlansBox/helpers/getCurrentWindowSize';
+import getCurrentWindowSize from 'Taskbar/components/Plans/helpers/getCurrentWindowSize';
 
 test('function should return object with two numbers larger than zero', () => {
   const result = getCurrentWindowSize();

@@ -19,7 +19,6 @@ module.exports = merge(commonConfig, {
       types: path.resolve(__dirname, '../src/types'),
       utils: path.resolve(__dirname, '../src/utils'),
       Taskbar: path.resolve(__dirname, '../src/components/Taskbar'),
-      Plans: path.resolve(__dirname, '../src/components/Plans'),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },

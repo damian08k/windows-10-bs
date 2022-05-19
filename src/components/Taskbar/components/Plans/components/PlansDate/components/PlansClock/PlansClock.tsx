@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 
 import { RootState } from 'types/store/clockState.type';
 
-import * as S from './PlansBoxClock.styled';
+import * as S from './PlansClock.styled';
 
-const PlansBoxClock: FC = () => {
+const PlansClock: FC = () => {
   const time = useSelector((state: RootState) => state.updateClock.time);
   return <S.Container>{time}</S.Container>;
 };
 
-export default PlansBoxClock;
+export default PlansClock;

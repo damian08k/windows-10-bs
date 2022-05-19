@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
 import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
 import useFillCalendar from 'hooks/useFillCalendar';
-import CalendarMonthsList from 'Plans/CalendarMonthsList/CalendarMonthsList';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 import { DayName } from 'types/components/calendar/dayName.enum';
@@ -12,6 +11,7 @@ import { RootState } from 'types/store/clockState.type';
 import formatCurrentDate from 'utils/formatCurrentDate';
 
 import * as S from './Calendar.styled';
+import MonthsList from './components/MonthsList/MonthsList';
 import getWeekDays from './helpers/getWeekDays';
 
 const { TODAY, CURRENT_MONTH_DAY } = DayName;
@@ -75,7 +75,7 @@ const Calendar: FC = () => {
           </S.Days>
         </>
       ) : (
-        <CalendarMonthsList />
+        <MonthsList />
       )}
     </S.CalendarContainer>
   );

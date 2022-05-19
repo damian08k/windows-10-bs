@@ -4,11 +4,10 @@ import { useSelector } from 'react-redux';
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 import { ReactComponent as WindowsLogo } from 'assets/icons/w10-logo.svg';
 import useMountTransition from 'hooks/useMountTransition';
-import PlansBox from 'Plans/PlansBox/PlansBox';
 import { RootState } from 'types/store/clockState.type';
 
-import TimeAndDate from '../TimeAndDate/TimeAndDate';
-
+import Plans from './components/Plans/Plans';
+import TimeAndDate from './components/TimeAndDate/TimeAndDate';
 import * as S from './Taskbar.styled';
 
 const Taskbar: FC = () => {
@@ -28,9 +27,7 @@ const Taskbar: FC = () => {
       </S.SearchContainer>
       <TimeAndDate />
       {(isPlanOpen || hasTransitionedIn) && (
-        <PlansBox
-          transitionClassName={`${hasTransitionedIn && 'in'} ${isPlanOpen && 'showPlans'}`}
-        />
+        <Plans transitionClassName={`${hasTransitionedIn && 'in'} ${isPlanOpen && 'showPlans'}`} />
       )}
     </S.TaskbarContainer>
   );
