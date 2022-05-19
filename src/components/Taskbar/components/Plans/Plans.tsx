@@ -1,22 +1,22 @@
-import { FC, useCallback, useMemo, useRef } from 'react';
+import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import useOutsideClick from 'hooks/useOutsideClick';
-import Calendar from 'Plans/Calendar/Calendar';
-import PlansBoxDate from 'Plans/PlansBoxDate/PlansBoxDate';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
 
+import Calendar from './components/Calendar/Calendar';
+import PlansDate from './components/PlansDate/PlansDate';
 import getCurrentWindowHeight from './helpers/getCurrentWindowSize';
-import * as S from './PlansBox.styled';
+import * as S from './Plans.styled';
 
 type Props = {
   transitionClassName: string;
 };
 
-const PlansBox: FC<Props> = ({ transitionClassName }) => {
+const Plans: FC<Props> = ({ transitionClassName }) => {
   const dispatch = useAppDispatch();
   const plansBoxContainerRef = useRef<HTMLDivElement>(null);
   const isPlanOpen = useSelector((state: RootState) => state.togglePlansVisibility.isPlanOpen);
@@ -45,10 +45,10 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
       windowHeight={windowHeight}
       windowWidth={windowWidth}
     >
-      <PlansBoxDate />
+      <PlansDate />
       <Calendar />
     </S.PlansBoxContainer>
   );
 };
 
-export default PlansBox;
+export default Plans;

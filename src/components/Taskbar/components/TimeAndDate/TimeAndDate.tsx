@@ -6,9 +6,8 @@ import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
 import formatCurrentDate from 'utils/formatCurrentDate';
 
-import CurrentDate from '../CurrentDate/CurrentDate';
-import MenuClock from '../MenuClock/MenuClock';
-
+import CurrentDate from './components/CurrentDate/CurrentDate';
+import CurrentTime from './components/CurrentTime/CurrentTime';
 import * as S from './TimeAndDate.styled';
 
 const TimeAndDate: FC = () => {
@@ -23,7 +22,7 @@ const TimeAndDate: FC = () => {
 
   return (
     <S.Container data-title={currentDateNamesFormat} onClick={handleOpenPlans}>
-      <MenuClock />
+      <CurrentTime />
       <CurrentDate />
     </S.Container>
   );

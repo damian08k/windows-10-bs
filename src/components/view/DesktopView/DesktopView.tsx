@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Taskbar from 'Menu/Taskbar/Taskbar';
+import Taskbar from 'Taskbar/Taskbar';
 
 import * as S from './DesktopView.styled';
 

@@ -85,8 +85,7 @@ export default {
     '^utils/(.*)': '<rootDir>/src/utils/$1',
     '^types/(.*)': '<rootDir>/src/types/$1',
     '^hooks/(.*)': '<rootDir>/src/hooks/$1',
-    '^Menu/(.*)': '<rootDir>/src/components/Menu/$1',
-    '^Plans/(.*)': '<rootDir>/src/components/Plans/$1',
+    '^Taskbar/(.*)': '<rootDir>/src/components/Taskbar/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
