@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
-import getMonthsNames from 'utils/getMonthsNames';
 
+import getMonthsNames from './helpers/getMonthsNames';
 import * as S from './MonthsList.styled';
 
 const MonthsList: FC = () => {
