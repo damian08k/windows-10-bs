@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useRef } from 'react';
+import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import useOutsideClick from 'hooks/useOutsideClick';
