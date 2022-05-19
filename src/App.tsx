@@ -29,8 +29,6 @@ const App: FC = () => {
     return () => clearInterval(interval);
   }, [dispatch]);
 
-  console.log('test commit');
-
   return (
     <>
       <GlobalStyles />
