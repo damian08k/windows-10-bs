@@ -17,8 +17,6 @@ const useOutsideClick = <T extends HTMLElement>(
       }
     };
 
-    // const ownerDocument = ((ref.current: any): HTMLDivElement).ownerDocument;
-
     document.addEventListener('click', handleOutsideClick);
     document.addEventListener('visibilitychange', handleOutsideClick);
 
