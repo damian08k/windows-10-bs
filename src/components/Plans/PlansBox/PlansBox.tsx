@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react';
+import { FC, useCallback, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import useOutsideClick from 'hooks/useOutsideClick';
@@ -27,8 +27,8 @@ const PlansBox: FC<Props> = ({ transitionClassName }) => {
   useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
     const splittedToday = today.split('.');
 
+    dispatch(plansActions.togglePlansVisibility(false));
     if (isPlanOpen) {
-      dispatch(plansActions.togglePlansVisibility(false));
       dispatch(
         currentDateActions.updateMonthAndYear({
           month: +splittedToday[1] - 1,

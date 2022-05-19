@@ -40,8 +40,6 @@ const Calendar: FC = () => {
     dispatch(currentDateActions.setIsMonthsView(!isMonthsView));
   };
 
-  console.log(month, year);
-
   return (
     <S.CalendarContainer>
       <S.CalendarHeader>

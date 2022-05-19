@@ -4,13 +4,21 @@ const useOutsideClick = <T extends HTMLElement>(
   ref: RefObject<T>,
   toggleVisibility: () => void,
 ): void => {
-  const handleOutsideClick = (evt: Event): void => {
-    if (ref?.current && !ref?.current.contains(evt.target as Node)) {
-      toggleVisibility();
-    }
-  };
-
   useEffect(() => {
+    const timeOfEffect = performance.now();
+
+    const handleOutsideClick = (evt: Event): void => {
+      if (timeOfEffect > evt.timeStamp) {
+        return;
+      }
+
+      if (ref?.current && !ref?.current.contains(evt.target as Node)) {
+        toggleVisibility();
+      }
+    };
+
+    // const ownerDocument = ((ref.current: any): HTMLDivElement).ownerDocument;
+
     document.addEventListener('click', handleOutsideClick);
     document.addEventListener('visibilitychange', handleOutsideClick);
 
@@ -18,7 +26,7 @@ const useOutsideClick = <T extends HTMLElement>(
       document.removeEventListener('click', handleOutsideClick);
       document.removeEventListener('visibilitychange', handleOutsideClick);
     };
-  }, [ref, handleOutsideClick]);
+  }, [ref, toggleVisibility]);
 };
 
 export default useOutsideClick;
