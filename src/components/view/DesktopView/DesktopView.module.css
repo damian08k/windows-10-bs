@@ -6,5 +6,5 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  z-index: var(--desktop-zIndex);
+  z-index: var(--desktopIndex);
 }

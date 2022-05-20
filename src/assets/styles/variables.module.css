@@ -20,6 +20,6 @@
   --taskbarHeight: 40px;
 
   /* z-indexes */
-  --desktop-zIndex: 100;
+  --desktopIndex: 100;
   --plansIndex: -1;
 }
