@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux';
 import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
 import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
 import useFillCalendar from 'hooks/useFillCalendar';
+import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 import { DayName } from 'types/components/calendar/dayName.enum';
-import { RootState } from 'types/store/clockState.type';
+import { RootState } from 'types/store/store.type';
 import formatCurrentDate from 'utils/formatCurrentDate';
 
 import classes from './Calendar.module.css';
@@ -17,9 +18,8 @@ import getWeekDays from './helpers/getWeekDays';
 const { TODAY, CURRENT_MONTH_DAY } = DayName;
 
 const Calendar: FC = () => {
-  const { today, month, year, isMonthsView } = useSelector(
-    (state: RootState) => state.showTodaysDay,
-  );
+  const { today, month, year } = useSelector((state: RootState) => state.currentDate);
+  const { isMonthsView } = useSelector((state: RootState) => state.calendar);
 
   const dispatch = useAppDispatch();
 
@@ -37,7 +37,7 @@ const Calendar: FC = () => {
   };
 
   const handleMonthClick = () => {
-    dispatch(currentDateActions.setIsMonthsView(!isMonthsView));
+    dispatch(calendarActions.setIsMonthsView(!isMonthsView));
   };
 
   return (

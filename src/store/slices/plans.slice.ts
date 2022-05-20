@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IsPlanOpen, PlansState } from 'types/store/plansState.type';
+import { PlansState } from 'types/store/plansState.type';
 
 const initialPlansState = {
   isPlanOpen: false,
@@ -10,7 +10,7 @@ const plansSlice = createSlice({
   name: 'plans',
   initialState: initialPlansState,
   reducers: {
-    togglePlansVisibility(state, action: PayloadAction<IsPlanOpen>) {
+    togglePlansVisibility(state, action: PayloadAction<boolean>) {
       state.isPlanOpen = action.payload;
     },
   },

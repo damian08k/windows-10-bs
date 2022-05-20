@@ -5,7 +5,7 @@ import useOutsideClick from 'hooks/useOutsideClick';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
-import { RootState } from 'types/store/clockState.type';
+import { RootState } from 'types/store/store.type';
 
 import Calendar from './components/Calendar/Calendar';
 import PlansDate from './components/PlansDate/PlansDate';
@@ -19,8 +19,8 @@ type Props = {
 const Plans: FC<Props> = ({ transitionClassName }) => {
   const dispatch = useAppDispatch();
   const plansBoxContainerRef = useRef<HTMLDivElement>(null);
-  const isPlanOpen = useSelector((state: RootState) => state.togglePlansVisibility.isPlanOpen);
-  const today = useSelector((state: RootState) => state.showTodaysDay.today);
+  const isPlanOpen = useSelector((state: RootState) => state.plans.isPlanOpen);
+  const today = useSelector((state: RootState) => state.currentDate.today);
 
   const { windowHeight, windowWidth } = getCurrentWindowHeight();
 
