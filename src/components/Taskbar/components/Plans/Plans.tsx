@@ -10,7 +10,7 @@ import { RootState } from 'types/store/clockState.type';
 import Calendar from './components/Calendar/Calendar';
 import PlansDate from './components/PlansDate/PlansDate';
 import getCurrentWindowHeight from './helpers/getCurrentWindowSize';
-import * as S from './Plans.styled';
+import classes from './Plans.module.css';
 
 type Props = {
   transitionClassName: string;
@@ -27,8 +27,8 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
   useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
     const splittedToday = today.split('.');
 
-    dispatch(plansActions.togglePlansVisibility(false));
     if (isPlanOpen) {
+      dispatch(plansActions.togglePlansVisibility(false));
       dispatch(
         currentDateActions.updateMonthAndYear({
           month: +splittedToday[1] - 1,
@@ -39,15 +39,17 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
   });
 
   return (
-    <S.PlansBoxContainer
+    <div
       ref={plansBoxContainerRef}
-      className={transitionClassName}
-      windowHeight={windowHeight}
-      windowWidth={windowWidth}
+      className={`${classes.root} ${!transitionClassName.includes('false') && classes.showPlans}`}
+      style={{
+        width: windowWidth * 0.2,
+        height: windowHeight * 0.7,
+      }}
     >
       <PlansDate />
       <Calendar />
-    </S.PlansBoxContainer>
+    </div>
   );
 };
 

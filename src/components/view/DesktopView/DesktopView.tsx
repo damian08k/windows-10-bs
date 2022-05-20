@@ -2,15 +2,13 @@ import { FC } from 'react';
 
 import Taskbar from 'Taskbar/Taskbar';
 
-import * as S from './DesktopView.styled';
+import classes from './DesktopView.module.css';
 
 const DesktopView: FC = () => {
   return (
-    <>
-      <S.DesktopViewContainer data-testid="desktop-view">
-        <Taskbar />
-      </S.DesktopViewContainer>
-    </>
+    <div className={classes.root} data-testid="desktop-view">
+      <Taskbar />
+    </div>
   );
 };
 

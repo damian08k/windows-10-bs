@@ -5,7 +5,7 @@ import { RootState } from 'types/store/clockState.type';
 import formatCurrentDate from 'utils/formatCurrentDate';
 
 import PlansClock from './components/PlansClock/PlansClock';
-import * as S from './PlansDate.styled';
+import classes from './PlansDate.module.css';
 
 const PlansDate: FC = () => {
   const today = useSelector((state: RootState) => state.showTodaysDay.today);
@@ -13,10 +13,10 @@ const PlansDate: FC = () => {
   const { currentDateNamesFormat } = formatCurrentDate(today);
 
   return (
-    <S.Container>
+    <div className={classes.root}>
       <PlansClock />
-      <div className="plans-box-date">{currentDateNamesFormat}</div>
-    </S.Container>
+      <div className={classes.plansDate}>{currentDateNamesFormat}</div>
+    </div>
   );
 };
 

@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 
 import { RootState } from 'types/store/clockState.type';
 
-import * as S from './PlansClock.styled';
+import classes from './PlansClock.module.css';
 
 const PlansClock: FC = () => {
   const time = useSelector((state: RootState) => state.updateClock.time);
-  return <S.Container>{time}</S.Container>;
+
+  return <div className={classes.root}>{time}</div>;
 };
 
 export default PlansClock;

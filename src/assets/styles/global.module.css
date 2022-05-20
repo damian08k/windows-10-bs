@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Calibri';
+  src: url('../fonts/calibri.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Calibri, sans-serif;
+}
+
+html {
+  font-size: 10px;
+}

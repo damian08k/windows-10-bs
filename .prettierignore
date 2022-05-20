@@ -3,7 +3,9 @@ node_modules
 .idea
 /dist
 
-src/assets
+src/assets/fonts
+src/assets/icons
+src/assets/wallpapers
 .gitignore
 .babelrc
 .eslintrc
