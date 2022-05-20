@@ -28,6 +28,10 @@ const Calendar: FC = () => {
   const weekDays = getWeekDays();
   const { dateTime } = formatCurrentDate(today);
 
+  const splittedToday = today.split('.');
+  const currentMonth = +splittedToday[1] - 1;
+  const currentYear = +splittedToday[2];
+
   const handleArrowDownClick = () => {
     dispatch(currentDateActions.updateMonthAndYear({ month: month + 1 }));
   };
@@ -73,6 +77,8 @@ const Calendar: FC = () => {
                 className={`${classes.day} ${classes[name]} ${
                   dayNumber === new Date(dateTime).getDate() &&
                   name === CURRENT_MONTH_DAY &&
+                  currentMonth === month &&
+                  currentYear === year &&
                   classes[TODAY]
                 }`}
               >
