@@ -8,7 +8,8 @@
     "build-dev": "webpack --config=webpack/webpack.config.dev.js",
     "start": "webpack serve --config=webpack/webpack.config.dev.js",
     "prettier": "prettier --config .prettierrc \"**/*\" --write",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",

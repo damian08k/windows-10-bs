@@ -1,17 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 
-import { AppDispatch } from 'types/store/clockState.type';
+import { AppDispatch } from 'types/store/store.type';
 
-import updateClockReducer from './slices/clock.slice';
-import updateDayReducer from './slices/currentDate.slice';
-import togglePlansVisibilityReducer from './slices/plans.slice';
+import calendarReducer from './slices/calendar.slice';
+import clockReducer from './slices/clock.slice';
+import currentDateReducer from './slices/currentDate.slice';
+import plansReducer from './slices/plans.slice';
 
 const store = configureStore({
   reducer: {
-    updateClock: updateClockReducer,
-    togglePlansVisibility: togglePlansVisibilityReducer,
-    showTodaysDay: updateDayReducer,
+    clock: clockReducer,
+    plans: plansReducer,
+    currentDate: currentDateReducer,
+    calendar: calendarReducer,
   },
 });
 

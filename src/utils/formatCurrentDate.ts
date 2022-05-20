@@ -1,6 +1,6 @@
-import { CurrentDate } from 'types/components/menu/menu.type';
+import { FormattedCurrentDate } from 'types/components/taskbar/formattedCurrentDate.type';
 
-const formatCurrentDate = (currentDate: string): CurrentDate => {
+const formatCurrentDate = (currentDate: string): FormattedCurrentDate => {
   const dateTime = currentDate.split('.').reverse().join('-');
   const currentDateDMYFormat = currentDate;
   const currentDateNamesFormat = new Date(dateTime)

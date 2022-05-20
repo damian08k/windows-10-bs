@@ -1,4 +1,4 @@
-import { WindowSize } from 'types/components/plans/plans.type';
+import { WindowSize } from 'types/components/plans/windowSize.type';
 
 const getCurrentWindowSize = (): WindowSize => {
   const windowHeight = window.innerHeight;

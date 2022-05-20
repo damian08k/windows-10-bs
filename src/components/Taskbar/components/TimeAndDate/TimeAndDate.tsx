@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
-import { RootState } from 'types/store/clockState.type';
+import { RootState } from 'types/store/store.type';
 import formatCurrentDate from 'utils/formatCurrentDate';
 
 import CurrentDate from './components/CurrentDate/CurrentDate';
@@ -11,7 +11,7 @@ import CurrentTime from './components/CurrentTime/CurrentTime';
 import classes from './TimeAndDate.module.css';
 
 const TimeAndDate: FC = () => {
-  const today = useSelector((state: RootState) => state.showTodaysDay.today);
+  const today = useSelector((state: RootState) => state.currentDate.today);
   const dispatch = useAppDispatch();
 
   const { currentDateNamesFormat } = formatCurrentDate(today);
