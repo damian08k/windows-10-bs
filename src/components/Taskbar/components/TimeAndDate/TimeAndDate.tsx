@@ -8,7 +8,7 @@ import formatCurrentDate from 'utils/formatCurrentDate';
 
 import CurrentDate from './components/CurrentDate/CurrentDate';
 import CurrentTime from './components/CurrentTime/CurrentTime';
-import * as S from './TimeAndDate.styled';
+import classes from './TimeAndDate.module.css';
 
 const TimeAndDate: FC = () => {
   const today = useSelector((state: RootState) => state.showTodaysDay.today);
@@ -21,10 +21,10 @@ const TimeAndDate: FC = () => {
   };
 
   return (
-    <S.Container data-title={currentDateNamesFormat} onClick={handleOpenPlans}>
+    <div className={classes.root} data-title={currentDateNamesFormat} onClick={handleOpenPlans}>
       <CurrentTime />
       <CurrentDate />
-    </S.Container>
+    </div>
   );
 };
 

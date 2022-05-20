@@ -1,0 +1,25 @@
+:root {
+  /* Spacings */
+  --spacing: 10px;
+
+  /* Colors */
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+  --grey: rgb(118, 118, 118);
+
+  --windowsGreen: rgb(16, 124, 16);
+  --windowsGreenOnHover: rgb(112, 176, 112);
+  --windowsGrey: rgb(223, 223, 223);
+
+  --hoverBackground: rgba(255, 255, 255, 0.2);
+
+  --plansBorderColor: rgb(76, 76, 76);
+  --windowsLogoColor: rgb(61, 156, 61);
+
+  /* Sizes */
+  --taskbarHeight: 40px;
+
+  /* z-indexes */
+  --desktopIndex: 100;
+  --plansIndex: -1;
+}

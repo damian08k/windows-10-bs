@@ -6,9 +6,11 @@ import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 import DesktopView from 'view/DesktopView/DesktopView';
 
+import classes from './assets/styles/global.module.css';
 import MobileView from './components/view/MobileView/MobileView';
 import { MIDNIGHT, MIN_SYSTEM_RESOLUTION } from './constants';
-import GlobalStyles from './globalStyles';
+
+import './assets/styles/variables.module.css';
 
 const App: FC = () => {
   const screenWidth = useScreenWidth();
@@ -30,10 +32,9 @@ const App: FC = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <GlobalStyles />
+    <div className={classes.root}>
       {screenWidth < MIN_SYSTEM_RESOLUTION ? <MobileView /> : <DesktopView />}
-    </>
+    </div>
   );
 };
 

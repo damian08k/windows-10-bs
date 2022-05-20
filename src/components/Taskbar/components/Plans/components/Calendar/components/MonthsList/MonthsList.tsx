@@ -6,7 +6,7 @@ import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/clockState.type';
 
 import getMonthsNames from './helpers/getMonthsNames';
-import * as S from './MonthsList.styled';
+import classes from './MonthsList.module.css';
 
 const MonthsList: FC = () => {
   const { month, year } = useSelector((state: RootState) => state.showTodaysDay);
@@ -19,17 +19,17 @@ const MonthsList: FC = () => {
   };
 
   return (
-    <S.MonthsContainer>
+    <div className={classes.root}>
       {months.map(({ monthName, monthId }) => (
         <div
           key={monthName}
-          className={`month ${month === monthId && 'currentMonth'}`}
+          className={`${classes.month} ${month === monthId && classes.currentMonth}`}
           onClick={() => handleOpenCalendar(monthId)}
         >
           {monthName}
         </div>
       ))}
-    </S.MonthsContainer>
+    </div>
   );
 };
 export default MonthsList;

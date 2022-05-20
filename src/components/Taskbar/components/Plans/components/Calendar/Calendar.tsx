@@ -10,7 +10,7 @@ import { DayName } from 'types/components/calendar/dayName.enum';
 import { RootState } from 'types/store/clockState.type';
 import formatCurrentDate from 'utils/formatCurrentDate';
 
-import * as S from './Calendar.styled';
+import classes from './Calendar.module.css';
 import MonthsList from './components/MonthsList/MonthsList';
 import getWeekDays from './helpers/getWeekDays';
 
@@ -41,43 +41,50 @@ const Calendar: FC = () => {
   };
 
   return (
-    <S.CalendarContainer>
-      <S.CalendarHeader>
-        <S.DateInformation onClick={handleMonthClick}>
-          <span className="month">
+    <div className={classes.root}>
+      <div className={classes.header}>
+        <div
+          className={`${classes.dateInformation} ${classes.headerElement}`}
+          onClick={handleMonthClick}
+        >
+          <span className={classes.month}>
             {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(0, month))}
           </span>
           <span>{year}</span>
-        </S.DateInformation>
-        <S.ArrowsContainer>
-          <ArrowUp onClick={handleArrowUpClick} />
-          <ArrowDown onClick={handleArrowDownClick} />
-        </S.ArrowsContainer>
-      </S.CalendarHeader>
+        </div>
+        <div className={`${classes.arrowsContainer} ${classes.headerElement}`}>
+          <ArrowUp onClick={handleArrowUpClick} className={classes.arrow} />
+          <ArrowDown onClick={handleArrowDownClick} className={classes.arrow} />
+        </div>
+      </div>
       {!isMonthsView ? (
         <>
-          <S.WeekDays>
+          <div className={classes.weekDays}>
             {weekDays.map(day => (
-              <p key={day}>{day}</p>
+              <p key={day} className={classes.weekDay}>
+                {day}
+              </p>
             ))}
-          </S.WeekDays>
-          <S.Days>
+          </div>
+          <div className={classes.days}>
             {listOfDays.map(({ id, name, dayNumber }) => (
               <div
                 key={id}
-                className={`day ${name} ${
-                  dayNumber === new Date(dateTime).getDate() && name === CURRENT_MONTH_DAY && TODAY
+                className={`${classes.day} ${classes[name]} ${
+                  dayNumber === new Date(dateTime).getDate() &&
+                  name === CURRENT_MONTH_DAY &&
+                  classes[TODAY]
                 }`}
               >
-                <div className="dayNumber">{dayNumber}</div>
+                <div className={classes.dayNumber}>{dayNumber}</div>
               </div>
             ))}
-          </S.Days>
+          </div>
         </>
       ) : (
         <MonthsList />
       )}
-    </S.CalendarContainer>
+    </div>
   );
 };
 

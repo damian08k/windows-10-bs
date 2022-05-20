@@ -1,0 +1,17 @@
+.root {
+  --plansBoxDateColor: rgb(144, 214, 144);
+  --plansBoxDateHoverColor: rgb(165, 165, 165);
+
+  padding: var(--spacing) calc(var(--spacing) * 2) calc(var(--spacing) * 2);
+  border-bottom: 1px solid var(--plansBorderColor);
+}
+
+.plansDate {
+  font-size: 1.4rem;
+  color: var(--plansBoxDateColor);
+  cursor: pointer;
+}
+
+.plansDate:hover {
+  color: var(--plansBoxDateHoverColor);
+}

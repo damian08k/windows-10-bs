@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 
 import { RootState } from 'types/store/clockState.type';
 
-import * as S from './CurrentTime.styled';
+import classes from './CurrentTime.module.css';
 
 const CurrentTime: FC = () => {
   const time = useSelector((state: RootState) => state.updateClock.time);
-  return <S.Container>{`${time?.substring(0, 5)}`}</S.Container>;
+  return <div className={classes.root}>{`${time?.substring(0, 5)}`}</div>;
 };
 
 export default CurrentTime;
