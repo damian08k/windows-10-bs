@@ -26,6 +26,7 @@ const useFillCalendar = (date: Date, month: number): DayElement[] => {
 
   useEffect(() => {
     setListOfDays([]);
+
     for (let dn = currentMonthFirstDayIndex; dn > 1; dn--) {
       previousDays.push({
         id: uuid(),
