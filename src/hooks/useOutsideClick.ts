@@ -17,11 +17,11 @@ const useOutsideClick = <T extends HTMLElement>(
       }
     };
 
-    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('mousedown', handleOutsideClick);
     document.addEventListener('visibilitychange', handleOutsideClick);
 
     return () => {
-      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener('mousedown', handleOutsideClick);
       document.removeEventListener('visibilitychange', handleOutsideClick);
     };
   }, [ref, toggleVisibility]);
