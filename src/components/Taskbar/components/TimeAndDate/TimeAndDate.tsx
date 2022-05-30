@@ -21,7 +21,7 @@ const TimeAndDate: FC = () => {
   };
 
   return (
-    <div className={classes.root} data-title={currentDateNamesFormat} onClick={handleOpenPlans}>
+    <div className={classes.root} data-title={currentDateNamesFormat} onMouseDown={handleOpenPlans}>
       <CurrentTime />
       <CurrentDate />
     </div>
