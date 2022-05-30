@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: calc(var(--spacing) * 2);
+}
+
+.headerElement {
+  flex-basis: 40%;
+}
+
+.dateInformation {
+  display: flex;
+  gap: 5%;
+  cursor: pointer;
+}
+
+.dateInformation:hover {
+  filter: brightness(130%);
+}
+
+.month {
+  text-transform: lowercase;
+}
+
+.arrowsContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10%;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
