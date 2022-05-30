@@ -6,6 +6,7 @@ import { currentDateActions } from 'store/slices/currentDate.slice';
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/store.type';
+import getSplittedToday from 'utils/getSplittedToday';
 
 import Calendar from './components/Calendar/Calendar';
 import PlansDate from './components/PlansDate/PlansDate';
@@ -23,16 +24,15 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
   const today = useSelector((state: RootState) => state.currentDate.today);
 
   const { windowHeight, windowWidth } = getCurrentWindowHeight();
+  const { month, year } = getSplittedToday(today);
 
   useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
-    const splittedToday = today.split('.');
-
     if (isPlanOpen) {
       dispatch(plansActions.togglePlansVisibility(false));
       dispatch(
         currentDateActions.updateMonthAndYear({
-          month: +splittedToday[1] - 1,
-          year: +splittedToday[2],
+          month,
+          year,
         }),
       );
     }
