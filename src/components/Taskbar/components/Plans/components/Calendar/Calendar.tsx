@@ -10,6 +10,7 @@ import { useAppDispatch } from 'store/store';
 import { DayName } from 'types/components/calendar/dayName.enum';
 import { RootState } from 'types/store/store.type';
 import formatCurrentDate from 'utils/formatCurrentDate';
+import getSplittedToday from 'utils/getSplittedToday';
 
 import classes from './Calendar.module.css';
 import MonthsList from './components/MonthsList/MonthsList';
@@ -28,9 +29,7 @@ const Calendar: FC = () => {
   const weekDays = getWeekDays();
   const { dateTime } = formatCurrentDate(today);
 
-  const splittedToday = today.split('.');
-  const currentMonth = +splittedToday[1] - 1;
-  const currentYear = +splittedToday[2];
+  const { month: currentMonth, year: currentYear } = getSplittedToday(today);
 
   const handleArrowDownClick = () => {
     dispatch(currentDateActions.updateMonthAndYear({ month: month + 1 }));
