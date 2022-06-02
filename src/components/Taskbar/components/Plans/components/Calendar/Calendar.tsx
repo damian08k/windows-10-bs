@@ -14,8 +14,12 @@ const Calendar: FC = () => {
 
   return (
     <div className={classes.root}>
-      <CalendarHeader month={month} year={year} isMonthsView={isMonthsView} />
-      {!isMonthsView ? <DaysList today={today} month={month} year={year} /> : <MonthsList />}
+      <CalendarHeader month={month as number} year={year} isMonthsView={isMonthsView} />
+      {!isMonthsView ? (
+        <DaysList today={today} month={month as number} year={year} />
+      ) : (
+        <MonthsList />
+      )}
     </div>
   );
 };

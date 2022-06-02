@@ -18,11 +18,19 @@ const CalendarHeader: FC<Props> = ({ month, year, isMonthsView }) => {
   const dispatch = useAppDispatch();
 
   const handleArrowDownClick = () => {
-    dispatch(currentDateActions.updateMonthAndYear({ month: month + 1 }));
+    if (isMonthsView) {
+      dispatch(currentDateActions.updateMonthAndYear({ month: null, year: year + 1 }));
+    } else {
+      dispatch(currentDateActions.updateMonthAndYear({ month: month + 1 }));
+    }
   };
 
   const handleArrowUpClick = () => {
-    dispatch(currentDateActions.updateMonthAndYear({ month: month - 1 }));
+    if (isMonthsView) {
+      dispatch(currentDateActions.updateMonthAndYear({ month: null, year: year - 1 }));
+    } else {
+      dispatch(currentDateActions.updateMonthAndYear({ month: month - 1 }));
+    }
   };
 
   const handleMonthClick = () => {
@@ -36,7 +44,8 @@ const CalendarHeader: FC<Props> = ({ month, year, isMonthsView }) => {
         onClick={handleMonthClick}
       >
         <span className={classes.month}>
-          {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(0, month))}
+          {!isMonthsView &&
+            new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(0, month))}
         </span>
         <span>{year}</span>
       </div>

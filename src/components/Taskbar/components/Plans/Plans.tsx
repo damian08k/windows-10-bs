@@ -2,6 +2,7 @@ import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import useOutsideClick from 'hooks/useOutsideClick';
+import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
@@ -29,6 +30,7 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
   useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
     if (isPlanOpen) {
       dispatch(plansActions.togglePlansVisibility(false));
+      dispatch(calendarActions.setIsMonthsView(false));
       dispatch(
         currentDateActions.updateMonthAndYear({
           month,

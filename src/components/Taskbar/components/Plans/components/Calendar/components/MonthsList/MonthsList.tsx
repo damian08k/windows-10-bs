@@ -5,14 +5,17 @@ import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/store.type';
+import getSplittedToday from 'utils/getSplittedToday';
 
 import getMonthsNames from './helpers/getMonthsNames';
 import classes from './MonthsList.module.css';
 
 const MonthsList: FC = () => {
-  const { month, year } = useSelector((state: RootState) => state.currentDate);
+  const { today, year } = useSelector((state: RootState) => state.currentDate);
   const months = getMonthsNames();
   const dispatch = useAppDispatch();
+
+  const { year: currentYear, month: currentMonth } = getSplittedToday(today);
 
   const handleOpenCalendar = (monthId: number) => {
     dispatch(currentDateActions.updateMonthAndYear({ month: monthId, year }));
@@ -24,7 +27,9 @@ const MonthsList: FC = () => {
       {months.map(({ monthName, monthId }) => (
         <div
           key={monthName}
-          className={`${classes.month} ${month === monthId && classes.currentMonth}`}
+          className={`${classes.month} ${
+            monthId === currentMonth && year === currentYear && classes.currentMonth
+          }`}
           onClick={() => handleOpenCalendar(monthId)}
         >
           {monthName}
