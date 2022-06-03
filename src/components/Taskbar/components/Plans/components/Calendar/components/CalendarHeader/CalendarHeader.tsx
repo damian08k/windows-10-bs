@@ -34,7 +34,12 @@ const CalendarHeader: FC<Props> = ({ month, year, isMonthsView }) => {
   };
 
   const handleMonthClick = () => {
-    dispatch(calendarActions.setIsMonthsView(!isMonthsView));
+    if (isMonthsView) {
+      dispatch(calendarActions.setIsMonthsView(false));
+      dispatch(calendarActions.setIsYearsView(true));
+    } else {
+      dispatch(calendarActions.setIsMonthsView(true));
+    }
   };
 
   return (

@@ -4,6 +4,7 @@ import { CalendarState } from 'types/store/calendar.type';
 
 const initialCalendarState = {
   isMonthsView: false,
+  isYearsView: false,
 } as CalendarState;
 
 const calendarSlice = createSlice({
@@ -12,6 +13,9 @@ const calendarSlice = createSlice({
   reducers: {
     setIsMonthsView(state, action: PayloadAction<boolean>) {
       state.isMonthsView = action.payload;
+    },
+    setIsYearsView(state, action: PayloadAction<boolean>) {
+      state.isYearsView = action.payload;
     },
   },
 });

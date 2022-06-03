@@ -31,6 +31,7 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
     if (isPlanOpen) {
       dispatch(plansActions.togglePlansVisibility(false));
       dispatch(calendarActions.setIsMonthsView(false));
+      dispatch(calendarActions.setIsYearsView(false));
       dispatch(
         currentDateActions.updateMonthAndYear({
           month,
