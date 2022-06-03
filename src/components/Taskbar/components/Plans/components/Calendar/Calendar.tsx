@@ -13,11 +13,13 @@ const Calendar: FC = () => {
   const { today, month, year } = useSelector((state: RootState) => state.currentDate);
   const { isMonthsView, isYearsView } = useSelector((state: RootState) => state.calendar);
 
+  // ! Should be remove when years list will be ready
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getRenderList = () => {
     if (isMonthsView) {
       return <MonthsList />;
     } else if (isYearsView) {
-      return <YearsList />;
+      return <YearsList today={today} />;
     } else {
       return <DaysList today={today} month={month as number} year={year} />;
     }
@@ -26,7 +28,8 @@ const Calendar: FC = () => {
   return (
     <div className={classes.root}>
       <CalendarHeader month={month as number} year={year} isMonthsView={isMonthsView} />
-      {getRenderList()}
+      {/* {getRenderList()} */}
+      <YearsList today={today} />
     </div>
   );
 };

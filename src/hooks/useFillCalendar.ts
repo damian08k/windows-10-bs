@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { v4 as uuid } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 import { DayElement } from 'types/components/calendar/dayElement.type';
 import { DayName } from 'types/components/calendar/dayName.enum';
@@ -29,7 +29,7 @@ const useFillCalendar = (date: Date, month: number): DayElement[] => {
 
     for (let dn = currentMonthFirstDayIndex; dn > 1; dn--) {
       previousDays.push({
-        id: uuid(),
+        id: uuidv4(),
         name: PREVIOUS_MONTH_DAY,
         dayNumber: previousMonthLastDay - dn + 2,
       });
@@ -37,7 +37,7 @@ const useFillCalendar = (date: Date, month: number): DayElement[] => {
 
     for (let dn = 1; dn <= currentMonthLastDay; dn++) {
       monthDays.push({
-        id: uuid(),
+        id: uuidv4(),
         name: CURRENT_MONTH_DAY,
         dayNumber: dn,
       });
@@ -45,7 +45,7 @@ const useFillCalendar = (date: Date, month: number): DayElement[] => {
 
     for (let dn = 1; dn <= numberOfNextDays; dn++) {
       nextDays.push({
-        id: uuid(),
+        id: uuidv4(),
         name: NEXT_MONTH_DAY,
         dayNumber: dn,
       });

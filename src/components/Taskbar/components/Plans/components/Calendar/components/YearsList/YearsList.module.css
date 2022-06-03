@@ -1,0 +1,31 @@
+.root {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.yearElement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.yearElement:hover {
+  border: 1px solid var(--plansBorderColor);
+}
+
+.current {
+  background-color: var(--windowsGreen);
+}
+
+.highlighted {
+}
+
+.previous,
+.next {
+  color: rgba(255, 255, 255, 0.5);
+}
