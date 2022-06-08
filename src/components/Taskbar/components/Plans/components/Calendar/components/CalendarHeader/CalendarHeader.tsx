@@ -5,6 +5,8 @@ import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
 import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
+import { YearElement } from 'types/components/calendar/yearElement.type';
+import betterAt from 'utils/betterAt';
 
 import classes from './CalendarHeader.module.css';
 
@@ -12,9 +14,17 @@ type Props = {
   month: number;
   year: number;
   isMonthsView: boolean;
+  isYearsView: boolean;
+  highlightedYears: YearElement[];
 };
 
-const CalendarHeader: FC<Props> = ({ month, year, isMonthsView }) => {
+const CalendarHeader: FC<Props> = ({
+  month,
+  year,
+  isMonthsView,
+  highlightedYears,
+  isYearsView,
+}) => {
   const dispatch = useAppDispatch();
 
   const handleArrowDownClick = () => {
@@ -48,11 +58,19 @@ const CalendarHeader: FC<Props> = ({ month, year, isMonthsView }) => {
         className={`${classes.dateInformation} ${classes.headerElement}`}
         onClick={handleMonthClick}
       >
+        {/* // TODO: Split this */}
         <span className={classes.month}>
-          {!isMonthsView &&
-            new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(0, month))}
+          {!isMonthsView && !isYearsView && (
+            <>
+              {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(0, month))}
+              <span> {year}</span>
+            </>
+          )}
         </span>
-        <span>{year}</span>
+        {isMonthsView && !isYearsView && <span>{year}</span>}
+        {isYearsView &&
+          highlightedYears.length &&
+          `${highlightedYears[0].year} - ${betterAt(highlightedYears, -1).year}`}
       </div>
       <div className={`${classes.arrowsContainer} ${classes.headerElement}`}>
         <ArrowUp onClick={handleArrowUpClick} className={classes.arrow} />

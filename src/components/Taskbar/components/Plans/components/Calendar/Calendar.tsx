@@ -11,7 +11,9 @@ import YearsList from './components/YearsList/YearsList';
 
 const Calendar: FC = () => {
   const { today, month, year } = useSelector((state: RootState) => state.currentDate);
-  const { isMonthsView, isYearsView } = useSelector((state: RootState) => state.calendar);
+  const { isMonthsView, isYearsView, highlightedYears } = useSelector(
+    (state: RootState) => state.calendar,
+  );
 
   // ! Should be remove when years list will be ready
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -27,7 +29,13 @@ const Calendar: FC = () => {
 
   return (
     <div className={classes.root}>
-      <CalendarHeader month={month as number} year={year} isMonthsView={isMonthsView} />
+      <CalendarHeader
+        month={month as number}
+        year={year}
+        isMonthsView={isMonthsView}
+        isYearsView={isYearsView}
+        highlightedYears={highlightedYears}
+      />
       {/* {getRenderList()} */}
       <YearsList today={today} />
     </div>
