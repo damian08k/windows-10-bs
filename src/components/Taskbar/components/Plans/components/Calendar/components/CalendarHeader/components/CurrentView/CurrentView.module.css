@@ -1,0 +1,8 @@
+.root {
+  text-transform: lowercase;
+  user-select: none;
+}
+
+.calendarViewYear {
+  padding-left: calc(var(--spacing) / 2);
+}
