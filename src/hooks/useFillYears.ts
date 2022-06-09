@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 import { calendarActions } from 'store/slices/calendar.slice';
 import { useAppDispatch } from 'store/store';
 import { YearElement } from 'types/components/calendar/yearElement.type';
 import { YearType } from 'types/components/calendar/yearType.type';
+import { RootState } from 'types/store/store.type';
 import betterAt from 'utils/betterAt';
+import getSplittedToday from 'utils/getSplittedToday';
 
 const { HIGHLIGHTED, PREVIOUS, NEXT, CURRENT } = YearType;
 
@@ -13,7 +16,8 @@ const { HIGHLIGHTED, PREVIOUS, NEXT, CURRENT } = YearType;
 // * list of years should have 2 previous years and 4 next years
 // * if it's odd, list of years have 6 next years and 0 previous
 
-const useFillYears = (currentYear: number): YearElement[] => {
+const useFillYears = (year: number): YearElement[] => {
+  const { today } = useSelector((state: RootState) => state.currentDate);
   const [years, setYears] = useState<YearElement[]>([]);
   const previousYears: YearElement[] = [];
   const highlightedYears: YearElement[] = [];
@@ -21,10 +25,12 @@ const useFillYears = (currentYear: number): YearElement[] => {
 
   const dispatch = useAppDispatch();
 
-  const yearAsDigits = [...(currentYear + '')].map(Number);
+  const { year: currentYear } = getSplittedToday(today);
+
+  const yearAsDigits = [...(year + '')].map(Number);
   const currentYearLastNumber = betterAt(yearAsDigits, -1);
   const yearSecondLastDigit = betterAt(yearAsDigits, -2);
-  const startCountingYear = currentYear - currentYearLastNumber;
+  const startCountingYear = year - currentYearLastNumber;
 
   useEffect(() => {
     setYears([]);
@@ -68,7 +74,7 @@ const useFillYears = (currentYear: number): YearElement[] => {
     }
 
     setYears(old => [...old, ...previousYears, ...highlightedYears, ...nextYears]);
-  }, [currentYear]);
+  }, [year]);
 
   return years;
 };

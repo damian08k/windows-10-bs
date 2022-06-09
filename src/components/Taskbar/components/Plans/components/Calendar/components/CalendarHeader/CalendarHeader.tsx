@@ -40,7 +40,7 @@ const CalendarHeader: FC<Props> = ({ month, year, isMonthsView, isYearsView }) =
         />
       </div>
       <div className={classes.headerElement}>
-        <Arrows isMonthsView={isMonthsView} />
+        <Arrows />
       </div>
     </div>
   );

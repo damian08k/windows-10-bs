@@ -13,8 +13,6 @@ const Calendar: FC = () => {
   const { today, month, year } = useSelector((state: RootState) => state.currentDate);
   const { isMonthsView, isYearsView } = useSelector((state: RootState) => state.calendar);
 
-  // ! Should be remove when years list will be ready
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getRenderList = () => {
     if (isMonthsView) {
       return <MonthsList />;
@@ -33,8 +31,7 @@ const Calendar: FC = () => {
         isMonthsView={isMonthsView}
         isYearsView={isYearsView}
       />
-      {/* {getRenderList()} */}
-      <YearsList year={year} />
+      {getRenderList()}
     </div>
   );
 };
