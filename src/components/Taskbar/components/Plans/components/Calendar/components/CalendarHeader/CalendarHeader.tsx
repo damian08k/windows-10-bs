@@ -17,11 +17,11 @@ type Props = {
 const CalendarHeader: FC<Props> = ({ month, year, isMonthsView, isYearsView }) => {
   const dispatch = useAppDispatch();
 
-  const handleMonthClick = () => {
+  const handleViewClick = () => {
     if (isMonthsView) {
       dispatch(calendarActions.setIsMonthsView(false));
       dispatch(calendarActions.setIsYearsView(true));
-    } else {
+    } else if (!isYearsView) {
       dispatch(calendarActions.setIsMonthsView(true));
     }
   };
@@ -30,7 +30,7 @@ const CalendarHeader: FC<Props> = ({ month, year, isMonthsView, isYearsView }) =
     <div className={classes.root}>
       <div
         className={`${classes.dateInformation} ${classes.headerElement}`}
-        onClick={handleMonthClick}
+        onClick={handleViewClick}
       >
         <CurrentView
           isMonthsView={isMonthsView}
