@@ -5,7 +5,7 @@ import { CalendarState } from 'types/store/calendar.type';
 
 const initialCalendarState = {
   isMonthsView: false,
-  isYearsView: false, //! Should be false by default, need to change when logic will be ready
+  isYearsView: true, //! Should be false by default, need to change when logic will be ready
   highlightedYears: [],
 } as CalendarState;
 

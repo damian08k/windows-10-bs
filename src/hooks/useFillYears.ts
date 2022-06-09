@@ -68,7 +68,7 @@ const useFillYears = (currentYear: number): YearElement[] => {
     }
 
     setYears(old => [...old, ...previousYears, ...highlightedYears, ...nextYears]);
-  }, []);
+  }, [currentYear]);
 
   return years;
 };

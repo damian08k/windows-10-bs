@@ -19,7 +19,7 @@ const Calendar: FC = () => {
     if (isMonthsView) {
       return <MonthsList />;
     } else if (isYearsView) {
-      return <YearsList today={today} />;
+      return <YearsList year={year} />;
     } else {
       return <DaysList today={today} month={month as number} year={year} />;
     }
@@ -33,8 +33,8 @@ const Calendar: FC = () => {
         isMonthsView={isMonthsView}
         isYearsView={isYearsView}
       />
-      {getRenderList()}
-      {/* <YearsList today={today} /> */}
+      {/* {getRenderList()} */}
+      <YearsList year={year} />
     </div>
   );
 };

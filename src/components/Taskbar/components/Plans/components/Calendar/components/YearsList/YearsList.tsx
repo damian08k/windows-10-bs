@@ -5,20 +5,17 @@ import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 import { YearType } from 'types/components/calendar/yearType.type';
-import getSplittedToday from 'utils/getSplittedToday';
 
 import classes from './YearsList.module.css';
 
 type Props = {
-  today: string;
+  year: number;
 };
 
-const YearsList: FC<Props> = ({ today }) => {
+const YearsList: FC<Props> = ({ year }) => {
   const dispatch = useAppDispatch();
 
-  const { year: currentYear } = getSplittedToday(today);
-
-  const years = useFillYears(currentYear);
+  const years = useFillYears(year);
 
   const handleYearClick = (year: number) => {
     dispatch(currentDateActions.updateMonthAndYear({ month: null, year }));
