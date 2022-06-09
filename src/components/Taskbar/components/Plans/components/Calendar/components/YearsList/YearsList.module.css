@@ -1,23 +1,28 @@
 .root {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  justify-items: center;
   align-items: center;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.month {
+.yearElement {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-basis: 33%;
   height: 50px;
+  width: 100%;
   cursor: pointer;
 }
 
-.month:hover {
+.yearElement:hover {
   border: 1px solid var(--plansBorderColor);
 }
 
-.currentMonth {
+.current {
   background-color: var(--windowsGreen);
+}
+
+.previous,
+.next {
+  color: var(--adjacentBackground);
 }

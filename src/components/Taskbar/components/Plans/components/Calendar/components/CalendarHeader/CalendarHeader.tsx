@@ -1,57 +1,46 @@
 import { FC } from 'react';
 
-import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
-import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
 import { calendarActions } from 'store/slices/calendar.slice';
-import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 
 import classes from './CalendarHeader.module.css';
+import Arrows from './components/Arrows/Arrows';
+import CurrentView from './components/CurrentView/CurrentView';
 
 type Props = {
   month: number;
   year: number;
   isMonthsView: boolean;
+  isYearsView: boolean;
 };
 
-const CalendarHeader: FC<Props> = ({ month, year, isMonthsView }) => {
+const CalendarHeader: FC<Props> = ({ month, year, isMonthsView, isYearsView }) => {
   const dispatch = useAppDispatch();
 
-  const handleArrowDownClick = () => {
+  const handleViewClick = () => {
     if (isMonthsView) {
-      dispatch(currentDateActions.updateMonthAndYear({ month: null, year: year + 1 }));
-    } else {
-      dispatch(currentDateActions.updateMonthAndYear({ month: month + 1 }));
+      dispatch(calendarActions.setIsMonthsView(false));
+      dispatch(calendarActions.setIsYearsView(true));
+    } else if (!isYearsView) {
+      dispatch(calendarActions.setIsMonthsView(true));
     }
-  };
-
-  const handleArrowUpClick = () => {
-    if (isMonthsView) {
-      dispatch(currentDateActions.updateMonthAndYear({ month: null, year: year - 1 }));
-    } else {
-      dispatch(currentDateActions.updateMonthAndYear({ month: month - 1 }));
-    }
-  };
-
-  const handleMonthClick = () => {
-    dispatch(calendarActions.setIsMonthsView(!isMonthsView));
   };
 
   return (
     <div className={classes.root}>
       <div
         className={`${classes.dateInformation} ${classes.headerElement}`}
-        onClick={handleMonthClick}
+        onClick={handleViewClick}
       >
-        <span className={classes.month}>
-          {!isMonthsView &&
-            new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(0, month))}
-        </span>
-        <span>{year}</span>
+        <CurrentView
+          isMonthsView={isMonthsView}
+          isYearsView={isYearsView}
+          year={year}
+          month={month}
+        />
       </div>
-      <div className={`${classes.arrowsContainer} ${classes.headerElement}`}>
-        <ArrowUp onClick={handleArrowUpClick} className={classes.arrow} />
-        <ArrowDown onClick={handleArrowDownClick} className={classes.arrow} />
+      <div className={classes.headerElement}>
+        <Arrows />
       </div>
     </div>
   );

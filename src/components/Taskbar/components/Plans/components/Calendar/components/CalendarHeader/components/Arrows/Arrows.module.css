@@ -1,0 +1,11 @@
+.root {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10%;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}

@@ -29,8 +29,10 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
 
   useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
     if (isPlanOpen) {
+      // TODO: Split this reset to separate method/slice/reducer
       dispatch(plansActions.togglePlansVisibility(false));
       dispatch(calendarActions.setIsMonthsView(false));
+      dispatch(calendarActions.setIsYearsView(false));
       dispatch(
         currentDateActions.updateMonthAndYear({
           month,
