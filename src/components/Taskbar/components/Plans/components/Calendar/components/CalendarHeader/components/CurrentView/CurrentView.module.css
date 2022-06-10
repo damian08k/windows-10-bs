@@ -1,6 +1,5 @@
 .root {
   text-transform: lowercase;
-  user-select: none;
 }
 
 .calendarViewYear {

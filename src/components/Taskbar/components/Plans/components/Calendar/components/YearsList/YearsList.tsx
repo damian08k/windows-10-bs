@@ -5,8 +5,11 @@ import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 import { YearType } from 'types/components/calendar/yearType.type';
+import mergeClasses from 'utils/mergeClasses';
 
 import classes from './YearsList.module.css';
+
+const { CURRENT } = YearType;
 
 type Props = {
   year: number;
@@ -28,9 +31,9 @@ const YearsList: FC<Props> = ({ year }) => {
       {years.map(({ id, type, year }) => (
         <div
           key={id}
-          className={`${classes.yearElement} ${type === YearType.CURRENT && classes.current} ${
-            classes[type.toLowerCase()]
-          }`}
+          className={mergeClasses(classes.yearElement, classes[type.toLowerCase()], {
+            [classes.current]: type === CURRENT,
+          })}
           onClick={() => handleYearClick(year)}
         >
           {year}
