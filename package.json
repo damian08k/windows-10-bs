@@ -8,6 +8,7 @@
     "build-dev": "webpack --config=webpack/webpack.config.dev.js",
     "start": "webpack serve --config=webpack/webpack.config.dev.js",
     "prettier": "prettier --config .prettierrc \"**/*\" --write",
+    "style:all": "tsc && npm run style:lint && npm run style:prettier",
     "test": "jest",
     "lint": "eslint ."
   },
