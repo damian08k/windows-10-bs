@@ -10,7 +10,7 @@
     "prettier": "prettier --config .prettierrc \"**/*\" --write",
     "style:lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "style:prettier": "prettier --check '**/*.{js,jsx,ts,tsx}'",
-    "style:all": "tsc && npm run style:lint && npm run style:prettier",
+    "style:all": "npm run style:lint && npm run style:prettier",
     "test": "jest",
     "lint": "eslint ."
   },
