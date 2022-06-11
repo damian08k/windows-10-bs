@@ -1,5 +1,5 @@
 # Name of our workflow
-name: 'action'
+name: 'Windows'
 
 # Events that will trigger our workflow
 on: ['pull_request']
@@ -7,7 +7,7 @@ on: ['pull_request']
 # List of custom jobs
 jobs:
   # Job is called "test"
-  test:
+  build:
     # Using a "label" to assign job to a specific hosted runner
     runs-on: ubuntu-latest
     steps:
@@ -15,6 +15,11 @@ jobs:
       - name: 'Checkout repository'
         uses: actions/checkout@v3
 
-      # Runs commands using the runners shell
+      - name: 'Install dependencies'
+        run: npm install --legacy-peer-deps
+
       - name: 'Run tests'
-        run: npm install --legacy-peer-deps && npm test
+        run: npm test
+
+      - name: 'Run style checker'
+        run: npm run style:all
