@@ -1,18 +1,23 @@
 import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
+import Calendar from './components/Calendar/Calendar';
+import PlansDate from './components/PlansDate/PlansDate';
+
 import useOutsideClick from 'hooks/useOutsideClick';
+
 import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
+
 import { RootState } from 'types/store/store.type';
+
 import getSplittedToday from 'utils/getSplittedToday';
 import mergeClasses from 'utils/mergeClasses';
 
-import Calendar from './components/Calendar/Calendar';
-import PlansDate from './components/PlansDate/PlansDate';
 import getCurrentWindowHeight from './helpers/getCurrentWindowSize';
+
 import classes from './Plans.module.css';
 
 type Props = {

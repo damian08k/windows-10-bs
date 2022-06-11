@@ -1,13 +1,16 @@
 import { FC, useEffect } from 'react';
 
+import MobileView from './components/view/MobileView/MobileView';
+
 import useScreenWidth from 'hooks/useScreenWidth';
+
 import { clockActions } from 'store/slices/clock.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
+
 import DesktopView from 'view/DesktopView/DesktopView';
 
 import classes from './assets/styles/global.module.css';
-import MobileView from './components/view/MobileView/MobileView';
 import { MIDNIGHT, MIN_SYSTEM_RESOLUTION } from './constants';
 
 import './assets/styles/variables.module.css';

@@ -106,6 +106,43 @@
           "parent",
           "sibling"
         ],
+        "pathGroups": [
+          {
+            "pattern": "./components/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "./*.module.css",
+            "group": "sibling",
+            "position": "after"
+          },
+          {
+            "pattern": "hooks/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "store/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "types/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "utils/**",
+            "group": "internal", 
+            "position": "after"
+          },
+          {
+            "pattern": "assets/**", 
+            "group": "sibling",
+            "position": "before"
+          },
+        ],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",

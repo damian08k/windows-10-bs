@@ -1,10 +1,13 @@
 import { FC } from 'react';
 
 import useFillYears from 'hooks/useFillYears';
+
 import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
+
 import { YearType } from 'types/components/calendar/yearType.type';
+
 import mergeClasses from 'utils/mergeClasses';
 
 import classes from './YearsList.module.css';

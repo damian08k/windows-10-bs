@@ -1,7 +1,9 @@
 import { FC } from 'react';
 
 import useFillCalendar from 'hooks/useFillCalendar';
+
 import { DayName } from 'types/components/calendar/dayName.enum';
+
 import formatCurrentDate from 'utils/formatCurrentDate';
 import getSplittedToday from 'utils/getSplittedToday';
 import mergeClasses from 'utils/mergeClasses';

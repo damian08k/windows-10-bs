@@ -4,6 +4,7 @@ import { FC } from 'react';
 import { Provider } from 'react-redux';
 
 import store from 'store/store';
+
 import DesktopView from 'view/DesktopView/DesktopView';
 
 import { MIN_SYSTEM_RESOLUTION } from '../../constants';
