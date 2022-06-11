@@ -1,7 +1,6 @@
-// import { renderHook } from '@testing-library/react-hooks';
-import useMountTransition from 'hooks/useMountTransition';
+import { renderHook } from '@testing-library/react';
 
-import { renderHook } from './renderHook';
+import useMountTransition from 'hooks/useMountTransition';
 
 describe('useMountTransition hook tests', () => {
   test('hook should return true as transition is handling', () => {
