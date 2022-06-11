@@ -8,6 +8,7 @@ import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/store.type';
 import getSplittedToday from 'utils/getSplittedToday';
+import mergeClasses from 'utils/mergeClasses';
 
 import Calendar from './components/Calendar/Calendar';
 import PlansDate from './components/PlansDate/PlansDate';
@@ -45,7 +46,9 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
   return (
     <div
       ref={plansBoxContainerRef}
-      className={`${classes.root} ${!transitionClassName.includes('false') && classes.showPlans}`}
+      className={mergeClasses(classes.root, {
+        [classes.showPlans]: !transitionClassName.includes('false'),
+      })}
       style={{
         width: windowWidth * 0.2,
         height: windowHeight * 0.7,

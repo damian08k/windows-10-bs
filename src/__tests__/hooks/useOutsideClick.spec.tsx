@@ -12,7 +12,7 @@ describe('useOutsideClick tests', () => {
     render(<div ref={ref}></div>);
 
     renderHook(() => useOutsideClick(ref, handler));
-    fireEvent.click(document);
+    fireEvent.mouseDown(document);
 
     expect(handler).toBeCalledTimes(1);
   });
@@ -23,7 +23,7 @@ describe('useOutsideClick tests', () => {
     render(<div ref={ref} data-testid="element-testid"></div>);
 
     renderHook(() => useOutsideClick(ref, handler));
-    fireEvent.click(screen.getByTestId('element-testid'));
+    fireEvent.mouseDown(screen.getByTestId('element-testid'));
 
     expect(handler).not.toBeCalled();
   });

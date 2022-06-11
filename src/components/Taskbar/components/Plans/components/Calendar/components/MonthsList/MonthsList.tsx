@@ -6,6 +6,7 @@ import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 import { RootState } from 'types/store/store.type';
 import getSplittedToday from 'utils/getSplittedToday';
+import mergeClasses from 'utils/mergeClasses';
 
 import getMonthsNames from './helpers/getMonthsNames';
 import classes from './MonthsList.module.css';
@@ -27,9 +28,9 @@ const MonthsList: FC = () => {
       {months.map(({ monthName, monthId }) => (
         <div
           key={monthName}
-          className={`${classes.month} ${
-            monthId === currentMonth && year === currentYear && classes.currentMonth
-          }`}
+          className={mergeClasses(classes.month, {
+            [classes.currentMonth]: monthId === currentMonth && year === currentYear,
+          })}
           onClick={() => handleOpenCalendar(monthId)}
         >
           {monthName}

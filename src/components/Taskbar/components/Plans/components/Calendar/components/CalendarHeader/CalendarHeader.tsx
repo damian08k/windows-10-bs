@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import { calendarActions } from 'store/slices/calendar.slice';
 import { useAppDispatch } from 'store/store';
+import mergeClasses from 'utils/mergeClasses';
 
 import classes from './CalendarHeader.module.css';
 import Arrows from './components/Arrows/Arrows';
@@ -29,7 +30,7 @@ const CalendarHeader: FC<Props> = ({ month, year, isMonthsView, isYearsView }) =
   return (
     <div className={classes.root}>
       <div
-        className={`${classes.dateInformation} ${classes.headerElement}`}
+        className={mergeClasses(classes.dateInformation, classes.headerElement)}
         onClick={handleViewClick}
       >
         <CurrentView

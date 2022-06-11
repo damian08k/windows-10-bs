@@ -5,4 +5,5 @@
   padding: var(--spacing) calc(var(--spacing) * 2) calc(var(--spacing) * 2);
   border-bottom: 1px solid var(--plansBorderColor);
   font-size: 1.5rem;
+  user-select: none;
 }

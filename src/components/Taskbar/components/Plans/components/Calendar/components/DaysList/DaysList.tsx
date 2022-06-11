@@ -4,6 +4,7 @@ import useFillCalendar from 'hooks/useFillCalendar';
 import { DayName } from 'types/components/calendar/dayName.enum';
 import formatCurrentDate from 'utils/formatCurrentDate';
 import getSplittedToday from 'utils/getSplittedToday';
+import mergeClasses from 'utils/mergeClasses';
 
 import getWeekDays from '../../helpers/getWeekDays';
 
@@ -38,13 +39,14 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
         {listOfDays.map(({ id, name, dayNumber }) => (
           <div
             key={id}
-            className={`${classes.day} ${classes[name]} ${
-              dayNumber === new Date(dateTime).getDate() &&
-              name === CURRENT_MONTH_DAY &&
-              currentMonth === month &&
-              currentYear === year &&
-              classes[TODAY]
-            }`}
+            // TODO: Something needs to be done with this todays checking
+            className={mergeClasses(classes.day, classes[name], {
+              [classes[TODAY]]:
+                dayNumber === new Date(dateTime).getDate() &&
+                name === CURRENT_MONTH_DAY &&
+                currentMonth === month &&
+                currentYear === year,
+            })}
           >
             <div className={classes.dayNumber}>{dayNumber}</div>
           </div>
