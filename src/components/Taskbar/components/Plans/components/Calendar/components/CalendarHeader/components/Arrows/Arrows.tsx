@@ -1,12 +1,15 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
-import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
+
 import { RootState } from 'types/store/store.type';
+
 import betterAt from 'utils/betterAt';
+
+import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
+import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
 
 import classes from './Arrows.module.css';
 

@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { RootState } from 'types/store/store.type';
+
 import betterAt from 'utils/betterAt';
 
 import classes from './CurrentView.module.css';

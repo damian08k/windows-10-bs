@@ -4,9 +4,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { calendarActions } from 'store/slices/calendar.slice';
 import { useAppDispatch } from 'store/store';
+
 import { YearElement } from 'types/components/calendar/yearElement.type';
 import { YearType } from 'types/components/calendar/yearType.type';
 import { RootState } from 'types/store/store.type';
+
 import betterAt from 'utils/betterAt';
 import getSplittedToday from 'utils/getSplittedToday';
 
