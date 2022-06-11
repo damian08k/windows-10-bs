@@ -17,4 +17,4 @@ jobs:
 
       # Runs commands using the runners shell
       - name: 'Run tests'
-        run: npm install && npm test
+        run: npm install --legacy-peer-deps && npm test
