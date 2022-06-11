@@ -1,5 +1,5 @@
 # Name of our workflow
-name: 'Test'
+name: ''
 
 # Events that will trigger our workflow
 on: ['pull_request']

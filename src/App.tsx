@@ -17,6 +17,7 @@ import './assets/styles/variables.module.css';
 
 const App: FC = () => {
   const screenWidth = useScreenWidth();
+  console.log('zxczx');
 
   const dispatch = useAppDispatch();
 
