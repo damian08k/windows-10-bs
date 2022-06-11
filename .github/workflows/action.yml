@@ -19,17 +19,16 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: 'Run style checker'
-        run: npm run style:all
-        continue-on-error: true
+        run: npm run style:prettier
 
       - name: 'Run ESlint'
+        if: always()
         run: npm run lint
-        continue-on-error: true
 
       - name: 'Run Typescript'
+        if: always()
         run: npm run ts-check
-        continue-on-error: true
 
       - name: 'Run tests'
+        if: always()
         run: npm test
-        continue-on-error: true
