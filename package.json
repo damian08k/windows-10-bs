@@ -8,8 +8,10 @@
     "build-dev": "webpack --config=webpack/webpack.config.dev.js",
     "start": "webpack serve --config=webpack/webpack.config.dev.js",
     "prettier": "prettier --config .prettierrc \"**/*\" --write",
+    "style:prettier": "prettier --check '**/*.{js,jsx,ts,tsx}'",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "ts-check": "tsc --noEmit"
   },
   "author": "",
   "license": "ISC",

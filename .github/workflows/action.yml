@@ -1,20 +1,28 @@
-# Name of our workflow
-name: 'Test'
+name: 'Windows 10'
 
-# Events that will trigger our workflow
 on: ['pull_request']
 
-# List of custom jobs
 jobs:
-  # Job is called "test"
-  test:
-    # Using a "label" to assign job to a specific hosted runner
+  build:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out our repository under "$GITHUB_WORKSPACE", so our job can access it
       - name: 'Checkout repository'
         uses: actions/checkout@v3
 
-      # Runs commands using the runners shell
+      - name: 'Install dependencies'
+        run: npm install --legacy-peer-deps
+
+      - name: 'Run style checker'
+        run: npm run style:prettier
+
+      - name: 'Run ESlint'
+        if: always()
+        run: npm run lint
+
+      - name: 'Run Typescript'
+        if: always()
+        run: npm run ts-check
+
       - name: 'Run tests'
-        run: npm install && npm test
+        if: always()
+        run: npm test
