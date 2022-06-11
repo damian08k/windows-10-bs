@@ -12,7 +12,8 @@
     "style:prettier": "prettier --check '**/*.{js,jsx,ts,tsx}'",
     "style:all": "npm run style:lint && npm run style:prettier",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "ts-check": "tsc --noEmit"
   },
   "author": "",
   "license": "ISC",
