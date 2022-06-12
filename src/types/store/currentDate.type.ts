@@ -1,10 +1,10 @@
 export type CurrentDateState = {
   today: string;
-  month: number | null;
+  month: number;
   year: number;
 };
 
 export type UpdateDate = {
-  month: number | null;
+  month: number;
   year?: number;
 };

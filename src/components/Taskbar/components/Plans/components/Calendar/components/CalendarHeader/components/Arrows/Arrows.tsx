@@ -23,23 +23,23 @@ const Arrows: FC = () => {
 
   const handleArrowDownClick = () => {
     if (isMonthsView && !isYearsView) {
-      dispatch(currentDateActions.updateMonthAndYear({ month: null, year: year + 1 }));
+      dispatch(currentDateActions.updateYear(year + 1));
     } else if (!isMonthsView && !isYearsView) {
       dispatch(currentDateActions.updateMonthAndYear({ month: (month as number) + 1 }));
     } else if (isYearsView && highlightedYears.length) {
       const year = betterAt(highlightedYears, -1).year + 1;
-      dispatch(currentDateActions.updateMonthAndYear({ month: null, year }));
+      dispatch(currentDateActions.updateYear(year));
     }
   };
 
   const handleArrowUpClick = () => {
     if (isMonthsView && !isYearsView) {
-      dispatch(currentDateActions.updateMonthAndYear({ month: null, year: year - 1 }));
+      dispatch(currentDateActions.updateYear(year - 1));
     } else if (!isMonthsView && !isYearsView) {
       dispatch(currentDateActions.updateMonthAndYear({ month: (month as number) - 1 }));
     } else if (isYearsView && highlightedYears.length) {
       const year = highlightedYears[0].year - 1;
-      dispatch(currentDateActions.updateMonthAndYear({ month: null, year }));
+      dispatch(currentDateActions.updateYear(year));
     }
   };
   return (
