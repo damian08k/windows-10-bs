@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { DayElement } from 'types/components/calendar/dayElement.type';
 import { DayName } from 'types/components/calendar/dayName.enum';
 
+import betterAt from 'utils/betterAt';
+
 const { PREVIOUS_MONTH_DAY, CURRENT_MONTH_DAY, NEXT_MONTH_DAY } = DayName;
 
 const useFillCalendar = (date: Date, month: number): DayElement[] => {
@@ -23,6 +25,7 @@ const useFillCalendar = (date: Date, month: number): DayElement[] => {
   const currentMonthLastDayIndex = new Date(dateFullYear, dateMonth + 1, 0).getDay();
 
   const numberOfNextDays = 7 - currentMonthLastDayIndex;
+  const maxNumberOfDaysInSixRows = 42;
 
   useEffect(() => {
     setListOfDays([]);
@@ -51,7 +54,21 @@ const useFillCalendar = (date: Date, month: number): DayElement[] => {
       });
     }
 
-    setListOfDays(old => [...old, ...previousDays, ...monthDays, ...nextDays]);
+    const allDays = [...previousDays, ...monthDays, ...nextDays];
+
+    if (allDays.length !== maxNumberOfDaysInSixRows) {
+      const lastDay = betterAt(allDays, -1).dayNumber;
+
+      for (let dn = lastDay + 1; dn < lastDay + 8; dn++) {
+        allDays.push({
+          id: uuidv4(),
+          name: NEXT_MONTH_DAY,
+          dayNumber: dn,
+        });
+      }
+    }
+
+    setListOfDays(old => [...old, ...allDays]);
   }, [month]);
 
   return listOfDays;

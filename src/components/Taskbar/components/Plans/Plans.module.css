@@ -3,7 +3,7 @@
 
   position: absolute;
   right: 0;
-  max-width: 360px;
+  width: 360px;
   border: 1px solid var(--plansBorderColor);
   border-top: none;
   border-right: none;

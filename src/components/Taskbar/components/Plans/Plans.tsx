@@ -16,8 +16,6 @@ import { RootState } from 'types/store/store.type';
 import getSplittedToday from 'utils/getSplittedToday';
 import mergeClasses from 'utils/mergeClasses';
 
-import getCurrentWindowHeight from './helpers/getCurrentWindowSize';
-
 import classes from './Plans.module.css';
 
 type Props = {
@@ -30,7 +28,6 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
   const isPlanOpen = useSelector((state: RootState) => state.plans.isPlanOpen);
   const today = useSelector((state: RootState) => state.currentDate.today);
 
-  const { windowHeight, windowWidth } = getCurrentWindowHeight();
   const { month, year } = getSplittedToday(today);
 
   useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
@@ -54,10 +51,6 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
       className={mergeClasses(classes.root, {
         [classes.showPlans]: !transitionClassName.includes('false'),
       })}
-      style={{
-        width: windowWidth * 0.2,
-        height: windowHeight * 0.7,
-      }}
     >
       <PlansDate />
       <Calendar />

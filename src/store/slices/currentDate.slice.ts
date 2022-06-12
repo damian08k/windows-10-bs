@@ -19,6 +19,12 @@ const currentDateSlice = createSlice({
     updateDay(state, action: PayloadAction<string>) {
       state.today = action.payload;
     },
+    updateMonth(state, action: PayloadAction<number>) {
+      state.month = action.payload;
+    },
+    updateYear(state, action: PayloadAction<number>) {
+      state.year = action.payload;
+    },
     updateMonthAndYear(state, action: PayloadAction<UpdateDate>) {
       state.month = action.payload.month;
 

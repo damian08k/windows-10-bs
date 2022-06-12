@@ -24,7 +24,7 @@ const YearsList: FC<Props> = ({ year }) => {
   const years = useFillYears(year);
 
   const handleYearClick = (year: number) => {
-    dispatch(currentDateActions.updateMonthAndYear({ month: null, year }));
+    dispatch(currentDateActions.updateYear(year));
     dispatch(calendarActions.setIsYearsView(false));
     dispatch(calendarActions.setIsMonthsView(true));
   };

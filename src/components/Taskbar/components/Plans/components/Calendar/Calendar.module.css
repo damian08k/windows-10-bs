@@ -2,7 +2,7 @@
   /* * adjacentBackground is using in Calendar's childs */
   --adjacentBackground: rgba(255, 255, 255, 0.5);
 
-  padding: var(--spacing) calc(var(--spacing) * 2) calc(var(--spacing) * 2);
+  padding: var(--spacing) calc(var(--spacing) * 2);
   border-bottom: 1px solid var(--plansBorderColor);
   font-size: 1.5rem;
   user-select: none;
