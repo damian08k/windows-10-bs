@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, WheelEvent } from 'react';
 import { useSelector } from 'react-redux';
 
 import CalendarHeader from './components/CalendarHeader/CalendarHeader';
@@ -6,13 +6,31 @@ import DaysList from './components/DaysList/DaysList';
 import MonthsList from './components/MonthsList/MonthsList';
 import YearsList from './components/YearsList/YearsList';
 
+import { useAppDispatch } from 'store/store';
+
 import { RootState } from 'types/store/store.type';
+
+import changeDatesOnDown from './helpers/changeDatesOnDown';
+import changeDatesOnUp from './helpers/changeDatesOnUp';
 
 import classes from './Calendar.module.css';
 
 const Calendar: FC = () => {
   const { today, month, year } = useSelector((state: RootState) => state.currentDate);
-  const { isMonthsView, isYearsView } = useSelector((state: RootState) => state.calendar);
+  const { isMonthsView, isYearsView, highlightedYears } = useSelector(
+    (state: RootState) => state.calendar,
+  );
+
+  const dispatch = useAppDispatch();
+
+  const handleMouseWheel = (evt: WheelEvent) => {
+    const { deltaY } = evt;
+    if (deltaY < 0) {
+      changeDatesOnUp(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+    } else {
+      changeDatesOnDown(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+    }
+  };
 
   const getRenderList = () => {
     if (isMonthsView) {
@@ -32,7 +50,7 @@ const Calendar: FC = () => {
         isMonthsView={isMonthsView}
         isYearsView={isYearsView}
       />
-      {getRenderList()}
+      <div onWheel={handleMouseWheel}>{getRenderList()}</div>
     </div>
   );
 };
