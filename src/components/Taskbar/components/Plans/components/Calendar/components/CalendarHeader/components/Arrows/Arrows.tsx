@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
-import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 
 import { RootState } from 'types/store/store.type';
 
-import betterAt from 'utils/betterAt';
+import changeDatesOnDown from '../../../../helpers/changeDatesOnDown';
+import changeDatesOnUp from '../../../../helpers/changeDatesOnUp';
 
 import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
 import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
@@ -22,26 +22,13 @@ const Arrows: FC = () => {
   const dispatch = useAppDispatch();
 
   const handleArrowDownClick = () => {
-    if (isMonthsView && !isYearsView) {
-      dispatch(currentDateActions.updateYear(year + 1));
-    } else if (!isMonthsView && !isYearsView) {
-      dispatch(currentDateActions.updateMonthAndYear({ month: (month as number) + 1 }));
-    } else if (isYearsView && highlightedYears.length) {
-      const year = betterAt(highlightedYears, -1).year + 1;
-      dispatch(currentDateActions.updateYear(year));
-    }
+    changeDatesOnDown(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
   };
 
   const handleArrowUpClick = () => {
-    if (isMonthsView && !isYearsView) {
-      dispatch(currentDateActions.updateYear(year - 1));
-    } else if (!isMonthsView && !isYearsView) {
-      dispatch(currentDateActions.updateMonthAndYear({ month: (month as number) - 1 }));
-    } else if (isYearsView && highlightedYears.length) {
-      const year = highlightedYears[0].year - 1;
-      dispatch(currentDateActions.updateYear(year));
-    }
+    changeDatesOnUp(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
   };
+
   return (
     <div className={classes.root}>
       <ArrowUp onClick={handleArrowUpClick} className={classes.arrow} />
