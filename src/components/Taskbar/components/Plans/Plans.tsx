@@ -2,6 +2,7 @@ import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import Calendar from './components/Calendar/Calendar';
+import Plan from './components/Plan/Plan';
 import PlansDate from './components/PlansDate/PlansDate';
 
 import useOutsideClick from 'hooks/useOutsideClick';
@@ -54,6 +55,7 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
     >
       <PlansDate />
       <Calendar />
+      <Plan />
     </div>
   );
 };

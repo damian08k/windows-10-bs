@@ -1,0 +1,17 @@
+.root {
+  padding: var(--spacing) calc(var(--spacing) * 2);
+  font-size: 1.8rem;
+}
+
+.input {
+  margin: var(--spacing) 0;
+  padding: calc(var(--spacing) / 2);
+  width: 100%;
+  border: 1px solid var(--grey);
+  background-color: transparent;
+}
+
+.input:focus {
+  outline-style: solid;
+  outline-color: var(--grey);
+}
