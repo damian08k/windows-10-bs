@@ -4,6 +4,7 @@ import { PlansState } from 'types/store/plansState.type';
 
 const initialPlansState = {
   isPlanOpen: false,
+  isEventsVisible: true,
 } as PlansState;
 
 const plansSlice = createSlice({
@@ -12,6 +13,9 @@ const plansSlice = createSlice({
   reducers: {
     togglePlansVisibility(state, action: PayloadAction<boolean>) {
       state.isPlanOpen = action.payload;
+    },
+    toogleEventsVisibility(state, action: PayloadAction<boolean>) {
+      state.isEventsVisible = action.payload;
     },
   },
 });
