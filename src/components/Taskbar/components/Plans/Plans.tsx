@@ -2,9 +2,9 @@ import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import Calendar from './components/Calendar/Calendar';
-import HidePlans from './components/HidePlans/HidePlans';
 import Plan from './components/Plan/Plan';
 import PlansDate from './components/PlansDate/PlansDate';
+import ToggleEventsVisibility from './components/ToggleEventsVisibility/ToggleEventsVisibility';
 
 import useOutsideClick from 'hooks/useOutsideClick';
 
@@ -57,7 +57,7 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
       <PlansDate />
       <Calendar />
       <Plan />
-      <HidePlans />
+      <ToggleEventsVisibility />
     </div>
   );
 };
