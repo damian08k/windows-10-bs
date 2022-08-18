@@ -21,9 +21,6 @@ const { HIGHLIGHTED, PREVIOUS, NEXT, CURRENT } = YearType;
 const useFillYears = (year: number): YearElement[] => {
   const { today } = useSelector((state: RootState) => state.currentDate);
   const [years, setYears] = useState<YearElement[]>([]);
-  const previousYears: YearElement[] = [];
-  const highlightedYears: YearElement[] = [];
-  const nextYears: YearElement[] = [];
 
   const dispatch = useAppDispatch();
 
@@ -35,7 +32,9 @@ const useFillYears = (year: number): YearElement[] => {
   const startCountingYear = year - currentYearLastNumber;
 
   useEffect(() => {
-    setYears([]);
+    const previousYears: YearElement[] = [];
+    const highlightedYears: YearElement[] = [];
+    const nextYears: YearElement[] = [];
 
     for (let i = startCountingYear; i < startCountingYear + 10; i++) {
       highlightedYears.push({
@@ -76,6 +75,8 @@ const useFillYears = (year: number): YearElement[] => {
     }
 
     setYears(old => [...old, ...previousYears, ...highlightedYears, ...nextYears]);
+
+    return () => setYears([]);
   }, [year]);
 
   return years;
