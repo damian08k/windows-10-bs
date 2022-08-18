@@ -10,9 +10,6 @@ const { PREVIOUS_MONTH_DAY, CURRENT_MONTH_DAY, NEXT_MONTH_DAY } = DayName;
 
 const useFillCalendar = (date: Date, month: number): DayElement[] => {
   const [listOfDays, setListOfDays] = useState<DayElement[]>([]);
-  const previousDays: DayElement[] = [];
-  const monthDays: DayElement[] = [];
-  const nextDays: DayElement[] = [];
 
   const dateFullYear = date.getFullYear();
   const dateMonth = date.getMonth();
@@ -28,7 +25,9 @@ const useFillCalendar = (date: Date, month: number): DayElement[] => {
   const maxNumberOfDaysInSixRows = 42;
 
   useEffect(() => {
-    setListOfDays([]);
+    const previousDays: DayElement[] = [];
+    const monthDays: DayElement[] = [];
+    const nextDays: DayElement[] = [];
 
     for (let dn = currentMonthFirstDayIndex; dn > 1; dn--) {
       previousDays.push({
@@ -69,6 +68,8 @@ const useFillCalendar = (date: Date, month: number): DayElement[] => {
     }
 
     setListOfDays(old => [...old, ...allDays]);
+
+    return () => setListOfDays([]);
   }, [month]);
 
   return listOfDays;
