@@ -1,0 +1,32 @@
+.root {
+  --hidePlansButtonElementSize: 1.3rem;
+  --arrowSize: calc(var(--hidePlansButtonElementSize) / 1.5);
+
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding: calc(var(--spacing) / 1.3);
+  border: none;
+  font-size: var(--hidePlansButtonElementSize);
+  background-color: transparent;
+  color: var(--windowsInnerGreen);
+  cursor: pointer;
+}
+
+.arrow {
+  margin-left: calc(var(--spacing) / 2);
+  width: var(--arrowSize);
+  height: var(--arrowSize);
+}
+
+.arrow path {
+  fill: var(--windowsInnerGreen);
+}
+
+.root:hover {
+  color: var(--grey);
+}
+
+.root:hover .arrow path {
+  fill: var(--grey);
+}

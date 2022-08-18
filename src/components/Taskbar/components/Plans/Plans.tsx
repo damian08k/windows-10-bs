@@ -2,6 +2,7 @@ import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import Calendar from './components/Calendar/Calendar';
+import HidePlans from './components/HidePlans/HidePlans';
 import Plan from './components/Plan/Plan';
 import PlansDate from './components/PlansDate/PlansDate';
 
@@ -56,6 +57,7 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
       <PlansDate />
       <Calendar />
       <Plan />
+      <HidePlans />
     </div>
   );
 };

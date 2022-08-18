@@ -1,5 +1,4 @@
 .root {
-  --plansBoxDateColor: rgb(144, 214, 144);
   --plansBoxDateHoverColor: rgb(165, 165, 165);
 
   padding: var(--spacing) calc(var(--spacing) * 2) calc(var(--spacing) * 2);
@@ -8,7 +7,7 @@
 
 .plansDate {
   font-size: 1.4rem;
-  color: var(--plansBoxDateColor);
+  color: var(--windowsInnerGreen);
   cursor: pointer;
 }
 
