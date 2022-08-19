@@ -1,11 +1,13 @@
 .root {
+  --arrowSize: 18px;
+
   display: flex;
   justify-content: flex-end;
   gap: 10%;
 }
 
 .arrow {
-  width: 20px;
-  height: 20px;
+  width: var(--arrowSize);
+  height: var(--arrowSize);
   cursor: pointer;
 }

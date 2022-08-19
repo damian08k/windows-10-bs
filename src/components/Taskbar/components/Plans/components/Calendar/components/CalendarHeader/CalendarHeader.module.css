@@ -1,7 +1,7 @@
 .root {
   display: flex;
   justify-content: space-between;
-  padding-bottom: calc(var(--spacing) * 2);
+  padding-bottom: calc(var(--spacing) * 1.5);
 }
 
 .headerElement {
@@ -10,7 +10,6 @@
 
 .dateInformation {
   display: flex;
-  gap: 5%;
   cursor: pointer;
 }
 

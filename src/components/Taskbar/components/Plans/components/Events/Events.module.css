@@ -1,7 +1,6 @@
 .root {
   padding: var(--spacing) calc(var(--spacing) * 2);
-  font-size: 1.8rem;
-  height: 300px;
+  font-size: 1.5rem;
   max-height: 300px;
 }
 
@@ -16,4 +15,8 @@
 .input:focus {
   outline-style: solid;
   outline-color: var(--grey);
+}
+
+.events {
+  font-size: 1.3rem;
 }
