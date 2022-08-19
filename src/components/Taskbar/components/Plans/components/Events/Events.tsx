@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import classes from './Plan.module.css';
+import classes from './Events.module.css';
 
-const Plan: FC = () => {
+const Events: FC = () => {
   return (
     <div className={classes.root}>
       <div className={classes.date}>today...</div>
@@ -12,4 +12,4 @@ const Plan: FC = () => {
   );
 };
 
-export default Plan;
+export default Events;
