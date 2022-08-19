@@ -27,7 +27,7 @@ type Props = {
 const Plans: FC<Props> = ({ transitionClassName }) => {
   const dispatch = useAppDispatch();
   const plansBoxContainerRef = useRef<HTMLDivElement>(null);
-  const isPlanOpen = useSelector((state: RootState) => state.plans.isPlanOpen);
+  const { isPlanOpen, isEventsVisible } = useSelector((state: RootState) => state.plans);
   const today = useSelector((state: RootState) => state.currentDate.today);
 
   const { month, year } = getSplittedToday(today);
@@ -56,7 +56,7 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
     >
       <PlansDate />
       <Calendar />
-      <Events />
+      {isEventsVisible && <Events />}
       <ToggleEventsVisibility />
     </div>
   );
