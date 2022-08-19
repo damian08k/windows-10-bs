@@ -8,15 +8,15 @@ import ToggleEventsVisibility from './components/ToggleEventsVisibility/ToggleEv
 
 import useOutsideClick from 'hooks/useOutsideClick';
 
-import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
-import { plansActions } from 'store/slices/plans.slice';
 import { useAppDispatch } from 'store/store';
 
 import { RootState } from 'types/store/store.type';
 
 import getSplittedToday from 'utils/getSplittedToday';
 import mergeClasses from 'utils/mergeClasses';
+
+import resetPlansViews from './helpers/outsideClickCallback';
 
 import classes from './Plans.module.css';
 
@@ -34,10 +34,7 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
 
   useOutsideClick<HTMLDivElement>(plansBoxContainerRef, () => {
     if (isPlanOpen) {
-      // TODO: Split this reset to separate method/slice/reducer
-      dispatch(plansActions.togglePlansVisibility(false));
-      dispatch(calendarActions.setIsMonthsView(false));
-      dispatch(calendarActions.setIsYearsView(false));
+      resetPlansViews(dispatch);
       dispatch(
         currentDateActions.updateMonthAndYear({
           month,
