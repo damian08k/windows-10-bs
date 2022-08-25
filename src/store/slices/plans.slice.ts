@@ -3,7 +3,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PlansState } from 'types/store/plansState.type';
 
 const initialPlansState = {
-  isPlanOpen: false,
+  // ! CHANGE THIS WHEN ALL FEATURES WILL BE FINISHED
+  isPlanOpen: true,
   isEventsVisible: true,
 } as PlansState;
 

@@ -16,7 +16,7 @@ import changeDatesOnUp from './helpers/changeDatesOnUp';
 import classes from './Calendar.module.css';
 
 const Calendar: FC = () => {
-  const { today, month, year } = useSelector((state: RootState) => state.currentDate);
+  const { month, year } = useSelector((state: RootState) => state.currentDate);
   const { isMonthsView, isYearsView, highlightedYears } = useSelector(
     (state: RootState) => state.calendar,
   );
@@ -38,7 +38,7 @@ const Calendar: FC = () => {
     } else if (isYearsView) {
       return <YearsList year={year} />;
     } else {
-      return <DaysList today={today} month={month as number} year={year} />;
+      return <DaysList month={month as number} year={year} />;
     }
   };
 
