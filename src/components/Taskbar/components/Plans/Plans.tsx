@@ -8,6 +8,7 @@ import ToggleEventsVisibility from './components/ToggleEventsVisibility/ToggleEv
 
 import useOutsideClick from 'hooks/useOutsideClick';
 
+import { calendarActions, initialSelectedDay } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 
@@ -41,6 +42,7 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
           year,
         }),
       );
+      dispatch(calendarActions.setSelectedDay(initialSelectedDay));
     }
   });
 

@@ -1,4 +1,5 @@
 .root {
+  padding: var(--daysSpacing);
   line-height: 35px;
   border: 2px solid transparent;
   text-align: center;
@@ -14,8 +15,16 @@
 }
 
 .TODAY {
-  padding: var(--daysSpacing);
-  border: 2px solid var(--windowsGreen);
+  background-image: linear-gradient(var(--windowsGreen), var(--windowsGreen));
+}
+
+.TODAY.selected {
+  background-image: linear-gradient(transparent, transparent);
+}
+
+.TODAY,
+.TODAY.selected {
+  background-clip: padding-box;
 }
 
 .TODAY:hover {
@@ -26,4 +35,8 @@
   background-color: var(--windowsGreen);
   color: var(--white);
   font-weight: bold;
+}
+
+.selected {
+  border: 2px solid var(--windowsGreen);
 }
