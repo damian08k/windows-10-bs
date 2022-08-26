@@ -19,32 +19,4 @@
   gap: var(--daysSpacing);
 }
 
-.day {
-  line-height: 35px;
-  border: 2px solid transparent;
-  text-align: center;
-}
 
-.day:hover {
-  border-color: var(--grey);
-}
-
-.PREVIOUS_MONTH_DAY,
-.NEXT_MONTH_DAY {
-  color: var(--adjacentBackground);
-}
-
-.TODAY {
-  padding: var(--daysSpacing);
-  border: 2px solid var(--windowsGreen);
-}
-
-.TODAY:hover {
-  border-color: var(--windowsGreenOnHover);
-}
-
-.TODAY .dayNumber {
-  background-color: var(--windowsGreen);
-  color: var(--white);
-  font-weight: bold;
-}

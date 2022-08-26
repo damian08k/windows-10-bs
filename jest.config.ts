@@ -80,6 +80,7 @@ export default {
       '<rootDir>/__mocks__/fileMock.ts',
     '\\.(css|less)$': '<rootDir>/__mocks__/fileMock.ts',
     '\\.svg': '<rootDir>/__mocks__/svgrMock.ts',
+    '^src/(.*)': '<rootDir>/src/$1',
     '^view/(.*)': '<rootDir>/src/components/view/$1',
     '^store/(.*)': '<rootDir>/src/store/$1',
     '^utils/(.*)': '<rootDir>/src/utils/$1',

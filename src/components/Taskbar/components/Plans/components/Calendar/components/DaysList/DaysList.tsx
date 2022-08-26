@@ -1,17 +1,16 @@
 import { FC } from 'react';
 
+import Day from './components/Day';
+
 import useFillCalendar from 'hooks/useFillCalendar';
 
-import { DayName } from 'types/components/calendar/dayName.enum';
+import { TODAY_ID } from 'src/constants';
 
 import getSplittedToday from 'utils/getSplittedToday';
-import mergeClasses from 'utils/mergeClasses';
 
 import getWeekDays from '../../helpers/getWeekDays';
 
 import classes from './DaysList.module.css';
-
-const { TODAY } = DayName;
 
 type Props = {
   today: string;
@@ -21,7 +20,6 @@ type Props = {
 
 const DaysList: FC<Props> = ({ today, month, year }) => {
   const listOfDays = useFillCalendar(new Date(year, month, 1), month);
-
   const weekDays = getWeekDays();
 
   const { day: currentDay, month: currentMonth, year: currentYear } = getSplittedToday(today);
@@ -36,17 +34,16 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
         ))}
       </div>
       <div className={classes.days}>
-        {listOfDays.map(({ id, name, dayNumber }) => (
-          <div
-            key={id}
-            className={mergeClasses(classes.day, classes[name], {
-              [classes[TODAY]]:
-                dayNumber === currentDay && currentMonth === month && currentYear === year,
-            })}
-          >
-            <div className={classes.dayNumber}>{dayNumber}</div>
-          </div>
-        ))}
+        {listOfDays.map(({ id, name, dayNumber }) => {
+          const dayID =
+            dayNumber === currentDay && month === currentMonth && year === currentYear
+              ? TODAY_ID
+              : id;
+
+          return (
+            <Day key={id} id={dayID} name={name} dayNumber={dayNumber} month={month} year={year} />
+          );
+        })}
       </div>
     </div>
   );

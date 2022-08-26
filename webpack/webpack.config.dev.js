@@ -12,6 +12,7 @@ module.exports = merge(commonConfig, {
   devtool: 'inline-source-map',
   resolve: {
     alias: {
+      src: path.resolve(__dirname, '../src'),
       assets: path.resolve(__dirname, '../src/assets'),
       hooks: path.resolve(__dirname, '../src/hooks'),
       view: path.resolve(__dirname, '../src/components/view'),
