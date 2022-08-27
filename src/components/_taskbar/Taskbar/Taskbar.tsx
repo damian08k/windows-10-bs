@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
-import Plans from './components/Plans/Plans';
-import TimeAndDate from './components/TimeAndDate/TimeAndDate';
-
 import useMountTransition from 'hooks/useMountTransition';
 
 import { RootState } from 'types/store/store.type';
+
+import Plans from '_taskbar/Plans/Plans';
+import TimeAndDate from '_taskbar/TimeAndDate/TimeAndDate';
 
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 import { ReactComponent as WindowsLogo } from 'assets/icons/w10-logo.svg';

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Taskbar from 'Taskbar/Taskbar';
+import Taskbar from '_taskbar/Taskbar/Taskbar';
 
 import classes from './DesktopView.module.css';
 

@@ -1,11 +1,6 @@
 import { FC, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
-import Calendar from './components/Calendar/Calendar';
-import Events from './components/Events/Events';
-import PlansDate from './components/PlansDate/PlansDate';
-import ToggleEventsVisibility from './components/ToggleEventsVisibility/ToggleEventsVisibility';
-
 import useOutsideClick from 'hooks/useOutsideClick';
 
 import { calendarActions, initialSelectedDay } from 'store/slices/calendar.slice';
@@ -13,6 +8,11 @@ import { currentDateActions } from 'store/slices/currentDate.slice';
 import { useAppDispatch } from 'store/store';
 
 import { RootState } from 'types/store/store.type';
+
+import Calendar from '_taskbar/Calendar/Calendar';
+import Events from '_taskbar/Events/Events';
+import PlansDate from '_taskbar/PlansDate/PlansDate';
+import ToggleEventsVisibility from '_taskbar/ToggleEventsVisibility/ToggleEventsVisibility';
 
 import getSplittedToday from 'utils/getSplittedToday';
 import mergeClasses from 'utils/mergeClasses';
