@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Day from './components/Day';
+// import Day from './components/Day';
 
 import useFillCalendar from 'hooks/useFillCalendar';
 
@@ -9,6 +9,7 @@ import { TODAY_ID } from 'src/constants';
 import getSplittedToday from 'utils/getSplittedToday';
 
 import getWeekDays from '../../helpers/getWeekDays';
+import Day from '../Day/Day';
 
 import classes from './DaysList.module.css';
 

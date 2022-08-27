@@ -81,12 +81,12 @@ export default {
     '\\.(css|less)$': '<rootDir>/__mocks__/fileMock.ts',
     '\\.svg': '<rootDir>/__mocks__/svgrMock.ts',
     '^src/(.*)': '<rootDir>/src/$1',
-    '^view/(.*)': '<rootDir>/src/components/view/$1',
     '^store/(.*)': '<rootDir>/src/store/$1',
     '^utils/(.*)': '<rootDir>/src/utils/$1',
     '^types/(.*)': '<rootDir>/src/types/$1',
     '^hooks/(.*)': '<rootDir>/src/hooks/$1',
-    '^Taskbar/(.*)': '<rootDir>/src/components/Taskbar/$1',
+    '^_view/(.*)': '<rootDir>/src/components/_view/$1',
+    '^_taskbar/(.*)': '<rootDir>/src/components/_taskbar/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
