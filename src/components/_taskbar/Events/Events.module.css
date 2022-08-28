@@ -15,6 +15,7 @@
 .input:focus {
   outline-style: solid;
   outline-color: var(--grey);
+  background-color: var(--white);
 }
 
 .events {
