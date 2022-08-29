@@ -1,0 +1,97 @@
+.root {
+  --eventElementsBackground: rgb(76, 76, 76);
+}
+
+.time {
+  display: flex;
+  gap: 20px;
+  margin: calc(var(--spacing) / 3) 0 calc(var(--spacing) * 2);
+}
+
+.timeRange {
+  display: flex;
+  gap: 10px;
+}
+
+input[type='time']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  width: 10%;
+}
+
+.timeFrom,
+.timeTo {
+  border: none;
+  border-bottom: 1px solid var(--plansBorderColor);
+  background-color: transparent;
+  color: var(--white);
+  text-align: center;
+}
+
+.connector {
+  color: var(--grey);
+  filter: brightness(110%);
+}
+
+.addLocation {
+  display: flex;
+  gap: 20px;
+  margin: var(--spacing) 0;
+}
+
+.locationIcon,
+.timeIcon {
+  height: var(--defaultIconSize);
+  fill: var(--eventElementsBackground);
+  filter: brightness(250%);
+}
+
+.addLocationInput {
+  flex-basis: 100%;
+  padding: calc(var(--spacing) / 3) var(--spacing);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--plansBorderColor);
+}
+
+.addLocationInput:hover {
+  background-color: var(--black);
+}
+
+.addLocationInput:focus {
+  outline-style: solid;
+  outline-color: var(--grey);
+  background-color: var(--white);
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.saveButton,
+.moreDetailsButton:disabled {
+  padding-top: calc(var(--spacing) / 3);
+  padding-bottom: calc(var(--spacing) / 3);
+  color: var(--white);
+  filter: brightness(110%);
+  border-width: 1px;
+  border-style: solid;
+}
+
+.saveButton {
+  padding-left: calc(var(--spacing) * 1.5);
+  padding-right: calc(var(--spacing) * 1.5);
+  border-color: var(--windowsGreen);
+  background-color: var(--windowsGreen);
+  cursor: pointer;
+}
+
+.moreDetailsButton:disabled {
+  padding-left: calc(var(--spacing) * 2);
+  padding-right: calc(var(--spacing) * 2);
+  border-color: var(--plansBorderColor);
+  background-color: var(--eventElementsBackground);
+  cursor: not-allowed;
+}

@@ -1,5 +1,6 @@
 :root {
   /* Spacings */
+  /* TODO: Change this, this is wrong */
   --spacing: 10px;
 
   /* Colors */
@@ -19,6 +20,7 @@
 
   /* Sizes */
   --taskbarHeight: 40px;
+  --defaultIconSize: 20px;
 
   /* z-indexes */
   --desktopIndex: 100;

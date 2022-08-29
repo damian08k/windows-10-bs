@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { RootState } from 'types/store/store.type';
@@ -22,17 +22,23 @@ const Events: FC = () => {
     setEventTitle(target);
   };
 
+  const handleSaveEvent = (evt: FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+  };
+
   return (
     <div className={classes.root}>
       <div className={classes.date}>
         {selectedDay.id === TODAY_ID ? 'Today' : `${selectedDayName} ${selectedDay.selectedDay}`}
       </div>
-      <input
-        className={classes.input}
-        placeholder="Add an event or reminder"
-        onChange={handleInputChange}
-      />
-      {eventTitle ? <CreateEvent /> : <div className={classes.events}>No events</div>}
+      <form onSubmit={handleSaveEvent}>
+        <input
+          className={classes.input}
+          placeholder="Add an event or reminder"
+          onChange={handleInputChange}
+        />
+        {!eventTitle ? <CreateEvent /> : <div className={classes.events}>No events</div>}
+      </form>
     </div>
   );
 };
