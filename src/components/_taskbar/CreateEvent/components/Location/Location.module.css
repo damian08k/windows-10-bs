@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  gap: 20px;
+  margin: var(--spacing) 0;
+}
+
+.locationIcon {
+  height: var(--defaultIconSize);
+  fill: var(--eventElementsBackground);
+  filter: brightness(250%);
+}
+
+.addLocationInput {
+  flex-basis: 100%;
+  padding: calc(var(--spacing) / 3) var(--spacing);
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--plansBorderColor);
+}
+
+.addLocationInput:hover {
+  background-color: var(--black);
+}
+
+.addLocationInput:focus {
+  outline-style: solid;
+  outline-color: var(--grey);
+  background-color: var(--white);
+}
