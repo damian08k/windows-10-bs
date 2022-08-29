@@ -7,6 +7,9 @@ import CreateEvent from '_taskbar/CreateEvent/CreateEvent';
 import { TODAY_ID } from 'src/constants';
 
 import changeSelectedDateToDayName from 'utils/changeSelectedDateToDayName';
+import mergeClasses from 'utils/mergeClasses';
+
+import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
 
 import classes from './Events.module.css';
 
@@ -26,18 +29,36 @@ const Events: FC = () => {
     evt.preventDefault();
   };
 
+  const handleCloseCreateEventForm = () => {
+    setEventTitle('');
+  };
+
+  // TODO: Split this to separate components
   return (
     <div className={classes.root}>
       <div className={classes.date}>
         {selectedDay.id === TODAY_ID ? 'Today' : `${selectedDayName} ${selectedDay.selectedDay}`}
+        {eventTitle && (
+          <button className={classes.closeCreateEventForm} onClick={handleCloseCreateEventForm}>
+            <CloseIcon className={classes.closeIcon} />
+          </button>
+        )}
       </div>
       <form onSubmit={handleSaveEvent}>
-        <input
-          className={classes.input}
-          placeholder="Add an event or reminder"
-          onChange={handleInputChange}
-        />
-        {!eventTitle ? <CreateEvent /> : <div className={classes.events}>No events</div>}
+        <div className={classes.eventTitleContainer}>
+          <input
+            className={classes.input}
+            placeholder="Add an event or reminder"
+            value={eventTitle}
+            onChange={handleInputChange}
+          />
+          {eventTitle && (
+            <button className={classes.closeCreateEventForm} onClick={handleCloseCreateEventForm}>
+              <CloseIcon className={mergeClasses(classes.closeIcon, classes.closeIconInInput)} />
+            </button>
+          )}
+        </div>
+        {eventTitle ? <CreateEvent /> : <div className={classes.events}>No events</div>}
       </form>
     </div>
   );
