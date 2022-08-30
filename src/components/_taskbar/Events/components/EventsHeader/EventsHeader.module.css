@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeCreateEventForm {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.closeIcon {
+  width: 10px;
+  height: 10px;
+  fill: var(--white);
+}

@@ -1,3 +1,4 @@
+import { Field } from 'formik';
 import { FC } from 'react';
 
 import { ReactComponent as LocationIcon } from 'assets/icons/location.svg';
@@ -8,7 +9,7 @@ const Location: FC = () => {
   return (
     <div className={classes.root}>
       <LocationIcon className={classes.locationIcon} />
-      <input className={classes.addLocationInput} type="text" placeholder="Add location" />
+      <Field name="location" className={classes.addLocationInput} placeholder="Add location" />
     </div>
   );
 };

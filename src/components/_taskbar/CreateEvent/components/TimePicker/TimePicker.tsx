@@ -1,3 +1,4 @@
+import { Field, FieldProps } from 'formik';
 import { FC } from 'react';
 
 import { ReactComponent as Clock } from 'assets/icons/clock.svg';
@@ -9,9 +10,13 @@ const TimePicker: FC = () => {
     <div className={classes.root}>
       <Clock className={classes.timeIcon} />
       <div className={classes.timeRange}>
-        <input type="time" className={classes.timeFrom} />
+        <Field name="timeFrom">
+          {({ field }: FieldProps) => <input {...field} type="time" className={classes.timeFrom} />}
+        </Field>
         <p className={classes.connector}>to</p>
-        <input type="time" className={classes.timeTo} />
+        <Field name="timeTo">
+          {({ field }: FieldProps) => <input {...field} type="time" className={classes.timeTo} />}
+        </Field>
       </div>
     </div>
   );

@@ -27,3 +27,7 @@
   outline-color: var(--grey);
   background-color: var(--white);
 }
+
+.addLocationInput:not(:focus) {
+  color: var(--white);
+}

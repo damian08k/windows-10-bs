@@ -1,0 +1,46 @@
+.root {
+  position: relative;
+}
+
+.input {
+  margin: var(--spacing) 0;
+  padding: calc(var(--spacing) / 2) calc(var(--spacing) * 2.5) calc(var(--spacing) / 2)
+    calc(var(--spacing) / 2);
+  width: 100%;
+  border: 1px solid var(--grey);
+  background-color: transparent;
+}
+
+.input:focus {
+  outline-style: solid;
+  outline-color: var(--grey);
+  background-color: var(--white);
+}
+
+.input:not(:focus) {
+  color: var(--white);
+}
+
+.input:not(:focus) + .closeCreateEventForm .closeIconInInput {
+  fill: var(--white);
+}
+
+.closeIcon {
+  width: 10px;
+  height: 10px;
+  fill: var(--white);
+}
+
+.closeCreateEventForm {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.closeIconInInput {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  fill: var(--black);
+}

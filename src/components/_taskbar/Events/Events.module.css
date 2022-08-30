@@ -4,55 +4,6 @@
   max-height: 300px;
 }
 
-.input {
-  margin: var(--spacing) 0;
-  padding: calc(var(--spacing) / 2) calc(var(--spacing) * 2.5) calc(var(--spacing) / 2)
-    calc(var(--spacing) / 2);
-  width: 100%;
-  border: 1px solid var(--grey);
-  background-color: transparent;
-}
-
-.input:focus {
-  outline-style: solid;
-  outline-color: var(--grey);
-  background-color: var(--white);
-}
-
 .events {
   font-size: 1.3rem;
-}
-
-.date {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.closeCreateEventForm {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.closeIcon {
-  width: 10px;
-  height: 10px;
-  fill: var(--white);
-}
-
-.closeIconInInput {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  fill: var(--black);
-}
-
-.input:not(:focus) + .closeIconInInput {
-  fill: var(--white);
-}
-
-.eventTitleContainer {
-  position: relative;
 }
