@@ -14,20 +14,16 @@ import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
 import classes from './EventsHeader.module.css';
 
 const EventsHeader: FC = () => {
-  const { values, setFieldValue } = useFormikContext<EventData>();
+  const { values, handleReset } = useFormikContext<EventData>();
   const { selectedDay } = useSelector((state: RootState) => state.calendar);
 
   const selectedDayName = changeSelectedDateToDayName(selectedDay).toLowerCase();
-
-  const handleResetTitleField = () => {
-    setFieldValue('title', '');
-  };
 
   return (
     <div className={classes.root}>
       {selectedDay.id === TODAY_ID ? 'Today' : `${selectedDayName} ${selectedDay.selectedDay}`}
       {values?.title && (
-        <button className={classes.closeCreateEventForm} onClick={handleResetTitleField}>
+        <button className={classes.closeCreateEventForm} onClick={handleReset}>
           <CloseIcon className={classes.closeIcon} />
         </button>
       )}
