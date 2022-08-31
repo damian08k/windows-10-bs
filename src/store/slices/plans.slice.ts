@@ -6,7 +6,7 @@ import { EventData, PlansState } from 'types/store/plansState.type';
 import { RootState } from 'types/store/store.type';
 
 const initialPlansState = {
-  isPlanOpen: true,
+  isPlanOpen: false,
   isEventsVisible: true,
   events: JSON.parse(localStorage.getItem('events') || '[]'),
 } as PlansState;
