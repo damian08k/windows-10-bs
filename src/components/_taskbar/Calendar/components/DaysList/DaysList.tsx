@@ -4,6 +4,8 @@ import { FC } from 'react';
 
 import useFillCalendar from 'hooks/useFillCalendar';
 
+import { DayName } from 'types/components/calendar/dayName.enum';
+
 import { TODAY_ID } from 'src/constants';
 
 import getSplittedToday from 'utils/getSplittedToday';
@@ -12,6 +14,8 @@ import getWeekDays from '../../helpers/getWeekDays';
 import Day from '../Day/Day';
 
 import classes from './DaysList.module.css';
+
+const { CURRENT_MONTH_DAY } = DayName;
 
 type Props = {
   today: string;
@@ -37,7 +41,10 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
       <div className={classes.days}>
         {listOfDays.map(({ id, name, dayNumber }) => {
           const dayID =
-            dayNumber === currentDay && month === currentMonth && year === currentYear
+            dayNumber === currentDay &&
+            month === currentMonth &&
+            year === currentYear &&
+            name === CURRENT_MONTH_DAY
               ? TODAY_ID
               : id;
 
