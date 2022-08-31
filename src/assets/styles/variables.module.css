@@ -15,7 +15,10 @@
 
   --hoverBackground: rgba(255, 255, 255, 0.2);
 
+  /* This two variables could be change to one */
   --plansBorderColor: rgb(76, 76, 76);
+  --eventElementsBackground: rgb(76, 76, 76);
+
   --windowsLogoColor: rgb(61, 156, 61);
 
   /* Sizes */

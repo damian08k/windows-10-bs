@@ -4,15 +4,13 @@ import CreateEventButtons from './components/CreateEventButtons/CreateEventButto
 import Location from './components/Location/Location';
 import TimePicker from './components/TimePicker/TimePicker';
 
-import classes from './CreateEvent.module.css';
-
 const CreateEvent: FC = () => {
   return (
-    <div className={classes.root}>
+    <>
       <TimePicker />
       <Location />
       <CreateEventButtons />
-    </div>
+    </>
   );
 };
 
