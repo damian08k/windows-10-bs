@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { AppDispatch } from 'types/store/store.type';
 
+import { listenMiddleware } from './listenerMiddleware';
 import calendarReducer from './slices/calendar.slice';
 import clockReducer from './slices/clock.slice';
 import currentDateReducer from './slices/currentDate.slice';
@@ -14,6 +15,9 @@ const store = configureStore({
     plans: plansReducer,
     currentDate: currentDateReducer,
     calendar: calendarReducer,
+  },
+  middleware(getDefaultMiddleware) {
+    return getDefaultMiddleware().prepend(listenMiddleware.middleware);
   },
 });
 

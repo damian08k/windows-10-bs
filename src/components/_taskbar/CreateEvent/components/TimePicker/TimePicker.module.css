@@ -1,0 +1,36 @@
+.root {
+  display: flex;
+  gap: 20px;
+  margin: calc(var(--spacing) / 3) 0 calc(var(--spacing) * 2);
+}
+
+.timeRange {
+  display: flex;
+  gap: 10px;
+}
+
+.timeFrom,
+.timeTo {
+  border: none;
+  border-bottom: 1px solid var(--plansBorderColor);
+  background-color: transparent;
+  color: var(--white);
+  text-align: center;
+}
+
+.connector {
+  color: var(--grey);
+  filter: brightness(110%);
+}
+
+.timeIcon {
+  height: var(--defaultIconSize);
+  fill: var(--eventElementsBackground);
+  filter: brightness(250%);
+}
+
+input[type='time']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  width: 10%;
+}

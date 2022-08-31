@@ -1,5 +1,6 @@
 :root {
   /* Spacings */
+  /* TODO: Change this, this is wrong */
   --spacing: 10px;
 
   /* Colors */
@@ -14,11 +15,15 @@
 
   --hoverBackground: rgba(255, 255, 255, 0.2);
 
+  /* This two variables could be change to one */
   --plansBorderColor: rgb(76, 76, 76);
+  --eventElementsBackground: rgb(76, 76, 76);
+
   --windowsLogoColor: rgb(61, 156, 61);
 
   /* Sizes */
   --taskbarHeight: 40px;
+  --defaultIconSize: 20px;
 
   /* z-indexes */
   --desktopIndex: 100;

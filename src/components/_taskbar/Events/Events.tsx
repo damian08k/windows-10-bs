@@ -1,26 +1,53 @@
-import { FC } from 'react';
-import { useSelector } from 'react-redux';
+import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { FC, KeyboardEvent } from 'react';
 
-import { RootState } from 'types/store/store.type';
+import EventsHeader from './components/EventsHeader/EventsHeader';
+import EventTitle from './components/EventTitle/EventTitle';
 
-import { TODAY_ID } from 'src/constants';
+import { plansActions } from 'store/slices/plans.slice';
+import { useAppDispatch } from 'store/store';
 
-import changeSelectedDateToDayName from 'utils/changeSelectedDateToDayName';
+import { EventData } from 'types/store/plansState.type';
+
+import CreateEvent from '_taskbar/CreateEvent/CreateEvent';
+
+import { initialEventFormValues } from './data/data';
 
 import classes from './Events.module.css';
 
 const Events: FC = () => {
-  const { selectedDay } = useSelector((state: RootState) => state.calendar);
+  const dispatch = useAppDispatch();
 
-  const selectedDayName = changeSelectedDateToDayName(selectedDay).toLowerCase();
+  const handleEnterDown = (evt: KeyboardEvent<HTMLFormElement>) => {
+    const { code } = evt;
+
+    if (code === 'Enter' || code === 'NumpadEnter') {
+      evt.preventDefault();
+    }
+  };
+
+  const handleSaveEvent = (values: EventData, actions: FormikHelpers<EventData>) => {
+    dispatch(plansActions.addEvent(values));
+    actions.resetForm();
+  };
 
   return (
     <div className={classes.root}>
-      <div className={classes.date}>
-        {selectedDay.id === TODAY_ID ? 'Today' : `${selectedDayName} ${selectedDay.selectedDay}`}
-      </div>
-      <input className={classes.input} placeholder="Add an event or reminder" />
-      <div className={classes.events}>events...</div>
+      <Formik initialValues={initialEventFormValues} onSubmit={handleSaveEvent}>
+        {(props: FormikProps<EventData>) => {
+          const { title } = props.values;
+
+          return (
+            <>
+              <EventsHeader />
+              <Form onKeyDown={handleEnterDown}>
+                <EventTitle />
+                {title ? <CreateEvent /> : <div className={classes.events}>No events</div>}
+              </Form>
+            </>
+          );
+        }}
+      </Formik>
     </div>
   );
 };
