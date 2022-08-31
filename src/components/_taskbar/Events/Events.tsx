@@ -4,6 +4,9 @@ import { FC, KeyboardEvent } from 'react';
 import EventsHeader from './components/EventsHeader/EventsHeader';
 import EventTitle from './components/EventTitle/EventTitle';
 
+import { plansActions } from 'store/slices/plans.slice';
+import { useAppDispatch } from 'store/store';
+
 import { EventData } from 'types/store/plansState.type';
 
 import CreateEvent from '_taskbar/CreateEvent/CreateEvent';
@@ -13,6 +16,8 @@ import { initialEventFormValues } from './data/data';
 import classes from './Events.module.css';
 
 const Events: FC = () => {
+  const dispatch = useAppDispatch();
+
   const handleEnterDown = (evt: KeyboardEvent<HTMLFormElement>) => {
     const { code } = evt;
 
@@ -22,6 +27,7 @@ const Events: FC = () => {
   };
 
   const handleSaveEvent = (values: EventData, actions: FormikHelpers<EventData>) => {
+    dispatch(plansActions.addEvent(values));
     actions.resetForm();
   };
 

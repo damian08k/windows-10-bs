@@ -5,16 +5,25 @@ describe('plans slice tests', () => {
     const initialState = {
       isPlanOpen: false,
       isEventsVisible: true,
+      events: [],
     };
 
     const shouldBeTrueResult = reducer(initialState, plansActions.togglePlansVisibility(true));
-    expect(shouldBeTrueResult).toStrictEqual({ isPlanOpen: true, isEventsVisible: true });
+    expect(shouldBeTrueResult).toStrictEqual({
+      isPlanOpen: true,
+      isEventsVisible: true,
+      events: [],
+    });
 
     const shouldBeFalseResult = reducer(
       shouldBeTrueResult,
       plansActions.togglePlansVisibility(false),
     );
-    expect(shouldBeFalseResult).toStrictEqual({ isPlanOpen: false, isEventsVisible: true });
+    expect(shouldBeFalseResult).toStrictEqual({
+      isPlanOpen: false,
+      isEventsVisible: true,
+      events: [],
+    });
 
     const shouldNotChangeCurrentState = reducer(
       shouldBeFalseResult,
@@ -23,6 +32,7 @@ describe('plans slice tests', () => {
     expect(shouldNotChangeCurrentState).toStrictEqual({
       isPlanOpen: false,
       isEventsVisible: true,
+      events: [],
     });
   });
 });

@@ -8,4 +8,5 @@ export type EventData = {
 export type PlansState = {
   isPlanOpen: boolean;
   isEventsVisible: boolean;
+  events: EventData[];
 };
