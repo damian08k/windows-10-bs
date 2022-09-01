@@ -6,28 +6,28 @@
   margin: var(--spacing10) 0;
   padding: var(--spacing5) var(--spacing25) var(--spacing5) var(--spacing10);
   width: 100%;
-  border: 1px solid var(--grey);
+  border: 1px solid var(--secondaryColor);
   background-color: transparent;
 }
 
 .input:focus {
   outline-style: solid;
-  outline-color: var(--grey);
-  background-color: var(--white);
+  outline-color: var(--secondaryColor);
+  background-color: var(--whiteColor);
 }
 
 .input:not(:focus) {
-  color: var(--white);
+  color: var(--whiteColor);
 }
 
 .input:not(:focus) + .closeCreateEventForm .closeIconInInput {
-  fill: var(--white);
+  fill: var(--whiteColor);
 }
 
 .closeIcon {
-  width: 10px;
-  height: 10px;
-  fill: var(--white);
+  width: var(--iconSize10);
+  height: var(--iconSize10);
+  fill: var(--whiteColor);
 }
 
 .closeCreateEventForm {
@@ -41,5 +41,5 @@
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
-  fill: var(--black);
+  fill: var(--blackColor);
 }

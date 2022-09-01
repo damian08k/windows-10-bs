@@ -10,7 +10,7 @@
   border: none;
   font-size: var(--hidePlansButtonElementSize);
   background-color: transparent;
-  color: var(--windowsInnerGreen);
+  color: var(--primaryLightColor);
   cursor: pointer;
 }
 
@@ -21,13 +21,13 @@
 }
 
 .arrow path {
-  fill: var(--windowsInnerGreen);
+  fill: var(--primaryLightColor);
 }
 
 .root:hover {
-  color: var(--grey);
+  color: var(--secondaryColor);
 }
 
 .root:hover .arrow path {
-  fill: var(--grey);
+  fill: var(--secondaryColor);
 }

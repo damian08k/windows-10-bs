@@ -15,9 +15,9 @@
 }
 
 .month:hover {
-  border: 1px solid var(--plansBorderColor);
+  border: 1px solid var(--secondaryDarkColor);
 }
 
 .currentMonth {
-  background-color: var(--windowsGreen);
+  background-color: var(--primaryColor);
 }

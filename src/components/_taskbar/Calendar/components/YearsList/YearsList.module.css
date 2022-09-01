@@ -15,14 +15,14 @@
 }
 
 .yearElement:hover {
-  border: 1px solid var(--plansBorderColor);
+  border: 1px solid var(--secondaryDarkColor);
 }
 
 .current {
-  background-color: var(--windowsGreen);
+  background-color: var(--primaryColor);
 }
 
 .previous,
 .next {
-  color: var(--adjacentBackground);
+  color: var(--secondaryHoverLightColor);
 }

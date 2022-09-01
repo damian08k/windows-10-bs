@@ -1,14 +1,14 @@
 .root {
   display: flex;
   justify-content: flex-end;
-  gap: 5px;
+  gap: var(--spacing5);
 }
 
 .saveButton,
 .moreDetailsButton:disabled {
   padding-top: var(--spacing3_33);
   padding-bottom: var(--spacing3_33);
-  color: var(--white);
+  color: var(--whiteColor);
   filter: brightness(110%);
   border-width: 1px;
   border-style: solid;
@@ -17,15 +17,15 @@
 .saveButton {
   padding-left: var(--spacing15);
   padding-right: var(--spacing15);
-  border-color: var(--windowsGreen);
-  background-color: var(--windowsGreen);
+  border-color: var(--primaryColor);
+  background-color: var(--primaryColor);
   cursor: pointer;
 }
 
 .moreDetailsButton:disabled {
   padding-left: var(--spacing20);
   padding-right: var(--spacing20);
-  border-color: var(--plansBorderColor);
-  background-color: var(--eventElementsBackground);
+  border-color: var(--secondaryDarkColor);
+  background-color: var(--secondaryDarkColor);
   cursor: not-allowed;
 }

@@ -10,11 +10,11 @@
   border: none;
   text-align: center;
   background-color: transparent;
-  color: var(--white);
+  color: var(--whiteColor);
 }
 
 .root:hover {
-  background-color: var(--hoverBackground);
+  background-color: var(--secondaryHoverColor);
   cursor: pointer;
 }
 
@@ -28,11 +28,11 @@
   position: absolute;
   top: 100%;
   right: 0;
-  border: 1px solid var(--grey);
+  border: 1px solid var(--secondaryColor);
   font-size: 1.3rem;
   white-space: nowrap;
-  background-color: var(--white);
-  color: var(--black);
+  background-color: var(--whiteColor);
+  color: var(--blackColor);
   opacity: 0;
   visibility: hidden;
 }
