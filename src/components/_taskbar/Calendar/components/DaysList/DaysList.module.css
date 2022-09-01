@@ -1,10 +1,10 @@
 .root {
-  --daysSpacing: calc(var(--spacing) / 5);
+  --daysGap: 2px;
 }
 
 .weekDays {
   display: flex;
-  padding-bottom: var(--spacing);
+  padding-bottom: var(--spacing10);
   text-transform: lowercase;
   text-align: center;
 }
@@ -16,7 +16,5 @@
 .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: var(--daysSpacing);
+  gap: var(--daysGap);
 }
-
-

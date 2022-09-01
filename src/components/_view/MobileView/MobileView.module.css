@@ -8,7 +8,7 @@
 }
 
 .infoText {
-  padding: 0 calc(var(--spacing) * 5);
+  padding: 0 var(--spacing50);
   text-align: center;
   color: var(--white);
 }

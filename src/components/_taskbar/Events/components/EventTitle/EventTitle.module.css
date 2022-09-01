@@ -3,9 +3,8 @@
 }
 
 .input {
-  margin: var(--spacing) 0;
-  padding: calc(var(--spacing) / 2) calc(var(--spacing) * 2.5) calc(var(--spacing) / 2)
-    calc(var(--spacing) / 2);
+  margin: var(--spacing10) 0;
+  padding: var(--spacing5) var(--spacing25) var(--spacing5) var(--spacing10);
   width: 100%;
   border: 1px solid var(--grey);
   background-color: transparent;

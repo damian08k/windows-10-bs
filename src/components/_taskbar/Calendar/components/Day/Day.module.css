@@ -1,5 +1,6 @@
 .root {
-  padding: var(--daysSpacing);
+  --daySpacing: calc(var(--spacing5) - 3px);
+  padding: var(--daySpacing);
   line-height: 35px;
   border: 2px solid transparent;
   text-align: center;

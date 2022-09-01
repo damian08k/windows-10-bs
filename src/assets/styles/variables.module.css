@@ -1,7 +1,18 @@
 :root {
   /* Spacings */
-  /* TODO: Change this, this is wrong */
-  --spacing: 10px;
+  --spacing5: 5px;
+  --spacing10: 10px;
+  --spacing15: 15px;
+  --spacing20: 20px;
+  --spacing25: 25px;
+  --spacing30: 30px;
+  --spacing35: 35px;
+  --spacing40: 40px;
+  --spacing45: 45px;
+  --spacing50: 50px;
+
+  --specialSpacing1: calc(var(--spacing10) / 3);
+  --specialSpacing2: calc(var(--spacing10) / 5);
 
   /* Colors */
   --black: rgb(0, 0, 0);
