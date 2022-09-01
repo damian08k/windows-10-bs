@@ -6,8 +6,8 @@ import { useAppDispatch } from 'store/store';
 
 import { RootState } from 'types/store/store.type';
 
-import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
-import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
+import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrow_down.svg';
+import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';
 
 import classes from './ToggleEventsVisibility.module.css';
 
@@ -24,12 +24,12 @@ const ToggleEventsVisibility: FC = () => {
       {isEventsVisible ? (
         <>
           <p>Hide plan</p>
-          <ArrowDown className={classes.arrow} />
+          <ArrowDownIcon className={classes.arrow} />
         </>
       ) : (
         <>
           <p>Show plan</p>
-          <ArrowUp className={classes.arrow} />
+          <ArrowUpIcon className={classes.arrow} />
         </>
       )}
     </button>
