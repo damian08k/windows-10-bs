@@ -23,12 +23,12 @@ const ToggleEventsVisibility: FC = () => {
     <button className={classes.root} onClick={handleToggleEventsVisibility}>
       {isEventsVisible ? (
         <>
-          <p>Hide plans</p>
+          <p>Hide plan</p>
           <ArrowDown className={classes.arrow} />
         </>
       ) : (
         <>
-          <p>Show plans</p>
+          <p>Show plan</p>
           <ArrowUp className={classes.arrow} />
         </>
       )}

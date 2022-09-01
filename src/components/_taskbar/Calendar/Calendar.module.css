@@ -1,5 +1,4 @@
 .root {
-  padding: var(--spacing10) var(--spacing20);
   border-bottom: 1px solid var(--secondaryDarkColor);
   font-size: 1.4rem;
   user-select: none;

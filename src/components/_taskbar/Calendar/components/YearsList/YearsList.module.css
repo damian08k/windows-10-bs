@@ -3,6 +3,8 @@
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing2);
+  padding: var(--spacing10);
 }
 
 .yearElement {
