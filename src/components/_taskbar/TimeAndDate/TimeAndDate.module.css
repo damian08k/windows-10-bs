@@ -4,9 +4,8 @@
   align-items: center;
   flex-wrap: wrap;
   margin: 0 var(--spacing10) 0 auto;
-  padding: 0 var(--spacing10);
   width: 90px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   border: none;
   text-align: center;
   background-color: transparent;
