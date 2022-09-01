@@ -3,6 +3,8 @@
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing2);
+  padding: var(--spacing10);
 }
 
 .yearElement {
@@ -15,14 +17,14 @@
 }
 
 .yearElement:hover {
-  border: 1px solid var(--plansBorderColor);
+  border: 1px solid var(--secondaryDarkColor);
 }
 
 .current {
-  background-color: var(--windowsGreen);
+  background-color: var(--primaryColor);
 }
 
 .previous,
 .next {
-  color: var(--adjacentBackground);
+  color: var(--secondaryHoverLightColor);
 }

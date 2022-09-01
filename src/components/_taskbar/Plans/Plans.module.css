@@ -1,14 +1,12 @@
 .root {
-  --plansBackground: rgb(31, 31, 31);
-
   position: absolute;
   right: 0;
   width: 360px;
-  border: 1px solid var(--plansBorderColor);
+  border: 1px solid var(--secondaryDarkColor);
   border-top: none;
   border-right: none;
-  background-color: var(--plansBackground);
-  color: var(--windowsGrey);
+  background-color: var(--secondaryDarkColor100);
+  color: var(--secondaryLightColor);
   transform: translateY(-100%);
   transition: all 0.3s linear;
   visibility: hidden;

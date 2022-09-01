@@ -8,8 +8,8 @@ import { RootState } from 'types/store/store.type';
 import changeDatesOnDown from '../../../../helpers/changeDatesOnDown';
 import changeDatesOnUp from '../../../../helpers/changeDatesOnUp';
 
-import { ReactComponent as ArrowDown } from 'assets/icons/arrow_down.svg';
-import { ReactComponent as ArrowUp } from 'assets/icons/arrow_up.svg';
+import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrow_down.svg';
+import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';
 
 import classes from './Arrows.module.css';
 
@@ -31,8 +31,8 @@ const Arrows: FC = () => {
 
   return (
     <div className={classes.root}>
-      <ArrowUp onClick={handleArrowUpClick} className={classes.arrow} />
-      <ArrowDown onClick={handleArrowDownClick} className={classes.arrow} />
+      <ArrowUpIcon onClick={handleArrowUpClick} className={classes.arrow} />
+      <ArrowDownIcon onClick={handleArrowDownClick} className={classes.arrow} />
     </div>
   );
 };

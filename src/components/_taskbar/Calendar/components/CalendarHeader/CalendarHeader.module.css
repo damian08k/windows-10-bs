@@ -1,7 +1,8 @@
 .root {
   display: flex;
   justify-content: space-between;
-  padding-bottom: calc(var(--spacing) * 1.5);
+
+  padding: var(--spacing15) var(--spacing20) 0;
 }
 
 .headerElement {

@@ -1,7 +1,6 @@
 .root {
-  --taskbarBackgroundColor: rgb(16, 16, 16);
-  --taskbarVerticalSpacing: calc(var(--spacing) / 2);
-  --leftInputSpacing: calc(var(--spacing) * 3.7);
+  --taskbarVerticalSpacing: var(--spacing5);
+  --leftInputSpacing: calc(var(--spacing10) * 3.7);
 
   display: flex;
   position: absolute;
@@ -9,7 +8,7 @@
   left: 0;
   width: 100%;
   height: var(--taskbarHeight);
-  background-color: var(--taskbarBackgroundColor);
+  background-color: var(--secondaryDarkColor200);
 }
 
 .logoContainer {
@@ -27,12 +26,12 @@
   width: 100%;
   height: 100%;
   border: none;
-  background-color: var(--black);
+  background-color: var(--blackColor);
   cursor: pointer;
 }
 
 .logoButton:hover {
-  background-color: var(--hoverBackground);
+  background-color: var(--secondaryHoverColor);
 }
 
 .windowsLogo {
@@ -52,12 +51,12 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  width: var(--defaultIconSize);
-  height: var(--defaultIconSize);
+  width: var(--iconSizeDefault);
+  height: var(--iconSizeDefault);
 }
 
 .searchInput {
-  padding: var(--taskbarVerticalSpacing) var(--spacing) var(--taskbarVerticalSpacing)
+  padding: var(--taskbarVerticalSpacing) var(--spacing10) var(--taskbarVerticalSpacing)
     var(--leftInputSpacing);
   width: 100%;
   height: 100%;

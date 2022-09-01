@@ -11,7 +11,7 @@
 }
 
 .closeIcon {
-  width: 10px;
-  height: 10px;
-  fill: var(--white);
+  width: var(--iconSize10);
+  height: var(--iconSize10);
+  fill: var(--whiteColor);
 }

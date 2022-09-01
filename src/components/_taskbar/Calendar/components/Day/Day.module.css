@@ -1,21 +1,21 @@
 .root {
-  padding: var(--daysSpacing);
+  padding: var(--spacing2);
   line-height: 35px;
   border: 2px solid transparent;
   text-align: center;
 }
 
 .root:hover {
-  border-color: var(--grey);
+  border-color: var(--secondaryColor);
 }
 
 .PREVIOUS_MONTH_DAY,
 .NEXT_MONTH_DAY {
-  color: var(--adjacentBackground);
+  color: var(--secondaryHoverLightColor);
 }
 
 .TODAY {
-  background-image: linear-gradient(var(--windowsGreen), var(--windowsGreen));
+  background-image: linear-gradient(var(--primaryColor), var(--primaryColor));
 }
 
 .TODAY.selected {
@@ -28,15 +28,15 @@
 }
 
 .TODAY:hover {
-  border-color: var(--windowsGreenOnHover);
+  border-color: var(--primaryHoverColor);
 }
 
 .TODAY .dayNumber {
-  background-color: var(--windowsGreen);
-  color: var(--white);
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
   font-weight: bold;
 }
 
 .selected {
-  border: 2px solid var(--windowsGreen);
+  border: 2px solid var(--primaryColor);
 }

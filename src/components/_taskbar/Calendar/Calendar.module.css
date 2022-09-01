@@ -1,9 +1,5 @@
 .root {
-  /* * adjacentBackground is using in Calendar's childs */
-  --adjacentBackground: rgba(255, 255, 255, 0.5);
-
-  padding: var(--spacing) calc(var(--spacing) * 2);
-  border-bottom: 1px solid var(--plansBorderColor);
+  border-bottom: 1px solid var(--secondaryDarkColor);
   font-size: 1.4rem;
   user-select: none;
 }

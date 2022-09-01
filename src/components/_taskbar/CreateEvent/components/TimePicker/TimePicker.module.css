@@ -1,31 +1,31 @@
 .root {
   display: flex;
-  gap: 20px;
-  margin: calc(var(--spacing) / 3) 0 calc(var(--spacing) * 2);
+  gap: var(--spacing20);
+  margin: var(--spacing3_33) 0 var(--spacing20);
 }
 
 .timeRange {
   display: flex;
-  gap: 10px;
+  gap: var(--spacing10);
 }
 
 .timeFrom,
 .timeTo {
   border: none;
-  border-bottom: 1px solid var(--plansBorderColor);
+  border-bottom: 1px solid var(--secondaryDarkColor);
   background-color: transparent;
-  color: var(--white);
+  color: var(--whiteColor);
   text-align: center;
 }
 
 .connector {
-  color: var(--grey);
+  color: var(--secondaryColor);
   filter: brightness(110%);
 }
 
 .timeIcon {
-  height: var(--defaultIconSize);
-  fill: var(--eventElementsBackground);
+  height: var(--iconSizeDefault);
+  fill: var(--secondaryDarkColor);
   filter: brightness(250%);
 }
 

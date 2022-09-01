@@ -3,7 +3,7 @@
 
   display: flex;
   justify-content: flex-end;
-  gap: 10%;
+  gap: var(--spacing25);
 }
 
 .arrow {
