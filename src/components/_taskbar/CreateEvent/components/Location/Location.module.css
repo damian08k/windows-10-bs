@@ -12,7 +12,7 @@
 
 .addLocationInput {
   flex-basis: 100%;
-  padding: var(--specialSpacing1) var(--spacing10);
+  padding: var(--spacing3_33) var(--spacing10);
   background-color: transparent;
   border: none;
   border-bottom: 1px solid var(--plansBorderColor);

@@ -1,5 +1,5 @@
 :root {
-  /* Spacings */
+  /* -- Spacings -- */
   --spacing5: 5px;
   --spacing10: 10px;
   --spacing15: 15px;
@@ -11,8 +11,9 @@
   --spacing45: 45px;
   --spacing50: 50px;
 
-  --specialSpacing1: calc(var(--spacing10) / 3);
-  --specialSpacing2: calc(var(--spacing10) / 5);
+  /* Special spacings */
+  --spacing3_33: calc(var(--spacing10) / 3);
+  --spacing2: calc(var(--spacing10) / 5);
 
   /* Colors */
   --black: rgb(0, 0, 0);

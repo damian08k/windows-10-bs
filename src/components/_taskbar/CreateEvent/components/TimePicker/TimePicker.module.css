@@ -1,7 +1,7 @@
 .root {
   display: flex;
   gap: 20px;
-  margin: var(--specialSpacing1) 0 var(--spacing20);
+  margin: var(--spacing3_33) 0 var(--spacing20);
 }
 
 .timeRange {

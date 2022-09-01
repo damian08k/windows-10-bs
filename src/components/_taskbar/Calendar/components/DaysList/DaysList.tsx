@@ -1,7 +1,5 @@
 import { FC } from 'react';
 
-// import Day from './components/Day';
-
 import useFillCalendar from 'hooks/useFillCalendar';
 
 import { DayName } from 'types/components/calendar/dayName.enum';
@@ -30,7 +28,7 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
   const { day: currentDay, month: currentMonth, year: currentYear } = getSplittedToday(today);
 
   return (
-    <div className={classes.root}>
+    <>
       <div className={classes.weekDays}>
         {weekDays.map(day => (
           <p key={day} className={classes.weekDay}>
@@ -53,7 +51,7 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 

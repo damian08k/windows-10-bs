@@ -6,8 +6,8 @@
 
 .saveButton,
 .moreDetailsButton:disabled {
-  padding-top: var(--specialSpacing1);
-  padding-bottom: var(--specialSpacing1);
+  padding-top: var(--spacing3_33);
+  padding-bottom: var(--spacing3_33);
   color: var(--white);
   filter: brightness(110%);
   border-width: 1px;

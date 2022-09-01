@@ -24,7 +24,7 @@
 
 [data-title]:after {
   content: attr(data-title);
-  padding: var(--specialSpacing2) var(--spacing5);
+  padding: var(--spacing2) var(--spacing5);
   position: absolute;
   top: 100%;
   right: 0;
