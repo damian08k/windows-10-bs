@@ -82,6 +82,40 @@
   fill: var(--whiteColor);
 }
 
+/* -- ERROR BUTTON -- */
+
+.error.normal,
+.error.loading {
+  border: 2px solid var(--errorColor);
+  background-color: var(--errorColor);
+  color: var(--whiteColor);
+  transition: transform 0.1s linear;
+}
+
+.error.normal .icon svg path {
+  fill: var(--whiteColor);
+}
+
+.error.outline .icon svg path {
+  fill: var(--errorColor);
+}
+
+.error.outline {
+  border: 2px solid var(--errorColor);
+  color: var(--errorColor);
+  transition: filter 0.2s linear, transform 0.1s linear;
+}
+
+.error.outline:active:hover {
+  background-color: var(--errorColor);
+  color: var(--whiteColor);
+  transform: scale(0.98);
+}
+
+.error.outline:active:hover svg path {
+  fill: var(--whiteColor);
+}
+
 /* -- MODES -- */
 
 .primary.normal.lightMode:hover,
