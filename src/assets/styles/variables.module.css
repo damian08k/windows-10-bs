@@ -28,14 +28,21 @@
   --secondaryHoverColor: rgba(255, 255, 255, 0.2);
   --secondaryHoverLightColor: rgba(255, 255, 255, 0.3);
   --secondaryLightColor: rgb(216, 216, 216);
+  --secondaryLightColor100: rgb(184, 184, 184);
+  --secondaryMiddleColor: rgb(102, 102, 102);
   --secondaryDarkColor: rgb(76, 76, 76);
   --secondaryDarkColor100: rgb(31, 31, 31);
   --secondaryDarkColor200: rgb(16, 16, 16);
+
+  --secondaryMiddleColorAlpha0_9: rgba(102, 102, 102, 0.9);
 
   /* Special colors */
   --blackColor: rgb(17, 17, 17);
   --whiteColor: rgb(255, 255, 255);
   --windowsLogoColor: rgb(61, 156, 61);
+
+  --error: rgb(179, 5, 0);
+  --success: rgb(44, 139, 44);
 
   /* -- Sizes -- */
   /* Components sizes */
@@ -43,6 +50,7 @@
 
   /* Icon Sizes */
   --iconSizeDefault: 20px;
+  --iconSizeButton: 13px;
   --iconSize10: 10px;
 
   /* z-indexes */

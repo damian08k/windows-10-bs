@@ -5,8 +5,8 @@ import { useAppDispatch } from 'store/store';
 
 import { RootState } from 'types/store/store.type';
 
-import changeDatesOnDown from '../../../../helpers/changeDatesOnDown';
-import changeDatesOnUp from '../../../../helpers/changeDatesOnUp';
+import changeDatesOnDown from '_taskbar/Calendar/helpers/changeDatesOnDown';
+import changeDatesOnUp from '_taskbar/Calendar/helpers/changeDatesOnUp';
 
 import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrow_down.svg';
 import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';

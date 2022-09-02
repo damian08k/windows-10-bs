@@ -1,0 +1,93 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing10);
+  cursor: pointer;
+}
+
+.loading {
+  /* width: 100px; */
+  cursor: default;
+}
+
+/* -- PRIMARY BUTTON -- */
+
+.primary.normal,
+.primary.loading {
+  border: 2px solid var(--primaryColor);
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+  transition: transform 0.1s linear;
+}
+
+.primary.normal .icon svg path {
+  fill: var(--whiteColor);
+}
+
+.primary.outline {
+  border: 2px solid var(--primaryColor);
+  color: var(--primaryColor);
+  transition: filter 0.2s linear, transform 0.1s linear;
+}
+
+.primary.outline .icon svg path {
+  fill: var(--primaryColor);
+}
+
+.primary.outline:hover,
+.error.outline:hover,
+.success.outline:hover {
+  filter: brightness(1.05);
+}
+
+.primary.outline:active:hover {
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+  transform: scale(0.98);
+}
+
+.primary.outline:active:hover svg path {
+  fill: var(--whiteColor);
+}
+
+/* -- MODES -- */
+
+.primary.normal.lightMode:hover,
+.error.normal.lightMode:hover,
+.success.normal.lightMode:hover {
+  border-color: var(--secondaryLightColor100);
+}
+
+.primary.normal.darkMode:hover,
+.error.normal.darkMode:hover,
+.success.normal.darkMode:hover {
+  border-color: var(--secondaryMiddleColor);
+}
+
+.primary.normal.lightMode:active:hover,
+.error.normal.lightMode:active:hover,
+.success.normal.lightMode:active:hover {
+  background-color: var(--secondaryLightColor100);
+  transform: scale(0.98);
+}
+
+.primary.normal.darkMode:active:hover,
+.error.normal.darkMode:active:hover,
+.success.normal.darkMode:active:hover {
+  background-color: var(--secondaryMiddleColorAlpha0_9);
+  transform: scale(0.98);
+}
+
+/* -- BUTTON CHILDREN -- */
+
+.icon {
+  display: flex;
+  margin-right: var(--spacing5);
+  width: var(--iconSizeButton);
+  height: var(--iconSizeButton);
+}
+
+.value {
+  text-transform: capitalize;
+}
