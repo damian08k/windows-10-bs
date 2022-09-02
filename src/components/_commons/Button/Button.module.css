@@ -11,18 +11,52 @@
   cursor: default;
 }
 
+/* -- BUTTONS COMMON PROPERTIES -- */
+
+.primary.normal,
+.primary.loading,
+.secondary.normal,
+.secondary.loading,
+.error.normal,
+.error.loading,
+.success.normal,
+.success.loading {
+  color: var(--whiteColor);
+  transition: transform 0.1s linear;
+}
+
+.primary.outline:active:hover,
+.secondary.outline:active:hover,
+.error.outline:active:hover,
+.success.outline:active:hover {
+  color: var(--whiteColor);
+  transform: scale(0.98);
+}
+
+.primary.outline:hover,
+.secondary.outline:hover,
+.error.outline:hover,
+.success.outline:hover {
+  filter: brightness(1.05);
+}
+
+.primary.normal .icon svg path,
+.secondary.normal .icon svg path,
+.error.normal .icon svg path,
+.success.normal .icon svg path,
+.primary.outline:active:hover svg path,
+.secondary.outline:active:hover svg path,
+.error.outline:active:hover svg path,
+.success.outline:active:hover svg path {
+  fill: var(--whiteColor);
+}
+
 /* -- PRIMARY BUTTON -- */
 
 .primary.normal,
 .primary.loading {
   border: 2px solid var(--primaryColor);
   background-color: var(--primaryColor);
-  color: var(--whiteColor);
-  transition: transform 0.1s linear;
-}
-
-.primary.normal .icon svg path {
-  fill: var(--whiteColor);
 }
 
 .primary.outline {
@@ -35,21 +69,8 @@
   fill: var(--primaryColor);
 }
 
-.primary.outline:hover,
-.secondary.outline:hover,
-.error.outline:hover,
-.success.outline:hover {
-  filter: brightness(1.05);
-}
-
 .primary.outline:active:hover {
   background-color: var(--primaryColor);
-  color: var(--whiteColor);
-  transform: scale(0.98);
-}
-
-.primary.outline:active:hover svg path {
-  fill: var(--whiteColor);
 }
 
 /* -- SECONDARY BUTTON -- */
@@ -58,12 +79,6 @@
 .secondary.loading {
   border: 2px solid var(--secondaryColor);
   background-color: var(--secondaryColor);
-  color: var(--whiteColor);
-  transition: transform 0.1s linear;
-}
-
-.secondary.normal .icon svg path {
-  fill: var(--whiteColor);
 }
 
 .secondary.outline {
@@ -74,12 +89,6 @@
 
 .secondary.outline:active:hover {
   background-color: var(--secondaryColor);
-  color: var(--whiteColor);
-  transform: scale(0.98);
-}
-
-.secondary.outline:active:hover svg path {
-  fill: var(--whiteColor);
 }
 
 /* -- ERROR BUTTON -- */
@@ -88,12 +97,6 @@
 .error.loading {
   border: 2px solid var(--errorColor);
   background-color: var(--errorColor);
-  color: var(--whiteColor);
-  transition: transform 0.1s linear;
-}
-
-.error.normal .icon svg path {
-  fill: var(--whiteColor);
 }
 
 .error.outline .icon svg path {
@@ -108,12 +111,28 @@
 
 .error.outline:active:hover {
   background-color: var(--errorColor);
-  color: var(--whiteColor);
-  transform: scale(0.98);
 }
 
-.error.outline:active:hover svg path {
-  fill: var(--whiteColor);
+/* -- SUCCESS BUTTON -- */
+
+.success.normal,
+.success.loading {
+  border: 2px solid var(--successColor);
+  background-color: var(--successColor);
+}
+
+.success.outline .icon svg path {
+  fill: var(--successColor);
+}
+
+.success.outline {
+  border: 2px solid var(--successColor);
+  color: var(--successColor);
+  transition: filter 0.2s linear, transform 0.1s linear;
+}
+
+.success.outline:active:hover {
+  background-color: var(--successColor);
 }
 
 /* -- MODES -- */
