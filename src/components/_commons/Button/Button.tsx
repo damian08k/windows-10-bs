@@ -29,6 +29,7 @@ const Button: FC<Props> = ({
     <button
       className={mergeClasses(classes.root, {
         [classes.primary]: type === 'primary',
+        [classes.secondary]: type === 'secondary',
         [classes.success]: type === 'success',
         [classes.error]: type === 'error',
         [classes.normal]: state === 'normal',

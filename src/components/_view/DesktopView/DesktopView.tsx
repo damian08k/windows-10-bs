@@ -52,6 +52,52 @@ const DesktopView: FC = () => {
           icon={<SearchIcon />}
           value="primary outline icon"
         />
+        <Button
+          type="secondary"
+          state="normal"
+          onClick={() => 1}
+          value="secondary normal no icon"
+        />
+        <Button
+          type="secondary"
+          state="normal"
+          onClick={() => 1}
+          mode="light"
+          value="secondary normal light border"
+        />
+        <Button
+          type="secondary"
+          state="normal"
+          onClick={() => 1}
+          icon={<SearchIcon />}
+          value="secondary normal icon"
+        />
+        <Button
+          type="secondary"
+          state="loading"
+          onClick={() => 1}
+          value="secondary loading no icon"
+        />
+        <Button
+          type="secondary"
+          state="loading"
+          onClick={() => 1}
+          icon={<SearchIcon />}
+          value="secondary loading icon"
+        />
+        <Button
+          type="secondary"
+          state="outline"
+          onClick={() => 1}
+          value="secondary outline no icon"
+        />
+        <Button
+          type="secondary"
+          state="outline"
+          onClick={() => 1}
+          icon={<SearchIcon />}
+          value="secondary outline icon"
+        />
         <Button type="error" state="normal" onClick={() => 1} value="error normal no icon" />
         <Button
           type="error"
