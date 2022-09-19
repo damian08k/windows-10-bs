@@ -2,6 +2,8 @@ import { FC, ReactNode } from 'react';
 
 import { ButtonMode, ButtonState, ButtonType } from 'types/components/common/button/button.type';
 
+import Loader from '_commons/Loader/Loader';
+
 import mergeClasses from 'utils/mergeClasses';
 
 import classes from './Button.module.css';
@@ -47,9 +49,7 @@ const Button: FC<Props> = ({
           <span className={classes.value}>{value}</span>
         </>
       ) : (
-        <>
-          <p>loading...</p>
-        </>
+        <Loader />
       )}
     </button>
   );
