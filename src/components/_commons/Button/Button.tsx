@@ -1,6 +1,6 @@
-import { FC, ReactNode } from 'react';
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
-import { ButtonMode, ButtonState, ButtonType } from 'types/components/common/button/button.type';
+import { ButtonMode, ButtonState, ButtonVariant } from 'types/components/common/button/button.type';
 
 import Loader from '_commons/Loader/Loader';
 
@@ -9,20 +9,22 @@ import mergeClasses from 'utils/mergeClasses';
 import classes from './Button.module.css';
 
 type Props = {
-  type: ButtonType;
+  variant: ButtonVariant;
   value: string;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
   icon?: ReactNode;
   state?: ButtonState;
   mode?: ButtonMode;
+  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
 };
 
 const Button: FC<Props> = ({
-  type,
+  variant,
   value,
   onClick,
   icon,
+  type,
   disabled = false,
   state = 'normal',
   mode = 'dark',
@@ -30,10 +32,10 @@ const Button: FC<Props> = ({
   return (
     <button
       className={mergeClasses(classes.root, {
-        [classes.primary]: type === 'primary',
-        [classes.secondary]: type === 'secondary',
-        [classes.success]: type === 'success',
-        [classes.error]: type === 'error',
+        [classes.primary]: variant === 'primary',
+        [classes.secondary]: variant === 'secondary',
+        [classes.success]: variant === 'success',
+        [classes.error]: variant === 'error',
         [classes.normal]: state === 'normal',
         [classes.outline]: state === 'outline',
         [classes.loading]: state === 'loading',
@@ -42,6 +44,7 @@ const Button: FC<Props> = ({
       })}
       onClick={onClick}
       disabled={state === 'loading' ? true : disabled}
+      type={type}
     >
       {state !== 'loading' ? (
         <>

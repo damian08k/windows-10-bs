@@ -53,6 +53,9 @@
   --iconSizeButton: 13px;
   --iconSize10: 10px;
 
+  /* -- Font Sizes -- */
+  --buttonFontSize: 1.2rem;
+
   /* z-indexes */
   --desktopIndex: 100;
   --plansIndex: -1;
