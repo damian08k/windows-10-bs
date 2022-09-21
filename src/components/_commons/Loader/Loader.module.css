@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+
+.dot {
+  position: absolute;
+  height: 100%;
+  opacity: 0;
+}
+
+.dot:after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: var(--whiteColor);
+}
