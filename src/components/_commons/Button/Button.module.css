@@ -2,14 +2,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--spacing10);
+  padding: var(--spacing5) var(--spacing10);
+  font-size: var(--buttonFontSize);
   cursor: pointer;
 }
 
+.root:disabled {
+  cursor: not-allowed;
+}
+
 .loading {
-  /* width: 100px; */
+  padding: 0;
   min-width: 100px;
+  max-width: 100px;
+}
+
+.loading,
+.loading:disabled {
   cursor: default;
+}
+
+.outline {
+  background-color: var(--whiteColor);
 }
 
 /* -- BUTTONS COMMON PROPERTIES -- */
@@ -26,18 +40,18 @@
   transition: transform 0.1s linear;
 }
 
-.primary.outline:active:hover,
-.secondary.outline:active:hover,
-.error.outline:active:hover,
-.success.outline:active:hover {
+.primary:not(:disabled).outline:active:hover,
+.secondary:not(:disabled).outline:active:hover,
+.error:not(:disabled).outline:active:hover,
+.success:not(:disabled).outline:active:hover {
   color: var(--whiteColor);
   transform: scale(0.98);
 }
 
-.primary.outline:hover,
-.secondary.outline:hover,
-.error.outline:hover,
-.success.outline:hover {
+.primary:not(:disabled).outline:hover,
+.secondary:not(:disabled).outline:hover,
+.error:not(:disabled).outline:hover,
+.success:not(:disabled).outline:hover {
   filter: brightness(1.05);
 }
 
@@ -45,10 +59,10 @@
 .secondary.normal .icon svg path,
 .error.normal .icon svg path,
 .success.normal .icon svg path,
-.primary.outline:active:hover svg path,
-.secondary.outline:active:hover svg path,
-.error.outline:active:hover svg path,
-.success.outline:active:hover svg path {
+.primary:not(:disabled).outline:active:hover svg path,
+.secondary:not(:disabled).outline:active:hover svg path,
+.error:not(:disabled).outline:active:hover svg path,
+.success:not(:disabled).outline:active:hover svg path {
   fill: var(--whiteColor);
 }
 
@@ -70,7 +84,7 @@
   fill: var(--primaryColor);
 }
 
-.primary.outline:active:hover {
+.primary:not(:disabled).outline:active:hover {
   background-color: var(--primaryColor);
 }
 
@@ -88,7 +102,7 @@
   transition: filter 0.2s linear, transform 0.1s linear;
 }
 
-.secondary.outline:active:hover {
+.secondary:not(:disabled).outline:active:hover {
   background-color: var(--secondaryColor);
 }
 
@@ -110,7 +124,7 @@
   transition: filter 0.2s linear, transform 0.1s linear;
 }
 
-.error.outline:active:hover {
+.error:not(:disabled).outline:active:hover {
   background-color: var(--errorColor);
 }
 
@@ -132,38 +146,38 @@
   transition: filter 0.2s linear, transform 0.1s linear;
 }
 
-.success.outline:active:hover {
+.success:not(:disabled).outline:active:hover {
   background-color: var(--successColor);
 }
 
 /* -- MODES -- */
 
-.primary.normal.lightMode:hover,
-.secondary.normal.lightMode:hover,
-.error.normal.lightMode:hover,
-.success.normal.lightMode:hover {
+.primary:not(:disabled).normal.lightMode:hover,
+.secondary:not(:disabled).normal.lightMode:hover,
+.error:not(:disabled).normal.lightMode:hover,
+.success:not(:disabled).normal.lightMode:hover {
   border-color: var(--secondaryLightColor100);
 }
 
-.primary.normal.darkMode:hover,
-.secondary.normal.darkMode:hover,
-.error.normal.darkMode:hover,
-.success.normal.darkMode:hover {
+.primary:not(:disabled).normal.darkMode:hover,
+.secondary:not(:disabled).normal.darkMode:hover,
+.error:not(:disabled).normal.darkMode:hover,
+.success:not(:disabled).normal.darkMode:hover {
   border-color: var(--secondaryMiddleColor);
 }
 
-.primary.normal.lightMode:active:hover,
-.secondary.normal.lightMode:active:hover,
-.error.normal.lightMode:active:hover,
-.success.normal.lightMode:active:hover {
+.primary:not(:disabled).normal.lightMode:active:hover,
+.secondary:not(:disabled).normal.lightMode:active:hover,
+.error:not(:disabled).normal.lightMode:active:hover,
+.success:not(:disabled).normal.lightMode:active:hover {
   background-color: var(--secondaryLightColor100);
   transform: scale(0.98);
 }
 
-.primary.normal.darkMode:active:hover,
-.secondary.normal.darkMode:active:hover,
-.error.normal.darkMode:active:hover,
-.success.normal.darkMode:active:hover {
+.primary:not(:disabled).normal.darkMode:active:hover,
+.secondary:not(:disabled).normal.darkMode:active:hover,
+.error:not(:disabled).normal.darkMode:active:hover,
+.success:not(:disabled).normal.darkMode:active:hover {
   background-color: var(--secondaryMiddleColorAlpha0_9);
   transform: scale(0.98);
 }
