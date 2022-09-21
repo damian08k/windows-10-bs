@@ -2,17 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
-  height: 100%;
   position: relative;
+  height: 100%;
 }
 
 .dot {
   position: absolute;
   height: 100%;
-  width: 28px;
-  height: 58px;
-  max-height: 100%;
   opacity: 0;
 }
 
@@ -22,5 +18,5 @@
   width: 5px;
   height: 5px;
   border-radius: 5px;
-  background: #fff;
+  background-color: var(--whiteColor);
 }
