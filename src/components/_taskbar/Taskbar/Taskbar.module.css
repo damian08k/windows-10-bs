@@ -3,7 +3,7 @@
   --leftInputSpacing: calc(var(--spacing10) * 3.7);
 
   display: flex;
-  /* position: absolute; */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
