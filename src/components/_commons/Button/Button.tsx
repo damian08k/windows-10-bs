@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import { ButtonHTMLAttributes, FC, MouseEvent, ReactNode } from 'react';
 
 import { ButtonMode, ButtonState, ButtonVariant } from 'types/components/common/button/button.type';
 
@@ -11,7 +11,7 @@ import classes from './Button.module.css';
 type Props = {
   variant: ButtonVariant;
   value: string;
-  onClick?: () => void;
+  onClick?: (evt?: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   icon?: ReactNode;
   state?: ButtonState;
