@@ -29,17 +29,19 @@
   --secondaryHoverLightColor: rgba(255, 255, 255, 0.3);
   --secondaryLightColor: rgb(216, 216, 216);
   --secondaryLightColor100: rgb(184, 184, 184);
-  --secondaryMiddleColor: rgb(102, 102, 102);
+  --secondaryLightColor200: rgb(155, 155, 155);
   --secondaryDarkColor: rgb(76, 76, 76);
   --secondaryDarkColor100: rgb(31, 31, 31);
   --secondaryDarkColor200: rgb(16, 16, 16);
 
-  --secondaryMiddleColorAlpha0_9: rgba(102, 102, 102, 0.9);
+  --secondaryColorAlpha0_9: rgba(102, 102, 102, 0.9);
+  --secondaryColorAlpha0_4: rgba(102, 102, 102, 0.4);
 
   /* Special colors */
   --blackColor: rgb(17, 17, 17);
   --whiteColor: rgb(255, 255, 255);
   --windowsLogoColor: rgb(61, 156, 61);
+  --createdEventColor: rgb(0, 120, 215);
 
   --errorColor: rgb(179, 5, 0);
   --successColor: rgb(44, 139, 44);

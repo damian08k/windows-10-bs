@@ -1,0 +1,55 @@
+.root {
+  margin-top: var(--spacing5);
+  font-size: 1.1rem;
+}
+
+.root:hover {
+  background-color: var(--secondaryColorAlpha0_4);
+}
+
+.root:active .container {
+  transform: scale(0.98);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.1s linear;
+  cursor: pointer;
+}
+
+.container::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 40px;
+  background-color: var(--createdEventColor);
+}
+
+.time {
+  flex-basis: 20%;
+  padding-left: var(--spacing10);
+}
+
+.info {
+  width: 80%;
+  padding-right: var(--spacing10);
+}
+
+.title,
+.location {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.timeFrom,
+.title {
+  padding-bottom: var(--spacing2);
+}
+
+.timeTo,
+.location {
+  color: var(--secondaryLightColor200);
+}
