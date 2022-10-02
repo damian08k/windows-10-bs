@@ -47,7 +47,6 @@ const Events: FC = () => {
       <Formik initialValues={initialEventFormValues} onSubmit={handleSaveEvent}>
         {(props: FormikProps<AddEventData>) => {
           const { title } = props.values;
-
           return (
             <>
               <EventsHeader />
@@ -55,7 +54,8 @@ const Events: FC = () => {
                 <EventTitle />
                 {title && <CreateEvent />}
               </Form>
-              <EventsList />
+              {/* //TODO: Find way to remove this from <Formik> but without using useState */}
+              {!title && <EventsList />}
             </>
           );
         }}
