@@ -2,9 +2,9 @@ import { FC, useEffect } from 'react';
 
 import useScreenWidth from 'hooks/useScreenWidth';
 
+import { useAppDispatch } from 'store/hooks';
 import { clockActions } from 'store/slices/clock.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
-import { useAppDispatch } from 'store/store';
 
 import DesktopView from '_view/DesktopView/DesktopView';
 import MobileView from '_view/MobileView/MobileView';

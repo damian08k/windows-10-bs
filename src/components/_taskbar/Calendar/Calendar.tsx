@@ -1,14 +1,11 @@
 import { FC, WheelEvent } from 'react';
-import { useSelector } from 'react-redux';
 
 import CalendarHeader from './components/CalendarHeader/CalendarHeader';
 import DaysList from './components/DaysList/DaysList';
 import MonthsList from './components/MonthsList/MonthsList';
 import YearsList from './components/YearsList/YearsList';
 
-import { useAppDispatch } from 'store/store';
-
-import { RootState } from 'types/store/store.type';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 import changeDatesOnDown from './helpers/changeDatesOnDown';
 import changeDatesOnUp from './helpers/changeDatesOnUp';
@@ -16,10 +13,8 @@ import changeDatesOnUp from './helpers/changeDatesOnUp';
 import classes from './Calendar.module.css';
 
 const Calendar: FC = () => {
-  const { today, month, year } = useSelector((state: RootState) => state.currentDate);
-  const { isMonthsView, isYearsView, highlightedYears } = useSelector(
-    (state: RootState) => state.calendar,
-  );
+  const { today, month, year } = useAppSelector(state => state.currentDate);
+  const { isMonthsView, isYearsView, highlightedYears } = useAppSelector(state => state.calendar);
 
   const dispatch = useAppDispatch();
 

@@ -1,11 +1,8 @@
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
 
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
-import { useAppDispatch } from 'store/store';
-
-import { RootState } from 'types/store/store.type';
 
 import getSplittedToday from 'utils/getSplittedToday';
 import mergeClasses from 'utils/mergeClasses';
@@ -15,7 +12,7 @@ import getMonthsNames from './helpers/getMonthsNames';
 import classes from './MonthsList.module.css';
 
 const MonthsList: FC = () => {
-  const { today, year } = useSelector((state: RootState) => state.currentDate);
+  const { today, year } = useAppSelector(state => state.currentDate);
   const months = getMonthsNames();
   const dispatch = useAppDispatch();
 

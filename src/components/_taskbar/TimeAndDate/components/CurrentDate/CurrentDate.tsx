@@ -1,14 +1,13 @@
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
 
-import { RootState } from 'types/store/store.type';
+import { useAppSelector } from 'store/hooks';
 
 import formatCurrentDate from 'utils/formatCurrentDate';
 
 import classes from './CurrentDate.module.css';
 
 const CurrentDate: FC = () => {
-  const currentDate = useSelector((state: RootState) => state.currentDate.today);
+  const currentDate = useAppSelector(state => state.currentDate.today);
 
   const { dateTime, currentDateDMYFormat } = formatCurrentDate(currentDate);
 

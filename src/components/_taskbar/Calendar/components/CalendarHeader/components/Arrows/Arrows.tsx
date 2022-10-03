@@ -1,9 +1,6 @@
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
 
-import { useAppDispatch } from 'store/store';
-
-import { RootState } from 'types/store/store.type';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 import changeDatesOnDown from '_taskbar/Calendar/helpers/changeDatesOnDown';
 import changeDatesOnUp from '_taskbar/Calendar/helpers/changeDatesOnUp';
@@ -14,10 +11,8 @@ import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';
 import classes from './Arrows.module.css';
 
 const Arrows: FC = () => {
-  const { isMonthsView, isYearsView, highlightedYears } = useSelector(
-    (state: RootState) => state.calendar,
-  );
-  const { month, year } = useSelector((state: RootState) => state.currentDate);
+  const { isMonthsView, isYearsView, highlightedYears } = useAppSelector(state => state.calendar);
+  const { month, year } = useAppSelector(state => state.currentDate);
 
   const dispatch = useAppDispatch();
 

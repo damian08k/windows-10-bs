@@ -1,11 +1,9 @@
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
 
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
-import { useAppDispatch } from 'store/store';
 
 import { DayName } from 'types/components/calendar/dayName.enum';
-import { RootState } from 'types/store/store.type';
 
 import { TODAY_ID } from 'src/constants';
 
@@ -26,7 +24,7 @@ type Props = {
 };
 
 const Day: FC<Props> = ({ id, name, dayNumber, month, year }) => {
-  const selectedDay = useSelector((state: RootState) => state.calendar.selectedDay);
+  const selectedDay = useAppSelector(state => state.calendar.selectedDay);
 
   const dispatch = useAppDispatch();
 

@@ -1,9 +1,9 @@
 import { useFormikContext } from 'formik';
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
+
+import { useAppSelector } from 'store/hooks';
 
 import { EventData } from 'types/store/plansState.type';
-import { RootState } from 'types/store/store.type';
 
 import { TODAY_ID } from 'src/constants';
 
@@ -15,7 +15,7 @@ import classes from './EventsHeader.module.css';
 
 const EventsHeader: FC = () => {
   const { values, handleReset } = useFormikContext<EventData>();
-  const { selectedDay } = useSelector((state: RootState) => state.calendar);
+  const { selectedDay } = useAppSelector(state => state.calendar);
 
   const selectedDayName = changeSelectedDateToDayName(selectedDay).toLowerCase();
 

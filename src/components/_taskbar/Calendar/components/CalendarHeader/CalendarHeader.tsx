@@ -3,8 +3,8 @@ import { FC } from 'react';
 import Arrows from './components/Arrows/Arrows';
 import CurrentView from './components/CurrentView/CurrentView';
 
+import { useAppDispatch } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
-import { useAppDispatch } from 'store/store';
 
 import mergeClasses from 'utils/mergeClasses';
 

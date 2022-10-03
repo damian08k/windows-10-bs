@@ -1,15 +1,14 @@
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
 
 import Event from './components/Event/Event';
 
-import { RootState } from 'types/store/store.type';
+import { useAppSelector } from 'store/hooks';
 
 import classes from './EventsList.module.css';
 
 const EventsList: FC = () => {
-  const { events } = useSelector((state: RootState) => state.plans);
-  const { selectedDay } = useSelector((state: RootState) => state.calendar);
+  const { events } = useAppSelector(state => state.plans);
+  const { selectedDay } = useAppSelector(state => state.calendar);
   const selectedDate = `${selectedDay.selectedDay}-${selectedDay.selectedMonth}-${selectedDay.selectedYear}`;
 
   const filteredEvents = events.filter(({ date, ...event }) => selectedDate === date && event);

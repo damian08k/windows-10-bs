@@ -1,13 +1,10 @@
 import { FC, useRef } from 'react';
-import { useSelector } from 'react-redux';
 
 import useOutsideClick from 'hooks/useOutsideClick';
 
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions, initialSelectedDay } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
-import { useAppDispatch } from 'store/store';
-
-import { RootState } from 'types/store/store.type';
 
 import Calendar from '_taskbar/Calendar/Calendar';
 import Events from '_taskbar/Events/Events';
@@ -26,10 +23,10 @@ type Props = {
 };
 
 const Plans: FC<Props> = ({ transitionClassName }) => {
-  const dispatch = useAppDispatch();
   const plansBoxContainerRef = useRef<HTMLDivElement>(null);
-  const { isPlanOpen, isEventsVisible } = useSelector((state: RootState) => state.plans);
-  const today = useSelector((state: RootState) => state.currentDate.today);
+  const { isPlanOpen, isEventsVisible } = useAppSelector(state => state.plans);
+  const today = useAppSelector(state => state.currentDate.today);
+  const dispatch = useAppDispatch();
 
   const { month, year } = getSplittedToday(today);
 

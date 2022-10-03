@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
 
-import { RootState } from 'types/store/store.type';
+import { useAppSelector } from 'store/hooks';
 
 import betterAt from 'utils/betterAt';
 
@@ -15,7 +14,7 @@ type Props = {
 };
 
 const CurrentView: FC<Props> = ({ isMonthsView, isYearsView, month, year }) => {
-  const { highlightedYears } = useSelector((state: RootState) => state.calendar);
+  const { highlightedYears } = useAppSelector(state => state.calendar);
 
   const renderViewContent = () => {
     if (!isMonthsView && !isYearsView) {

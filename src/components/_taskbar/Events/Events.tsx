@@ -1,16 +1,14 @@
 import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { FC, KeyboardEvent } from 'react';
-import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 import EventsHeader from './components/EventsHeader/EventsHeader';
 import EventTitle from './components/EventTitle/EventTitle';
 
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { plansActions } from 'store/slices/plans.slice';
-import { useAppDispatch } from 'store/store';
 
 import { AddEventData } from 'types/components/taskbar/events.type';
-import { RootState } from 'types/store/store.type';
 
 import CreateEvent from '_taskbar/CreateEvent/CreateEvent';
 import EventsList from '_taskbar/EventsList/EventsList';
@@ -20,7 +18,7 @@ import { initialEventFormValues } from './data/data';
 import classes from './Events.module.css';
 
 const Events: FC = () => {
-  const { selectedDay } = useSelector((state: RootState) => state.calendar);
+  const { selectedDay } = useAppSelector(state => state.calendar);
 
   const dispatch = useAppDispatch();
 
