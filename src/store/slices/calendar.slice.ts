@@ -8,7 +8,7 @@ import { TODAY_ID } from 'src/constants';
 export const initialSelectedDay: SelectedDay = {
   id: TODAY_ID,
   selectedDay: new Date().getDate(),
-  selectedMonth: new Date().getMonth() + 1,
+  selectedMonth: new Date().getMonth(),
   selectedYear: new Date().getFullYear(),
 };
 

@@ -9,11 +9,15 @@ import classes from './EventsList.module.css';
 
 const EventsList: FC = () => {
   const { events } = useSelector((state: RootState) => state.plans);
+  const { selectedDay } = useSelector((state: RootState) => state.calendar);
+  const selectedDate = `${selectedDay.selectedDay}-${selectedDay.selectedMonth}-${selectedDay.selectedYear}`;
+
+  const filteredEvents = events.filter(({ date, ...event }) => selectedDate === date && event);
 
   return (
     <div className={classes.root}>
-      {events.length ? (
-        events.map(({ id, ...event }) => <Event key={id} {...event} />)
+      {filteredEvents.length ? (
+        filteredEvents.map(({ id, ...event }) => <Event key={id} {...event} />)
       ) : (
         <p>No events</p>
       )}
