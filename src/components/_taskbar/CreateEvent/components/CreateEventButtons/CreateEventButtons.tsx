@@ -1,10 +1,8 @@
-import { FC } from 'react';
-
 import Button from '_commons/Button/Button';
 
 import classes from './CreateEventButtons.module.css';
 
-const CreateEventButtons: FC = () => {
+const CreateEventButtons = () => {
   return (
     <div className={classes.root}>
       <Button variant="primary" value="Save" type="submit" />

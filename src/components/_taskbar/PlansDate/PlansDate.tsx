@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import PlansClock from './components/PlansClock/PlansClock';
 
 import { useAppSelector } from 'store/hooks';
@@ -8,7 +6,7 @@ import formatCurrentDate from 'utils/formatCurrentDate';
 
 import classes from './PlansDate.module.css';
 
-const PlansDate: FC = () => {
+const PlansDate = () => {
   const today = useAppSelector(state => state.currentDate.today);
 
   const { currentDateNamesFormat } = formatCurrentDate(today);

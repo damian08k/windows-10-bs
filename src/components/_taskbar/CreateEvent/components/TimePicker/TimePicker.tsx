@@ -1,11 +1,10 @@
 import { Field, FieldProps } from 'formik';
-import { FC } from 'react';
 
 import { ReactComponent as ClockIcon } from 'assets/icons/clock.svg';
 
 import classes from './TimePicker.module.css';
 
-const TimePicker: FC = () => {
+const TimePicker = () => {
   return (
     <div className={classes.root}>
       <ClockIcon className={classes.timeIcon} />

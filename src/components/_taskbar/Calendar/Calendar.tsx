@@ -1,4 +1,4 @@
-import { FC, WheelEvent } from 'react';
+import { WheelEvent } from 'react';
 
 import CalendarHeader from './components/CalendarHeader/CalendarHeader';
 import DaysList from './components/DaysList/DaysList';
@@ -12,7 +12,7 @@ import changeDatesOnUp from './helpers/changeDatesOnUp';
 
 import classes from './Calendar.module.css';
 
-const Calendar: FC = () => {
+const Calendar = () => {
   const { today, month, year } = useAppSelector(state => state.currentDate);
   const { isMonthsView, isYearsView, highlightedYears } = useAppSelector(state => state.calendar);
 

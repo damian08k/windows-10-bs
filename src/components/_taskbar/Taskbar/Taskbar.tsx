@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import useMountTransition from 'hooks/useMountTransition';
 
 import { useAppSelector } from 'store/hooks';
@@ -12,7 +10,7 @@ import { ReactComponent as WindowsLogo } from 'assets/icons/w10-logo.svg';
 
 import classes from './Taskbar.module.css';
 
-const Taskbar: FC = () => {
+const Taskbar = () => {
   const isPlanOpen = useAppSelector(state => state.plans.isPlanOpen);
   const hasTransitionedIn = useMountTransition(isPlanOpen, 1000);
 

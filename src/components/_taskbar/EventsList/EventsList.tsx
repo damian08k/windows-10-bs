@@ -1,12 +1,10 @@
-import { FC } from 'react';
-
 import Event from './components/Event/Event';
 
 import { useAppSelector } from 'store/hooks';
 
 import classes from './EventsList.module.css';
 
-const EventsList: FC = () => {
+const EventsList = () => {
   const { events } = useAppSelector(state => state.plans);
   const { selectedDay } = useAppSelector(state => state.calendar);
   const selectedDate = `${selectedDay.selectedDay}-${selectedDay.selectedMonth}-${selectedDay.selectedYear}`;

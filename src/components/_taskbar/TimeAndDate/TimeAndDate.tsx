@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { memo } from 'react';
 
 import CurrentDate from './components/CurrentDate/CurrentDate';
 import CurrentTime from './components/CurrentTime/CurrentTime';
@@ -10,7 +10,7 @@ import formatCurrentDate from 'utils/formatCurrentDate';
 
 import classes from './TimeAndDate.module.css';
 
-const TimeAndDate: FC = () => {
+const TimeAndDate = () => {
   const today = useAppSelector(state => state.currentDate.today);
   const dispatch = useAppDispatch();
 

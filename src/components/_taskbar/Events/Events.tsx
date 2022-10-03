@@ -1,5 +1,5 @@
 import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
-import { FC, KeyboardEvent } from 'react';
+import { KeyboardEvent } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import EventsHeader from './components/EventsHeader/EventsHeader';
@@ -17,7 +17,7 @@ import { initialEventFormValues } from './data/data';
 
 import classes from './Events.module.css';
 
-const Events: FC = () => {
+const Events = () => {
   const { selectedDay } = useAppSelector(state => state.calendar);
 
   const dispatch = useAppDispatch();

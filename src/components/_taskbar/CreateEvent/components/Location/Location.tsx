@@ -1,11 +1,10 @@
 import { Field } from 'formik';
-import { FC } from 'react';
 
 import { ReactComponent as LocationIcon } from 'assets/icons/location.svg';
 
 import classes from './Location.module.css';
 
-const Location: FC = () => {
+const Location = () => {
   return (
     <div className={classes.root}>
       <LocationIcon className={classes.locationIcon} />

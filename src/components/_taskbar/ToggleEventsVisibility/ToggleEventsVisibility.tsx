@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { plansActions } from 'store/slices/plans.slice';
 
@@ -8,7 +6,7 @@ import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';
 
 import classes from './ToggleEventsVisibility.module.css';
 
-const ToggleEventsVisibility: FC = () => {
+const ToggleEventsVisibility = () => {
   const isEventsVisible = useAppSelector(state => state.plans.isEventsVisible);
   const dispatch = useAppDispatch();
 

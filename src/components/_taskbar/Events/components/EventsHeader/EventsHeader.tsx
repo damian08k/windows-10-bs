@@ -1,5 +1,4 @@
 import { useFormikContext } from 'formik';
-import { FC } from 'react';
 
 import { useAppSelector } from 'store/hooks';
 
@@ -13,7 +12,7 @@ import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
 
 import classes from './EventsHeader.module.css';
 
-const EventsHeader: FC = () => {
+const EventsHeader = () => {
   const { values, handleReset } = useFormikContext<EventData>();
   const { selectedDay } = useAppSelector(state => state.calendar);
 

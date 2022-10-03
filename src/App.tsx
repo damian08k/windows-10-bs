@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import useScreenWidth from 'hooks/useScreenWidth';
 
@@ -14,7 +14,7 @@ import { MIDNIGHT, MIN_SYSTEM_RESOLUTION } from './constants';
 
 import './assets/styles/variables.module.css';
 
-const App: FC = () => {
+const App = () => {
   const screenWidth = useScreenWidth();
 
   const dispatch = useAppDispatch();

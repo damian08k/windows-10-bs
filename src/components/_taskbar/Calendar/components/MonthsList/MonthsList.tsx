@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
@@ -11,7 +9,7 @@ import getMonthsNames from './helpers/getMonthsNames';
 
 import classes from './MonthsList.module.css';
 
-const MonthsList: FC = () => {
+const MonthsList = () => {
   const { today, year } = useAppSelector(state => state.currentDate);
   const months = getMonthsNames();
   const dispatch = useAppDispatch();
