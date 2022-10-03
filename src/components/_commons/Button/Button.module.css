@@ -163,7 +163,7 @@
 .secondary:not(:disabled).normal.darkMode:hover,
 .error:not(:disabled).normal.darkMode:hover,
 .success:not(:disabled).normal.darkMode:hover {
-  border-color: var(--secondaryMiddleColor);
+  border-color: var(--secondaryColor);
 }
 
 .primary:not(:disabled).normal.lightMode:active:hover,
@@ -178,7 +178,7 @@
 .secondary:not(:disabled).normal.darkMode:active:hover,
 .error:not(:disabled).normal.darkMode:active:hover,
 .success:not(:disabled).normal.darkMode:active:hover {
-  background-color: var(--secondaryMiddleColorAlpha0_9);
+  background-color: var(--secondaryColorAlpha0_9);
   transform: scale(0.98);
 }
 

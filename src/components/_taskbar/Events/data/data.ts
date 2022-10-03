@@ -1,8 +1,8 @@
-import { EventData } from 'types/store/plansState.type';
+import { AddEventData } from 'types/components/taskbar/events.type';
 
-export const initialEventFormValues: EventData = {
+export const initialEventFormValues: AddEventData = {
   title: '',
-  timeFrom: '',
-  timeTo: '',
+  timeFrom: '15:00',
+  timeTo: '16:00',
   location: '',
 };

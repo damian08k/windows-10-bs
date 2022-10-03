@@ -1,0 +1,6 @@
+.root {
+  font-size: 1.3rem;
+  max-height: 100px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
