@@ -1,22 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { YearElement } from 'types/components/calendar/yearElement.type';
-import { CalendarState, SelectedDay } from 'types/store/calendar.type';
+import { CalendarState, SelectedDate } from 'types/store/calendar.type';
 
 import { TODAY_ID } from 'src/constants';
 
-export const initialSelectedDay: SelectedDay = {
+export const initialSelectedDate: SelectedDate = {
   id: TODAY_ID,
-  selectedDay: new Date().getDate(),
-  selectedMonth: new Date().getMonth(),
-  selectedYear: new Date().getFullYear(),
+  day: new Date().getDate(),
+  month: new Date().getMonth(),
+  year: new Date().getFullYear(),
 };
 
 const initialCalendarState = {
   isMonthsView: false,
   isYearsView: false,
   highlightedYears: [],
-  selectedDay: initialSelectedDay,
+  selectedDate: initialSelectedDate,
 } as CalendarState;
 
 const calendarSlice = createSlice({
@@ -36,8 +36,8 @@ const calendarSlice = createSlice({
 
       state.highlightedYears.push(...action.payload);
     },
-    setSelectedDay(state, action: PayloadAction<SelectedDay>) {
-      state.selectedDay = { ...action.payload };
+    setSelectedDate(state, action: PayloadAction<SelectedDate>) {
+      state.selectedDate = { ...action.payload };
     },
   },
 });

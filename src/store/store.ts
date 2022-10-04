@@ -1,7 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
-
-import { AppDispatch } from 'types/store/store.type';
 
 import { listenMiddleware } from './listenerMiddleware';
 import calendarReducer from './slices/calendar.slice';
@@ -20,7 +17,5 @@ const store = configureStore({
     return getDefaultMiddleware().prepend(listenMiddleware.middleware);
   },
 });
-
-export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 export default store;

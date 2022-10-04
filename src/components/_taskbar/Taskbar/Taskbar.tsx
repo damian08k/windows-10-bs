@@ -1,11 +1,8 @@
-import { FC } from 'react';
-import { useSelector } from 'react-redux';
-
 import useMountTransition from 'hooks/useMountTransition';
 
-import { RootState } from 'types/store/store.type';
+import { useAppSelector } from 'store/hooks';
 
-import Plans from '_taskbar/Plans/Plans';
+import Plans from '_plans/Plans/Plans';
 import TimeAndDate from '_taskbar/TimeAndDate/TimeAndDate';
 
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
@@ -13,8 +10,8 @@ import { ReactComponent as WindowsLogo } from 'assets/icons/w10-logo.svg';
 
 import classes from './Taskbar.module.css';
 
-const Taskbar: FC = () => {
-  const isPlanOpen = useSelector((state: RootState) => state.plans.isPlanOpen);
+const Taskbar = () => {
+  const isPlanOpen = useAppSelector(state => state.plans.isPlanOpen);
   const hasTransitionedIn = useMountTransition(isPlanOpen, 1000);
 
   return (

@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
-import { useAppDispatch } from 'store/store';
 
 import { YearElement } from 'types/components/calendar/yearElement.type';
 import { YearType } from 'types/components/calendar/yearType.type';
-import { RootState } from 'types/store/store.type';
 
 import betterAt from 'utils/betterAt';
-import getSplittedToday from 'utils/getSplittedToday';
+import getSplittedToday from 'utils/calendar/getSplittedToday';
 
 const { HIGHLIGHTED, PREVIOUS, NEXT, CURRENT } = YearType;
 
@@ -19,7 +17,7 @@ const { HIGHLIGHTED, PREVIOUS, NEXT, CURRENT } = YearType;
 // * if it's odd, list of years have 6 next years and 0 previous
 
 const useFillYears = (year: number): YearElement[] => {
-  const { today } = useSelector((state: RootState) => state.currentDate);
+  const { today } = useAppSelector(state => state.currentDate);
   const [years, setYears] = useState<YearElement[]>([]);
 
   const dispatch = useAppDispatch();

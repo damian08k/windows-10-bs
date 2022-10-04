@@ -1,15 +1,15 @@
 import { YearElement } from 'types/components/calendar/yearElement.type';
 
-export type SelectedDay = {
+export type SelectedDate = {
   id: string;
-  selectedDay: number;
-  selectedMonth: number;
-  selectedYear: number;
+  day: number;
+  month: number;
+  year: number;
 };
 
 export type CalendarState = {
   isMonthsView: boolean;
   isYearsView: boolean;
   highlightedYears: YearElement[];
-  selectedDay: SelectedDay;
+  selectedDate: SelectedDate;
 };
