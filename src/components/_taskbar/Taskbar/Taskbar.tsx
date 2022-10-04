@@ -2,7 +2,7 @@ import useMountTransition from 'hooks/useMountTransition';
 
 import { useAppSelector } from 'store/hooks';
 
-import Plans from '_taskbar/Plans/Plans';
+import Plans from '_plans/Plans/Plans';
 import TimeAndDate from '_taskbar/TimeAndDate/TimeAndDate';
 
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';

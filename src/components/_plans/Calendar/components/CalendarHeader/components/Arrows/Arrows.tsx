@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
-import changeDatesOnDown from '_taskbar/Calendar/helpers/changeDatesOnDown';
-import changeDatesOnUp from '_taskbar/Calendar/helpers/changeDatesOnUp';
+import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
+import changeDatesOnUp from '_plans/Calendar/helpers/changeDatesOnUp';
 
 import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrow_down.svg';
 import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';

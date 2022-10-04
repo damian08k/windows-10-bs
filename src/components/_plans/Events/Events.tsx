@@ -10,8 +10,8 @@ import { plansActions } from 'store/slices/plans.slice';
 
 import { AddEventData } from 'types/components/taskbar/events.type';
 
-import CreateEvent from '_taskbar/CreateEvent/CreateEvent';
-import EventsList from '_taskbar/EventsList/EventsList';
+import CreateEvent from '_plans/CreateEvent/CreateEvent';
+import EventsList from '_plans/EventsList/EventsList';
 
 import { getSelectedDateAsString } from 'utils/calendar/getSelectedDateAsString';
 

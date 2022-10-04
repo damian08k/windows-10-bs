@@ -87,6 +87,7 @@ export default {
     '^hooks/(.*)': '<rootDir>/src/hooks/$1',
     '^_view/(.*)': '<rootDir>/src/components/_view/$1',
     '^_taskbar/(.*)': '<rootDir>/src/components/_taskbar/$1',
+    '^_plans/(.*)': '<rootDir>/src/components/_plans/$1',
     '^_commons/(.*)': '<rootDir>/src/components/_commons/$1',
   },
 

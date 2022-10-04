@@ -6,10 +6,10 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions, initialSelectedDate } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 
-import Calendar from '_taskbar/Calendar/Calendar';
-import Events from '_taskbar/Events/Events';
-import PlansDate from '_taskbar/PlansDate/PlansDate';
-import ToggleEventsVisibility from '_taskbar/ToggleEventsVisibility/ToggleEventsVisibility';
+import Calendar from '_plans/Calendar/Calendar';
+import Events from '_plans/Events/Events';
+import PlansDate from '_plans/PlansDate/PlansDate';
+import ToggleEventsVisibility from '_plans/ToggleEventsVisibility/ToggleEventsVisibility';
 
 import getSplittedToday from 'utils/calendar/getSplittedToday';
 import mergeClasses from 'utils/mergeClasses';
