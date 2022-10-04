@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 
-import getSplittedToday from 'utils/getSplittedToday';
+import getSplittedToday from 'utils/calendar/getSplittedToday';
 import mergeClasses from 'utils/mergeClasses';
 
 import getMonthsNames from './helpers/getMonthsNames';

@@ -8,7 +8,7 @@ import { YearElement } from 'types/components/calendar/yearElement.type';
 import { YearType } from 'types/components/calendar/yearType.type';
 
 import betterAt from 'utils/betterAt';
-import getSplittedToday from 'utils/getSplittedToday';
+import getSplittedToday from 'utils/calendar/getSplittedToday';
 
 const { HIGHLIGHTED, PREVIOUS, NEXT, CURRENT } = YearType;
 

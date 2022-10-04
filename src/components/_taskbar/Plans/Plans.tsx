@@ -11,7 +11,7 @@ import Events from '_taskbar/Events/Events';
 import PlansDate from '_taskbar/PlansDate/PlansDate';
 import ToggleEventsVisibility from '_taskbar/ToggleEventsVisibility/ToggleEventsVisibility';
 
-import getSplittedToday from 'utils/getSplittedToday';
+import getSplittedToday from 'utils/calendar/getSplittedToday';
 import mergeClasses from 'utils/mergeClasses';
 
 import resetPlansViews from './helpers/outsideClickCallback';

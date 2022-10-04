@@ -2,7 +2,7 @@ import PlansClock from './components/PlansClock/PlansClock';
 
 import { useAppSelector } from 'store/hooks';
 
-import formatCurrentDate from 'utils/formatCurrentDate';
+import formatCurrentDate from 'utils/calendar/formatCurrentDate';
 
 import classes from './PlansDate.module.css';
 

@@ -6,7 +6,7 @@ import CurrentTime from './components/CurrentTime/CurrentTime';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { plansActions } from 'store/slices/plans.slice';
 
-import formatCurrentDate from 'utils/formatCurrentDate';
+import formatCurrentDate from 'utils/calendar/formatCurrentDate';
 
 import classes from './TimeAndDate.module.css';
 

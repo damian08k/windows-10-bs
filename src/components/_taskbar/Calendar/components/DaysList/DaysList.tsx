@@ -6,7 +6,7 @@ import { DayName } from 'types/components/calendar/dayName.enum';
 
 import { TODAY_ID } from 'src/constants';
 
-import getSplittedToday from 'utils/getSplittedToday';
+import getSplittedToday from 'utils/calendar/getSplittedToday';
 
 import getWeekDays from '../../helpers/getWeekDays';
 import Day from '../Day/Day';

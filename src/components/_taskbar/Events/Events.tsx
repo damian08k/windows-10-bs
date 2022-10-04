@@ -13,7 +13,7 @@ import { AddEventData } from 'types/components/taskbar/events.type';
 import CreateEvent from '_taskbar/CreateEvent/CreateEvent';
 import EventsList from '_taskbar/EventsList/EventsList';
 
-import { getSelectedDateAsString } from 'utils/getSelectedDateAsString';
+import { getSelectedDateAsString } from 'utils/calendar/getSelectedDateAsString';
 
 import { initialEventFormValues } from './data/data';
 
