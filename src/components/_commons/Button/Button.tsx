@@ -31,7 +31,7 @@ const Button: FC<Props> = ({
 }) => {
   return (
     <button
-      className={mergeClasses(classes.root, {
+      className={mergeClasses(classes.root, classes.button, {
         [classes.primary]: variant === 'primary',
         [classes.secondary]: variant === 'secondary',
         [classes.success]: variant === 'success',
