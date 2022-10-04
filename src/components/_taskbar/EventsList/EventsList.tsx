@@ -2,14 +2,18 @@ import Event from './components/Event/Event';
 
 import { useAppSelector } from 'store/hooks';
 
+import { getSelectedDateAsString } from 'utils/getSelectedDateAsString';
+
 import classes from './EventsList.module.css';
 
 const EventsList = () => {
   const { events } = useAppSelector(state => state.plans);
-  const { selectedDay } = useAppSelector(state => state.calendar);
-  const selectedDate = `${selectedDay.selectedDay}-${selectedDay.selectedMonth}-${selectedDay.selectedYear}`;
+  const { selectedDate } = useAppSelector(state => state.calendar);
+  const selectedDateAsString = getSelectedDateAsString(selectedDate);
 
-  const filteredEvents = events.filter(({ date, ...event }) => selectedDate === date && event);
+  const filteredEvents = events.filter(
+    ({ date, ...event }) => selectedDateAsString === date && event,
+  );
 
   return (
     <div className={classes.root}>

@@ -13,12 +13,14 @@ import { AddEventData } from 'types/components/taskbar/events.type';
 import CreateEvent from '_taskbar/CreateEvent/CreateEvent';
 import EventsList from '_taskbar/EventsList/EventsList';
 
+import { getSelectedDateAsString } from 'utils/getSelectedDateAsString';
+
 import { initialEventFormValues } from './data/data';
 
 import classes from './Events.module.css';
 
 const Events = () => {
-  const { selectedDay } = useAppSelector(state => state.calendar);
+  const { selectedDate } = useAppSelector(state => state.calendar);
 
   const dispatch = useAppDispatch();
 
@@ -34,7 +36,7 @@ const Events = () => {
     const event = {
       ...values,
       id: uuidv4(),
-      date: `${selectedDay.selectedDay}-${selectedDay.selectedMonth}-${selectedDay.selectedYear}`,
+      date: getSelectedDateAsString(selectedDate),
     };
     dispatch(plansActions.addEvent(event));
     actions.resetForm();

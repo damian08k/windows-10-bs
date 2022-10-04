@@ -14,13 +14,14 @@ import classes from './EventsHeader.module.css';
 
 const EventsHeader = () => {
   const { values, handleReset } = useFormikContext<EventData>();
-  const { selectedDay } = useAppSelector(state => state.calendar);
+  const { selectedDate } = useAppSelector(state => state.calendar);
+  const { id, day } = selectedDate;
 
-  const selectedDayName = changeSelectedDateToDayName(selectedDay).toLowerCase();
+  const selectedDayName = changeSelectedDateToDayName(selectedDate).toLowerCase();
 
   return (
     <div className={classes.root}>
-      {selectedDay.id === TODAY_ID ? 'Today' : `${selectedDayName} ${selectedDay.selectedDay}`}
+      {id === TODAY_ID ? 'Today' : `${selectedDayName} ${day}`}
       {values?.title && (
         <button className={classes.closeCreateEventForm} onClick={handleReset}>
           <CloseIcon className={classes.closeIcon} />

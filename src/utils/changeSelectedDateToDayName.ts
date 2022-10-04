@@ -1,7 +1,7 @@
-import { SelectedDay } from 'types/store/calendar.type';
+import { SelectedDate } from 'types/store/calendar.type';
 
-const changeSelectedDateToDayName = (selectedDay: SelectedDay): string => {
-  const { selectedDay: day, selectedMonth: month, selectedYear: year } = selectedDay;
+const changeSelectedDateToDayName = (selectedDate: SelectedDate): string => {
+  const { day, month, year } = selectedDate;
 
   const date = new Date(
     `${year}-${month < 10 ? `0${month + 1}` : month + 1}-${day < 10 ? `0${day}` : day}`,

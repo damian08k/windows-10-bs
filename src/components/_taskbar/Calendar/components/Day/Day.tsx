@@ -24,7 +24,7 @@ type Props = {
 };
 
 const Day: FC<Props> = ({ id, name, dayNumber, month, year }) => {
-  const selectedDay = useAppSelector(state => state.calendar.selectedDay);
+  const selectedDate = useAppSelector(state => state.calendar.selectedDate);
 
   const dispatch = useAppDispatch();
 
@@ -32,11 +32,11 @@ const Day: FC<Props> = ({ id, name, dayNumber, month, year }) => {
     const { selectedMonth, selectedYear } = selectMonthAndYear(month, name, year);
 
     dispatch(
-      calendarActions.setSelectedDay({
+      calendarActions.setSelectedDate({
         id,
-        selectedMonth,
-        selectedYear,
-        selectedDay: dayNumber,
+        day: dayNumber,
+        month: selectedMonth,
+        year: selectedYear,
       }),
     );
   };
@@ -44,7 +44,7 @@ const Day: FC<Props> = ({ id, name, dayNumber, month, year }) => {
   return (
     <div
       className={mergeClasses(classes.root, classes[name], {
-        [classes.selected]: selectedDay.id === id,
+        [classes.selected]: selectedDate.id === id,
         [classes[TODAY]]: id === TODAY_ID,
       })}
       onClick={() => handleSelectDay(id, name)}

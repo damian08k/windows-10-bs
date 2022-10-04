@@ -3,7 +3,7 @@ import { FC, useRef } from 'react';
 import useOutsideClick from 'hooks/useOutsideClick';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { calendarActions, initialSelectedDay } from 'store/slices/calendar.slice';
+import { calendarActions, initialSelectedDate } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 
 import Calendar from '_taskbar/Calendar/Calendar';
@@ -39,7 +39,7 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
           year,
         }),
       );
-      dispatch(calendarActions.setSelectedDay(initialSelectedDay));
+      dispatch(calendarActions.setSelectedDate(initialSelectedDate));
     }
   });
 
