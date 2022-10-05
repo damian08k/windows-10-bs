@@ -14,7 +14,13 @@ const Event: FC<Props> = ({ title, timeFrom, timeTo, location }) => {
   };
 
   return (
-    <div className={classes.root} role="button" aria-pressed={isPressed} onClick={handleEventClick}>
+    <div
+      className={classes.root}
+      role="button"
+      aria-pressed={isPressed}
+      tabIndex={0}
+      onClick={handleEventClick}
+    >
       <div className={classes.container}>
         <div className={classes.time}>
           <p className={classes.timeFrom}>{timeFrom}</p>

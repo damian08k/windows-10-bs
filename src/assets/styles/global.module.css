@@ -14,6 +14,13 @@ html {
   font-size: 10px;
 }
 
+button:focus {
+  outline-width: 2px;
+  outline-color: var(--whiteColor);
+  outline-style: solid;
+  outline-offset: -2px;
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }
