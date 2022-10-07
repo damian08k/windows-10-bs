@@ -25,9 +25,9 @@ const Events = () => {
   const dispatch = useAppDispatch();
 
   const handleEnterDown = (evt: KeyboardEvent<HTMLFormElement>) => {
-    const { code } = evt;
+    const { key } = evt;
 
-    if (code === 'Enter' || code === 'NumpadEnter') {
+    if (key === 'Enter') {
       evt.preventDefault();
     }
   };

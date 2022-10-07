@@ -11,6 +11,10 @@
   background-color: var(--secondaryDarkColor200);
 }
 
+button:focus {
+  outline-offset: -2px;
+}
+
 .logoContainer {
   display: flex;
   justify-content: center;

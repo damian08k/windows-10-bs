@@ -19,13 +19,19 @@ const CurrentView: FC<Props> = ({ isMonthsView, isYearsView, month, year }) => {
   const renderViewContent = () => {
     if (!isMonthsView && !isYearsView) {
       return (
-        <>
-          {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(0, month))}
-          <span className={classes.calendarViewYear}>{year}</span>
-        </>
+        <button className={classes.calendarView}>
+          <span className={classes.month}>
+            {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(0, month))}
+          </span>
+          <span>{year}</span>
+        </button>
       );
     } else if (isMonthsView) {
-      return year;
+      return (
+        <button className={classes.calendarView}>
+          <span>{year}</span>
+        </button>
+      );
     } else if (isYearsView && highlightedYears.length) {
       return `${highlightedYears[0].year} - ${betterAt(highlightedYears, -1).year}`;
     }

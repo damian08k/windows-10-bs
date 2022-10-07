@@ -2,6 +2,17 @@
   text-transform: lowercase;
 }
 
-.calendarViewYear {
-  padding-left: var(--spacing5);
+.calendarView {
+  background-color: transparent;
+  border: none;
+  color: var(--whiteColor);
+}
+
+.calendarView:focus {
+  outline-offset: 0;
+}
+
+.month {
+  text-transform: lowercase;
+  padding-right: var(--spacing5);
 }

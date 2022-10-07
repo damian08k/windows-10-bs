@@ -6,6 +6,15 @@
   gap: var(--spacing25);
 }
 
+.arrowButton {
+  background-color: transparent;
+  border: none;
+}
+
+.arrowButton:focus {
+  outline-offset: 0;
+}
+
 .arrow {
   width: var(--arrowSize);
   height: var(--arrowSize);
