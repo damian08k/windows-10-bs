@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback, useEffect, useRef } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
@@ -21,10 +21,15 @@ type Props = {
   dayNumber: number;
   month: number;
   year: number;
+  setFocus: any;
+  index: any;
+  focus: any;
+  element: any;
 };
 
-const Day: FC<Props> = ({ id, name, dayNumber, month, year }) => {
+const Day: FC<Props> = ({ id, name, dayNumber, month, year, setFocus, index, focus, element }) => {
   const selectedDate = useAppSelector(state => state.calendar.selectedDate);
+  const dayRef = useRef<HTMLButtonElement>(null);
 
   const dispatch = useAppDispatch();
 
@@ -41,16 +46,32 @@ const Day: FC<Props> = ({ id, name, dayNumber, month, year }) => {
     );
   };
 
+  useEffect(() => {
+    if (focus) {
+      dayRef?.current?.focus();
+    }
+  }, [focus]);
+
+  const handleSelect = useCallback(() => {
+    setFocus(index);
+    console.log(index);
+  }, [element, index, setFocus]);
+
   return (
-    <div
+    <button
+      ref={dayRef}
       className={mergeClasses(classes.root, classes[name], {
         [classes.selected]: selectedDate.id === id,
         [classes[TODAY]]: id === TODAY_ID,
       })}
-      onClick={() => handleSelectDay(id, name)}
+      onClick={() => {
+        handleSelectDay(id, name);
+      }}
+      onKeyDown={handleSelect}
+      tabIndex={focus ? 0 : -1}
     >
-      <div className={classes.dayNumber}>{dayNumber}</div>
-    </div>
+      <span className={classes.dayNumber}>{dayNumber}</span>
+    </button>
   );
 };
 

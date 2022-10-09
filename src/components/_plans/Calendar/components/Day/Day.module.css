@@ -3,6 +3,8 @@
   line-height: 35px;
   border: 2px solid transparent;
   text-align: center;
+  background-color: transparent;
+  color: var(--whiteColor);
 }
 
 .root:hover {
@@ -32,6 +34,7 @@
 }
 
 .TODAY .dayNumber {
+  display: block;
   background-color: var(--primaryColor);
   color: var(--whiteColor);
   font-weight: bold;

@@ -1,10 +1,11 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 
+import { useArrowFocus } from 'hooks/useArrowFocus';
 import useFillCalendar from 'hooks/useFillCalendar';
 
 import { DayName } from 'types/components/calendar/dayName.enum';
 
-import { TODAY_ID } from 'src/constants';
+import { CALENDAR_WEEK_DAYS, TODAY_ID } from 'src/constants';
 
 import getSplittedToday from 'utils/calendar/getSplittedToday';
 
@@ -22,9 +23,16 @@ type Props = {
 };
 
 const DaysList: FC<Props> = ({ today, month, year }) => {
+  const daysContainerRef = useRef<HTMLDivElement>(null);
   const listOfDays = useFillCalendar(new Date(year, month, 1), month);
-  const weekDays = getWeekDays();
+  const [focus, setFocus] = useArrowFocus(
+    listOfDays.length,
+    daysContainerRef,
+    CALENDAR_WEEK_DAYS,
+    11,
+  );
 
+  const weekDays = getWeekDays();
   const { day: currentDay, month: currentMonth, year: currentYear } = getSplittedToday(today);
 
   return (
@@ -36,18 +44,29 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
           </p>
         ))}
       </div>
-      <div className={classes.days}>
-        {listOfDays.map(({ id, name, dayNumber }) => {
+      <div className={classes.days} ref={daysContainerRef}>
+        {listOfDays.map((element, index) => {
           const dayID =
-            dayNumber === currentDay &&
+            element.dayNumber === currentDay &&
             month === currentMonth &&
             year === currentYear &&
-            name === CURRENT_MONTH_DAY
+            element.name === CURRENT_MONTH_DAY
               ? TODAY_ID
-              : id;
+              : element.id;
 
           return (
-            <Day key={id} id={dayID} name={name} dayNumber={dayNumber} month={month} year={year} />
+            <Day
+              key={element.id}
+              id={dayID}
+              name={element.name}
+              dayNumber={element.dayNumber}
+              month={month}
+              year={year}
+              setFocus={setFocus}
+              index={index}
+              focus={focus === index}
+              element={element}
+            />
           );
         })}
       </div>
