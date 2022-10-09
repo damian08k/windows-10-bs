@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useRef } from 'react';
+import { Dispatch, FC, SetStateAction, useCallback, useEffect, useRef } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
@@ -21,17 +21,21 @@ type Props = {
   dayNumber: number;
   month: number;
   year: number;
-  setFocus: any;
-  index: any;
-  focus: any;
-  element: any;
+  index: number;
+  isFocus: boolean;
+  setFocus: Dispatch<SetStateAction<number>>;
 };
 
-const Day: FC<Props> = ({ id, name, dayNumber, month, year, setFocus, index, focus, element }) => {
-  const selectedDate = useAppSelector(state => state.calendar.selectedDate);
+const Day: FC<Props> = ({ id, name, dayNumber, month, year, setFocus, index, isFocus }) => {
   const dayRef = useRef<HTMLButtonElement>(null);
-
+  const selectedDate = useAppSelector(state => state.calendar.selectedDate);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (isFocus) {
+      dayRef?.current?.focus();
+    }
+  }, [isFocus]);
 
   const handleSelectDay = (id: string, name: DayName) => {
     const { selectedMonth, selectedYear } = selectMonthAndYear(month, name, year);
@@ -46,16 +50,9 @@ const Day: FC<Props> = ({ id, name, dayNumber, month, year, setFocus, index, foc
     );
   };
 
-  useEffect(() => {
-    if (focus) {
-      dayRef?.current?.focus();
-    }
-  }, [focus]);
-
-  const handleSelect = useCallback(() => {
+  const handleFocusDay = useCallback(() => {
     setFocus(index);
-    console.log(index);
-  }, [element, index, setFocus]);
+  }, [index, setFocus]);
 
   return (
     <button
@@ -64,11 +61,9 @@ const Day: FC<Props> = ({ id, name, dayNumber, month, year, setFocus, index, foc
         [classes.selected]: selectedDate.id === id,
         [classes[TODAY]]: id === TODAY_ID,
       })}
-      onClick={() => {
-        handleSelectDay(id, name);
-      }}
-      onKeyDown={handleSelect}
-      tabIndex={focus ? 0 : -1}
+      onClick={() => handleSelectDay(id, name)}
+      onKeyDown={handleFocusDay}
+      tabIndex={isFocus ? 0 : -1}
     >
       <span className={classes.dayNumber}>{dayNumber}</span>
     </button>

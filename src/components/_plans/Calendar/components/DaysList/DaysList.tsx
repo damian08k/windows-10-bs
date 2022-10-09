@@ -3,18 +3,12 @@ import { FC, useRef } from 'react';
 import { useArrowFocus } from 'hooks/useArrowFocus';
 import useFillCalendar from 'hooks/useFillCalendar';
 
-import { DayName } from 'types/components/calendar/dayName.enum';
-
 import { CALENDAR_WEEK_DAYS, TODAY_ID } from 'src/constants';
-
-import getSplittedToday from 'utils/calendar/getSplittedToday';
 
 import getWeekDays from '../../helpers/getWeekDays';
 import Day from '../Day/Day';
 
 import classes from './DaysList.module.css';
-
-const { CURRENT_MONTH_DAY } = DayName;
 
 type Props = {
   today: string;
@@ -24,16 +18,17 @@ type Props = {
 
 const DaysList: FC<Props> = ({ today, month, year }) => {
   const daysContainerRef = useRef<HTMLDivElement>(null);
-  const listOfDays = useFillCalendar(new Date(year, month, 1), month);
+  const listOfDays = useFillCalendar(new Date(year, month, 1), month, today);
+
+  const initialFocus = listOfDays.findIndex(el => el?.isToday);
   const [focus, setFocus] = useArrowFocus(
     listOfDays.length,
     daysContainerRef,
     CALENDAR_WEEK_DAYS,
-    11,
+    initialFocus === -1 ? 0 : initialFocus,
   );
 
   const weekDays = getWeekDays();
-  const { day: currentDay, month: currentMonth, year: currentYear } = getSplittedToday(today);
 
   return (
     <>
@@ -45,27 +40,21 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
         ))}
       </div>
       <div className={classes.days} ref={daysContainerRef}>
-        {listOfDays.map((element, index) => {
-          const dayID =
-            element.dayNumber === currentDay &&
-            month === currentMonth &&
-            year === currentYear &&
-            element.name === CURRENT_MONTH_DAY
-              ? TODAY_ID
-              : element.id;
+        {listOfDays.map((day, index) => {
+          const { id, name, dayNumber, isToday } = day;
+          const dayID = isToday ? TODAY_ID : id;
 
           return (
             <Day
-              key={element.id}
+              key={id}
               id={dayID}
-              name={element.name}
-              dayNumber={element.dayNumber}
+              name={name}
+              dayNumber={dayNumber}
               month={month}
               year={year}
               setFocus={setFocus}
               index={index}
-              focus={focus === index}
-              element={element}
+              isFocus={focus === index}
             />
           );
         })}
