@@ -5,7 +5,7 @@
 }
 
 .closeCreateEventForm {
-  background-color: transparent;
+  background-color: var(--transparent);
   border: none;
   cursor: pointer;
 }

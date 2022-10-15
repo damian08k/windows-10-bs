@@ -3,7 +3,7 @@
 }
 
 .calendarView {
-  background-color: transparent;
+  background-color: var(--transparent);
   border: none;
   color: var(--whiteColor);
 }

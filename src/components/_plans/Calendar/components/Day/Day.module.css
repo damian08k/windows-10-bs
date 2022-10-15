@@ -1,9 +1,9 @@
 .root {
   padding: var(--spacing2);
   line-height: 35px;
-  border: 2px solid transparent;
+  border: 2px solid var(--transparent);
   text-align: center;
-  background-color: transparent;
+  background-color: var(--transparent);
   color: var(--whiteColor);
 }
 
@@ -21,7 +21,7 @@
 }
 
 .TODAY.selected {
-  background-image: linear-gradient(transparent, transparent);
+  background-image: linear-gradient(var(--transparent), var(--transparent));
 }
 
 .TODAY,

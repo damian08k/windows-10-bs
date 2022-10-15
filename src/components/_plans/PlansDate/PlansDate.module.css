@@ -4,11 +4,17 @@
 }
 
 .plansDate {
+  border: none;
   font-size: 1.3rem;
+  background-color: var(--transparent);
   color: var(--primaryLightColor);
   cursor: pointer;
 }
 
 .plansDate:hover {
   color: var(--secondarySelectedColor);
+}
+
+.plansDate:focus {
+  outline-offset: 1px;
 }

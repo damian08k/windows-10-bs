@@ -13,7 +13,7 @@
 .addLocationInput {
   flex-basis: 100%;
   padding: var(--spacing3_33) var(--spacing10);
-  background-color: transparent;
+  background-color: var(--transparent);
   border: none;
   border-bottom: 1px solid var(--secondaryDarkColor);
 }

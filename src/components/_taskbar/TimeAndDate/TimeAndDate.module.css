@@ -8,7 +8,7 @@
   font-size: 1.4rem;
   border: none;
   text-align: center;
-  background-color: transparent;
+  background-color: var(--transparent);
   color: var(--whiteColor);
 }
 

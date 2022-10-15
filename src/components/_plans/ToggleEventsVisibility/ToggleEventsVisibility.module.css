@@ -9,7 +9,7 @@
   padding: var(--verticalRootPadding) var(--spacing20);
   border: none;
   font-size: var(--hidePlansButtonElementSize);
-  background-color: transparent;
+  background-color: var(--transparent);
   color: var(--primaryLightColor);
   cursor: pointer;
 }

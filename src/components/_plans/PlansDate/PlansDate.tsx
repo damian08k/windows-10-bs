@@ -14,7 +14,9 @@ const PlansDate = () => {
   return (
     <div className={classes.root}>
       <PlansClock />
-      <div className={classes.plansDate}>{currentDateNamesFormat}</div>
+      <button className={classes.plansDate}>
+        <span>{currentDateNamesFormat}</span>
+      </button>
     </div>
   );
 };
