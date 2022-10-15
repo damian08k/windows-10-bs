@@ -1,7 +1,7 @@
 import { FC, useRef } from 'react';
 
 import { useArrowFocus } from 'hooks/useArrowFocus';
-import useFillCalendar from 'hooks/useFillCalendar';
+import { useFillMonth } from 'hooks/useFillMonth';
 
 import { CALENDAR_WEEK_DAYS, TODAY_ID } from 'src/constants';
 
@@ -18,14 +18,14 @@ type Props = {
 
 const DaysList: FC<Props> = ({ today, month, year }) => {
   const daysContainerRef = useRef<HTMLDivElement>(null);
-  const listOfDays = useFillCalendar(new Date(year, month, 1), month, today);
+  const listOfDays = useFillMonth(new Date(year, month, 1), month, today);
 
-  const initialFocus = listOfDays.findIndex(el => el?.isToday);
+  const initialFocus = listOfDays?.currentMonth.findIndex(day => day.isToday);
   const [focus, setFocus] = useArrowFocus(
-    listOfDays.length,
+    listOfDays?.currentMonth?.length as number,
     daysContainerRef,
     CALENDAR_WEEK_DAYS,
-    initialFocus === -1 ? 0 : initialFocus,
+    initialFocus,
   );
 
   const weekDays = getWeekDays();
@@ -40,10 +40,10 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
         ))}
       </div>
       <div className={classes.days} ref={daysContainerRef}>
-        {listOfDays.map((day, index) => {
+        {listOfDays?.currentMonth.map((day, index) => {
           const { id, name, dayNumber, isToday } = day;
           const dayID = isToday ? TODAY_ID : id;
-
+          // TODO: Try to reduce the number of props passing to Day component
           return (
             <Day
               key={id}
@@ -55,6 +55,7 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
               setFocus={setFocus}
               index={index}
               isFocus={focus === index}
+              listOfDays={listOfDays}
             />
           );
         })}

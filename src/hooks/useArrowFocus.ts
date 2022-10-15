@@ -10,6 +10,10 @@ export const useArrowFocus = <T extends HTMLElement>(
 ): ReturnType => {
   const [currentFocus, setCurrentFocus] = useState(initialState);
 
+  useEffect(() => {
+    setCurrentFocus(initialState);
+  }, [initialState]);
+
   const handleKeyDown = useCallback(
     (evt: KeyboardEvent) => {
       const { key, target } = evt;
@@ -53,11 +57,6 @@ export const useArrowFocus = <T extends HTMLElement>(
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [handleKeyDown]);
-
-  // TODO: Try to find another way for that. At the begginnig initial state === 0 and after few seconds it change
-  useEffect(() => {
-    setCurrentFocus(initialState);
-  }, [initialState]);
 
   return [currentFocus, setCurrentFocus];
 };
