@@ -1,38 +1,44 @@
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { calendarActions } from 'store/slices/calendar.slice';
-import { currentDateActions } from 'store/slices/currentDate.slice';
+import { useRef } from 'react';
+
+import { Month } from './components/Month';
+
+import { useArrowFocus } from 'hooks/useArrowFocus';
+
+import { useAppSelector } from 'store/hooks';
 
 import getSplittedToday from 'utils/calendar/getSplittedToday';
-import mergeClasses from 'utils/mergeClasses';
 
 import getMonthsNames from './helpers/getMonthsNames';
 
 import classes from './MonthsList.module.css';
 
+const MONTHS_IN_ROW = 4;
+
 const MonthsList = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const { today, year } = useAppSelector(state => state.currentDate);
   const months = getMonthsNames();
-  const dispatch = useAppDispatch();
 
-  const { year: currentYear, month: currentMonth } = getSplittedToday(today);
+  const { month: currentMonth, year: currentYear } = getSplittedToday(today);
 
-  const handleOpenCalendar = (monthId: number) => {
-    dispatch(currentDateActions.updateMonthAndYear({ month: monthId, year }));
-    dispatch(calendarActions.setIsMonthsView(false));
-  };
+  const initialFocus = months.findIndex(({ monthId }) => monthId === currentMonth);
+  const [focus, setFocus] = useArrowFocus(
+    months.length,
+    containerRef,
+    MONTHS_IN_ROW,
+    year === currentYear ? initialFocus : 0,
+  );
 
   return (
-    <div className={classes.root}>
-      {months.map(({ monthName, monthId }) => (
-        <div
-          key={monthName}
-          className={mergeClasses(classes.month, {
-            [classes.currentMonth]: monthId === currentMonth && year === currentYear,
-          })}
-          onClick={() => handleOpenCalendar(monthId)}
-        >
-          {monthName}
-        </div>
+    <div className={classes.root} ref={containerRef}>
+      {months.map((month, index) => (
+        <Month
+          key={month.monthId}
+          month={month}
+          setFocus={setFocus}
+          index={index}
+          isFocus={focus === index}
+        />
       ))}
     </div>
   );
