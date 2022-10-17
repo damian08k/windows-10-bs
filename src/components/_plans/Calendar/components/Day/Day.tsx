@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
 
 import { CalendarValues } from 'types/components/calendar/calendarValues.type';
+import { DayElement } from 'types/components/calendar/dayElement.type';
 import { DayName } from 'types/components/calendar/dayName.enum';
 
 import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
@@ -30,7 +31,7 @@ type Props = {
   index: number;
   isFocus: boolean;
   setFocus: Dispatch<SetStateAction<number>>;
-  listOfDays: CalendarValues;
+  listOfDays: CalendarValues<DayElement>;
 };
 
 const Day: FC<Props> = props => {
@@ -67,18 +68,18 @@ const Day: FC<Props> = props => {
   }, [index, setFocus]);
 
   const handleChangeMonthFocusDay = useCallback(() => {
-    const focusedDayInVisibleMonth = listOfDays.currentMonth[index];
+    const focusedDayInVisibleMonth = listOfDays.currentValues[index];
 
     if (name === PREVIOUS_MONTH_DAY) {
       changeDatesOnUp(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
 
-      const dayToFocus = getDayToFocus(listOfDays.previousMonth, focusedDayInVisibleMonth);
+      const dayToFocus = getDayToFocus(listOfDays.previousValues, focusedDayInVisibleMonth);
 
       setFocus(dayToFocus);
     } else if (name === NEXT_MONTH_DAY) {
       changeDatesOnDown(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
 
-      const dayToFocus = getDayToFocus(listOfDays.nextMonth, focusedDayInVisibleMonth);
+      const dayToFocus = getDayToFocus(listOfDays.nextValues, focusedDayInVisibleMonth);
 
       setFocus(dayToFocus);
     }

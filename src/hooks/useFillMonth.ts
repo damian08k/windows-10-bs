@@ -9,9 +9,9 @@ export const useFillMonth = (date: Date, month: number, today: string): FilledCa
 
   useEffect(() => {
     const daysList: FilledCalendarValues = {
-      previousMonth: getCalendarMonthValues(1, date, today),
-      currentMonth: getCalendarMonthValues(0, date, today),
-      nextMonth: getCalendarMonthValues(-1, date, today),
+      previousValues: getCalendarMonthValues(1, date, today),
+      currentValues: getCalendarMonthValues(0, date, today),
+      nextValues: getCalendarMonthValues(-1, date, today),
     };
 
     setListOfDays(daysList);

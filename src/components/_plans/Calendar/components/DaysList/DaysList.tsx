@@ -20,9 +20,9 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
   const daysContainerRef = useRef<HTMLDivElement>(null);
   const listOfDays = useFillMonth(new Date(year, month, 1), month, today);
 
-  const initialFocus = listOfDays?.currentMonth.findIndex(day => day.isToday);
+  const initialFocus = listOfDays?.currentValues.findIndex(day => day.isToday);
   const [focus, setFocus] = useArrowFocus(
-    listOfDays?.currentMonth?.length as number,
+    listOfDays?.currentValues?.length as number,
     daysContainerRef,
     CALENDAR_WEEK_DAYS,
     initialFocus,
@@ -40,7 +40,7 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
         ))}
       </div>
       <div className={classes.days} ref={daysContainerRef}>
-        {listOfDays?.currentMonth.map((day, index) => {
+        {listOfDays?.currentValues.map((day, index) => {
           const { id, name, dayNumber, isToday } = day;
           const dayID = isToday ? TODAY_ID : id;
           // TODO: Try to reduce the number of props passing to Day component

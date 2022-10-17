@@ -1,9 +1,9 @@
 import { DayElement } from './dayElement.type';
 
-export type CalendarValues = {
-  previousMonth: DayElement[];
-  currentMonth: DayElement[];
-  nextMonth: DayElement[];
+export type CalendarValues<T> = {
+  previousValues: T[];
+  currentValues: T[];
+  nextValues: T[];
 };
 
-export type FilledCalendarValues = CalendarValues | null;
+export type FilledCalendarValues = CalendarValues<DayElement> | null;
