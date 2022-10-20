@@ -2,12 +2,6 @@
   text-transform: lowercase;
 }
 
-.calendarView {
-  background-color: var(--transparent);
-  border: none;
-  color: var(--whiteColor);
-}
-
 .calendarView:focus {
   outline-offset: 0;
 }

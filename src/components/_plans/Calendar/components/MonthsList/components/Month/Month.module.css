@@ -4,10 +4,6 @@
   align-items: center;
   flex-basis: 25%;
   height: 50px;
-  border: none;
-  background-color: var(--transparent);
-  color: var(--whiteColor);
-  cursor: pointer;
 }
 
 .root:hover {

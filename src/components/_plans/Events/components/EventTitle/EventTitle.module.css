@@ -34,12 +34,6 @@
   fill: var(--whiteColor);
 }
 
-.closeCreateEventForm {
-  background-color: var(--transparent);
-  border: none;
-  cursor: pointer;
-}
-
 .closeIconInInput {
   position: absolute;
   top: 50%;

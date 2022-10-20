@@ -15,6 +15,9 @@ html {
 }
 
 button {
+  border: none;
+  background-color: var(--transparent);
+  color: var(--whiteColor);
   cursor: pointer;
 }
 

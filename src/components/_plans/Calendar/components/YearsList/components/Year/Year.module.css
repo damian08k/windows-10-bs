@@ -4,11 +4,6 @@
   align-items: center;
   height: 50px;
   width: 100%;
-  cursor: pointer;
-
-  background-color: transparent;
-  color: white;
-  border: none;
 }
 
 .root:hover {

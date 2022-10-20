@@ -6,11 +6,6 @@
   gap: var(--spacing25);
 }
 
-.arrowButton {
-  background-color: var(--transparent);
-  border: none;
-}
-
 .arrowButton:focus {
   outline-offset: 0;
 }
