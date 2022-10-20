@@ -1,7 +1,4 @@
-import { Dispatch } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
-
-import { calendarActions } from 'store/slices/calendar.slice';
 
 import { YearElement } from 'types/components/calendar/yearElement.type';
 import { YearType } from 'types/components/calendar/yearType.type';
@@ -10,7 +7,7 @@ import betterAt from 'utils/betterAt';
 
 import getSplittedToday from './getSplittedToday';
 
-const { HIGHLIGHTED, PREVIOUS, NEXT, CURRENT } = YearType;
+const { HIGHLIGHTED, PREVIOUS, NEXT } = YearType;
 
 // * There's a logic here -> if second last year digit is even
 // * list of years should have 2 previous years and 4 next years
@@ -20,13 +17,14 @@ const getHighlightedYears = (startCountingYear: number, today: string): YearElem
   const VALUE_TO_ADD = 10;
   const years: YearElement[] = [];
 
-  const { year: currentYear } = getSplittedToday(today);
+  const { year } = getSplittedToday(today);
 
   for (let y = startCountingYear; y < startCountingYear + VALUE_TO_ADD; y++) {
     years.push({
       id: uuidv4(),
-      type: y === currentYear ? CURRENT : HIGHLIGHTED,
+      type: HIGHLIGHTED,
       year: y,
+      isCurrent: y === year,
     });
   }
 
@@ -57,11 +55,7 @@ const getNextYears = (
   }
 };
 
-export const getCalendarYearsValues = (
-  year: number,
-  today: string,
-  dispatch: Dispatch,
-): YearElement[] => {
+export const getCalendarYearsValues = (year: number, today: string): YearElement[] => {
   const yearAsDigits = [...(year + '')].map(Number);
   const currentYearLastNumber = betterAt(yearAsDigits, -1);
   const startCountingYear = year - currentYearLastNumber;
@@ -70,8 +64,6 @@ export const getCalendarYearsValues = (
   const highlightedYears = getHighlightedYears(startCountingYear, today);
   const previousYears: YearElement[] = [];
   const nextYears: YearElement[] = [];
-
-  dispatch(calendarActions.setHighlightedYears(highlightedYears));
 
   const lastHighlightedYear = betterAt(highlightedYears, -1).year;
 

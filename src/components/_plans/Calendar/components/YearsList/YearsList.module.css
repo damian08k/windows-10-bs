@@ -6,25 +6,3 @@
   gap: var(--spacing2);
   padding: var(--spacing10);
 }
-
-.yearElement {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-  cursor: pointer;
-}
-
-.yearElement:hover {
-  border: 1px solid var(--secondaryDarkColor);
-}
-
-.current {
-  background-color: var(--primaryColor);
-}
-
-.previous,
-.next {
-  color: var(--secondaryHoverLightColor);
-}
