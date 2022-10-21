@@ -7,11 +7,8 @@
   align-items: center;
   margin-left: auto;
   padding: var(--verticalRootPadding) var(--spacing20);
-  border: none;
   font-size: var(--hidePlansButtonElementSize);
-  background-color: transparent;
   color: var(--primaryLightColor);
-  cursor: pointer;
 }
 
 .arrow {

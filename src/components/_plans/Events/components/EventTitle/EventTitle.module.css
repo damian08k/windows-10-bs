@@ -7,7 +7,7 @@
   padding: var(--spacing5) var(--spacing25) var(--spacing5) var(--spacing10);
   width: 100%;
   border: 1px solid var(--secondaryColor);
-  background-color: transparent;
+  background-color: var(--transparent);
 }
 
 .input:hover {
@@ -24,6 +24,13 @@
   color: var(--whiteColor);
 }
 
+.closeCreateEventForm {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
 .input:not(:focus) + .closeCreateEventForm .closeIconInInput {
   fill: var(--whiteColor);
 }
@@ -34,16 +41,6 @@
   fill: var(--whiteColor);
 }
 
-.closeCreateEventForm {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
 .closeIconInInput {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
   fill: var(--blackColor);
 }

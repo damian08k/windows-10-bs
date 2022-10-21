@@ -23,7 +23,11 @@ const EventsHeader = () => {
     <div className={classes.root}>
       {id === TODAY_ID ? 'Today' : `${selectedDayName} ${day}`}
       {values?.title && (
-        <button className={classes.closeCreateEventForm} onClick={handleReset}>
+        <button
+          className={classes.closeCreateEventForm}
+          onClick={handleReset}
+          aria-label="Close adding event form"
+        >
           <CloseIcon className={classes.closeIcon} />
         </button>
       )}

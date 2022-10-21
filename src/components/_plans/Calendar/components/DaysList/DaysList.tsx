@@ -1,19 +1,14 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 
-import useFillCalendar from 'hooks/useFillCalendar';
+import { useArrowFocus } from 'hooks/useArrowFocus';
+import { useFillMonth } from 'hooks/useFillMonth';
 
-import { DayName } from 'types/components/calendar/dayName.enum';
-
-import { TODAY_ID } from 'src/constants';
-
-import getSplittedToday from 'utils/calendar/getSplittedToday';
+import { CALENDAR_WEEK_DAYS, TODAY_ID } from 'src/constants';
 
 import getWeekDays from '../../helpers/getWeekDays';
 import Day from '../Day/Day';
 
 import classes from './DaysList.module.css';
-
-const { CURRENT_MONTH_DAY } = DayName;
 
 type Props = {
   today: string;
@@ -22,10 +17,18 @@ type Props = {
 };
 
 const DaysList: FC<Props> = ({ today, month, year }) => {
-  const listOfDays = useFillCalendar(new Date(year, month, 1), month);
-  const weekDays = getWeekDays();
+  const daysContainerRef = useRef<HTMLDivElement>(null);
+  const listOfDays = useFillMonth(new Date(year, month, 1), month, today);
 
-  const { day: currentDay, month: currentMonth, year: currentYear } = getSplittedToday(today);
+  const initialFocus = listOfDays?.currentValues.findIndex(day => day.isToday);
+  const [focus, setFocus] = useArrowFocus(
+    listOfDays?.currentValues?.length as number,
+    daysContainerRef,
+    CALENDAR_WEEK_DAYS,
+    initialFocus,
+  );
+
+  const weekDays = getWeekDays();
 
   return (
     <>
@@ -36,18 +39,24 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
           </p>
         ))}
       </div>
-      <div className={classes.days}>
-        {listOfDays.map(({ id, name, dayNumber }) => {
-          const dayID =
-            dayNumber === currentDay &&
-            month === currentMonth &&
-            year === currentYear &&
-            name === CURRENT_MONTH_DAY
-              ? TODAY_ID
-              : id;
-
+      <div className={classes.days} ref={daysContainerRef}>
+        {listOfDays?.currentValues.map((day, index) => {
+          const { id, name, dayNumber, isToday } = day;
+          const dayID = isToday ? TODAY_ID : id;
+          // TODO: Try to reduce the number of props passing to Day component
           return (
-            <Day key={id} id={dayID} name={name} dayNumber={dayNumber} month={month} year={year} />
+            <Day
+              key={id}
+              id={dayID}
+              name={name}
+              dayNumber={dayNumber}
+              month={month}
+              year={year}
+              setFocus={setFocus}
+              index={index}
+              isFocus={focus === index}
+              listOfDays={listOfDays}
+            />
           );
         })}
       </div>

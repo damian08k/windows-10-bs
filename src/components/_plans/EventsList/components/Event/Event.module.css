@@ -1,6 +1,5 @@
 .root {
   margin-top: var(--spacing5);
-  font-size: 1.1rem;
 }
 
 .root:hover {

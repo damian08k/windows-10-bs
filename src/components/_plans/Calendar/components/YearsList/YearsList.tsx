@@ -1,46 +1,39 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 
+import { Year } from './components/Year/Year';
+
+import { useArrowFocus } from 'hooks/useArrowFocus';
 import useFillYears from 'hooks/useFillYears';
 
-import { useAppDispatch } from 'store/hooks';
-import { calendarActions } from 'store/slices/calendar.slice';
-import { currentDateActions } from 'store/slices/currentDate.slice';
-
-import { YearType } from 'types/components/calendar/yearType.type';
-
-import mergeClasses from 'utils/mergeClasses';
-
 import classes from './YearsList.module.css';
-
-const { CURRENT } = YearType;
 
 type Props = {
   year: number;
 };
 
 const YearsList: FC<Props> = ({ year }) => {
-  const dispatch = useAppDispatch();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const yearsList = useFillYears(year);
 
-  const years = useFillYears(year);
-
-  const handleYearClick = (year: number) => {
-    dispatch(currentDateActions.updateYear(year));
-    dispatch(calendarActions.setIsYearsView(false));
-    dispatch(calendarActions.setIsMonthsView(true));
-  };
+  const initialFocus = yearsList?.currentValues.findIndex(year => year.isCurrent);
+  const [focus, setFocus] = useArrowFocus(
+    yearsList?.currentValues?.length as number,
+    containerRef,
+    4,
+    initialFocus,
+  );
 
   return (
-    <div className={classes.root}>
-      {years.map(({ id, type, year }) => (
-        <div
-          key={id}
-          className={mergeClasses(classes.yearElement, classes[type.toLowerCase()], {
-            [classes.current]: type === CURRENT,
-          })}
-          onClick={() => handleYearClick(year)}
-        >
-          {year}
-        </div>
+    <div className={classes.root} ref={containerRef}>
+      {yearsList?.currentValues.map((year, index) => (
+        <Year
+          key={year.id}
+          yearElement={year}
+          index={index}
+          isFocus={focus === index}
+          setFocus={setFocus}
+          yearList={yearsList}
+        />
       ))}
     </div>
   );

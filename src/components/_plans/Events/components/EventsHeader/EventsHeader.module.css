@@ -4,12 +4,6 @@
   align-items: center;
 }
 
-.closeCreateEventForm {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
 .closeIcon {
   width: var(--iconSize10);
   height: var(--iconSize10);

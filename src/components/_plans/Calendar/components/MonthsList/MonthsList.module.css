@@ -4,20 +4,3 @@
   gap: var(--spacing2);
   padding: var(--spacing10);
 }
-
-.month {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-basis: 25%;
-  height: 50px;
-  cursor: pointer;
-}
-
-.month:hover {
-  border: 1px solid var(--secondaryDarkColor);
-}
-
-.currentMonth {
-  background-color: var(--primaryColor);
-}

@@ -46,6 +46,8 @@
   --errorColor: rgb(179, 5, 0);
   --successColor: rgb(44, 139, 44);
 
+  --transparent: transparent;
+
   /* -- Sizes -- */
   /* Components sizes */
   --taskbarHeight: 40px;

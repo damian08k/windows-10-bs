@@ -13,7 +13,7 @@
 .timeTo {
   border: none;
   border-bottom: 1px solid var(--secondaryDarkColor);
-  background-color: transparent;
+  background-color: var(--transparent);
   color: var(--whiteColor);
   text-align: center;
 }

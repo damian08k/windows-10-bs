@@ -1,80 +1,46 @@
 import { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
 
-import { YearElement } from 'types/components/calendar/yearElement.type';
+import { FilledCalendarYearValues } from 'types/components/calendar/calendarValues.type';
 import { YearType } from 'types/components/calendar/yearType.type';
 
 import betterAt from 'utils/betterAt';
-import getSplittedToday from 'utils/calendar/getSplittedToday';
+import { getCalendarYearsValues } from 'utils/calendar/getCalendarYearsValues';
 
-const { HIGHLIGHTED, PREVIOUS, NEXT, CURRENT } = YearType;
+const { PREVIOUS, NEXT } = YearType;
 
-// * There's a logic here -> if second last year digit is even
-// * list of years should have 2 previous years and 4 next years
-// * if it's odd, list of years have 6 next years and 0 previous
+const useFillYears = (year: number): FilledCalendarYearValues => {
+  const [years, setYears] = useState<FilledCalendarYearValues>(null);
 
-const useFillYears = (year: number): YearElement[] => {
   const { today } = useAppSelector(state => state.currentDate);
-  const [years, setYears] = useState<YearElement[]>([]);
-
   const dispatch = useAppDispatch();
 
-  const { year: currentYear } = getSplittedToday(today);
-
-  const yearAsDigits = [...(year + '')].map(Number);
-  const currentYearLastNumber = betterAt(yearAsDigits, -1);
-  const yearSecondLastDigit = betterAt(yearAsDigits, -2);
-  const startCountingYear = year - currentYearLastNumber;
-
   useEffect(() => {
-    const previousYears: YearElement[] = [];
-    const highlightedYears: YearElement[] = [];
-    const nextYears: YearElement[] = [];
+    const currentVisibleYears = getCalendarYearsValues(year, today);
 
-    for (let i = startCountingYear; i < startCountingYear + 10; i++) {
-      highlightedYears.push({
-        id: uuidv4(),
-        type: i === currentYear ? CURRENT : HIGHLIGHTED,
-        year: i,
-      });
-    }
+    const currentPreviousYears = currentVisibleYears.filter(({ type }) => type === PREVIOUS);
+    const previousYears = currentPreviousYears.length
+      ? getCalendarYearsValues(betterAt(currentPreviousYears, -1).year, today)
+      : [];
 
-    dispatch(calendarActions.setHighlightedYears(highlightedYears));
+    const currentNextYears = currentVisibleYears.filter(({ type }) => type === NEXT);
+    const nextYears = currentNextYears.length
+      ? getCalendarYearsValues(betterAt(currentNextYears, 0).year, today)
+      : [];
 
-    const lastHighlightedYear = betterAt(highlightedYears, -1).year;
+    const yearsList: FilledCalendarYearValues = {
+      previousValues: previousYears,
+      currentValues: currentVisibleYears,
+      nextValues: nextYears,
+    };
 
-    if (yearSecondLastDigit % 2 === 0) {
-      for (let i = startCountingYear - 2; i < startCountingYear; i++) {
-        previousYears.push({
-          id: uuidv4(),
-          type: PREVIOUS,
-          year: i,
-        });
-      }
+    dispatch(calendarActions.setHighlightedYears(currentVisibleYears));
 
-      for (let i = lastHighlightedYear + 1; i < lastHighlightedYear + 5; i++) {
-        nextYears.push({
-          id: uuidv4(),
-          type: NEXT,
-          year: i,
-        });
-      }
-    } else {
-      for (let i = lastHighlightedYear + 1; i < lastHighlightedYear + 7; i++) {
-        nextYears.push({
-          id: uuidv4(),
-          type: NEXT,
-          year: i,
-        });
-      }
-    }
+    setYears(yearsList);
 
-    setYears(old => [...old, ...previousYears, ...highlightedYears, ...nextYears]);
-
-    return () => setYears([]);
+    return () => setYears(null);
   }, [year]);
 
   return years;

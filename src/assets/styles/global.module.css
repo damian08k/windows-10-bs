@@ -14,12 +14,25 @@ html {
   font-size: 10px;
 }
 
+button {
+  border: none;
+  background-color: var(--transparent);
+  color: var(--whiteColor);
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline-width: 2px;
+  outline-color: var(--whiteColor);
+  outline-style: solid;
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: var(--transparent);
 }
 
 ::-webkit-scrollbar-thumb {

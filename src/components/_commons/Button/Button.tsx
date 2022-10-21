@@ -11,6 +11,7 @@ import classes from './Button.module.css';
 type Props = {
   variant: ButtonVariant;
   value: string;
+  ariaLabel: string;
   onClick?: (evt?: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   icon?: ReactNode;
@@ -22,6 +23,7 @@ type Props = {
 const Button: FC<Props> = ({
   variant,
   value,
+  ariaLabel,
   onClick,
   icon,
   type,
@@ -45,6 +47,7 @@ const Button: FC<Props> = ({
       onClick={onClick}
       disabled={state === 'loading' ? true : disabled}
       type={type}
+      aria-label={ariaLabel}
     >
       {state !== 'loading' ? (
         <>

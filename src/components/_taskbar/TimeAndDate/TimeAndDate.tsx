@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { KeyboardEvent, memo } from 'react';
 
 import CurrentDate from './components/CurrentDate/CurrentDate';
 import CurrentTime from './components/CurrentTime/CurrentTime';
@@ -12,6 +12,7 @@ import classes from './TimeAndDate.module.css';
 
 const TimeAndDate = () => {
   const today = useAppSelector(state => state.currentDate.today);
+  const { isPlanOpen } = useAppSelector(state => state.plans);
   const dispatch = useAppDispatch();
 
   const { currentDateNamesFormat } = formatCurrentDate(today);
@@ -20,11 +21,29 @@ const TimeAndDate = () => {
     dispatch(plansActions.togglePlansVisibility(true));
   };
 
+  const handleSwitchPlansVisibility = (evt: KeyboardEvent<HTMLButtonElement>) => {
+    const { key } = evt;
+
+    if (key === 'Enter') {
+      if (isPlanOpen) {
+        dispatch(plansActions.togglePlansVisibility(false));
+      } else {
+        handleOpenPlans();
+      }
+    }
+  };
+
   return (
-    <div className={classes.root} data-title={currentDateNamesFormat} onMouseDown={handleOpenPlans}>
+    <button
+      className={classes.root}
+      data-title={currentDateNamesFormat}
+      onMouseDown={handleOpenPlans}
+      onKeyDown={evt => handleSwitchPlansVisibility(evt)}
+      aria-label="Open calendar and events box"
+    >
       <CurrentTime />
       <CurrentDate />
-    </div>
+    </button>
   );
 };
 
