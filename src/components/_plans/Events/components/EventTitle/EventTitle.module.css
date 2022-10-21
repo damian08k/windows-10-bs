@@ -24,6 +24,13 @@
   color: var(--whiteColor);
 }
 
+.closeCreateEventForm {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
 .input:not(:focus) + .closeCreateEventForm .closeIconInInput {
   fill: var(--whiteColor);
 }
@@ -35,9 +42,5 @@
 }
 
 .closeIconInInput {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
   fill: var(--blackColor);
 }

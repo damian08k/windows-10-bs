@@ -1,4 +1,5 @@
 import { Field, useFormikContext } from 'formik';
+import { FC, KeyboardEvent } from 'react';
 
 import { EventData } from 'types/store/plansState.type';
 
@@ -8,12 +9,21 @@ import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
 
 import classes from './EventTitle.module.css';
 
-const EventTitle = () => {
+type Props = {
+  onClickEnter: (evt: KeyboardEvent<HTMLInputElement>) => void;
+};
+
+const EventTitle: FC<Props> = ({ onClickEnter }) => {
   const { values, handleReset } = useFormikContext<EventData>();
 
   return (
     <div className={classes.root}>
-      <Field name="title" className={classes.input} placeholder="Add an event or reminder" />
+      <Field
+        name="title"
+        className={classes.input}
+        placeholder="Add an event or reminder"
+        onKeyDown={onClickEnter}
+      />
       {values.title && (
         <button
           className={classes.closeCreateEventForm}

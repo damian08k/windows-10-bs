@@ -1,12 +1,18 @@
+import { FC, KeyboardEvent } from 'react';
+
 import CreateEventButtons from './components/CreateEventButtons/CreateEventButtons';
 import Location from './components/Location/Location';
 import TimePicker from './components/TimePicker/TimePicker';
 
-const CreateEvent = () => {
+type Props = {
+  onClickEnter: (evt: KeyboardEvent<HTMLInputElement>) => void;
+};
+
+const CreateEvent: FC<Props> = ({ onClickEnter }) => {
   return (
     <>
-      <TimePicker />
-      <Location />
+      <TimePicker onClickEnter={onClickEnter} />
+      <Location onClickEnter={onClickEnter} />
       <CreateEventButtons />
     </>
   );

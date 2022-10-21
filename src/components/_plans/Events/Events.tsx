@@ -24,7 +24,7 @@ const Events = () => {
 
   const dispatch = useAppDispatch();
 
-  const handleEnterDown = (evt: KeyboardEvent<HTMLFormElement>) => {
+  const handleEnterDown = (evt: KeyboardEvent<HTMLInputElement>) => {
     const { key } = evt;
 
     if (key === 'Enter') {
@@ -50,9 +50,9 @@ const Events = () => {
           return (
             <>
               <EventsHeader />
-              <Form onKeyDown={handleEnterDown}>
-                <EventTitle />
-                {title && <CreateEvent />}
+              <Form>
+                <EventTitle onClickEnter={handleEnterDown} />
+                {title && <CreateEvent onClickEnter={handleEnterDown} />}
               </Form>
               {/* //TODO: Find way to remove this from <Formik> but without using useState */}
               {!title && <EventsList />}
