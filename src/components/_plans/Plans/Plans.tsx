@@ -49,6 +49,7 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
       className={mergeClasses(classes.root, {
         [classes.showPlans]: !transitionClassName.includes('false'),
       })}
+      aria-hidden={isPlanOpen}
     >
       <PlansDate />
       <Calendar />
