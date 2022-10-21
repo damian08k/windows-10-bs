@@ -17,7 +17,7 @@ const Taskbar = () => {
   return (
     <div className={classes.root}>
       <div className={classes.logoContainer}>
-        <button className={classes.logoButton}>
+        <button className={classes.logoButton} aria-label="Open windows application menu">
           <WindowsLogo className={classes.windowsLogo} />
         </button>
       </div>

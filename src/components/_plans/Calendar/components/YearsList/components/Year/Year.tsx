@@ -78,6 +78,7 @@ export const Year: FC<Props> = ({ yearElement, index, isFocus, setFocus, yearLis
       onKeyUp={handleChangeYearFocus}
       tabIndex={isFocus ? 0 : -1}
       ref={yearRef}
+      aria-label={`Select year ${year}`}
     >
       {year}
     </button>

@@ -14,7 +14,7 @@ const PlansDate = () => {
   return (
     <div className={classes.root}>
       <PlansClock />
-      <button className={classes.plansDate}>
+      <button className={classes.plansDate} aria-label={`${currentDateNamesFormat}`}>
         <span>{currentDateNamesFormat}</span>
       </button>
     </div>

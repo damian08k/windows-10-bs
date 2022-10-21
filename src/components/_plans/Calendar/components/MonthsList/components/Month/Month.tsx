@@ -52,6 +52,7 @@ export const Month: FC<Props> = ({ month, index, isFocus, setFocus }) => {
       onClick={() => handleOpenCalendar(monthId)}
       onKeyDown={handleFocusMonth}
       tabIndex={isFocus ? 0 : -1}
+      aria-label={`Select month ${monthName}`}
     >
       {monthName}
     </button>

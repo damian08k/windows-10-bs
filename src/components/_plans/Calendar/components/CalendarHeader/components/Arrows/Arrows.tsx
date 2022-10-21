@@ -46,6 +46,7 @@ const Arrows = () => {
         className={classes.arrowButton}
         onKeyDown={evt => handleArrowClick(evt, 'up')}
         onClick={handleArrowUpClick}
+        aria-label="Show previous month"
       >
         <ArrowUpIcon className={classes.arrow} />
       </button>
@@ -53,6 +54,7 @@ const Arrows = () => {
         className={classes.arrowButton}
         onKeyDown={evt => handleArrowClick(evt, 'down')}
         onClick={handleArrowDownClick}
+        aria-label="Show next month"
       >
         <ArrowDownIcon className={classes.arrow} />
       </button>

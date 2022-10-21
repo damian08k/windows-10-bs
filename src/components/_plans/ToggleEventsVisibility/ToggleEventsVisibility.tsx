@@ -15,7 +15,11 @@ const ToggleEventsVisibility = () => {
   };
 
   return (
-    <button className={classes.root} onClick={handleToggleEventsVisibility}>
+    <button
+      className={classes.root}
+      onClick={handleToggleEventsVisibility}
+      aria-label={isEventsVisible ? `Hide plan` : 'Show plan'}
+    >
       {isEventsVisible ? (
         <>
           <p>Hide plan</p>

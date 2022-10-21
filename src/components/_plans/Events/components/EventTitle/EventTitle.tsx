@@ -15,7 +15,11 @@ const EventTitle = () => {
     <div className={classes.root}>
       <Field name="title" className={classes.input} placeholder="Add an event or reminder" />
       {values.title && (
-        <button className={classes.closeCreateEventForm} onClick={handleReset}>
+        <button
+          className={classes.closeCreateEventForm}
+          onClick={handleReset}
+          aria-label="Close adding event form"
+        >
           <CloseIcon className={mergeClasses(classes.closeIcon, classes.closeIconInInput)} />
         </button>
       )}

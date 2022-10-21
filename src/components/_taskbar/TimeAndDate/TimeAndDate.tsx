@@ -39,6 +39,7 @@ const TimeAndDate = () => {
       data-title={currentDateNamesFormat}
       onMouseDown={handleOpenPlans}
       onKeyDown={evt => handleSwitchPlansVisibility(evt)}
+      aria-label="Open calendar and events box"
     >
       <CurrentTime />
       <CurrentDate />

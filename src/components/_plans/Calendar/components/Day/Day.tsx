@@ -96,6 +96,7 @@ const Day: FC<Props> = props => {
       onKeyDown={handleFocusDay}
       tabIndex={isFocus ? 0 : -1}
       onKeyUp={handleChangeMonthFocusDay}
+      aria-label={`Selecte day ${dayNumber}`}
     >
       <span className={classes.dayNumber}>{dayNumber}</span>
     </button>
