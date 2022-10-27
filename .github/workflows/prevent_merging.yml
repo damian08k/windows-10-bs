@@ -5,8 +5,8 @@ on:
     types: [synchronize, opened, reopened, labeled, unlabeled]
 
 jobs:
-  do-not-merge:
-    if: ${{ (contains(github.event.*.labels.*.name, 'draft') || contains(github.event.*.labels.*.name, 'Work in Progress')) && needs.test-api.result == 'success' }}
+  prevent-merging:
+    if: ${{ (contains(github.event.*.labels.*.name, 'draft') || contains(github.event.*.labels.*.name, 'Work in Progress')) && needs.prevent-merging.result == 'success' }}
     name: Prevent Merging
     runs-on: ubuntu-latest
     steps:
