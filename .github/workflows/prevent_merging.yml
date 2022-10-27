@@ -6,7 +6,7 @@ on:
 
 jobs:
   prevent-merging:
-    if: ${{ contains(github.event.*.labels.*.name, 'draft') || contains(github.event.*.labels.*.name, 'Work in Progress') && needs.prevent-merging.result == 'success' }}
+    if: ${{ contains(github.event.*.labels.*.name, 'draft') || contains(github.event.*.labels.*.name, 'Work in Progress') }}
     name: Prevent Merging
     runs-on: ubuntu-latest
     steps:
