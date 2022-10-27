@@ -1,4 +1,4 @@
-name: 'Windows 10'
+name: 'Check code errors'
 
 on: ['pull_request']
 
