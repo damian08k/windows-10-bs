@@ -6,7 +6,7 @@ on:
 
 jobs:
   do-not-merge:
-    if: ${{ contains(github.event.*.labels.*.name, 'draft') || contains(github.event.*.labels.*.name, 'Work in Progress') }}
+    if: ${{ (contains(github.event.*.labels.*.name, 'draft') || contains(github.event.*.labels.*.name, 'Work in Progress')) && needs.test-api.result == 'success' }}
     name: Prevent Merging
     runs-on: ubuntu-latest
     steps:
