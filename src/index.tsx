@@ -4,8 +4,6 @@ import { Provider } from 'react-redux';
 
 import store from 'store/store';
 
-import { reportAccessibility } from 'utils/chore/reportAccessibility';
-
 import App from './App';
 
 const container = document.getElementById('root');
@@ -18,5 +16,3 @@ root.render(
     </Provider>
   </StrictMode>,
 );
-
-reportAccessibility(React);

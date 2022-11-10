@@ -45,6 +45,7 @@ const Calendar = () => {
         isMonthsView={isMonthsView}
         isYearsView={isYearsView}
       />
+      <img src="" />
       <div onWheel={handleMouseWheel}>{getRenderList()}</div>
     </div>
   );
