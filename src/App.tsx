@@ -27,7 +27,15 @@ const App = () => {
       dispatch(clockActions.updateClock(currentHour));
 
       if (currentHour === MIDNIGHT) {
-        dispatch(currentDateActions.updateDay(newTime.toLocaleDateString()));
+        dispatch(
+          currentDateActions.updateDay(
+            newTime.toLocaleDateString('pl-PL', {
+              day: '2-digit',
+              month: '2-digit',
+              year: 'numeric',
+            }),
+          ),
+        );
       }
     }, 1000);
     return () => clearInterval(interval);
