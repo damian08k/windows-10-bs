@@ -14,16 +14,28 @@ import classes from './Calendar.module.css';
 
 const Calendar = () => {
   const { today, month, year } = useAppSelector(state => state.currentDate);
-  const { isMonthsView, isYearsView, highlightedYears } = useAppSelector(state => state.calendar);
+  const { isMonthsView, isYearsView, highlightedYears, yearsBlock } = useAppSelector(
+    state => state.calendar,
+  );
 
   const dispatch = useAppDispatch();
 
   const handleMouseWheel = (evt: WheelEvent) => {
     const { deltaY } = evt;
     if (deltaY < 0) {
-      changeDatesOnUp(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+      if (
+        (yearsBlock.isBlockDown && !yearsBlock.isBlockUp) ||
+        (!yearsBlock.isBlockDown && !yearsBlock.isBlockUp)
+      ) {
+        changeDatesOnUp(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+      }
     } else {
-      changeDatesOnDown(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+      if (
+        (yearsBlock.isBlockUp && !yearsBlock.isBlockDown) ||
+        (!yearsBlock.isBlockDown && !yearsBlock.isBlockUp)
+      ) {
+        changeDatesOnDown(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+      }
     }
   };
 

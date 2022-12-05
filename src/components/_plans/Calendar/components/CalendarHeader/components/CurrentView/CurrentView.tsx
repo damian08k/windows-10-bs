@@ -24,6 +24,14 @@ const CurrentView: FC<Props> = ({ isMonthsView, isYearsView, month, year }) => {
   );
 
   const handleViewClick = () => {
+    if ((year > 1922 && year < 2122) || (month > 0 && month < 11)) {
+      dispatch(
+        calendarActions.blockYearsListChanging({
+          isBlockDown: false,
+          isBlockUp: false,
+        }),
+      );
+    }
     if (isMonthsView) {
       dispatch(calendarActions.setIsMonthsView(false));
       dispatch(calendarActions.setIsYearsView(true));

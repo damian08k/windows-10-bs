@@ -36,7 +36,11 @@ const useFillYears = (year: number): FilledCalendarYearValues => {
       nextValues: nextYears,
     };
 
-    dispatch(calendarActions.setHighlightedYears(currentVisibleYears));
+    dispatch(
+      calendarActions.setHighlightedYears(
+        currentVisibleYears.filter(el => el.type === 'HIGHLIGHTED'),
+      ),
+    );
 
     setYears(yearsList);
 

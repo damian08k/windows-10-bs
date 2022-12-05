@@ -35,6 +35,14 @@ export const Year: FC<Props> = ({ yearElement, index, isFocus, setFocus, yearLis
   const { month } = useAppSelector(state => state.currentDate);
 
   const handleYearClick = (year: number) => {
+    if (year > 1922 && year < 2122) {
+      dispatch(
+        calendarActions.blockYearsListChanging({
+          isBlockDown: false,
+          isBlockUp: false,
+        }),
+      );
+    }
     dispatch(currentDateActions.updateYear(year));
     dispatch(calendarActions.setIsYearsView(false));
     dispatch(calendarActions.setIsMonthsView(true));
