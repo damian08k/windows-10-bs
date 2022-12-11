@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { YearElement } from 'types/components/calendar/yearElement.type';
 import { YearType } from 'types/components/calendar/yearType.type';
 
+import { LAST_MIN_START_COUNTING_YEAR, MAX_VISIBLE_YEAR, MIN_VISIBLE_YEAR } from 'src/constants';
+
 import betterAt from 'utils/betterAt';
 
 import getSplittedToday from './getSplittedToday';
@@ -18,8 +20,9 @@ const getHighlightedYears = (startCountingYear: number, today: string): YearElem
   const years: YearElement[] = [];
 
   const { year } = getSplittedToday(today);
-
   for (let y = startCountingYear; y < startCountingYear + VALUE_TO_ADD; y++) {
+    if (y < MIN_VISIBLE_YEAR && startCountingYear === LAST_MIN_START_COUNTING_YEAR) continue;
+
     years.push({
       id: uuidv4(),
       type: HIGHLIGHTED,
@@ -32,6 +35,8 @@ const getHighlightedYears = (startCountingYear: number, today: string): YearElem
 };
 
 const getPreviousYears = (years: YearElement[], startCountingYear: number): void => {
+  if (startCountingYear === LAST_MIN_START_COUNTING_YEAR) return;
+
   for (let y = startCountingYear - 2; y < startCountingYear; y++) {
     years.push({
       id: uuidv4(),
@@ -47,6 +52,8 @@ const getNextYears = (
   valueToAdd: number,
 ): void => {
   for (let y = lastHighlightedYear + 1; y < lastHighlightedYear + valueToAdd; y++) {
+    if (y > MAX_VISIBLE_YEAR) break;
+
     years.push({
       id: uuidv4(),
       type: NEXT,
@@ -69,7 +76,7 @@ export const getCalendarYearsValues = (year: number, today: string): YearElement
 
   if (yearSecondLastDigit % 2 === 0) {
     getPreviousYears(previousYears, startCountingYear);
-    getNextYears(nextYears, lastHighlightedYear, 5);
+    getNextYears(nextYears, lastHighlightedYear, startCountingYear !== 1920 ? 5 : 9);
   } else {
     getNextYears(nextYears, lastHighlightedYear, 7);
   }

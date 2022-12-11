@@ -17,8 +17,6 @@ export const blockDatesChanging = (
   const { highlightYear, lastVisibleYear, visibleYear, monthNumber, blockUp, blockDown } =
     blockDatesConfig;
 
-  console.log(changingYearsConfig, blockDatesConfig);
-
   if (
     (isYearsView &&
       highlightedYears.find(y => y.year === highlightYear && y.type === HIGHLIGHTED)) ||
