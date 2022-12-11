@@ -14,8 +14,12 @@ import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';
 import classes from './Arrows.module.css';
 
 const Arrows = () => {
-  const { isMonthsView, isYearsView, highlightedYears } = useAppSelector(state => state.calendar);
+  const { isMonthsView, isYearsView, highlightedYears, yearsBlock } = useAppSelector(
+    state => state.calendar,
+  );
   const { month, year } = useAppSelector(state => state.currentDate);
+
+  const { isBlockDown, isBlockUp } = yearsBlock;
 
   const dispatch = useAppDispatch();
 
@@ -29,11 +33,15 @@ const Arrows = () => {
   };
 
   const handleArrowDownClick = () => {
-    changeDatesOnDown(changeYearsConfig);
+    if ((isBlockUp || !isBlockUp) && !isBlockDown) {
+      changeDatesOnDown(changeYearsConfig);
+    }
   };
 
   const handleArrowUpClick = () => {
-    changeDatesOnUp(changeYearsConfig);
+    if ((isBlockDown || !isBlockDown) && !isBlockUp) {
+      changeDatesOnUp(changeYearsConfig);
+    }
   };
 
   const handleArrowClick = (evt: KeyboardEvent<HTMLButtonElement>, arrow: Arrow) => {

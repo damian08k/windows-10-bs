@@ -5,7 +5,7 @@ import { Year } from './components/Year/Year';
 import { useArrowFocus } from 'hooks/useArrowFocus';
 import useFillYears from 'hooks/useFillYears';
 
-import { LAST_MAX_HIGHLIGHT_YEAR, MAX_VISIBLE_YEAR } from 'src/constants';
+import { LAST_MAX_HIGHLIGHT_YEAR } from 'src/constants';
 
 import classes from './YearsList.module.css';
 
@@ -15,7 +15,7 @@ type Props = {
 
 const YearsList: FC<Props> = ({ year }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const yearsList = useFillYears(year === MAX_VISIBLE_YEAR ? LAST_MAX_HIGHLIGHT_YEAR : year);
+  const yearsList = useFillYears(year > LAST_MAX_HIGHLIGHT_YEAR ? LAST_MAX_HIGHLIGHT_YEAR : year);
 
   const initialFocus = yearsList?.currentValues.findIndex(year => year.isCurrent);
   const [focus, setFocus] = useArrowFocus(

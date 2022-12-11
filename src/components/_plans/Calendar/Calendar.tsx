@@ -34,12 +34,14 @@ const Calendar = () => {
   const handleMouseWheel = (evt: WheelEvent) => {
     const { deltaY } = evt;
 
+    const { isBlockDown, isBlockUp } = yearsBlock;
+
     if (deltaY < 0) {
-      if ((yearsBlock.isBlockDown || !yearsBlock.isBlockDown) && !yearsBlock.isBlockUp) {
+      if ((isBlockDown || !isBlockDown) && !isBlockUp) {
         changeDatesOnUp(changeYearsConfig);
       }
     } else {
-      if ((yearsBlock.isBlockUp || !yearsBlock.isBlockUp) && !yearsBlock.isBlockDown) {
+      if ((isBlockUp || !isBlockUp) && !isBlockDown) {
         changeDatesOnDown(changeYearsConfig);
       }
     }
