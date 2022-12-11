@@ -7,6 +7,8 @@ import YearsList from './components/YearsList/YearsList';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
+import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChanging.type';
+
 import changeDatesOnDown from './helpers/changeDatesOnDown';
 import changeDatesOnUp from './helpers/changeDatesOnUp';
 
@@ -20,21 +22,25 @@ const Calendar = () => {
 
   const dispatch = useAppDispatch();
 
+  const changeYearsConfig: ChangingYearsConfig = {
+    isMonthsView,
+    isYearsView,
+    year,
+    month,
+    highlightedYears,
+    dispatch,
+  };
+
   const handleMouseWheel = (evt: WheelEvent) => {
     const { deltaY } = evt;
+
     if (deltaY < 0) {
-      if (
-        (yearsBlock.isBlockDown && !yearsBlock.isBlockUp) ||
-        (!yearsBlock.isBlockDown && !yearsBlock.isBlockUp)
-      ) {
-        changeDatesOnUp(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+      if ((yearsBlock.isBlockDown || !yearsBlock.isBlockDown) && !yearsBlock.isBlockUp) {
+        changeDatesOnUp(changeYearsConfig);
       }
     } else {
-      if (
-        (yearsBlock.isBlockUp && !yearsBlock.isBlockDown) ||
-        (!yearsBlock.isBlockDown && !yearsBlock.isBlockUp)
-      ) {
-        changeDatesOnDown(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+      if ((yearsBlock.isBlockUp || !yearsBlock.isBlockUp) && !yearsBlock.isBlockDown) {
+        changeDatesOnDown(changeYearsConfig);
       }
     }
   };

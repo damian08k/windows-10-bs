@@ -17,9 +17,12 @@ export const blockDatesChanging = (
   const { highlightYear, lastVisibleYear, visibleYear, monthNumber, blockUp, blockDown } =
     blockDatesConfig;
 
+  const isYearHiglighed = Boolean(
+    highlightedYears.find(({ year: y, type }) => y === highlightYear && type === HIGHLIGHTED),
+  );
+
   if (
-    (isYearsView &&
-      highlightedYears.find(y => y.year === highlightYear && y.type === HIGHLIGHTED)) ||
+    (isYearsView && isYearHiglighed) ||
     (isMonthsView && year === lastVisibleYear) ||
     (!isMonthsView && !isYearsView && year === visibleYear && month === monthNumber)
   ) {
@@ -29,6 +32,7 @@ export const blockDatesChanging = (
         isBlockDown: blockDown,
       }),
     );
+
     return;
   }
 

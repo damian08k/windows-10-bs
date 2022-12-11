@@ -3,6 +3,13 @@ import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
 
+import {
+  MAX_MONTH_VALUE,
+  MAX_VISIBLE_YEAR,
+  MIN_MONTH_VALUE,
+  MIN_VISIBLE_YEAR,
+} from 'src/constants';
+
 import betterAt from 'utils/betterAt';
 
 import classes from './CurrentView.module.css';
@@ -24,7 +31,10 @@ const CurrentView: FC<Props> = ({ isMonthsView, isYearsView, month, year }) => {
   );
 
   const handleViewClick = () => {
-    if ((year > 1922 && year < 2122) || (month > 0 && month < 11)) {
+    if (
+      (year > MIN_VISIBLE_YEAR && year < MAX_VISIBLE_YEAR) ||
+      (month > MIN_MONTH_VALUE && month < MAX_MONTH_VALUE)
+    ) {
       dispatch(
         calendarActions.blockYearsListChanging({
           isBlockDown: false,

@@ -3,6 +3,7 @@ import { KeyboardEvent } from 'react';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 import { Arrow } from 'types/components/calendar/arrows.type';
+import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChanging.type';
 
 import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
 import changeDatesOnUp from '_plans/Calendar/helpers/changeDatesOnUp';
@@ -18,12 +19,21 @@ const Arrows = () => {
 
   const dispatch = useAppDispatch();
 
+  const changeYearsConfig: ChangingYearsConfig = {
+    isMonthsView,
+    isYearsView,
+    year,
+    month,
+    highlightedYears,
+    dispatch,
+  };
+
   const handleArrowDownClick = () => {
-    changeDatesOnDown(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+    changeDatesOnDown(changeYearsConfig);
   };
 
   const handleArrowUpClick = () => {
-    changeDatesOnUp(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+    changeDatesOnUp(changeYearsConfig);
   };
 
   const handleArrowClick = (evt: KeyboardEvent<HTMLButtonElement>, arrow: Arrow) => {

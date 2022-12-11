@@ -1,12 +1,9 @@
-import { Dispatch } from '@reduxjs/toolkit';
-
 import { currentDateActions } from 'store/slices/currentDate.slice';
 
 import {
   BlockDatesConfig,
   ChangingYearsConfig,
 } from 'types/components/calendar/blockDatesChanging.type';
-import { YearElement } from 'types/components/calendar/yearElement.type';
 
 import { MAX_VISIBLE_YEAR, MAX_HIGHLIGHT_YEAR, LAST_VISIBLE_MAX_YEAR } from 'src/constants';
 
@@ -14,14 +11,9 @@ import betterAt from 'utils/betterAt';
 
 import { blockDatesChanging } from './blockDatesChanging';
 
-const changeDatesOnDown = (
-  isMonthsView: boolean,
-  isYearsView: boolean,
-  year: number,
-  month: number,
-  highlightedYears: YearElement[],
-  dispatch: Dispatch,
-) => {
+const changeDatesOnDown = (changeYearsConfig: ChangingYearsConfig) => {
+  const { isMonthsView, isYearsView, year, month, highlightedYears, dispatch } = changeYearsConfig;
+
   if (isMonthsView && !isYearsView) {
     dispatch(currentDateActions.updateYear(year + 1));
   } else if (!isMonthsView && !isYearsView) {
@@ -30,15 +22,6 @@ const changeDatesOnDown = (
     const year = betterAt(highlightedYears, -1).year + 1;
     dispatch(currentDateActions.updateYear(year));
   }
-
-  const changeYearsConfig: ChangingYearsConfig = {
-    isMonthsView,
-    isYearsView,
-    year,
-    month,
-    highlightedYears,
-    dispatch,
-  };
 
   const blockDatesConfig: BlockDatesConfig = {
     highlightYear: MAX_HIGHLIGHT_YEAR,

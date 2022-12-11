@@ -48,7 +48,6 @@ export const Month: FC<Props> = ({ month, index, isFocus, setFocus }) => {
       );
     }
 
-    console.log(monthId);
     dispatch(currentDateActions.updateMonthAndYear({ month: monthId, year }));
     dispatch(calendarActions.setIsMonthsView(false));
   };

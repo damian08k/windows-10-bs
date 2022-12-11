@@ -4,6 +4,9 @@ export const CALENDAR_WEEK_DAYS = 7;
 export const MIDNIGHT = '00:00:00';
 export const TODAY_ID = 'today';
 
+export const MAX_MONTH_VALUE = 11;
+export const MIN_MONTH_VALUE = 0;
+
 // calendar block scrolling years
 export const MAX_VISIBLE_YEAR = 2122;
 export const MAX_HIGHLIGHT_YEAR = 2100;
