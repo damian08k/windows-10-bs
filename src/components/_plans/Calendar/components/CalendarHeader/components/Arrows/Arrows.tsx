@@ -3,6 +3,7 @@ import { KeyboardEvent } from 'react';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 import { Arrow } from 'types/components/calendar/arrows.type';
+import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChanging.type';
 
 import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
 import changeDatesOnUp from '_plans/Calendar/helpers/changeDatesOnUp';
@@ -13,17 +14,34 @@ import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';
 import classes from './Arrows.module.css';
 
 const Arrows = () => {
-  const { isMonthsView, isYearsView, highlightedYears } = useAppSelector(state => state.calendar);
+  const { isMonthsView, isYearsView, highlightedYears, yearsBlock } = useAppSelector(
+    state => state.calendar,
+  );
   const { month, year } = useAppSelector(state => state.currentDate);
+
+  const { isBlockDown, isBlockUp } = yearsBlock;
 
   const dispatch = useAppDispatch();
 
+  const changeYearsConfig: ChangingYearsConfig = {
+    isMonthsView,
+    isYearsView,
+    year,
+    month,
+    highlightedYears,
+    dispatch,
+  };
+
   const handleArrowDownClick = () => {
-    changeDatesOnDown(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+    if ((isBlockUp || !isBlockUp) && !isBlockDown) {
+      changeDatesOnDown(changeYearsConfig);
+    }
   };
 
   const handleArrowUpClick = () => {
-    changeDatesOnUp(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+    if ((isBlockDown || !isBlockDown) && !isBlockUp) {
+      changeDatesOnUp(changeYearsConfig);
+    }
   };
 
   const handleArrowClick = (evt: KeyboardEvent<HTMLButtonElement>, arrow: Arrow) => {

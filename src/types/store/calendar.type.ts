@@ -1,5 +1,10 @@
 import { YearElement } from 'types/components/calendar/yearElement.type';
 
+export type YearsChangeBlock = {
+  isBlockUp: boolean;
+  isBlockDown: boolean;
+};
+
 export type SelectedDate = {
   id: string;
   day: number;
@@ -12,4 +17,5 @@ export type CalendarState = {
   isYearsView: boolean;
   highlightedYears: YearElement[];
   selectedDate: SelectedDate;
+  yearsBlock: YearsChangeBlock;
 };

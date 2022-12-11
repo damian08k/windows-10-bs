@@ -1,10 +1,9 @@
 import { Dispatch, FC, SetStateAction, useCallback, useEffect, useRef } from 'react';
 
-// import useFillCalendar from 'hooks/useFillCalendar';
-
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
 
+import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChanging.type';
 import { CalendarValues } from 'types/components/calendar/calendarValues.type';
 import { DayElement } from 'types/components/calendar/dayElement.type';
 import { DayName } from 'types/components/calendar/dayName.enum';
@@ -70,14 +69,23 @@ const Day: FC<Props> = props => {
   const handleChangeMonthFocusDay = useCallback(() => {
     const focusedDayInVisibleMonth = listOfDays.currentValues[index];
 
+    const changeYearsConfig: ChangingYearsConfig = {
+      isMonthsView,
+      isYearsView,
+      year,
+      month,
+      highlightedYears,
+      dispatch,
+    };
+
     if (name === PREVIOUS_MONTH_DAY) {
-      changeDatesOnUp(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+      changeDatesOnUp(changeYearsConfig);
 
       const dayToFocus = getDayToFocus(listOfDays.previousValues, focusedDayInVisibleMonth);
 
       setFocus(dayToFocus);
     } else if (name === NEXT_MONTH_DAY) {
-      changeDatesOnDown(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+      changeDatesOnDown(changeYearsConfig);
 
       const dayToFocus = getDayToFocus(listOfDays.nextValues, focusedDayInVisibleMonth);
 

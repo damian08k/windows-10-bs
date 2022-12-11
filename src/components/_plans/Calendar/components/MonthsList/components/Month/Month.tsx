@@ -39,6 +39,15 @@ export const Month: FC<Props> = ({ month, index, isFocus, setFocus }) => {
   }, [index, setFocus]);
 
   const handleOpenCalendar = (monthId: number) => {
+    if (monthId > 0 && monthId < 11) {
+      dispatch(
+        calendarActions.blockYearsListChanging({
+          isBlockDown: false,
+          isBlockUp: false,
+        }),
+      );
+    }
+
     dispatch(currentDateActions.updateMonthAndYear({ month: monthId, year }));
     dispatch(calendarActions.setIsMonthsView(false));
   };

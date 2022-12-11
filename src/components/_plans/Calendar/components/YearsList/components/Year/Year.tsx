@@ -4,12 +4,14 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 
+import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChanging.type';
 import { CalendarValues } from 'types/components/calendar/calendarValues.type';
 import { YearElement } from 'types/components/calendar/yearElement.type';
 import { YearType } from 'types/components/calendar/yearType.type';
 
 import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
 import changeDatesOnUp from '_plans/Calendar/helpers/changeDatesOnUp';
+import { MAX_VISIBLE_YEAR, MIN_VISIBLE_YEAR } from 'src/constants';
 
 import mergeClasses from 'utils/mergeClasses';
 
@@ -35,6 +37,14 @@ export const Year: FC<Props> = ({ yearElement, index, isFocus, setFocus, yearLis
   const { month } = useAppSelector(state => state.currentDate);
 
   const handleYearClick = (year: number) => {
+    if (year > MIN_VISIBLE_YEAR && year < MAX_VISIBLE_YEAR) {
+      dispatch(
+        calendarActions.blockYearsListChanging({
+          isBlockDown: false,
+          isBlockUp: false,
+        }),
+      );
+    }
     dispatch(currentDateActions.updateYear(year));
     dispatch(calendarActions.setIsYearsView(false));
     dispatch(calendarActions.setIsMonthsView(true));
@@ -53,14 +63,23 @@ export const Year: FC<Props> = ({ yearElement, index, isFocus, setFocus, yearLis
   const handleChangeYearFocus = useCallback(() => {
     const focusedYearInVisibleMonth = yearList.currentValues[index];
 
+    const changeYearsConfig: ChangingYearsConfig = {
+      isMonthsView,
+      isYearsView,
+      year,
+      month,
+      highlightedYears,
+      dispatch,
+    };
+
     if (yearElement.type === PREVIOUS) {
-      changeDatesOnUp(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+      changeDatesOnUp(changeYearsConfig);
 
       const yearToFocus = getYearToFocus(yearList.previousValues, focusedYearInVisibleMonth);
 
       setFocus(yearToFocus);
     } else if (yearElement.type === NEXT) {
-      changeDatesOnDown(isMonthsView, isYearsView, year, month, highlightedYears, dispatch);
+      changeDatesOnDown(changeYearsConfig);
 
       const yearToFocus = getYearToFocus(yearList.nextValues, focusedYearInVisibleMonth);
 

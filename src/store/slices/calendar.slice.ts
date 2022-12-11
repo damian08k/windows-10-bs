@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { YearElement } from 'types/components/calendar/yearElement.type';
-import { CalendarState, SelectedDate } from 'types/store/calendar.type';
+import { CalendarState, SelectedDate, YearsChangeBlock } from 'types/store/calendar.type';
 
 import { TODAY_ID } from 'src/constants';
 
@@ -17,6 +17,10 @@ const initialCalendarState = {
   isYearsView: false,
   highlightedYears: [],
   selectedDate: initialSelectedDate,
+  yearsBlock: {
+    isBlockUp: false,
+    isBlockDown: false,
+  },
 } as CalendarState;
 
 const calendarSlice = createSlice({
@@ -38,6 +42,9 @@ const calendarSlice = createSlice({
     },
     setSelectedDate(state, action: PayloadAction<SelectedDate>) {
       state.selectedDate = { ...action.payload };
+    },
+    blockYearsListChanging(state, action: PayloadAction<YearsChangeBlock>) {
+      state.yearsBlock = { ...action.payload };
     },
   },
 });

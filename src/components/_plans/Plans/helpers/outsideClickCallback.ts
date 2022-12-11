@@ -7,6 +7,12 @@ const resetPlansViews = (dispatch: Dispatch): void => {
   dispatch(plansActions.togglePlansVisibility(false));
   dispatch(calendarActions.setIsMonthsView(false));
   dispatch(calendarActions.setIsYearsView(false));
+  dispatch(
+    calendarActions.blockYearsListChanging({
+      isBlockDown: false,
+      isBlockUp: false,
+    }),
+  );
 };
 
 export default resetPlansViews;

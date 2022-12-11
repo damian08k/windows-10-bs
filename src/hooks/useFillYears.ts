@@ -9,7 +9,7 @@ import { YearType } from 'types/components/calendar/yearType.type';
 import betterAt from 'utils/betterAt';
 import { getCalendarYearsValues } from 'utils/calendar/getCalendarYearsValues';
 
-const { PREVIOUS, NEXT } = YearType;
+const { PREVIOUS, NEXT, HIGHLIGHTED } = YearType;
 
 const useFillYears = (year: number): FilledCalendarYearValues => {
   const [years, setYears] = useState<FilledCalendarYearValues>(null);
@@ -36,7 +36,11 @@ const useFillYears = (year: number): FilledCalendarYearValues => {
       nextValues: nextYears,
     };
 
-    dispatch(calendarActions.setHighlightedYears(currentVisibleYears));
+    dispatch(
+      calendarActions.setHighlightedYears(
+        currentVisibleYears.filter(({ type }) => type === HIGHLIGHTED),
+      ),
+    );
 
     setYears(yearsList);
 
