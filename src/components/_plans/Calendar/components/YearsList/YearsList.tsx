@@ -3,8 +3,8 @@ import { FC, useRef } from 'react';
 import { Year } from './components/Year/Year';
 
 import { useArrowFocus } from 'hooks/useArrowFocus';
-import useFillYears from 'hooks/useFillYears';
 
+import { useFillYears } from '_plans/Calendar/hooks/useFillYears';
 import { LAST_MAX_HIGHLIGHT_YEAR } from 'src/constants';
 
 import classes from './YearsList.module.css';

@@ -1,8 +1,8 @@
 import { FC, useRef } from 'react';
 
 import { useArrowFocus } from 'hooks/useArrowFocus';
-import { useFillMonth } from 'hooks/useFillMonth';
 
+import { useFillMonth } from '_plans/Calendar/hooks/useFillMonth';
 import { CALENDAR_WEEK_DAYS, TODAY_ID } from 'src/constants';
 
 import getWeekDays from '../../helpers/getWeekDays';

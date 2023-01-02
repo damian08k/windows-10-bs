@@ -11,7 +11,7 @@ import { getCalendarYearsValues } from 'utils/calendar/getCalendarYearsValues';
 
 const { PREVIOUS, NEXT, HIGHLIGHTED } = YearType;
 
-const useFillYears = (year: number): FilledCalendarYearValues => {
+export const useFillYears = (year: number): FilledCalendarYearValues => {
   const [years, setYears] = useState<FilledCalendarYearValues>(null);
 
   const { today } = useAppSelector(state => state.currentDate);
@@ -49,5 +49,3 @@ const useFillYears = (year: number): FilledCalendarYearValues => {
 
   return years;
 };
-
-export default useFillYears;
