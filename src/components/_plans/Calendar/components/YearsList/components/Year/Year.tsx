@@ -1,4 +1,6 @@
-import { FC, useCallback, useEffect, useRef } from 'react';
+import { FC, useCallback, useRef } from 'react';
+
+import { useElementFocus } from 'hooks/useElementFocus';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
@@ -36,6 +38,8 @@ export const Year: FC<Props> = ({ yearElement, focusConfig, yearList }) => {
   const { isMonthsView, isYearsView, highlightedYears } = useAppSelector(state => state.calendar);
   const { month } = useAppSelector(state => state.currentDate);
 
+  const handleFocusYear = useElementFocus(focusConfig, yearRef);
+
   const handleYearClick = (year: number) => {
     if (year > MIN_VISIBLE_YEAR && year < MAX_VISIBLE_YEAR) {
       dispatch(
@@ -49,16 +53,6 @@ export const Year: FC<Props> = ({ yearElement, focusConfig, yearList }) => {
     dispatch(calendarActions.setIsYearsView(false));
     dispatch(calendarActions.setIsMonthsView(true));
   };
-
-  useEffect(() => {
-    if (isFocus) {
-      yearRef?.current?.focus();
-    }
-  }, [isFocus]);
-
-  const handleFocusYear = useCallback(() => {
-    setFocus(index);
-  }, [index, setFocus]);
 
   const handleChangeYearFocus = useCallback(() => {
     const focusedYearInVisibleMonth = yearList.currentValues[index];

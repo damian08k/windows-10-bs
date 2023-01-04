@@ -1,4 +1,6 @@
-import { FC, useCallback, useEffect, useRef } from 'react';
+import { FC, useCallback, useRef } from 'react';
+
+import { useElementFocus } from 'hooks/useElementFocus';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
@@ -40,11 +42,7 @@ const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
 
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (isFocus) {
-      dayRef?.current?.focus();
-    }
-  }, [isFocus, index]);
+  const handleFocusDay = useElementFocus(focusConfig, dayRef);
 
   const handleSelectDay = (id: string, name: DayName) => {
     const { selectedMonth, selectedYear } = selectMonthAndYear(month, name, year);
@@ -58,10 +56,6 @@ const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
       }),
     );
   };
-
-  const handleFocusDay = useCallback(() => {
-    setFocus(index);
-  }, [index, setFocus]);
 
   const handleChangeMonthFocusDay = useCallback(() => {
     const focusedDayInVisibleMonth = listOfDays.currentValues[index];

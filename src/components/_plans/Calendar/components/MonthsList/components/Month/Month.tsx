@@ -1,4 +1,6 @@
-import { FC, useCallback, useEffect, useRef } from 'react';
+import { FC, useRef } from 'react';
+
+import { useElementFocus } from 'hooks/useElementFocus';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
@@ -18,7 +20,7 @@ type Props = {
 };
 
 export const Month: FC<Props> = ({ month, focusConfig }) => {
-  const { index, isFocus, setFocus } = focusConfig;
+  const { isFocus } = focusConfig;
   const { monthId, monthName } = month;
 
   const monthRef = useRef<HTMLButtonElement>(null);
@@ -26,17 +28,9 @@ export const Month: FC<Props> = ({ month, focusConfig }) => {
   const { today, year } = useAppSelector(state => state.currentDate);
   const dispatch = useAppDispatch();
 
+  const handleFocusMonth = useElementFocus(focusConfig, monthRef);
+
   const { month: currentMonth, year: currentYear } = getSplittedToday(today);
-
-  useEffect(() => {
-    if (isFocus) {
-      monthRef?.current?.focus();
-    }
-  }, [isFocus]);
-
-  const handleFocusMonth = useCallback(() => {
-    setFocus(index);
-  }, [index, setFocus]);
 
   const handleOpenCalendar = (monthId: number) => {
     if (monthId > 0 && monthId < 11) {
