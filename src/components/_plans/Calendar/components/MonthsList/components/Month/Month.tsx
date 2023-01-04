@@ -1,10 +1,11 @@
-import { Dispatch, FC, SetStateAction, useCallback, useEffect, useRef } from 'react';
+import { FC, useCallback, useEffect, useRef } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 
 import { MonthName } from 'types/components/calendar/monthName.type';
+import { FocusConfig } from 'types/hooks/focusConfig.type';
 
 import getSplittedToday from 'utils/calendar/getSplittedToday';
 import mergeClasses from 'utils/mergeClasses';
@@ -13,12 +14,11 @@ import classes from './Month.module.css';
 
 type Props = {
   month: MonthName;
-  index: number;
-  isFocus: boolean;
-  setFocus: Dispatch<SetStateAction<number>>;
+  focusConfig: FocusConfig;
 };
 
-export const Month: FC<Props> = ({ month, index, isFocus, setFocus }) => {
+export const Month: FC<Props> = ({ month, focusConfig }) => {
+  const { index, isFocus, setFocus } = focusConfig;
   const { monthId, monthName } = month;
 
   const monthRef = useRef<HTMLButtonElement>(null);

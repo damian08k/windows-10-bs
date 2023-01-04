@@ -1,12 +1,14 @@
-import { Dispatch, FC, SetStateAction, useCallback, useEffect, useRef } from 'react';
+import { FC, useCallback, useEffect, useRef } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
 
 import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChanging.type';
 import { CalendarValues } from 'types/components/calendar/calendarValues.type';
+import { DayConfig } from 'types/components/calendar/dayConfig.type';
 import { DayElement } from 'types/components/calendar/dayElement.type';
 import { DayName } from 'types/components/calendar/dayName.enum';
+import { FocusConfig } from 'types/hooks/focusConfig.type';
 
 import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
 import changeDatesOnUp from '_plans/Calendar/helpers/changeDatesOnUp';
@@ -22,19 +24,14 @@ import classes from './Day.module.css';
 const { TODAY, PREVIOUS_MONTH_DAY, NEXT_MONTH_DAY } = DayName;
 
 type Props = {
-  id: string;
-  name: DayName;
-  dayNumber: number;
-  month: number;
-  year: number;
-  index: number;
-  isFocus: boolean;
-  setFocus: Dispatch<SetStateAction<number>>;
+  dayConfig: DayConfig;
+  focusConfig: FocusConfig;
   listOfDays: CalendarValues<DayElement>;
 };
 
-const Day: FC<Props> = props => {
-  const { id, name, dayNumber, month, year, setFocus, index, isFocus, listOfDays } = props;
+const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
+  const { id, name, dayNumber, month, year } = dayConfig;
+  const { setFocus, index, isFocus } = focusConfig;
 
   const dayRef = useRef<HTMLButtonElement>(null);
   const { selectedDate, isMonthsView, isYearsView, highlightedYears } = useAppSelector(

@@ -2,6 +2,9 @@ import { FC, useRef } from 'react';
 
 import { useArrowFocus } from 'hooks/useArrowFocus';
 
+import { DayConfig } from 'types/components/calendar/dayConfig.type';
+import { FocusConfig } from 'types/hooks/focusConfig.type';
+
 import { useFillMonth } from '_plans/Calendar/hooks/useFillMonth';
 import { CALENDAR_WEEK_DAYS, TODAY_ID } from 'src/constants';
 
@@ -43,20 +46,24 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
         {listOfDays?.currentValues.map((day, index) => {
           const { id, name, dayNumber, isToday } = day;
           const dayID = isToday ? TODAY_ID : id;
-          // TODO: Try to reduce the number of props passing to Day component
+          const isFocus = focus === index;
+
+          const dayConfig: DayConfig = {
+            id: dayID,
+            name,
+            dayNumber,
+            month,
+            year,
+          };
+
+          const focusConfig: FocusConfig = {
+            index,
+            isFocus,
+            setFocus,
+          };
+
           return (
-            <Day
-              key={id}
-              id={dayID}
-              name={name}
-              dayNumber={dayNumber}
-              month={month}
-              year={year}
-              setFocus={setFocus}
-              index={index}
-              isFocus={focus === index}
-              listOfDays={listOfDays}
-            />
+            <Day key={id} dayConfig={dayConfig} focusConfig={focusConfig} listOfDays={listOfDays} />
           );
         })}
       </div>

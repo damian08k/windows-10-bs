@@ -6,6 +6,8 @@ import { useArrowFocus } from 'hooks/useArrowFocus';
 
 import { useAppSelector } from 'store/hooks';
 
+import { FocusConfig } from 'types/hooks/focusConfig.type';
+
 import getSplittedToday from 'utils/calendar/getSplittedToday';
 
 import getMonthsNames from './helpers/getMonthsNames';
@@ -31,15 +33,17 @@ const MonthsList = () => {
 
   return (
     <div className={classes.root} ref={containerRef}>
-      {months.map((month, index) => (
-        <Month
-          key={month.monthId}
-          month={month}
-          setFocus={setFocus}
-          index={index}
-          isFocus={focus === index}
-        />
-      ))}
+      {months.map((month, index) => {
+        const isFocus = focus === index;
+
+        const focusConfig: FocusConfig = {
+          index,
+          isFocus,
+          setFocus,
+        };
+
+        return <Month key={month.monthId} month={month} focusConfig={focusConfig} />;
+      })}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useCallback, useEffect, useRef } from 'react';
+import { FC, useCallback, useEffect, useRef } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions } from 'store/slices/calendar.slice';
@@ -8,6 +8,7 @@ import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChangin
 import { CalendarValues } from 'types/components/calendar/calendarValues.type';
 import { YearElement } from 'types/components/calendar/yearElement.type';
 import { YearType } from 'types/components/calendar/yearType.type';
+import { FocusConfig } from 'types/hooks/focusConfig.type';
 
 import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
 import changeDatesOnUp from '_plans/Calendar/helpers/changeDatesOnUp';
@@ -23,13 +24,12 @@ const { PREVIOUS, NEXT } = YearType;
 
 type Props = {
   yearElement: YearElement;
-  index: number;
-  isFocus: boolean;
-  setFocus: Dispatch<SetStateAction<number>>;
+  focusConfig: FocusConfig;
   yearList: CalendarValues<YearElement>;
 };
 
-export const Year: FC<Props> = ({ yearElement, index, isFocus, setFocus, yearList }) => {
+export const Year: FC<Props> = ({ yearElement, focusConfig, yearList }) => {
+  const { index, isFocus, setFocus } = focusConfig;
   const { type, year, isCurrent } = yearElement;
   const yearRef = useRef<HTMLButtonElement>(null);
   const dispatch = useAppDispatch();
