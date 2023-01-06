@@ -5,4 +5,5 @@ export type YearElement = {
   type: YearType;
   year: number;
   isCurrent?: boolean;
+  elementName: 'year';
 };

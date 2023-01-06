@@ -28,6 +28,7 @@ const getHighlightedYears = (startCountingYear: number, today: string): YearElem
       type: HIGHLIGHTED,
       year: y,
       isCurrent: y === year,
+      elementName: 'year',
     });
   }
 
@@ -42,6 +43,7 @@ const getPreviousYears = (years: YearElement[], startCountingYear: number): void
       id: uuidv4(),
       type: PREVIOUS,
       year: y,
+      elementName: 'year',
     });
   }
 };
@@ -58,6 +60,7 @@ const getNextYears = (
       id: uuidv4(),
       type: NEXT,
       year: y,
+      elementName: 'year',
     });
   }
 };

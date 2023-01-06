@@ -5,4 +5,5 @@ export type DayElement = {
   name: DayName;
   dayNumber: number;
   isToday?: boolean;
+  elementName: 'day';
 };

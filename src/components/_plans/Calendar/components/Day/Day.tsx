@@ -14,11 +14,11 @@ import { FocusConfig } from 'types/hooks/focusConfig.type';
 
 import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
 import changeDatesOnUp from '_plans/Calendar/helpers/changeDatesOnUp';
+import { getElementToFocus } from '_plans/Calendar/helpers/getValueToFocus';
 import { TODAY_ID } from 'src/constants';
 
 import mergeClasses from 'utils/mergeClasses';
 
-import { getDayToFocus } from './helpers/getDayToFocus';
 import selectMonthAndYear from './helpers/selectedMonthAndYear';
 
 import classes from './Day.module.css';
@@ -72,13 +72,19 @@ const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
     if (name === PREVIOUS_MONTH_DAY) {
       changeDatesOnUp(changeYearsConfig);
 
-      const dayToFocus = getDayToFocus(listOfDays.previousValues, focusedDayInVisibleMonth);
+      const dayToFocus = getElementToFocus<DayElement>(
+        listOfDays.previousValues,
+        focusedDayInVisibleMonth,
+      );
 
       setFocus(dayToFocus);
     } else if (name === NEXT_MONTH_DAY) {
       changeDatesOnDown(changeYearsConfig);
 
-      const dayToFocus = getDayToFocus(listOfDays.nextValues, focusedDayInVisibleMonth);
+      const dayToFocus = getElementToFocus<DayElement>(
+        listOfDays.nextValues,
+        focusedDayInVisibleMonth,
+      );
 
       setFocus(dayToFocus);
     }
