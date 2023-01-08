@@ -1,8 +1,8 @@
-import Button from '_commons/Button/Button';
+import { Button } from '_commons/Button/Button';
 
 import classes from './CreateEventButtons.module.css';
 
-const CreateEventButtons = () => {
+export const CreateEventButtons = () => {
   return (
     <div className={classes.root}>
       <Button variant="primary" value="Save" type="submit" ariaLabel="Create event" />
@@ -15,5 +15,3 @@ const CreateEventButtons = () => {
     </div>
   );
 };
-
-export default CreateEventButtons;

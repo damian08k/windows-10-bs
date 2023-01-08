@@ -1,20 +1,20 @@
 import { useEffect } from 'react';
 
-import useScreenWidth from 'hooks/useScreenWidth';
+import { useScreenWidth } from 'hooks/useScreenWidth';
 
 import { useAppDispatch } from 'store/hooks';
 import { clockActions } from 'store/slices/clock.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 
-import DesktopView from '_view/DesktopView/DesktopView';
-import MobileView from '_view/MobileView/MobileView';
+import { DesktopView } from '_view/DesktopView/DesktopView';
+import { MobileView } from '_view/MobileView/MobileView';
 
 import classes from './assets/styles/global.module.css';
 import { MIDNIGHT, MIN_SYSTEM_RESOLUTION } from './constants';
 
 import './assets/styles/variables.module.css';
 
-const App = () => {
+export const App = () => {
   const screenWidth = useScreenWidth();
 
   const dispatch = useAppDispatch();
@@ -47,5 +47,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;

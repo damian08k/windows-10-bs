@@ -9,7 +9,7 @@ import { LAST_VISIBLE_MIN_YEAR, MIN_HIGHLIGHT_YEAR, MIN_VISIBLE_YEAR } from 'src
 
 import { blockDatesChanging } from './blockDatesChanging';
 
-const changeDatesOnUp = (changeYearsConfig: ChangingYearsConfig): void => {
+export const changeDatesOnUp = (changeYearsConfig: ChangingYearsConfig): void => {
   const { isMonthsView, isYearsView, year, month, highlightedYears, dispatch } = changeYearsConfig;
 
   if (isMonthsView && !isYearsView) {
@@ -32,5 +32,3 @@ const changeDatesOnUp = (changeYearsConfig: ChangingYearsConfig): void => {
 
   blockDatesChanging(changeYearsConfig, blockDatesConfig);
 };
-
-export default changeDatesOnUp;

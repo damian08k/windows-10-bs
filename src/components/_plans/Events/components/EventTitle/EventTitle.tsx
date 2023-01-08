@@ -3,7 +3,7 @@ import { FC, KeyboardEvent } from 'react';
 
 import { EventData } from 'types/store/plansState.type';
 
-import mergeClasses from 'utils/mergeClasses';
+import { mergeClasses } from 'utils/mergeClasses';
 
 import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
 
@@ -13,7 +13,7 @@ type Props = {
   onClickEnter: (evt: KeyboardEvent<HTMLInputElement>) => void;
 };
 
-const EventTitle: FC<Props> = ({ onClickEnter }) => {
+export const EventTitle: FC<Props> = ({ onClickEnter }) => {
   const { values, handleReset } = useFormikContext<EventData>();
 
   return (
@@ -36,5 +36,3 @@ const EventTitle: FC<Props> = ({ onClickEnter }) => {
     </div>
   );
 };
-
-export default EventTitle;

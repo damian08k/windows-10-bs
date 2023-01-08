@@ -9,7 +9,7 @@ type Props = {
   onClickEnter: (evt: KeyboardEvent<HTMLInputElement>) => void;
 };
 
-const Location: FC<Props> = ({ onClickEnter }) => {
+export const Location: FC<Props> = ({ onClickEnter }) => {
   return (
     <div className={classes.root}>
       <LocationIcon className={classes.locationIcon} />
@@ -22,5 +22,3 @@ const Location: FC<Props> = ({ onClickEnter }) => {
     </div>
   );
 };
-
-export default Location;

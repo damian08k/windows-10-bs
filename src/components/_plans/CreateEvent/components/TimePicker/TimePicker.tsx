@@ -9,7 +9,7 @@ type Props = {
   onClickEnter: (evt: KeyboardEvent<HTMLInputElement>) => void;
 };
 
-const TimePicker: FC<Props> = ({ onClickEnter }) => {
+export const TimePicker: FC<Props> = ({ onClickEnter }) => {
   return (
     <div className={classes.root}>
       <ClockIcon className={classes.timeIcon} />
@@ -29,5 +29,3 @@ const TimePicker: FC<Props> = ({ onClickEnter }) => {
     </div>
   );
 };
-
-export default TimePicker;

@@ -12,12 +12,12 @@ import { YearElement } from 'types/components/calendar/yearElement.type';
 import { YearType } from 'types/components/calendar/yearType.type';
 import { FocusConfig } from 'types/hooks/focusConfig.type';
 
-import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
-import changeDatesOnUp from '_plans/Calendar/helpers/changeDatesOnUp';
+import { changeDatesOnDown } from '_plans/Calendar/helpers/changeDatesOnDown';
+import { changeDatesOnUp } from '_plans/Calendar/helpers/changeDatesOnUp';
 import { getElementToFocus } from '_plans/Calendar/helpers/getValueToFocus';
 import { MAX_VISIBLE_YEAR, MIN_VISIBLE_YEAR } from 'src/constants';
 
-import mergeClasses from 'utils/mergeClasses';
+import { mergeClasses } from 'utils/mergeClasses';
 
 import classes from './Year.module.css';
 

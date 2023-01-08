@@ -1,20 +1,20 @@
 import { FC, useRef } from 'react';
 
-import useOutsideClick from 'hooks/useOutsideClick';
+import { useOutsideClick } from 'hooks/useOutsideClick';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { calendarActions, initialSelectedDate } from 'store/slices/calendar.slice';
 import { currentDateActions } from 'store/slices/currentDate.slice';
 
-import Calendar from '_plans/Calendar/Calendar';
-import Events from '_plans/Events/Events';
-import PlansDate from '_plans/PlansDate/PlansDate';
-import ToggleEventsVisibility from '_plans/ToggleEventsVisibility/ToggleEventsVisibility';
+import { Calendar } from '_plans/Calendar/Calendar';
+import { Events } from '_plans/Events/Events';
+import { PlansDate } from '_plans/PlansDate/PlansDate';
+import { ToggleEventsVisibility } from '_plans/ToggleEventsVisibility/ToggleEventsVisibility';
 
-import getSplittedToday from 'utils/calendar/getSplittedToday';
-import mergeClasses from 'utils/mergeClasses';
+import { getSplittedToday } from 'utils/calendar/getSplittedToday';
+import { mergeClasses } from 'utils/mergeClasses';
 
-import resetPlansViews from './helpers/outsideClickCallback';
+import { resetPlansViews } from './helpers/outsideClickCallback';
 
 import classes from './Plans.module.css';
 
@@ -22,7 +22,7 @@ type Props = {
   transitionClassName: string;
 };
 
-const Plans: FC<Props> = ({ transitionClassName }) => {
+export const Plans: FC<Props> = ({ transitionClassName }) => {
   const plansBoxContainerRef = useRef<HTMLDivElement>(null);
   const { isPlanOpen, isEventsVisible } = useAppSelector(state => state.plans);
   const today = useAppSelector(state => state.currentDate.today);
@@ -58,5 +58,3 @@ const Plans: FC<Props> = ({ transitionClassName }) => {
     </div>
   );
 };
-
-export default Plans;

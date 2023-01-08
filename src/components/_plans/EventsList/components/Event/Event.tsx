@@ -6,7 +6,7 @@ import classes from './Event.module.css';
 
 type Props = Omit<EventData, 'id'>;
 
-const Event: FC<Props> = ({ title, timeFrom, timeTo, location }) => {
+export const Event: FC<Props> = ({ title, timeFrom, timeTo, location }) => {
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -22,5 +22,3 @@ const Event: FC<Props> = ({ title, timeFrom, timeTo, location }) => {
     </div>
   );
 };
-
-export default Event;

@@ -3,9 +3,9 @@ import { render, screen } from '@testing-library/react';
 import { FC } from 'react';
 import { Provider } from 'react-redux';
 
-import store from 'store/store';
+import { store } from 'store/store';
 
-import DesktopView from '_view/DesktopView/DesktopView';
+import { DesktopView } from '_view/DesktopView/DesktopView';
 
 import { MIN_SYSTEM_RESOLUTION } from '../../constants';
 

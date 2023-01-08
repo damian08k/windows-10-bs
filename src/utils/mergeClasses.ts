@@ -1,4 +1,4 @@
-import betterAt from './betterAt';
+import { betterAt } from './betterAt';
 
 type ConditionallyClasses = {
   [key: string]: boolean;
@@ -6,7 +6,7 @@ type ConditionallyClasses = {
 
 type Classes = [...string[], ConditionallyClasses] | string[];
 
-const mergeClasses = (...classes: Classes): string => {
+export const mergeClasses = (...classes: Classes): string => {
   const classesCopy = [...classes];
   const lastElement = betterAt(classesCopy, -1);
   const isObjectInside = typeof lastElement === 'string' ? false : true;
@@ -23,5 +23,3 @@ const mergeClasses = (...classes: Classes): string => {
 
   return classesCopy.join(' ');
 };
-
-export default mergeClasses;

@@ -8,15 +8,15 @@ import { useAppSelector } from 'store/hooks';
 
 import { FocusConfig } from 'types/hooks/focusConfig.type';
 
-import getSplittedToday from 'utils/calendar/getSplittedToday';
+import { getSplittedToday } from 'utils/calendar/getSplittedToday';
 
-import getMonthsNames from './helpers/getMonthsNames';
+import { getMonthsNames } from './helpers/getMonthsNames';
 
 import classes from './MonthsList.module.css';
 
 const MONTHS_IN_ROW = 4;
 
-const MonthsList = () => {
+export const MonthsList = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { today, year } = useAppSelector(state => state.currentDate);
   const months = getMonthsNames();
@@ -47,4 +47,3 @@ const MonthsList = () => {
     </div>
   );
 };
-export default MonthsList;

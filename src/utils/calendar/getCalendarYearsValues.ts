@@ -5,9 +5,9 @@ import { YearType } from 'types/components/calendar/yearType.type';
 
 import { LAST_MIN_START_COUNTING_YEAR, MAX_VISIBLE_YEAR, MIN_VISIBLE_YEAR } from 'src/constants';
 
-import betterAt from 'utils/betterAt';
+import { betterAt } from 'utils/betterAt';
 
-import getSplittedToday from './getSplittedToday';
+import { getSplittedToday } from './getSplittedToday';
 
 const { HIGHLIGHTED, PREVIOUS, NEXT } = YearType;
 

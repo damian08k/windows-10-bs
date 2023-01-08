@@ -7,11 +7,11 @@ import {
 
 import { MAX_VISIBLE_YEAR, MAX_HIGHLIGHT_YEAR, LAST_VISIBLE_MAX_YEAR } from 'src/constants';
 
-import betterAt from 'utils/betterAt';
+import { betterAt } from 'utils/betterAt';
 
 import { blockDatesChanging } from './blockDatesChanging';
 
-const changeDatesOnDown = (changeYearsConfig: ChangingYearsConfig) => {
+export const changeDatesOnDown = (changeYearsConfig: ChangingYearsConfig) => {
   const { isMonthsView, isYearsView, year, month, highlightedYears, dispatch } = changeYearsConfig;
 
   if (isMonthsView && !isYearsView) {
@@ -34,5 +34,3 @@ const changeDatesOnDown = (changeYearsConfig: ChangingYearsConfig) => {
 
   blockDatesChanging(changeYearsConfig, blockDatesConfig);
 };
-
-export default changeDatesOnDown;
