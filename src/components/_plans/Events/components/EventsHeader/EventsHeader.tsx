@@ -6,13 +6,13 @@ import { EventData } from 'types/store/plansState.type';
 
 import { TODAY_ID } from 'src/constants';
 
-import changeSelectedDateToDayName from 'utils/calendar/changeSelectedDateToDayName';
+import { changeSelectedDateToDayName } from 'utils/calendar/changeSelectedDateToDayName';
 
 import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
 
 import classes from './EventsHeader.module.css';
 
-const EventsHeader = () => {
+export const EventsHeader = () => {
   const { values, handleReset } = useFormikContext<EventData>();
   const { selectedDate } = useAppSelector(state => state.calendar);
   const { id, day } = selectedDate;
@@ -34,5 +34,3 @@ const EventsHeader = () => {
     </div>
   );
 };
-
-export default EventsHeader;

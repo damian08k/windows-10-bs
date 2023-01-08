@@ -5,15 +5,15 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { Arrow } from 'types/components/calendar/arrows.type';
 import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChanging.type';
 
-import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
-import changeDatesOnUp from '_plans/Calendar/helpers/changeDatesOnUp';
+import { changeDatesOnDown } from '_plans/Calendar/helpers/changeDatesOnDown';
+import { changeDatesOnUp } from '_plans/Calendar/helpers/changeDatesOnUp';
 
 import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrow_down.svg';
 import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';
 
 import classes from './Arrows.module.css';
 
-const Arrows = () => {
+export const Arrows = () => {
   const { isMonthsView, isYearsView, highlightedYears, yearsBlock } = useAppSelector(
     state => state.calendar,
   );
@@ -79,5 +79,3 @@ const Arrows = () => {
     </div>
   );
 };
-
-export default Arrows;

@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-import useScreenWidth from '../../hooks/useScreenWidth';
+import { useScreenWidth } from '../../hooks/useScreenWidth';
 
 const fireResizeEvent = (screenWidth: number): void => {
   global.innerWidth = screenWidth;

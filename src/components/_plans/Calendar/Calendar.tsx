@@ -1,20 +1,20 @@
 import { WheelEvent } from 'react';
 
-import CalendarHeader from './components/CalendarHeader/CalendarHeader';
-import DaysList from './components/DaysList/DaysList';
-import MonthsList from './components/MonthsList/MonthsList';
-import YearsList from './components/YearsList/YearsList';
+import { CalendarHeader } from './components/CalendarHeader/CalendarHeader';
+import { DaysList } from './components/DaysList/DaysList';
+import { MonthsList } from './components/MonthsList/MonthsList';
+import { YearsList } from './components/YearsList/YearsList';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChanging.type';
 
-import changeDatesOnDown from './helpers/changeDatesOnDown';
-import changeDatesOnUp from './helpers/changeDatesOnUp';
+import { changeDatesOnDown } from './helpers/changeDatesOnDown';
+import { changeDatesOnUp } from './helpers/changeDatesOnUp';
 
 import classes from './Calendar.module.css';
 
-const Calendar = () => {
+export const Calendar = () => {
   const { today, month, year } = useAppSelector(state => state.currentDate);
   const { isMonthsView, isYearsView, highlightedYears, yearsBlock } = useAppSelector(
     state => state.calendar,
@@ -69,5 +69,3 @@ const Calendar = () => {
     </div>
   );
 };
-
-export default Calendar;

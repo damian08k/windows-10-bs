@@ -8,8 +8,8 @@ import { FocusConfig } from 'types/hooks/focusConfig.type';
 import { useFillMonth } from '_plans/Calendar/hooks/useFillMonth';
 import { CALENDAR_WEEK_DAYS, TODAY_ID } from 'src/constants';
 
-import getWeekDays from '../../helpers/getWeekDays';
-import Day from '../Day/Day';
+import { getWeekDays } from '../../helpers/getWeekDays';
+import { Day } from '../Day/Day';
 
 import classes from './DaysList.module.css';
 
@@ -19,7 +19,7 @@ type Props = {
   year: number;
 };
 
-const DaysList: FC<Props> = ({ today, month, year }) => {
+export const DaysList: FC<Props> = ({ today, month, year }) => {
   const daysContainerRef = useRef<HTMLDivElement>(null);
   const listOfDays = useFillMonth(new Date(year, month, 1), month, today);
 
@@ -70,5 +70,3 @@ const DaysList: FC<Props> = ({ today, month, year }) => {
     </>
   );
 };
-
-export default DaysList;

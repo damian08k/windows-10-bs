@@ -6,7 +6,7 @@ import clockReducer from './slices/clock.slice';
 import currentDateReducer from './slices/currentDate.slice';
 import plansReducer from './slices/plans.slice';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     clock: clockReducer,
     plans: plansReducer,
@@ -17,5 +17,3 @@ const store = configureStore({
     return getDefaultMiddleware().prepend(listenMiddleware.middleware);
   },
 });
-
-export default store;

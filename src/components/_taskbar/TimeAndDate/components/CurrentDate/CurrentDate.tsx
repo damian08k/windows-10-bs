@@ -1,10 +1,10 @@
 import { useAppSelector } from 'store/hooks';
 
-import formatCurrentDate from 'utils/calendar/formatCurrentDate';
+import { formatCurrentDate } from 'utils/calendar/formatCurrentDate';
 
 import classes from './CurrentDate.module.css';
 
-const CurrentDate = () => {
+export const CurrentDate = () => {
   const currentDate = useAppSelector(state => state.currentDate.today);
 
   const { dateTime, currentDateDMYFormat } = formatCurrentDate(currentDate);
@@ -15,5 +15,3 @@ const CurrentDate = () => {
     </time>
   );
 };
-
-export default CurrentDate;

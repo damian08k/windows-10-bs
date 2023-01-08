@@ -15,7 +15,7 @@ type Props = {
   year: number;
 };
 
-const YearsList: FC<Props> = ({ year }) => {
+export const YearsList: FC<Props> = ({ year }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const yearsList = useFillYears(year > LAST_MAX_HIGHLIGHT_YEAR ? LAST_MAX_HIGHLIGHT_YEAR : year);
 
@@ -45,5 +45,3 @@ const YearsList: FC<Props> = ({ year }) => {
     </div>
   );
 };
-
-export default YearsList;

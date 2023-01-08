@@ -1,6 +1,6 @@
 import { FormattedCurrentDate } from 'types/components/taskbar/formattedCurrentDate.type';
 
-const formatCurrentDate = (currentDate: string): FormattedCurrentDate => {
+export const formatCurrentDate = (currentDate: string): FormattedCurrentDate => {
   const dateTime = currentDate.split('.').reverse().join('-');
   const currentDateDMYFormat = currentDate;
   const currentDateNamesFormat = new Date(dateTime)
@@ -14,5 +14,3 @@ const formatCurrentDate = (currentDate: string): FormattedCurrentDate => {
 
   return { dateTime, currentDateDMYFormat, currentDateNamesFormat };
 };
-
-export default formatCurrentDate;

@@ -12,14 +12,14 @@ import { DayElement } from 'types/components/calendar/dayElement.type';
 import { DayName } from 'types/components/calendar/dayName.enum';
 import { FocusConfig } from 'types/hooks/focusConfig.type';
 
-import changeDatesOnDown from '_plans/Calendar/helpers/changeDatesOnDown';
-import changeDatesOnUp from '_plans/Calendar/helpers/changeDatesOnUp';
+import { changeDatesOnDown } from '_plans/Calendar/helpers/changeDatesOnDown';
+import { changeDatesOnUp } from '_plans/Calendar/helpers/changeDatesOnUp';
+import { getElementToFocus } from '_plans/Calendar/helpers/getValueToFocus';
 import { TODAY_ID } from 'src/constants';
 
-import mergeClasses from 'utils/mergeClasses';
+import { mergeClasses } from 'utils/mergeClasses';
 
-import { getDayToFocus } from './helpers/getDayToFocus';
-import selectMonthAndYear from './helpers/selectedMonthAndYear';
+import { selectMonthAndYear } from './helpers/selectedMonthAndYear';
 
 import classes from './Day.module.css';
 
@@ -31,7 +31,7 @@ type Props = {
   listOfDays: CalendarValues<DayElement>;
 };
 
-const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
+export const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
   const { id, name, dayNumber, month, year } = dayConfig;
   const { setFocus, index, isFocus } = focusConfig;
 
@@ -72,13 +72,19 @@ const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
     if (name === PREVIOUS_MONTH_DAY) {
       changeDatesOnUp(changeYearsConfig);
 
-      const dayToFocus = getDayToFocus(listOfDays.previousValues, focusedDayInVisibleMonth);
+      const dayToFocus = getElementToFocus<DayElement>(
+        listOfDays.previousValues,
+        focusedDayInVisibleMonth,
+      );
 
       setFocus(dayToFocus);
     } else if (name === NEXT_MONTH_DAY) {
       changeDatesOnDown(changeYearsConfig);
 
-      const dayToFocus = getDayToFocus(listOfDays.nextValues, focusedDayInVisibleMonth);
+      const dayToFocus = getElementToFocus<DayElement>(
+        listOfDays.nextValues,
+        focusedDayInVisibleMonth,
+      );
 
       setFocus(dayToFocus);
     }
@@ -101,5 +107,3 @@ const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
     </button>
   );
 };
-
-export default Day;

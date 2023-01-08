@@ -1,12 +1,12 @@
-import PlansClock from './components/PlansClock/PlansClock';
+import { PlansClock } from './components/PlansClock/PlansClock';
 
 import { useAppSelector } from 'store/hooks';
 
-import formatCurrentDate from 'utils/calendar/formatCurrentDate';
+import { formatCurrentDate } from 'utils/calendar/formatCurrentDate';
 
 import classes from './PlansDate.module.css';
 
-const PlansDate = () => {
+export const PlansDate = () => {
   const today = useAppSelector(state => state.currentDate.today);
 
   const { currentDateNamesFormat } = formatCurrentDate(today);
@@ -20,5 +20,3 @@ const PlansDate = () => {
     </div>
   );
 };
-
-export default PlansDate;

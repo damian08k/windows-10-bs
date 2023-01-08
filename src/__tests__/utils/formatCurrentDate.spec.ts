@@ -1,4 +1,4 @@
-import formatCurrentDate from 'utils/calendar/formatCurrentDate';
+import { formatCurrentDate } from 'utils/calendar/formatCurrentDate';
 
 test('function should return object with three strings', () => {
   const result = formatCurrentDate(new Date().toLocaleDateString());

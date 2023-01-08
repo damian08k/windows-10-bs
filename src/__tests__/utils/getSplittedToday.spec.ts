@@ -1,4 +1,4 @@
-import getSplittedToday from 'utils/calendar/getSplittedToday';
+import { getSplittedToday } from 'utils/calendar/getSplittedToday';
 
 it('should return object with three numbers - day, month (as month index) and year', () => {
   // given

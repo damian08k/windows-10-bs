@@ -1,4 +1,4 @@
-import mergeClasses from 'utils/mergeClasses';
+import { mergeClasses } from 'utils/mergeClasses';
 
 describe('mergeClasses util tests', () => {
   it('should return joined classes as string when object is is added as last parameter', () => {

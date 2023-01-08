@@ -6,7 +6,7 @@ import classes from './Loader.module.css';
 
 const ANIMATION_DELAY_VALUE = 0.24;
 
-const Loader = () => {
+export const Loader = () => {
   return (
     <div className={classes.root}>
       <motion.div className={classes.dot} {...loaderAnimation(0)} />
@@ -17,5 +17,3 @@ const Loader = () => {
     </div>
   );
 };
-
-export default Loader;

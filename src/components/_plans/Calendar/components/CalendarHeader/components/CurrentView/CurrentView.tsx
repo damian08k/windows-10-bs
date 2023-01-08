@@ -10,7 +10,7 @@ import {
   MIN_VISIBLE_YEAR,
 } from 'src/constants';
 
-import betterAt from 'utils/betterAt';
+import { betterAt } from 'utils/betterAt';
 
 import classes from './CurrentView.module.css';
 
@@ -21,7 +21,7 @@ type Props = {
   year: number;
 };
 
-const CurrentView: FC<Props> = ({ isMonthsView, isYearsView, month, year }) => {
+export const CurrentView: FC<Props> = ({ isMonthsView, isYearsView, month, year }) => {
   const { highlightedYears } = useAppSelector(state => state.calendar);
   const dispatch = useAppDispatch();
 
@@ -75,5 +75,3 @@ const CurrentView: FC<Props> = ({ isMonthsView, isYearsView, month, year }) => {
 
   return <div className={classes.root}>{renderViewContent()}</div>;
 };
-
-export default CurrentView;

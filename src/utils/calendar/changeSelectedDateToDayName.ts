@@ -1,6 +1,6 @@
 import { SelectedDate } from 'types/store/calendar.type';
 
-const changeSelectedDateToDayName = (selectedDate: SelectedDate): string => {
+export const changeSelectedDateToDayName = (selectedDate: SelectedDate): string => {
   const { day, month, year } = selectedDate;
 
   const date = new Date(
@@ -11,5 +11,3 @@ const changeSelectedDateToDayName = (selectedDate: SelectedDate): string => {
 
   return dayName;
 };
-
-export default changeSelectedDateToDayName;

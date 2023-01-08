@@ -2,9 +2,9 @@ import { ButtonHTMLAttributes, FC, MouseEvent, ReactNode } from 'react';
 
 import { ButtonMode, ButtonState, ButtonVariant } from 'types/components/common/button/button.type';
 
-import Loader from '_commons/Loader/Loader';
+import { Loader } from '_commons/Loader/Loader';
 
-import mergeClasses from 'utils/mergeClasses';
+import { mergeClasses } from 'utils/mergeClasses';
 
 import classes from './Button.module.css';
 
@@ -20,7 +20,7 @@ type Props = {
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
 };
 
-const Button: FC<Props> = ({
+export const Button: FC<Props> = ({
   variant,
   value,
   ariaLabel,
@@ -60,5 +60,3 @@ const Button: FC<Props> = ({
     </button>
   );
 };
-
-export default Button;

@@ -6,7 +6,7 @@ import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';
 
 import classes from './ToggleEventsVisibility.module.css';
 
-const ToggleEventsVisibility = () => {
+export const ToggleEventsVisibility = () => {
   const isEventsVisible = useAppSelector(state => state.plans.isEventsVisible);
   const dispatch = useAppDispatch();
 
@@ -34,5 +34,3 @@ const ToggleEventsVisibility = () => {
     </button>
   );
 };
-
-export default ToggleEventsVisibility;

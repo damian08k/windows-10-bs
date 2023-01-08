@@ -1,4 +1,4 @@
-import Event from './components/Event/Event';
+import { Event } from './components/Event/Event';
 
 import { useAppSelector } from 'store/hooks';
 
@@ -6,7 +6,7 @@ import { getSelectedDateAsString } from 'utils/calendar/getSelectedDateAsString'
 
 import classes from './EventsList.module.css';
 
-const EventsList = () => {
+export const EventsList = () => {
   const { events } = useAppSelector(state => state.plans);
   const { selectedDate } = useAppSelector(state => state.calendar);
   const selectedDateAsString = getSelectedDateAsString(selectedDate);
@@ -25,5 +25,3 @@ const EventsList = () => {
     </div>
   );
 };
-
-export default EventsList;

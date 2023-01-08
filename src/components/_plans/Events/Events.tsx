@@ -2,16 +2,16 @@ import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { KeyboardEvent } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import EventsHeader from './components/EventsHeader/EventsHeader';
-import EventTitle from './components/EventTitle/EventTitle';
+import { EventsHeader } from './components/EventsHeader/EventsHeader';
+import { EventTitle } from './components/EventTitle/EventTitle';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { plansActions } from 'store/slices/plans.slice';
 
 import { AddEventData } from 'types/components/taskbar/events.type';
 
-import CreateEvent from '_plans/CreateEvent/CreateEvent';
-import EventsList from '_plans/EventsList/EventsList';
+import { CreateEvent } from '_plans/CreateEvent/CreateEvent';
+import { EventsList } from '_plans/EventsList/EventsList';
 
 import { getSelectedDateAsString } from 'utils/calendar/getSelectedDateAsString';
 
@@ -19,7 +19,7 @@ import { initialEventFormValues } from './data/data';
 
 import classes from './Events.module.css';
 
-const Events = () => {
+export const Events = () => {
   const { selectedDate } = useAppSelector(state => state.calendar);
 
   const dispatch = useAppDispatch();
@@ -63,5 +63,3 @@ const Events = () => {
     </div>
   );
 };
-
-export default Events;

@@ -5,9 +5,9 @@ import { YearType } from 'types/components/calendar/yearType.type';
 
 import { LAST_MIN_START_COUNTING_YEAR, MAX_VISIBLE_YEAR, MIN_VISIBLE_YEAR } from 'src/constants';
 
-import betterAt from 'utils/betterAt';
+import { betterAt } from 'utils/betterAt';
 
-import getSplittedToday from './getSplittedToday';
+import { getSplittedToday } from './getSplittedToday';
 
 const { HIGHLIGHTED, PREVIOUS, NEXT } = YearType;
 
@@ -28,6 +28,7 @@ const getHighlightedYears = (startCountingYear: number, today: string): YearElem
       type: HIGHLIGHTED,
       year: y,
       isCurrent: y === year,
+      elementName: 'year',
     });
   }
 
@@ -42,6 +43,7 @@ const getPreviousYears = (years: YearElement[], startCountingYear: number): void
       id: uuidv4(),
       type: PREVIOUS,
       year: y,
+      elementName: 'year',
     });
   }
 };
@@ -58,6 +60,7 @@ const getNextYears = (
       id: uuidv4(),
       type: NEXT,
       year: y,
+      elementName: 'year',
     });
   }
 };

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, renderHook } from '@testing-library/react';
 import { createRef } from 'react';
 
-import useOutsideClick from 'hooks/useOutsideClick';
+import { useOutsideClick } from 'hooks/useOutsideClick';
 
 describe('useOutsideClick tests', () => {
   test('calls handler when click is outside element', () => {

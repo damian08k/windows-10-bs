@@ -3,7 +3,7 @@ import classes from './MobileView.module.css';
 export const MobileViewInfoText =
   "To get this app's full experience, please run it on a desktop (more than 1000px) resolution.";
 
-const MobileView = () => (
+export const MobileView = () => (
   // TODO: Change text inside MobileViewText
 
   <div className={classes.root}>
@@ -12,5 +12,3 @@ const MobileView = () => (
     </h1>
   </div>
 );
-
-export default MobileView;

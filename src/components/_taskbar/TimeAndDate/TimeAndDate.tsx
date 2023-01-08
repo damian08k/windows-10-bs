@@ -1,16 +1,16 @@
 import { KeyboardEvent, memo } from 'react';
 
-import CurrentDate from './components/CurrentDate/CurrentDate';
-import CurrentTime from './components/CurrentTime/CurrentTime';
+import { CurrentDate } from './components/CurrentDate/CurrentDate';
+import { CurrentTime } from './components/CurrentTime/CurrentTime';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { plansActions } from 'store/slices/plans.slice';
 
-import formatCurrentDate from 'utils/calendar/formatCurrentDate';
+import { formatCurrentDate } from 'utils/calendar/formatCurrentDate';
 
 import classes from './TimeAndDate.module.css';
 
-const TimeAndDate = () => {
+export const TimeAndDate = memo(() => {
   const today = useAppSelector(state => state.currentDate.today);
   const { isPlanOpen } = useAppSelector(state => state.plans);
   const dispatch = useAppDispatch();
@@ -45,6 +45,6 @@ const TimeAndDate = () => {
       <CurrentDate />
     </button>
   );
-};
+});
 
-export default memo(TimeAndDate);
+TimeAndDate.displayName = 'TimeAndDate';

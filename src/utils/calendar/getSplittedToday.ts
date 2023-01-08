@@ -1,6 +1,6 @@
 import { SplittedToday } from 'types/utils/splittedToday.type';
 
-const getSplittedToday = (today: string): SplittedToday => {
+export const getSplittedToday = (today: string): SplittedToday => {
   const splittedToday = today.split('.');
 
   return {
@@ -9,5 +9,3 @@ const getSplittedToday = (today: string): SplittedToday => {
     year: +splittedToday[2],
   };
 };
-
-export default getSplittedToday;

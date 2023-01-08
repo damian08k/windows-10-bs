@@ -11,5 +11,3 @@ export const getWeekDays = (): string[] => {
 
   return weekDays;
 };
-
-export default getWeekDays;

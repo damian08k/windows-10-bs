@@ -5,9 +5,9 @@ import { DayName } from 'types/components/calendar/dayName.enum';
 
 import { CALENDAR_WEEK_DAYS } from 'src/constants';
 
-import betterAt from 'utils/betterAt';
+import { betterAt } from 'utils/betterAt';
 
-import getSplittedToday from './getSplittedToday';
+import { getSplittedToday } from './getSplittedToday';
 
 const { PREVIOUS_MONTH_DAY, CURRENT_MONTH_DAY, NEXT_MONTH_DAY } = DayName;
 
@@ -33,6 +33,7 @@ const getMonthPreviousDays = (
       id: uuidv4(),
       name: PREVIOUS_MONTH_DAY,
       dayNumber: previousMonthLastDay - d + VALUE_TO_ADD,
+      elementName: 'day',
     });
   }
 
@@ -55,6 +56,7 @@ const getMonthCurrentDays = (
       name: CURRENT_MONTH_DAY,
       dayNumber: d,
       isToday: d === currentDay && dateMonth === currentMonth && dateFullYear === currentYear,
+      elementName: 'day',
     });
   }
 
@@ -72,6 +74,7 @@ const getMonthNextDays = (dateFullYear: number, dateMonth: number): DayElement[]
       id: uuidv4(),
       name: NEXT_MONTH_DAY,
       dayNumber: d,
+      elementName: 'day',
     });
   }
 
@@ -90,6 +93,7 @@ const fillMonthWithMissingDays = (allDays: DayElement[]): void => {
         id: uuidv4(),
         name: NEXT_MONTH_DAY,
         dayNumber: d,
+        elementName: 'day',
       });
     }
   }

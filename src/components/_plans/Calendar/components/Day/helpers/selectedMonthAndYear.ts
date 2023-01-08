@@ -7,7 +7,7 @@ type MonthAndYear = {
   selectedYear: number;
 };
 
-const selectMonthAndYear = (month: number, name: DayName, year: number): MonthAndYear => {
+export const selectMonthAndYear = (month: number, name: DayName, year: number): MonthAndYear => {
   const selectedMonth = month;
   const selectedYear = year;
 
@@ -40,5 +40,3 @@ const selectMonthAndYear = (month: number, name: DayName, year: number): MonthAn
 
   return { selectedMonth, selectedYear };
 };
-
-export default selectMonthAndYear;
