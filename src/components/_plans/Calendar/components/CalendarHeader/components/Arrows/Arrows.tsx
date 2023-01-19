@@ -1,8 +1,5 @@
-import { KeyboardEvent } from 'react';
-
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
-import { Arrow } from 'types/components/calendar/arrows.type';
 import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChanging.type';
 
 import { changeDatesOnDown } from '_plans/Calendar/helpers/changeDatesOnDown';
@@ -44,25 +41,10 @@ export const Arrows = () => {
     }
   };
 
-  const handleArrowClick = (evt: KeyboardEvent<HTMLButtonElement>, arrow: Arrow) => {
-    const { key } = evt;
-
-    if (key === 'Enter') {
-      if (arrow === 'up') {
-        handleArrowUpClick();
-      }
-
-      if (arrow === 'down') {
-        handleArrowDownClick();
-      }
-    }
-  };
-
   return (
     <div className={classes.root}>
       <button
         className={classes.arrowButton}
-        onKeyDown={evt => handleArrowClick(evt, 'up')}
         onClick={handleArrowUpClick}
         aria-label="Show previous month"
       >
@@ -70,7 +52,6 @@ export const Arrows = () => {
       </button>
       <button
         className={classes.arrowButton}
-        onKeyDown={evt => handleArrowClick(evt, 'down')}
         onClick={handleArrowDownClick}
         aria-label="Show next month"
       >
