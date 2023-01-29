@@ -16,7 +16,6 @@ export const useArrowFocus = <T extends HTMLElement>(
     }
   }, [initialState]);
 
-  console.log(currentFocus);
   const handleKeyDown = useCallback(
     (evt: KeyboardEvent) => {
       const { key, target } = evt;
