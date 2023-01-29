@@ -23,7 +23,8 @@ export const DaysList: FC<Props> = ({ today, month, year }) => {
   const daysContainerRef = useRef<HTMLDivElement>(null);
   const listOfDays = useFillMonth(new Date(year, month, 1), month, today);
 
-  const initialFocus = listOfDays?.currentValues.findIndex(day => day.isToday);
+  const initialFocus = listOfDays?.currentValues.findIndex(({ isToday }) => isToday);
+
   const [focus, setFocus] = useArrowFocus(
     listOfDays?.currentValues?.length as number,
     daysContainerRef,
