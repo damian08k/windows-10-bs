@@ -3,19 +3,19 @@ import { DayName } from 'types/components/calendar/dayName.enum';
 import { YearElement } from 'types/components/calendar/yearElement.type';
 import { YearType } from 'types/components/calendar/yearType.type';
 
-const { CURRENT_MONTH_DAY } = DayName;
 const { HIGHLIGHTED } = YearType;
 
 export const getElementToFocus = <T extends DayElement | YearElement>(
   listOfElements: T[],
   focusedElement: T,
+  dayName?: DayName,
 ) => {
   const elementToFocus = listOfElements.findIndex(element => {
     switch (element.elementName) {
       case 'day': {
         const { name, dayNumber } = element;
 
-        return name === CURRENT_MONTH_DAY && dayNumber === (focusedElement as DayElement).dayNumber;
+        return name === dayName && dayNumber === (focusedElement as DayElement).dayNumber;
       }
 
       case 'year': {
