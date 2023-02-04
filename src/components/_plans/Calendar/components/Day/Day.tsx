@@ -1,4 +1,4 @@
-import { FC, useCallback, useRef } from 'react';
+import { FC, KeyboardEvent, useCallback, useRef } from 'react';
 
 import { useElementFocus } from 'hooks/useElementFocus';
 
@@ -15,7 +15,13 @@ import { FocusConfig } from 'types/hooks/focusConfig.type';
 import { changeDatesOnDown } from '_plans/Calendar/helpers/changeDatesOnDown';
 import { changeDatesOnUp } from '_plans/Calendar/helpers/changeDatesOnUp';
 import { getElementToFocus } from '_plans/Calendar/helpers/getValueToFocus';
-import { TODAY_ID } from 'src/constants';
+import {
+  FIRST_ROW_FINISH_INDEX,
+  FIRST_ROW_START_INDEX,
+  LAST_ROW_FINISH_INDEX,
+  LAST_ROW_START_INDEX,
+  TODAY_ID,
+} from 'src/constants';
 
 import { mergeClasses } from 'utils/mergeClasses';
 
@@ -23,7 +29,7 @@ import { selectMonthAndYear } from './helpers/selectedMonthAndYear';
 
 import classes from './Day.module.css';
 
-const { TODAY, PREVIOUS_MONTH_DAY, NEXT_MONTH_DAY } = DayName;
+const { TODAY, PREVIOUS_MONTH_DAY, NEXT_MONTH_DAY, CURRENT_MONTH_DAY } = DayName;
 
 type Props = {
   dayConfig: DayConfig;
@@ -39,9 +45,7 @@ export const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
   const { selectedDate, isMonthsView, isYearsView, highlightedYears } = useAppSelector(
     state => state.calendar,
   );
-
   const dispatch = useAppDispatch();
-
   const handleFocusDay = useElementFocus(focusConfig, dayRef);
 
   const handleSelectDay = (id: string, name: DayName) => {
@@ -57,38 +61,75 @@ export const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
     );
   };
 
-  const handleChangeMonthFocusDay = useCallback(() => {
-    const focusedDayInVisibleMonth = listOfDays.currentValues[index];
+  const handleChangeFocusOnKey = useCallback(
+    (evt: KeyboardEvent) => {
+      const changeYearsConfig: ChangingYearsConfig = {
+        isMonthsView,
+        isYearsView,
+        year,
+        month,
+        highlightedYears,
+        dispatch,
+      };
+      const focusedDayInVisibleMonth = listOfDays.currentValues[index];
+      handleFocusDay();
 
-    const changeYearsConfig: ChangingYearsConfig = {
-      isMonthsView,
-      isYearsView,
-      year,
-      month,
-      highlightedYears,
-      dispatch,
-    };
+      if (evt.type === 'keydown') {
+        if (name === CURRENT_MONTH_DAY) {
+          if (
+            index >= FIRST_ROW_START_INDEX &&
+            index <= FIRST_ROW_FINISH_INDEX &&
+            evt.key === 'ArrowUp'
+          ) {
+            changeDatesOnUp(changeYearsConfig);
+            const dayToFocus = getElementToFocus<DayElement>(
+              listOfDays.previousValues,
+              focusedDayInVisibleMonth,
+              NEXT_MONTH_DAY,
+            );
+            setFocus(dayToFocus);
+          }
 
-    if (name === PREVIOUS_MONTH_DAY) {
-      changeDatesOnUp(changeYearsConfig);
+          if (
+            index >= LAST_ROW_START_INDEX &&
+            index <= LAST_ROW_FINISH_INDEX &&
+            evt.key === 'ArrowDown'
+          ) {
+            changeDatesOnDown(changeYearsConfig);
+            const dayToFocus = getElementToFocus<DayElement>(
+              listOfDays.nextValues,
+              focusedDayInVisibleMonth,
+              PREVIOUS_MONTH_DAY,
+            );
+            setFocus(dayToFocus);
+          }
+        }
+      }
 
-      const dayToFocus = getElementToFocus<DayElement>(
-        listOfDays.previousValues,
-        focusedDayInVisibleMonth,
-      );
+      if (evt.type === 'keyup') {
+        if (name === PREVIOUS_MONTH_DAY) {
+          changeDatesOnUp(changeYearsConfig);
 
-      setFocus(dayToFocus);
-    } else if (name === NEXT_MONTH_DAY) {
-      changeDatesOnDown(changeYearsConfig);
+          const dayToFocus = getElementToFocus<DayElement>(
+            listOfDays.previousValues,
+            focusedDayInVisibleMonth,
+            CURRENT_MONTH_DAY,
+          );
+          setFocus(dayToFocus);
+        } else if (name === NEXT_MONTH_DAY) {
+          changeDatesOnDown(changeYearsConfig);
 
-      const dayToFocus = getElementToFocus<DayElement>(
-        listOfDays.nextValues,
-        focusedDayInVisibleMonth,
-      );
-
-      setFocus(dayToFocus);
-    }
-  }, [index, setFocus]);
+          const dayToFocus = getElementToFocus<DayElement>(
+            listOfDays.nextValues,
+            focusedDayInVisibleMonth,
+            CURRENT_MONTH_DAY,
+          );
+          setFocus(dayToFocus);
+        }
+      }
+    },
+    [index, setFocus],
+  );
 
   return (
     <button
@@ -98,10 +139,10 @@ export const Day: FC<Props> = ({ dayConfig, focusConfig, listOfDays }) => {
         [classes[TODAY]]: id === TODAY_ID,
       })}
       onClick={() => handleSelectDay(id, name)}
-      onKeyDown={handleFocusDay}
+      onKeyDown={handleChangeFocusOnKey}
       tabIndex={isFocus ? 0 : -1}
-      onKeyUp={handleChangeMonthFocusDay}
-      aria-label={`Selecte day ${dayNumber}`}
+      onKeyUp={handleChangeFocusOnKey}
+      aria-label={`Selected day ${dayNumber}`}
     >
       <span className={classes.dayNumber}>{dayNumber}</span>
     </button>
