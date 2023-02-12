@@ -4,7 +4,7 @@ import { createRef } from 'react';
 import { useOutsideClick } from 'hooks/useOutsideClick';
 
 describe('useOutsideClick tests', () => {
-  test('calls handler when click is outside element', () => {
+  it('should calls handler when click is outside element', () => {
     const handler = jest.fn();
     const ref = createRef<HTMLDivElement>();
     render(<div ref={ref}></div>);
@@ -15,7 +15,7 @@ describe('useOutsideClick tests', () => {
     expect(handler).toBeCalledTimes(1);
   });
 
-  test(`doesn't calls handler when click is within element`, () => {
+  it(`shouldn't calls handler when click is within element`, () => {
     const handler = jest.fn();
     const ref = createRef<HTMLDivElement>();
     render(<div ref={ref} data-testid="element-testid"></div>);

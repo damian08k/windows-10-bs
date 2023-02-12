@@ -1,4 +1,4 @@
-import { betterAt } from './betterAt';
+import { betterAt } from 'utils/betterAt';
 
 type ConditionallyClasses = {
   [key: string]: boolean;
