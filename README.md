@@ -4,15 +4,15 @@
 
 This project involves replicating the Windows 10 system in a web browser. It will include basic functionalities offered by Windows 10 such as a calendar, file explorer, start menu, control panel, the ability to customize appearance, and many others. Additionally, several applications available on the Windows system will be created, such as Paint, Calculator, as well as some games known from older versions of Windows, including Minesweeper.
 
-### Demo
+## Demo
 
 **_Section is empty at the moment_**
 
-### Features
+## Features
 
 - Calendar
 
-#### Planned Features
+### Planned Features
 
 - Login page
 - File explorer
@@ -21,7 +21,7 @@ This project involves replicating the Windows 10 system in a web browser. It wil
 - Minesweeper game
 - Customize appearance (background, taskbar color, appearance and position, etc)
 
-### Tech Stack
+## Tech Stack
 
 The project is entirely created on the client side. I do not exclude the possibility of adding a backend in the future.
 
@@ -32,11 +32,11 @@ The project is entirely created on the client side. I do not exclude the possibi
 - **Other Libraries:** Formik, Framer Motion
 - **Bundler:** Webpack
 
-### Contributing
+## Contributing
 
 Currently contributing to the project is not recommended. However, if it happens that you want to contribute, please follow the rules below.
 
-#### How to run app locally
+### How to run app locally
 
 It's just a pretty simple. Just clone project code and then open your terminal and use
 
@@ -52,7 +52,7 @@ npm start
 
 to start a development server.
 
-#### Running Tests
+### Running Tests
 
 To run tests, run the following command
 
@@ -62,11 +62,11 @@ To run tests, run the following command
 
 **_It is possible that `Running tests` section will be changed when Cypress is added._**
 
-#### Creating issues
+### Creating issues
 
 If you find some bugs or you have any ideas about new features, please go to `Issues` page and create new issue with proper label. In case of features, you can go to `Projects tab => Projects (classic) => Windows 10 in browser` and create new card with feature name.
 
-#### Branch naming convention
+### Branch naming convention
 
 If you want to fix some bugs or add new featrue, you have to create new branch. Main project branch is `develop` so make sure you have current changes (`git pull` on `develop` branch). If your `develop` branch is up to date, create new branch based on the following rules:
 
@@ -89,12 +89,12 @@ A proper branch name should look like this:
 
 If you have any doubts, please check `Pull requests` tab.
 
-#### Commits name convention
+### Commits name convention
 
 The project is based on sematic commits, so I refer you to the link below to familiarize yourself with them: [Semantic commit messages](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
 
 **It is possible that `commitizen` will be added in the future.**
 
-### Screenshots
+## Screenshots
 
 **_Section is empty at the moment_**
