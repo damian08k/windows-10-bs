@@ -13,6 +13,21 @@ module.exports = {
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: true,
   },
+  resolve: {
+    alias: {
+      src: path.resolve(__dirname, '../src'),
+      assets: path.resolve(__dirname, '../src/assets'),
+      hooks: path.resolve(__dirname, '../src/hooks'),
+      store: path.resolve(__dirname, '../src/store'),
+      types: path.resolve(__dirname, '../src/types'),
+      utils: path.resolve(__dirname, '../src/utils'),
+      _view: path.resolve(__dirname, '../src/components/_view'),
+      _taskbar: path.resolve(__dirname, '../src/components/_taskbar'),
+      _plans: path.resolve(__dirname, '../src/components/_plans'),
+      _commons: path.resolve(__dirname, '../src/components/_commons'),
+    },
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+  },
   module: {
     rules: [
       {
