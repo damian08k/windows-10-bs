@@ -7,7 +7,8 @@ import { FilledCalendarYearValues } from 'types/components/calendar/calendarValu
 import { YearType } from 'types/components/calendar/yearType.type';
 
 import { betterAt } from 'utils/betterAt';
-import { getCalendarYearsValues } from 'utils/calendar/getCalendarYearsValues';
+
+import { getCalendarYearsValues } from '../helpers/getCalendarYearsValues';
 
 const { PREVIOUS, NEXT, HIGHLIGHTED } = YearType;
 

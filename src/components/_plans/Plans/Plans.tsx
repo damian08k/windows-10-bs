@@ -11,7 +11,7 @@ import { Events } from '_plans/Events/Events';
 import { PlansDate } from '_plans/PlansDate/PlansDate';
 import { ToggleEventsVisibility } from '_plans/ToggleEventsVisibility/ToggleEventsVisibility';
 
-import { getSplittedToday } from 'utils/calendar/getSplittedToday';
+import { getSplittedToday } from 'utils/getSplittedToday';
 import { mergeClasses } from 'utils/mergeClasses';
 
 import { resetPlansViews } from './helpers/outsideClickCallback';

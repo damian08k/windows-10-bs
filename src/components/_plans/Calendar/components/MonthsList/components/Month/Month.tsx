@@ -9,7 +9,7 @@ import { currentDateActions } from 'store/slices/currentDate.slice';
 import { MonthName } from 'types/components/calendar/monthName.type';
 import { FocusConfig } from 'types/hooks/focusConfig.type';
 
-import { getSplittedToday } from 'utils/calendar/getSplittedToday';
+import { getSplittedToday } from 'utils/getSplittedToday';
 import { mergeClasses } from 'utils/mergeClasses';
 
 import classes from './Month.module.css';
