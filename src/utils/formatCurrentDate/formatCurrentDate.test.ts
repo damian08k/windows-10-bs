@@ -1,6 +1,6 @@
 import { formatCurrentDate } from './formatCurrentDate';
 
-test('function should return object with three strings', () => {
+it('should return object with three strings', () => {
   const result = formatCurrentDate(new Date().toLocaleDateString());
 
   expect(result).toStrictEqual(
