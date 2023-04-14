@@ -8,7 +8,7 @@ import { useAppSelector } from 'store/hooks';
 
 import { FocusConfig } from 'types/hooks/focusConfig.type';
 
-import { getSplittedToday } from 'utils/calendar/getSplittedToday';
+import { getSplittedToday } from 'utils/getSplittedToday';
 
 import { getMonthsNames } from './helpers/getMonthsNames';
 

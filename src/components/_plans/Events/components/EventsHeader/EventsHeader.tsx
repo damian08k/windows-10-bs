@@ -6,9 +6,9 @@ import { EventData } from 'types/store/plansState.type';
 
 import { TODAY_ID } from 'src/constants';
 
-import { changeSelectedDateToDayName } from 'utils/calendar/changeSelectedDateToDayName';
-
 import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
+
+import { changeSelectedDateToDayName } from './helpers/changeSelectedDateToDayName';
 
 import classes from './EventsHeader.module.css';
 

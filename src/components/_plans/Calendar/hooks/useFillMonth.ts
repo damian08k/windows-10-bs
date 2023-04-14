@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { FilledCalendarMonthValues } from 'types/components/calendar/calendarValues.type';
 
-import { getCalendarMonthValues } from 'utils/calendar/getCalendarMonthValues';
+import { getCalendarMonthValues } from '../helpers/getCalendarMonthValues';
 
 export const useFillMonth = (
   date: Date,

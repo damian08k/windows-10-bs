@@ -2,7 +2,7 @@ import { Event } from './components/Event/Event';
 
 import { useAppSelector } from 'store/hooks';
 
-import { getSelectedDateAsString } from 'utils/calendar/getSelectedDateAsString';
+import { getSelectedDateAsString } from 'utils/getSelectedDateAsString';
 
 import classes from './EventsList.module.css';
 
