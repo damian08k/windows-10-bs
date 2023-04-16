@@ -1,4 +1,3 @@
-// import type { AppStore, RootState } from '../app/store';
 import type { PreloadedState } from '@reduxjs/toolkit';
 import type { RenderOptions } from '@testing-library/react';
 

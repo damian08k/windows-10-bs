@@ -40,6 +40,7 @@ export const TimeAndDate = memo(() => {
       onMouseDown={handleOpenPlans}
       onKeyDown={evt => handleSwitchPlansVisibility(evt)}
       aria-label="Open calendar and events box"
+      data-testid="timeAndDate"
     >
       <CurrentTime />
       <CurrentDate />
