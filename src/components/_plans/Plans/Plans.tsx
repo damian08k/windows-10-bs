@@ -52,8 +52,6 @@ export const Plans: FC<Props> = ({ transitionClassName }) => {
       aria-hidden={!isPlanOpen}
       data-testid="plans"
     >
-      {<p>{classes.root}</p>}
-
       <PlansDate />
       <Calendar />
       {isEventsVisible && <Events />}
