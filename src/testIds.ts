@@ -9,6 +9,11 @@ export const TASKBAR = {
 };
 
 export const CALENDAR = {
+  HEADER: {
+    VISIBLE_MONTH: 'visible-month',
+    MONTH_VIEW_YEAR: 'month-view-year',
+    MONTHS_LIST_VIEW_YEAR: 'months-list-view-year',
+  },
   VIEW: {
     MONTH: 'month-view',
     MONTHS_LIST: 'months-list-view',

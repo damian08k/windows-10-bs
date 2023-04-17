@@ -9,6 +9,7 @@ import {
   MIN_MONTH_VALUE,
   MIN_VISIBLE_YEAR,
 } from 'src/constants';
+import { CALENDAR } from 'src/testIds';
 
 import { betterAt } from 'utils/betterAt';
 
@@ -57,19 +58,31 @@ export const CurrentView: FC<Props> = ({ isMonthsView, isYearsView, month, year 
           className={classes.calendarView}
           aria-label={`${visibleMonth} ${year}`}
           onClick={handleViewClick}
+          data-testid={CALENDAR.VIEW.MONTH}
         >
-          <span className={classes.month}>{visibleMonth}</span>
-          <span>{year}</span>
+          <span className={classes.month} data-testid={CALENDAR.HEADER.VISIBLE_MONTH}>
+            {visibleMonth}
+          </span>
+          <span data-testid={CALENDAR.HEADER.MONTH_VIEW_YEAR}>{year}</span>
         </button>
       );
     } else if (isMonthsView) {
       return (
-        <button className={classes.calendarView} aria-label={`${year}`} onClick={handleViewClick}>
-          <span>{year}</span>
+        <button
+          className={classes.calendarView}
+          aria-label={`${year}`}
+          onClick={handleViewClick}
+          data-testid={CALENDAR.VIEW.MONTHS_LIST}
+        >
+          <span data-testid={CALENDAR.HEADER.MONTHS_LIST_VIEW_YEAR}>{year}</span>
         </button>
       );
     } else if (isYearsView && highlightedYears.length) {
-      return `${highlightedYears[0].year} - ${betterAt(highlightedYears, -1).year}`;
+      return (
+        <span data-testid={CALENDAR.VIEW.YEARS}>{`${highlightedYears[0].year} - ${
+          betterAt(highlightedYears, -1).year
+        }`}</span>
+      );
     }
   };
 
