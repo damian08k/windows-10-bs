@@ -5,9 +5,9 @@ import { renderWithProviders } from 'utils/testUtils/testUtils';
 
 import { App } from './App';
 import { MIN_SYSTEM_RESOLUTION } from './constants';
+import { CURRENT_VIEW } from './testIds';
 
-const desktopViewTestId = 'desktop-view';
-const mobileViewTestId = 'mobile-view';
+const { MOBILE_VIEW, DESKTOP_VIEW } = CURRENT_VIEW;
 
 afterEach(() => {
   global.innerWidth = MIN_SYSTEM_RESOLUTION;
@@ -22,8 +22,8 @@ describe('Rendered view', () => {
     // when
     renderWithProviders(<App />);
     // then
-    expect(screen.getByTestId(mobileViewTestId)).toBeInTheDocument();
-    expect(screen.queryByTestId(desktopViewTestId)).not.toBeInTheDocument();
+    expect(screen.getByTestId(MOBILE_VIEW)).toBeInTheDocument();
+    expect(screen.queryByTestId(DESKTOP_VIEW)).not.toBeInTheDocument();
   });
 
   it(`should render DesktopView if resolution is equal to ${MIN_SYSTEM_RESOLUTION}`, () => {
@@ -31,8 +31,8 @@ describe('Rendered view', () => {
     // when
     renderWithProviders(<App />);
     // then
-    expect(screen.getByTestId(desktopViewTestId)).toBeInTheDocument();
-    expect(screen.queryByTestId(mobileViewTestId)).not.toBeInTheDocument();
+    expect(screen.getByTestId(DESKTOP_VIEW)).toBeInTheDocument();
+    expect(screen.queryByTestId(MOBILE_VIEW)).not.toBeInTheDocument();
   });
 
   it(`should render DesktopView if resolution is bigger than ${MIN_SYSTEM_RESOLUTION}`, () => {
@@ -42,7 +42,7 @@ describe('Rendered view', () => {
     // when
     renderWithProviders(<App />);
     // then
-    expect(screen.getByTestId(desktopViewTestId)).toBeInTheDocument();
-    expect(screen.queryByTestId(mobileViewTestId)).not.toBeInTheDocument();
+    expect(screen.getByTestId(DESKTOP_VIEW)).toBeInTheDocument();
+    expect(screen.queryByTestId(MOBILE_VIEW)).not.toBeInTheDocument();
   });
 });

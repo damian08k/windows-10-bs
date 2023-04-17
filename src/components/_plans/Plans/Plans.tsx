@@ -10,6 +10,7 @@ import { Calendar } from '_plans/Calendar/Calendar';
 import { Events } from '_plans/Events/Events';
 import { PlansDate } from '_plans/PlansDate/PlansDate';
 import { ToggleEventsVisibility } from '_plans/ToggleEventsVisibility/ToggleEventsVisibility';
+import { TASKBAR } from 'src/testIds';
 
 import { getSplittedToday } from 'utils/getSplittedToday';
 import { mergeClasses } from 'utils/mergeClasses';
@@ -50,7 +51,7 @@ export const Plans: FC<Props> = ({ transitionClassName }) => {
         [classes.showPlans]: !transitionClassName.includes('false'),
       })}
       aria-hidden={!isPlanOpen}
-      data-testid="plans"
+      data-testid={TASKBAR.PLANS}
     >
       <PlansDate />
       <Calendar />

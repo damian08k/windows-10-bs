@@ -6,6 +6,8 @@ import { CurrentTime } from './components/CurrentTime/CurrentTime';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { plansActions } from 'store/slices/plans.slice';
 
+import { TASKBAR } from 'src/testIds';
+
 import { formatCurrentDate } from 'utils/formatCurrentDate';
 
 import classes from './TimeAndDate.module.css';
@@ -40,7 +42,7 @@ export const TimeAndDate = memo(() => {
       onMouseDown={handleOpenPlans}
       onKeyDown={evt => handleSwitchPlansVisibility(evt)}
       aria-label="Open calendar and events box"
-      data-testid="timeAndDate"
+      data-testid={TASKBAR.TIME_AND_DATE}
     >
       <CurrentTime />
       <CurrentDate />
