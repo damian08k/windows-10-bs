@@ -24,4 +24,8 @@ export const CALENDAR = {
     YEARS: 'years-list-container',
     DAYS: 'days-list-container',
   },
+  ARROWS: {
+    UP: 'arrow-up',
+    DOWN: 'arrow-down',
+  },
 };

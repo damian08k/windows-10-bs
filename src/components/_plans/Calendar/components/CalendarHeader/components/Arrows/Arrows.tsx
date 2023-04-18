@@ -4,6 +4,7 @@ import { ChangingYearsConfig } from 'types/components/calendar/blockDatesChangin
 
 import { changeDatesOnDown } from '_plans/Calendar/helpers/changeDatesOnDown';
 import { changeDatesOnUp } from '_plans/Calendar/helpers/changeDatesOnUp';
+import { CALENDAR } from 'src/testIds';
 
 import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrow_down.svg';
 import { ReactComponent as ArrowUpIcon } from 'assets/icons/arrow_up.svg';
@@ -47,6 +48,7 @@ export const Arrows = () => {
         className={classes.arrowButton}
         onClick={handleArrowUpClick}
         aria-label="Show previous month"
+        data-testid={CALENDAR.ARROWS.UP}
       >
         <ArrowUpIcon className={classes.arrow} />
       </button>
@@ -54,6 +56,7 @@ export const Arrows = () => {
         className={classes.arrowButton}
         onClick={handleArrowDownClick}
         aria-label="Show next month"
+        data-testid={CALENDAR.ARROWS.DOWN}
       >
         <ArrowDownIcon className={classes.arrow} />
       </button>

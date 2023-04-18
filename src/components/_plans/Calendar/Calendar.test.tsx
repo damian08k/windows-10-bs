@@ -1,14 +1,13 @@
 import '@testing-library/jest-dom';
 
-import { fireEvent, screen, waitFor } from '@testing-library/dom';
-
-import { initialSelectedDate } from 'store/slices/calendar.slice';
+import { fireEvent } from '@testing-library/dom';
 
 import { CALENDAR } from 'src/testIds';
 
 import { renderWithProviders } from 'utils/testUtils/testUtils';
 
 import { Calendar } from './Calendar';
+import { highlightedYearsExample, initialCalendarState } from './data/testsData';
 
 describe('Calendar', () => {
   describe('Change of calendar view', () => {
@@ -56,11 +55,8 @@ describe('Calendar', () => {
       // given
       const initialState = {
         calendar: {
+          ...initialCalendarState,
           isYearsView: true,
-          isMonthsView: false,
-          highlightedYears: [],
-          yearsBlock: { isBlockDown: false, isBlockUp: false },
-          selectedDate: initialSelectedDate,
         },
       };
       const { getByTestId, queryByTestId } = renderWithProviders(<Calendar />, {
@@ -78,11 +74,8 @@ describe('Calendar', () => {
       // given
       const initialState = {
         calendar: {
+          ...initialCalendarState,
           isYearsView: true,
-          isMonthsView: false,
-          highlightedYears: [],
-          yearsBlock: { isBlockDown: false, isBlockUp: false },
-          selectedDate: initialSelectedDate,
         },
       };
       const { getByTestId, queryByTestId } = renderWithProviders(<Calendar />, {
@@ -98,6 +91,70 @@ describe('Calendar', () => {
       expect(getByTestId(CALENDAR.VIEW.MONTH)).toBeInTheDocument();
       expect(queryByTestId(CALENDAR.VIEW.MONTHS_LIST)).not.toBeInTheDocument();
       expect(queryByTestId(CALENDAR.VIEW.YEARS)).not.toBeInTheDocument();
+    });
+  });
+  describe('Arrows', () => {
+    it('should change month after click', () => {
+      // given
+      const initialState = {
+        currentDate: {
+          today: '1 january 2023',
+          month: 0,
+          year: 2023,
+        },
+      };
+      const { getByTestId } = renderWithProviders(<Calendar />, { preloadedState: initialState });
+      const monthView = getByTestId(CALENDAR.VIEW.MONTH);
+      const arrowUp = getByTestId(CALENDAR.ARROWS.UP);
+      // when
+      fireEvent.click(arrowUp);
+      // then
+      expect(monthView.innerHTML.toLowerCase()).toContain('december');
+
+      const arrowDown = getByTestId(CALENDAR.ARROWS.DOWN);
+      fireEvent.click(arrowDown);
+      expect(monthView.innerHTML.toLowerCase()).toContain('january');
+    });
+
+    it('should change year after click', () => {
+      const initialState = {
+        calendar: {
+          ...initialCalendarState,
+          isMonthsView: true,
+        },
+      };
+      const { getByTestId } = renderWithProviders(<Calendar />, { preloadedState: initialState });
+      const monthsListView = getByTestId(CALENDAR.VIEW.MONTHS_LIST);
+      const arrowUp = getByTestId(CALENDAR.ARROWS.UP);
+      // when
+      fireEvent.click(arrowUp);
+      // then
+      expect(monthsListView.innerHTML.toLowerCase()).toContain('2022');
+
+      const arrowDown = getByTestId(CALENDAR.ARROWS.DOWN);
+      fireEvent.click(arrowDown);
+      expect(monthsListView.innerHTML.toLowerCase()).toContain('2023');
+    });
+
+    it('should change years list after click', () => {
+      const initialState = {
+        calendar: {
+          ...initialCalendarState,
+          isYearsView: true,
+          highlightedYears: highlightedYearsExample,
+        },
+      };
+      const { getByTestId } = renderWithProviders(<Calendar />, { preloadedState: initialState });
+      const monthsListView = getByTestId(CALENDAR.VIEW.YEARS);
+      const arrowUp = getByTestId(CALENDAR.ARROWS.UP);
+      // when
+      fireEvent.click(arrowUp);
+      // then
+      expect(monthsListView.innerHTML.toLowerCase()).toContain('2010 - 2019');
+
+      const arrowDown = getByTestId(CALENDAR.ARROWS.DOWN);
+      fireEvent.click(arrowDown);
+      expect(monthsListView.innerHTML.toLowerCase()).toContain('2020 - 2029');
     });
   });
 });
