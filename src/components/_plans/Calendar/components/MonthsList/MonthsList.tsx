@@ -8,6 +8,8 @@ import { useAppSelector } from 'store/hooks';
 
 import { FocusConfig } from 'types/hooks/focusConfig.type';
 
+import { CALENDAR } from 'src/testIds';
+
 import { getSplittedToday } from 'utils/getSplittedToday';
 
 import { getMonthsNames } from './helpers/getMonthsNames';
@@ -32,7 +34,7 @@ export const MonthsList = () => {
   );
 
   return (
-    <div className={classes.root} ref={containerRef}>
+    <div className={classes.root} ref={containerRef} data-testid={CALENDAR.CONTAINERS.MONTH}>
       {months.map((month, index) => {
         const isFocus = focus === index;
 

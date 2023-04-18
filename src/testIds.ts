@@ -19,4 +19,9 @@ export const CALENDAR = {
     MONTHS_LIST: 'months-list-view',
     YEARS: 'years-list-view',
   },
+  CONTAINERS: {
+    MONTH: 'month-list-container',
+    YEARS: 'years-list-container',
+    DAYS: 'days-list-container',
+  },
 };

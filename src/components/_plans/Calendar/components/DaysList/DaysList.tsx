@@ -7,6 +7,7 @@ import { FocusConfig } from 'types/hooks/focusConfig.type';
 
 import { useFillMonth } from '_plans/Calendar/hooks/useFillMonth';
 import { CALENDAR_WEEK_DAYS, TODAY_ID } from 'src/constants';
+import { CALENDAR } from 'src/testIds';
 
 import { getWeekDays } from '../../helpers/getWeekDays';
 import { Day } from '../Day/Day';
@@ -35,7 +36,7 @@ export const DaysList: FC<Props> = ({ today, month, year }) => {
   const weekDays = getWeekDays();
 
   return (
-    <>
+    <div data-testid={CALENDAR.CONTAINERS.DAYS}>
       <div className={classes.weekDays}>
         {weekDays.map(day => (
           <p key={day} className={classes.weekDay}>
@@ -68,6 +69,6 @@ export const DaysList: FC<Props> = ({ today, month, year }) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
