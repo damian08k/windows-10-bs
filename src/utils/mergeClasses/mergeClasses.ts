@@ -4,7 +4,7 @@ type ConditionallyClasses = {
   [key: string]: boolean;
 };
 
-type Classes = [...string[], ConditionallyClasses] | string[];
+type Classes = (string | ConditionallyClasses)[] | string[];
 
 export const mergeClasses = (...classes: Classes): string => {
   const classesCopy = [...classes];

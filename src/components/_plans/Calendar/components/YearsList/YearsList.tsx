@@ -8,6 +8,7 @@ import { FocusConfig } from 'types/hooks/focusConfig.type';
 
 import { useFillYears } from '_plans/Calendar/hooks/useFillYears';
 import { LAST_MAX_HIGHLIGHT_YEAR } from 'src/constants';
+import { CALENDAR } from 'src/testIds';
 
 import classes from './YearsList.module.css';
 
@@ -28,7 +29,7 @@ export const YearsList: FC<Props> = ({ year }) => {
   );
 
   return (
-    <div className={classes.root} ref={containerRef}>
+    <div className={classes.root} ref={containerRef} data-testid={CALENDAR.CONTAINERS.YEARS}>
       {yearsList?.currentValues.map((year, index) => {
         const isFocus = focus === index;
 

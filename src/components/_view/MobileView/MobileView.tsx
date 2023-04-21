@@ -1,3 +1,5 @@
+import { CURRENT_VIEW } from 'src/testIds';
+
 import classes from './MobileView.module.css';
 
 export const MobileViewInfoText =
@@ -7,7 +9,7 @@ export const MobileView = () => (
   // TODO: Change text inside MobileViewText
 
   <div className={classes.root}>
-    <h1 className={classes.infoText} data-testid="mobile-view">
+    <h1 className={classes.infoText} data-testid={CURRENT_VIEW.MOBILE_VIEW}>
       {MobileViewInfoText}
     </h1>
   </div>

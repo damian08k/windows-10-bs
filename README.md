@@ -28,7 +28,7 @@ The project is entirely created on the client side. I do not exclude the possibi
 **Technologies:**
 
 - **FE Stack:** React, TypeScript, Redux, CSS Modules
-- **For Testing:** JEST, React Testing Library, Cypress
+- **For Testing:** JEST, React Testing Library, Playwright
 - **Other Libraries:** Formik, Framer Motion
 - **Bundler:** Webpack
 
@@ -54,13 +54,17 @@ to start a development server.
 
 ### Running Tests
 
-To run tests, run the following command
+To run `unit` and `integration` tests, run the following command
 
 ```
   npm test
 ```
 
-**_It is possible that `Running tests` section will be changed when Cypress is added._**
+To run `e2e` tests, run the following command
+
+```
+  npx playwright test
+```
 
 ### Creating issues
 

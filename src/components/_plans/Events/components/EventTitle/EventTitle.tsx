@@ -3,6 +3,8 @@ import { FC, KeyboardEvent } from 'react';
 
 import { EventData } from 'types/store/plansState.type';
 
+import { CALENDAR } from 'src/testIds';
+
 import { mergeClasses } from 'utils/mergeClasses';
 
 import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
@@ -23,6 +25,7 @@ export const EventTitle: FC<Props> = ({ onClickEnter }) => {
         className={classes.input}
         placeholder="Add an event or reminder"
         onKeyDown={onClickEnter}
+        data-testid={CALENDAR.EVENTS.TITLE}
       />
       {values.title && (
         <button
