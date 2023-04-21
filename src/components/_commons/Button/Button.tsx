@@ -18,6 +18,7 @@ type Props = {
   state?: ButtonState;
   mode?: ButtonMode;
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
+  testId?: string;
 };
 
 export const Button: FC<Props> = ({
@@ -27,6 +28,7 @@ export const Button: FC<Props> = ({
   onClick,
   icon,
   type,
+  testId,
   disabled = false,
   state = 'normal',
   mode = 'dark',
@@ -48,6 +50,7 @@ export const Button: FC<Props> = ({
       disabled={state === 'loading' ? true : disabled}
       type={type}
       aria-label={ariaLabel}
+      data-testid={testId}
     >
       {state !== 'loading' ? (
         <>

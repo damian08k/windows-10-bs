@@ -28,4 +28,11 @@ export const CALENDAR = {
     UP: 'arrow-up',
     DOWN: 'arrow-down',
   },
+  EVENTS: {
+    TITLE: 'event-title',
+    TIME_PICKER_FROM: 'time-picker-time-from',
+    TIME_PICKER_TO: 'time-picker-time-to',
+    LOCATION: 'event-location',
+    CREATE_EVENT: 'create-event-button',
+  },
 };
