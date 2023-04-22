@@ -636,14 +636,14 @@ input[type='time']::-webkit-calendar-picker-indicator {
   border-right: none;
   background-color: var(--secondaryDarkColor100);
   color: var(--secondaryLightColor);
-  transform: translateY(-100%);
+  transform: translateY(0);
   transition: all 0.3s linear;
   visibility: hidden;
   z-index: var(--plansIndex);
 }
 
 .m4WQBC5qCFl2VkEIoodT {
-  transform: translateY(var(--taskbarHeight));
+  transform: translateY(-100%);
   visibility: visible;
 }
 
@@ -702,7 +702,7 @@ input[type='time']::-webkit-calendar-picker-indicator {
 
   display: flex;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: var(--taskbarHeight);
@@ -765,8 +765,9 @@ button:focus {
 
 .x5HWbrdvZr8l0aCswp45 {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
   background-image: url(assets/1051bbdfc3dcfd92c993.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -803,6 +804,10 @@ button:focus {
 
 html {
   font-size: 10px;
+}
+
+body {
+  overflow: hidden;
 }
 
 button {
@@ -899,4 +904,4 @@ button:focus-visible {
 }
 
 
-/*# sourceMappingURL=main.704699cc.css.map*/
+/*# sourceMappingURL=main.50077cb4.css.map*/
