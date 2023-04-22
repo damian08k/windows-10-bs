@@ -9,7 +9,7 @@ import { currentDateActions } from 'store/slices/currentDate.slice';
 import { DesktopView } from '_view/DesktopView/DesktopView';
 import { MobileView } from '_view/MobileView/MobileView';
 
-import classes from './assets/styles/global.module.css';
+import './assets/styles/global.module.css';
 import { MIDNIGHT, MIN_SYSTEM_RESOLUTION } from './constants';
 
 import './assets/styles/variables.module.css';
@@ -41,9 +41,5 @@ export const App = () => {
     return () => clearInterval(interval);
   }, [dispatch]);
 
-  return (
-    <div className={classes.root}>
-      {screenWidth < MIN_SYSTEM_RESOLUTION ? <MobileView /> : <DesktopView />}
-    </div>
-  );
+  return screenWidth < MIN_SYSTEM_RESOLUTION ? <MobileView /> : <DesktopView />;
 };
