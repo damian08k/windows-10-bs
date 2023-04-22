@@ -1,0 +1,7 @@
+.root {
+  padding: var(--spacing10) var(--spacing20) 0;
+  font-size: 1.5rem;
+  max-height: 300px;
+}
+
+

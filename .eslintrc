@@ -22,6 +22,11 @@
         "alwaysTryTypes": true,
         "project": "./tsconfig.json"
       }
+    },
+    "jsx-a11y": {
+      "components": {
+        "Button": "button"
+      }
     }
   },
   "extends": [
@@ -32,12 +37,14 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "prettier"
+    "prettier",
+    "plugin:jsx-a11y/recommended"
   ],
   "plugins": [
     "react",
     "prettier",
-    "import"
+    "import",
+    "jsx-a11y"
   ],
   "rules": {
     "semi": 0,
@@ -105,6 +112,43 @@
           "internal",
           "parent",
           "sibling"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "./components/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "./*.module.css",
+            "group": "sibling",
+            "position": "after"
+          },
+          {
+            "pattern": "hooks/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "store/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "types/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "utils/**",
+            "group": "internal", 
+            "position": "after"
+          },
+          {
+            "pattern": "assets/**", 
+            "group": "sibling",
+            "position": "before"
+          }
         ],
         "newlines-between": "always",
         "alphabetize": {

@@ -1,0 +1,11 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeIcon {
+  width: var(--iconSize10);
+  height: var(--iconSize10);
+  fill: var(--whiteColor);
+}

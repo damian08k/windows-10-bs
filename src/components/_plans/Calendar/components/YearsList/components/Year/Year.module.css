@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+
+.root:hover {
+  border: 1px solid var(--secondaryDarkColor);
+}
+
+.current {
+  background-color: var(--primaryColor);
+}
+
+.previous,
+.next {
+  color: var(--secondaryHoverLightColor);
+}

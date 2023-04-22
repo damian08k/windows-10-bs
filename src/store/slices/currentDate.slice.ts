@@ -19,6 +19,12 @@ const currentDateSlice = createSlice({
     updateDay(state, action: PayloadAction<string>) {
       state.today = action.payload;
     },
+    updateMonth(state, action: PayloadAction<number>) {
+      state.month = action.payload;
+    },
+    updateYear(state, action: PayloadAction<number>) {
+      state.year = action.payload;
+    },
     updateMonthAndYear(state, action: PayloadAction<UpdateDate>) {
       state.month = action.payload.month;
 
@@ -26,12 +32,14 @@ const currentDateSlice = createSlice({
         state.year = action.payload.year;
       }
 
-      if (state.month < 0) {
-        state.month = 11;
-        state.year -= 1;
-      } else if (state.month > 11) {
-        state.month = 0;
-        state.year += 1;
+      if (state.month) {
+        if (state.month < 0) {
+          state.month = 11;
+          state.year -= 1;
+        } else if (state.month > 11) {
+          state.month = 0;
+          state.year += 1;
+        }
       }
     },
   },

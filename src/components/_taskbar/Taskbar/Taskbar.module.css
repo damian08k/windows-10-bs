@@ -1,0 +1,66 @@
+.root {
+  --taskbarVerticalSpacing: var(--spacing5);
+  --leftInputSpacing: calc(var(--spacing10) * 3.7);
+
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--taskbarHeight);
+  background-color: var(--secondaryDarkColor200);
+}
+
+button:focus {
+  outline-offset: -2px;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 100%;
+}
+
+.logoButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blackColor);
+}
+
+.logoButton:hover {
+  background-color: var(--secondaryHoverColor);
+}
+
+.windowsLogo {
+  height: 50%;
+}
+
+.logoButton:hover .windowsLogo {
+  fill: var(--windowsLogoColor);
+}
+
+.searchContainer {
+  position: relative;
+  width: 350px;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: var(--iconSizeDefault);
+  height: var(--iconSizeDefault);
+}
+
+.searchInput {
+  padding: var(--taskbarVerticalSpacing) var(--spacing10) var(--taskbarVerticalSpacing)
+    var(--leftInputSpacing);
+  width: 100%;
+  height: 100%;
+  font-size: 1.6rem;
+}

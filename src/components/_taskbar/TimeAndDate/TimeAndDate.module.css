@@ -1,0 +1,40 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 var(--spacing10) 0 auto;
+  width: 90px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.root:hover {
+  background-color: var(--secondaryHoverColor);
+  cursor: pointer;
+}
+
+[data-title] {
+  position: relative;
+}
+
+[data-title]:after {
+  content: attr(data-title);
+  padding: var(--spacing2) var(--spacing5);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  border: 1px solid var(--secondaryColor);
+  font-size: 1.3rem;
+  white-space: nowrap;
+  background-color: var(--whiteColor);
+  color: var(--blackColor);
+  opacity: 0;
+  visibility: hidden;
+}
+
+[data-title]:hover:after {
+  opacity: 1;
+  transition: all 0.2s linear 0.5s;
+  visibility: visible;
+}

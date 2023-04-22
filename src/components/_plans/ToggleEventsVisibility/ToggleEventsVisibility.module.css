@@ -1,0 +1,30 @@
+.root {
+  --verticalRootPadding: calc(var(--spacing10) / 1.3);
+  --hidePlansButtonElementSize: 1.3rem;
+  --arrowSize: calc(var(--hidePlansButtonElementSize) / 1.5);
+
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding: var(--verticalRootPadding) var(--spacing20);
+  font-size: var(--hidePlansButtonElementSize);
+  color: var(--primaryLightColor);
+}
+
+.arrow {
+  margin-left: var(--spacing5);
+  width: var(--arrowSize);
+  height: var(--arrowSize);
+}
+
+.arrow path {
+  fill: var(--primaryLightColor);
+}
+
+.root:hover {
+  color: var(--secondaryColor);
+}
+
+.root:hover .arrow path {
+  fill: var(--secondaryColor);
+}

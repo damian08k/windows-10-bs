@@ -1,0 +1,36 @@
+.root {
+  display: flex;
+  gap: var(--spacing20);
+  margin: var(--spacing3_33) 0 var(--spacing20);
+}
+
+.timeRange {
+  display: flex;
+  gap: var(--spacing10);
+}
+
+.timeFrom,
+.timeTo {
+  border: none;
+  border-bottom: 1px solid var(--secondaryDarkColor);
+  background-color: var(--transparent);
+  color: var(--whiteColor);
+  text-align: center;
+}
+
+.connector {
+  color: var(--secondaryColor);
+  filter: brightness(110%);
+}
+
+.timeIcon {
+  height: var(--iconSizeDefault);
+  fill: var(--secondaryDarkColor);
+  filter: brightness(250%);
+}
+
+input[type='time']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  width: 10%;
+}

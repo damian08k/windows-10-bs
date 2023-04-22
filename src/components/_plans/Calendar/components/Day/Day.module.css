@@ -1,0 +1,45 @@
+.root {
+  padding: var(--spacing2);
+  line-height: 35px;
+  border: 2px solid var(--transparent);
+  text-align: center;
+  background-color: var(--transparent);
+  color: var(--whiteColor);
+}
+
+.root:hover {
+  border-color: var(--secondaryColor);
+}
+
+.PREVIOUS_MONTH_DAY,
+.NEXT_MONTH_DAY {
+  color: var(--secondaryHoverLightColor);
+}
+
+.TODAY {
+  background-image: linear-gradient(var(--primaryColor), var(--primaryColor));
+}
+
+.TODAY.selected {
+  background-image: linear-gradient(var(--transparent), var(--transparent));
+}
+
+.TODAY,
+.TODAY.selected {
+  background-clip: padding-box;
+}
+
+.TODAY:hover {
+  border-color: var(--primaryHoverColor);
+}
+
+.TODAY .dayNumber {
+  display: block;
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+  font-weight: bold;
+}
+
+.selected {
+  border: 2px solid var(--primaryColor);
+}

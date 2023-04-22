@@ -1,0 +1,19 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+
+  padding: var(--spacing15) var(--spacing20) 0;
+}
+
+.headerElement {
+  flex-basis: 40%;
+}
+
+.dateInformation {
+  display: flex;
+  cursor: pointer;
+}
+
+.dateInformation:hover {
+  filter: brightness(130%);
+}

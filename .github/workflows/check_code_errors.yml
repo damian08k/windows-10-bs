@@ -1,0 +1,28 @@
+name: 'Check code errors'
+
+on: ['pull_request']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v3
+
+      - name: 'Install dependencies'
+        run: npm install --legacy-peer-deps
+
+      - name: 'Run style checker'
+        run: npm run style:prettier
+
+      - name: 'Run ESlint'
+        if: always()
+        run: npm run lint
+
+      - name: 'Run Typescript'
+        if: always()
+        run: npm run ts-check
+
+      - name: 'Run tests'
+        if: always()
+        run: npm test

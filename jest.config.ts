@@ -78,14 +78,17 @@ export default {
   moduleNameMapper: {
     '\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/__mocks__/fileMock.ts',
-    '\\.(css|less)$': '<rootDir>/__mocks__/fileMock.ts',
+    '/\\.css$/': 'identity-obj-proxy',
     '\\.svg': '<rootDir>/__mocks__/svgrMock.ts',
-    '^view/(.*)': '<rootDir>/src/components/view/$1',
+    '^src/(.*)': '<rootDir>/src/$1',
     '^store/(.*)': '<rootDir>/src/store/$1',
     '^utils/(.*)': '<rootDir>/src/utils/$1',
     '^types/(.*)': '<rootDir>/src/types/$1',
     '^hooks/(.*)': '<rootDir>/src/hooks/$1',
-    '^Taskbar/(.*)': '<rootDir>/src/components/Taskbar/$1',
+    '^_view/(.*)': '<rootDir>/src/components/_view/$1',
+    '^_taskbar/(.*)': '<rootDir>/src/components/_taskbar/$1',
+    '^_plans/(.*)': '<rootDir>/src/components/_plans/$1',
+    '^_commons/(.*)': '<rootDir>/src/components/_commons/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -98,7 +101,7 @@ export default {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -175,7 +178,10 @@ export default {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  transform: { '\\.[jt]sx?$': 'babel-jest' },
+  transform: {
+    '\\.[jt]sx?$': 'babel-jest',
+    '.+\\.(css|styl|less|sass|scss)$': 'jest-css-modules-transform',
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

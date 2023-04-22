@@ -1,17 +1,18 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 
-import store from 'store/store';
+import { setupStore as store } from 'store/store';
 
-import App from './App';
+import { App } from './App';
 
 const container = document.getElementById('root');
-const root = createRoot(container!);
+const root = createRoot(container as HTMLElement);
 
 root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <StrictMode>
+    <Provider store={store()}>
+      <App />
+    </Provider>
+  </StrictMode>,
 );

@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 25%;
+  height: 50px;
+}
+
+.root:hover {
+  border: 1px solid var(--secondaryDarkColor);
+}
+
+.currentMonth {
+  background-color: var(--primaryColor);
+}

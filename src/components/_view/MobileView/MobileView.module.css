@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--blackColor);
+  overflow: hidden;
+}
+
+.infoText {
+  padding: 0 var(--spacing50);
+  text-align: center;
+  color: var(--whiteColor);
+}

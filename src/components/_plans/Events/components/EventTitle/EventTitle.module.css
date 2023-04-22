@@ -1,0 +1,46 @@
+.root {
+  position: relative;
+}
+
+.input {
+  margin: var(--spacing10) 0;
+  padding: var(--spacing5) var(--spacing25) var(--spacing5) var(--spacing10);
+  width: 100%;
+  border: 1px solid var(--secondaryColor);
+  background-color: var(--transparent);
+}
+
+.input:hover {
+  background-color: var(--blackColor);
+}
+
+.input:focus {
+  outline-style: solid;
+  outline-color: var(--secondaryColor);
+  background-color: var(--whiteColor);
+}
+
+.input:not(:focus) {
+  color: var(--whiteColor);
+}
+
+.closeCreateEventForm {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.input:not(:focus) + .closeCreateEventForm .closeIconInInput {
+  fill: var(--whiteColor);
+}
+
+.closeIcon {
+  width: var(--iconSize10);
+  height: var(--iconSize10);
+  fill: var(--whiteColor);
+}
+
+.closeIconInInput {
+  fill: var(--blackColor);
+}

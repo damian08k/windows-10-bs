@@ -1,4 +1,5 @@
-import store from 'store/store';
+import { rootReducer, setupStore as store } from 'store/store';
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof store>;
+export type AppDispatch = AppStore['dispatch'];

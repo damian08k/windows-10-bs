@@ -1,0 +1,17 @@
+.root {
+  padding: var(--spacing10) var(--spacing20);
+  border-bottom: 1px solid var(--secondaryDarkColor);
+}
+
+.plansDate {
+  font-size: 1.3rem;
+  color: var(--primaryLightColor);
+}
+
+.plansDate:hover {
+  color: var(--secondarySelectedColor);
+}
+
+.plansDate:focus {
+  outline-offset: 1px;
+}

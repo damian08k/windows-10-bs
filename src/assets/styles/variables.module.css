@@ -1,23 +1,64 @@
 :root {
-  /* Spacings */
-  --spacing: 10px;
+  /* -- Spacings -- */
+  --spacing5: 5px;
+  --spacing10: 10px;
+  --spacing15: 15px;
+  --spacing20: 20px;
+  --spacing25: 25px;
+  --spacing30: 30px;
+  --spacing35: 35px;
+  --spacing40: 40px;
+  --spacing45: 45px;
+  --spacing50: 50px;
 
-  /* Colors */
-  --black: rgb(0, 0, 0);
-  --white: rgb(255, 255, 255);
-  --grey: rgb(118, 118, 118);
+  /* Special spacings */
+  --spacing3_33: calc(var(--spacing10) / 3);
+  --spacing2: calc(var(--spacing10) / 5);
 
-  --windowsGreen: rgb(16, 124, 16);
-  --windowsGreenOnHover: rgb(112, 176, 112);
-  --windowsGrey: rgb(223, 223, 223);
+  /* -- Colors -- */
+  /* * Every darken on lighten color should have suffix+100 */
+  /* * Eg: --lightColor (dflt), --lightColor100, --lightColor200 */
 
-  --hoverBackground: rgba(255, 255, 255, 0.2);
+  --primaryColor: rgb(16, 124, 16);
+  --primaryHoverColor: rgb(112, 176, 112);
+  --primaryLightColor: rgb(144, 214, 144);
 
-  --plansBorderColor: rgb(76, 76, 76);
+  --secondaryColor: rgb(102, 102, 102);
+  --secondarySelectedColor: rgb(165, 165, 165);
+  --secondaryHoverColor: rgba(255, 255, 255, 0.2);
+  --secondaryHoverLightColor: rgba(255, 255, 255, 0.3);
+  --secondaryLightColor: rgb(216, 216, 216);
+  --secondaryLightColor100: rgb(184, 184, 184);
+  --secondaryLightColor200: rgb(155, 155, 155);
+  --secondaryDarkColor: rgb(76, 76, 76);
+  --secondaryDarkColor100: rgb(31, 31, 31);
+  --secondaryDarkColor200: rgb(16, 16, 16);
+
+  --secondaryColorAlpha0_9: rgba(102, 102, 102, 0.9);
+  --secondaryColorAlpha0_4: rgba(102, 102, 102, 0.4);
+
+  /* Special colors */
+  --blackColor: rgb(17, 17, 17);
+  --whiteColor: rgb(255, 255, 255);
   --windowsLogoColor: rgb(61, 156, 61);
+  --createdEventColor: rgb(0, 120, 215);
 
-  /* Sizes */
+  --errorColor: rgb(179, 5, 0);
+  --successColor: rgb(44, 139, 44);
+
+  --transparent: transparent;
+
+  /* -- Sizes -- */
+  /* Components sizes */
   --taskbarHeight: 40px;
+
+  /* Icon Sizes */
+  --iconSizeDefault: 20px;
+  --iconSizeButton: 13px;
+  --iconSize10: 10px;
+
+  /* -- Font Sizes -- */
+  --buttonFontSize: 1.2rem;
 
   /* z-indexes */
   --desktopIndex: 100;

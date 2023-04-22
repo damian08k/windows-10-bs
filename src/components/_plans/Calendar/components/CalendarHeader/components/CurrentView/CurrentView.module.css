@@ -1,0 +1,12 @@
+.root {
+  text-transform: lowercase;
+}
+
+.calendarView:focus {
+  outline-offset: 0;
+}
+
+.month {
+  text-transform: lowercase;
+  padding-right: var(--spacing5);
+}

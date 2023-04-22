@@ -1,0 +1,19 @@
+.root {
+  position: absolute;
+  right: 0;
+  width: 360px;
+  border: 1px solid var(--secondaryDarkColor);
+  border-top: none;
+  border-right: none;
+  background-color: var(--secondaryDarkColor100);
+  color: var(--secondaryLightColor);
+  transform: translateY(0);
+  transition: all 0.3s linear;
+  visibility: hidden;
+  z-index: var(--plansIndex);
+}
+
+.showPlans {
+  transform: translateY(-100%);
+  visibility: visible;
+}

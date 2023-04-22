@@ -1,0 +1,17 @@
+.root {
+  --arrowSize: 18px;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing25);
+}
+
+.arrowButton:focus {
+  outline-offset: 0;
+}
+
+.arrow {
+  width: var(--arrowSize);
+  height: var(--arrowSize);
+  cursor: pointer;
+}

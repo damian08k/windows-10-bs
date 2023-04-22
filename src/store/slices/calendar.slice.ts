@@ -1,9 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { CalendarState } from 'types/store/calendar.type';
+import { YearElement } from 'types/components/calendar/yearElement.type';
+import { CalendarState, SelectedDate, YearsChangeBlock } from 'types/store/calendar.type';
+
+import { TODAY_ID } from 'src/constants';
+
+export const initialSelectedDate: SelectedDate = {
+  id: TODAY_ID,
+  day: new Date().getDate(),
+  month: new Date().getMonth(),
+  year: new Date().getFullYear(),
+};
 
 const initialCalendarState = {
   isMonthsView: false,
+  isYearsView: false,
+  highlightedYears: [],
+  selectedDate: initialSelectedDate,
+  yearsBlock: {
+    isBlockUp: false,
+    isBlockDown: false,
+  },
 } as CalendarState;
 
 const calendarSlice = createSlice({
@@ -12,6 +29,22 @@ const calendarSlice = createSlice({
   reducers: {
     setIsMonthsView(state, action: PayloadAction<boolean>) {
       state.isMonthsView = action.payload;
+    },
+    setIsYearsView(state, action: PayloadAction<boolean>) {
+      state.isYearsView = action.payload;
+    },
+    setHighlightedYears(state, action: PayloadAction<YearElement[]>) {
+      if (state.highlightedYears.length) {
+        state.highlightedYears.length = 0;
+      }
+
+      state.highlightedYears.push(...action.payload);
+    },
+    setSelectedDate(state, action: PayloadAction<SelectedDate>) {
+      state.selectedDate = { ...action.payload };
+    },
+    blockYearsListChanging(state, action: PayloadAction<YearsChangeBlock>) {
+      state.yearsBlock = { ...action.payload };
     },
   },
 });

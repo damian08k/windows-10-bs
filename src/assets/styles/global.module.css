@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Calibri';
-  src: url('../fonts/calibri.ttf') format('truetype');
+  src: url('../fonts/segoeui.ttf') format('truetype');
 }
 
 * {
@@ -12,4 +12,34 @@
 
 html {
   font-size: 10px;
+}
+
+body {
+  overflow: hidden;
+}
+
+button {
+  border: none;
+  background-color: var(--transparent);
+  color: var(--whiteColor);
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline-width: 2px;
+  outline-color: var(--whiteColor);
+  outline-style: solid;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--transparent);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--secondaryLightColor200);
+  border-radius: 10px;
 }

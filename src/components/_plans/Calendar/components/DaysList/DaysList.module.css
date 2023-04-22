@@ -1,0 +1,18 @@
+.weekDays {
+  display: flex;
+  padding: var(--spacing15) var(--spacing20) var(--spacing10);
+  text-transform: lowercase;
+  text-align: center;
+  gap: var(--spacing25);
+}
+
+.weekDay {
+  flex-basis: 100%;
+}
+
+.days {
+  display: grid;
+  padding: 0 calc(var(--spacing10) - 1px) var(--spacing5);
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing2);
+}

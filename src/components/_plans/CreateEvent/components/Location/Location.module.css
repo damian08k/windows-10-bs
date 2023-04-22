@@ -1,0 +1,33 @@
+.root {
+  display: flex;
+  gap: var(--spacing20);
+  margin: var(--spacing10) 0;
+}
+
+.locationIcon {
+  height: var(--iconSizeDefault);
+  fill: var(--secondaryDarkColor);
+  filter: brightness(250%);
+}
+
+.addLocationInput {
+  flex-basis: 100%;
+  padding: var(--spacing3_33) var(--spacing10);
+  background-color: var(--transparent);
+  border: none;
+  border-bottom: 1px solid var(--secondaryDarkColor);
+}
+
+.addLocationInput:hover {
+  background-color: var(--blackColor);
+}
+
+.addLocationInput:focus {
+  outline-style: solid;
+  outline-color: var(--secondaryColor);
+  background-color: var(--whiteColor);
+}
+
+.addLocationInput:not(:focus) {
+  color: var(--whiteColor);
+}
