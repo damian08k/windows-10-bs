@@ -6,6 +6,7 @@ export const CURRENT_VIEW = {
 export const TASKBAR = {
   PLANS: 'plans',
   TIME_AND_DATE: 'time-and-date',
+  FILE_EXPLORER_SWITCHER: 'file-explorer-icon',
 };
 
 export const CALENDAR = {
@@ -35,4 +36,8 @@ export const CALENDAR = {
     LOCATION: 'event-location',
     CREATE_EVENT: 'create-event-button',
   },
+};
+
+export const EXPLORER = {
+  FILE_EXPLORER: 'file-explorer',
 };
