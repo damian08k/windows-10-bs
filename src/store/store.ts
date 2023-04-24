@@ -6,6 +6,7 @@ import { listenMiddleware } from './listenerMiddleware';
 import calendarReducer from './slices/calendar.slice';
 import clockReducer from './slices/clock.slice';
 import currentDateReducer from './slices/currentDate.slice';
+import explorerReducer from './slices/explorer.slice';
 import plansReducer from './slices/plans.slice';
 
 export const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ export const rootReducer = combineReducers({
   plans: plansReducer,
   currentDate: currentDateReducer,
   calendar: calendarReducer,
+  explorer: explorerReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {

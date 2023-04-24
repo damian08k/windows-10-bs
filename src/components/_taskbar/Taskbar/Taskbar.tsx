@@ -3,6 +3,7 @@ import { useMountTransition } from 'hooks/useMountTransition';
 import { useAppSelector } from 'store/hooks';
 
 import { Plans } from '_plans/Plans/Plans';
+import { FileExplorerSwitch } from '_taskbar/FileExplorerSwitch/FileExplorerSwitch';
 import { TimeAndDate } from '_taskbar/TimeAndDate/TimeAndDate';
 
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
@@ -25,6 +26,7 @@ export const Taskbar = () => {
         <SearchIcon className={classes.searchIcon} />
         <input className={classes.searchInput} type="text" placeholder="Type here to search" />
       </div>
+      <FileExplorerSwitch />
       <TimeAndDate />
       {(isPlanOpen || hasTransitionedIn) && (
         <Plans transitionClassName={`${hasTransitionedIn && 'in'} ${isPlanOpen && 'showPlans'}`} />

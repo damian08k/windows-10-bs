@@ -89,6 +89,7 @@ export default {
     '^_taskbar/(.*)': '<rootDir>/src/components/_taskbar/$1',
     '^_plans/(.*)': '<rootDir>/src/components/_plans/$1',
     '^_commons/(.*)': '<rootDir>/src/components/_commons/$1',
+    '^_explorer/(.*)': '<rootDir>/src/components/_explorer/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

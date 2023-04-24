@@ -51,6 +51,7 @@
   /* -- Sizes -- */
   /* Components sizes */
   --taskbarHeight: 40px;
+  --menuBarIconContainerSize: 50px;
 
   /* Icon Sizes */
   --iconSizeDefault: 20px;

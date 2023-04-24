@@ -1,0 +1,25 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: var(--menuBarIconContainerSize);
+}
+
+.explorerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blackColor);
+}
+
+.explorerButton:hover {
+  background-color: var(--secondaryHoverColor);
+}
+
+.fileExplorerIcon {
+  width: 100%;
+  height: 60%;
+}
