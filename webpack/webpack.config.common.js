@@ -25,6 +25,7 @@ module.exports = {
       _taskbar: path.resolve(__dirname, '../src/components/_taskbar'),
       _plans: path.resolve(__dirname, '../src/components/_plans'),
       _commons: path.resolve(__dirname, '../src/components/_commons'),
+      _explorer: path.resolve(__dirname, '../src/components/_explorer'),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
