@@ -1,0 +1,48 @@
+.root {
+  --arrowEjectionTopBarIconSize: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: var(--spacing5);
+  padding: var(--spacing5) var(--spacing10);
+  height: var(--explorerTopBarHeight);
+}
+
+.explorerName {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.folderIconButton,
+.quickAccessContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.folderIcon {
+  height: 100%;
+  width: 20px;
+}
+
+.folderIconButton::after,
+.quickAccessContainer::after {
+  content: '';
+  display: block;
+  height: 10px;
+  width: 1px;
+  margin-left: var(--spacing5);
+  background-color: var(--secondaryLightColor200);
+  box-sizing: border-box;
+}
+
+.arrowEjectButton {
+  min-width: 10px;
+  height: 100%;
+  transform: rotate(180deg);
+}
+
+.arrowEjectIcon {
+  height: 100%;
+  width: var(--arrowEjectionTopBarIconSize);
+}
