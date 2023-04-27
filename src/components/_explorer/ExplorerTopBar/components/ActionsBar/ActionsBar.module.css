@@ -1,0 +1,56 @@
+.root {
+  display: flex;
+}
+
+.actionButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--blackColor);
+  height: 100%;
+  width: 40px;
+}
+
+.minimalize,
+.expand {
+  transition: background-color 0.2s linear;
+}
+
+.minimalize:hover,
+.expand:hover {
+  background-color: var(--secondaryLightColor);
+}
+
+.minimalize::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 1px;
+  background-color: var(--blackColor);
+}
+
+.expand::before {
+  content: '';
+  display: block;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--blackColor);
+}
+
+.close {
+  transition: background-color 0.2s linear;
+}
+
+.close:hover {
+  background-color: var(--closeColor);
+}
+
+.closeIcon {
+  height: 10px;
+  width: 10px;
+  transition: fill 0.1s linear;
+}
+
+.close:hover .closeIcon {
+  fill: var(--whiteColor);
+}

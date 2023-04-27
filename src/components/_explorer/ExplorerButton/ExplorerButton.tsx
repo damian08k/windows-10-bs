@@ -1,4 +1,4 @@
-import { FC, MouseEvent, PropsWithChildren } from 'react';
+import { MouseEvent, PropsWithChildren } from 'react';
 
 import classes from './ExplorerButton.module.css';
 
@@ -7,7 +7,7 @@ type Props = {
   tooltip?: string;
 } & PropsWithChildren;
 
-export const ExplorerButton: FC<Props> = ({ children, onClick, tooltip }) => {
+export const ExplorerButton = ({ children, onClick, tooltip }: Props) => {
   return (
     <button className={classes.root} onClick={onClick} title={tooltip}>
       {children}
