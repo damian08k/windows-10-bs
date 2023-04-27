@@ -42,9 +42,12 @@
   --whiteColor: rgb(255, 255, 255);
   --windowsLogoColor: rgb(61, 156, 61);
   --createdEventColor: rgb(0, 120, 215);
+  --selectElementColor: rgb(241, 248, 255);
+  --selectElementBorderColor: rgb(171, 213, 255);
 
   --errorColor: rgb(179, 5, 0);
   --successColor: rgb(44, 139, 44);
+  --closeColor: rgb(232, 17, 35);
 
   --transparent: transparent;
 
@@ -52,6 +55,7 @@
   /* Components sizes */
   --taskbarHeight: 40px;
   --menuBarIconContainerSize: 50px;
+  --explorerTopBarHeight: 25px;
 
   /* Icon Sizes */
   --iconSizeDefault: 20px;
