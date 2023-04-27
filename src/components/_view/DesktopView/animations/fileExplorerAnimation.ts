@@ -7,4 +7,10 @@ export const fileExplorerAnimation: AnimationProps = {
     duration: 0.2,
     ease: 'linear',
   },
+  exit: {
+    scale: 0,
+    transition: {
+      duration: 0.15,
+    },
+  },
 };

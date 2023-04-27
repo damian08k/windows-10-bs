@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 
 import { RootState } from 'types/store/store.type';
@@ -16,11 +16,14 @@ export const DesktopView = () => {
 
   return (
     <div className={classes.root} data-testid={CURRENT_VIEW.DESKTOP_VIEW}>
-      {isExplorerOpen && (
-        <motion.div className={classes.fileExplorerWindow} {...fileExplorerAnimation}>
-          <FileExplorer />
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isExplorerOpen && (
+          <motion.div className={classes.fileExplorerWindow} {...fileExplorerAnimation}>
+            <FileExplorer />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Taskbar />
     </div>
   );
