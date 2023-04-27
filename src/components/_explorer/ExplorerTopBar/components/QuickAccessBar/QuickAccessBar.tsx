@@ -8,12 +8,15 @@ import classes from './QuickAccessBar.module.css';
 export const QuickAccessBar = () => {
   return (
     <div className={classes.root}>
-      <button className={classes.folderIconButton}>
+      <button className={classes.folderIconButton} aria-label="Open file explorer options">
         <FileExplorerIcon className={classes.folderIcon} />
       </button>
       <div className={classes.quickAccessContainer}>
         <div className={classes.arrowEjectButton}>
-          <ExplorerButton tooltip="Customize the Quick Access Toolbar">
+          <ExplorerButton
+            tooltip="Customize the Quick Access Toolbar"
+            ariaLabel="Open a window allowing customization of the quick access bar"
+          >
             <ArrowEject className={classes.arrowEjectIcon} />
           </ExplorerButton>
         </div>
