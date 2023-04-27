@@ -41,3 +41,11 @@ export const CALENDAR = {
 export const EXPLORER = {
   FILE_EXPLORER: 'file-explorer',
 };
+
+export const SYSTEM_WINDOW = {
+  ACTIONS: {
+    MINIMALIZE: 'minimalize-window-action',
+    EXPAND: 'expand-window-action',
+    CLOSE: 'close-window-action',
+  },
+};
