@@ -3,3 +3,9 @@
   height: 500px;
   background-color: var(--whiteColor);
 }
+
+.root button:focus-visible {
+  outline-width: 2px;
+  outline-color: var(--blackColor);
+  outline-style: solid;
+}
