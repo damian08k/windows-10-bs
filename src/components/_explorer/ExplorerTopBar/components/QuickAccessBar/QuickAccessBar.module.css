@@ -1,15 +1,15 @@
 .root {
-  --arrowEjectionTopBarIconSize: 8px;
+  --arrowEjectionTopBarIconSize: 10px;
 
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: var(--spacing5);
   padding: var(--spacing5) var(--spacing10);
   height: var(--explorerTopBarHeight);
 }
 
 .explorerName {
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: normal;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .arrowEjectButton {
-  min-width: 10px;
+  width: var(--arrowEjectionTopBarIconSize);
   height: 100%;
   transform: rotate(180deg);
 }
