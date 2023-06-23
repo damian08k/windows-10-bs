@@ -18,6 +18,7 @@ describe('DesktopView', () => {
         preloadedState: {
           explorer: {
             isExplorerOpen: false,
+            topBarVisibleIcons: [],
           },
         },
       });
@@ -35,6 +36,7 @@ describe('DesktopView', () => {
         preloadedState: {
           explorer: {
             isExplorerOpen: true,
+            topBarVisibleIcons: [],
           },
         },
       });

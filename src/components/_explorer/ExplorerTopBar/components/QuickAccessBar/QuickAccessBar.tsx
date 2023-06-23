@@ -3,6 +3,8 @@ import { ExplorerButton } from '_explorer/ExplorerButton/ExplorerButton';
 import { ReactComponent as ArrowEject } from 'assets/icons/arrow_eject.svg';
 import { ReactComponent as FileExplorerIcon } from 'assets/icons/file-explorer.svg';
 
+import { QuickAccessBarActions } from './QuickAccessBarActions/QuickAccessBarActions';
+
 import classes from './QuickAccessBar.module.css';
 
 export const QuickAccessBar = () => {
@@ -12,6 +14,7 @@ export const QuickAccessBar = () => {
         <FileExplorerIcon className={classes.folderIcon} />
       </button>
       <div className={classes.quickAccessContainer}>
+        <QuickAccessBarActions />
         <div className={classes.arrowEjectButton}>
           <ExplorerButton
             tooltip="Customize the Quick Access Toolbar"

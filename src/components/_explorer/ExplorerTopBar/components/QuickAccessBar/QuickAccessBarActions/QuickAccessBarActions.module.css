@@ -1,0 +1,23 @@
+.root,
+.iconButton {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.iconButton.disabled svg path {
+  fill: var(--secondaryColor);
+}
+
+.icon {
+  width: var(--iconSizeDefault);
+  height: 100%;
+}
+
+.redo {
+  transform: rotateY(180deg);
+}
+
+.close {
+  fill: red;
+}

@@ -22,7 +22,7 @@
 
 .folderIcon {
   height: 100%;
-  width: 20px;
+  width: var(--iconSizeDefault);
 }
 
 .folderIconButton::after,

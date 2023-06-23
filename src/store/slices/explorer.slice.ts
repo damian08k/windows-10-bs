@@ -3,7 +3,8 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { FileExplorerState } from 'types/store/fileExplorerState.type';
 
 const initialExplorerState: FileExplorerState = {
-  isExplorerOpen: false,
+  isExplorerOpen: true,
+  topBarVisibleIcons: [],
 };
 
 const explorerSlice = createSlice({
@@ -17,4 +18,5 @@ const explorerSlice = createSlice({
 });
 
 export const explorerActions = explorerSlice.actions;
+
 export default explorerSlice.reducer;
