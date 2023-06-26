@@ -1,8 +1,16 @@
+.root {
+  --tooltipWidth: 200px;
+}
+
 .root,
 .iconButton {
   display: flex;
   align-items: center;
   height: 100%;
+}
+
+.iconButton {
+  position: relative;
 }
 
 .iconButton.disabled svg path {
@@ -19,5 +27,35 @@
 }
 
 .close {
-  fill: red;
+  fill: var(--closeColor);
+}
+
+.tooltip {
+  background: linear-gradient(to bottom, #ffffff 20%, #f0f7ff);
+  color: var(--blackColor);
+  border: 1px solid var(--secondaryColor);
+  width: var(--tooltipWidth);
+  max-width: var(--tooltipWidth);
+  padding: var(--spacing5) var(--spacing10);
+  left: 0 !important; /* necessary, no other way to override this property */
+}
+
+.tooltipTitle {
+  font-size: 1.2rem;
+}
+
+.tooltipDescription {
+  font-size: 1.2rem;
+  padding: var(--spacing5) 0 0 var(--spacing10);
+}
+
+.iconButton:has(.undo) .tooltip,
+.iconButton:has(.redo) .tooltip {
+  width: max-content;
+  padding: 0;
+}
+
+.iconButton:has(.redo) .tooltip .tooltipDescription,
+.iconButton:has(.undo) .tooltip .tooltipDescription {
+  padding: var(--spacing5);
 }
