@@ -22,7 +22,7 @@
   content: attr(data-title);
   padding: var(--spacing2) var(--spacing5);
   position: absolute;
-  top: 100%;
+  bottom: 40px;
   right: 0;
   border: 1px solid var(--secondaryColor);
   font-size: 1.3rem;

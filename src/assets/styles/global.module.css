@@ -12,10 +12,17 @@
 
 html {
   font-size: 10px;
+  height: 100%;
 }
 
 body {
+  height: 100%;
   overflow: hidden;
+}
+
+/* For some reason, there's no way to refer to the root div by id or class  */
+body > div:first-child {
+  height: 100%;
 }
 
 button {
