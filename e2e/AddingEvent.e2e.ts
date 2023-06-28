@@ -36,7 +36,7 @@ test('should create event and add it to the localStorage', async ({ page }) => {
       timeFrom: EVENT_DATA.timeFrom,
       timeTo: EVENT_DATA.timeTo,
       location: EVENT_DATA.location,
-      date: '16-4-2023',
+      date: `16-${new Date().getMonth() + 1}-${new Date().getFullYear()}`,
     }),
   );
 });
