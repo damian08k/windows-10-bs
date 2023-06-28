@@ -679,7 +679,7 @@ input[type='time']::-webkit-calendar-picker-indicator {
   content: attr(data-title);
   padding: var(--spacing2) var(--spacing5);
   position: absolute;
-  top: 100%;
+  bottom: 40px;
   right: 0;
   border: 1px solid var(--secondaryColor);
   font-size: 1.3rem;
@@ -766,7 +766,6 @@ button:focus {
 .x5HWbrdvZr8l0aCswp45 {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   height: 100%;
   background-image: url(assets/1051bbdfc3dcfd92c993.jpg);
   background-repeat: no-repeat;
@@ -804,10 +803,17 @@ button:focus {
 
 html {
   font-size: 10px;
+  height: 100%;
 }
 
 body {
+  height: 100%;
   overflow: hidden;
+}
+
+/* For some reason, there's no way to refer to the root div by id or class  */
+body > div:first-child {
+  height: 100%;
 }
 
 button {
@@ -904,4 +910,4 @@ button:focus-visible {
 }
 
 
-/*# sourceMappingURL=main.50077cb4.css.map*/
+/*# sourceMappingURL=main.61b9bf86.css.map*/
