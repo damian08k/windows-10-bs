@@ -1,0 +1,66 @@
+.root {
+  --contextMenuWidth: 200px;
+  --contextMenuOptionHeight: 20px;
+  --bottomLineHeight: 2px;
+
+  position: absolute;
+  width: var(--contextMenuWidth);
+  border: 1px solid var(--secondaryLightColor);
+  font-size: 1.1rem;
+  background-color: var(--whiteColor);
+  list-style-type: none;
+  /* visibility: visible; */
+}
+
+.menuTitle {
+  padding: var(--spacing3_33);
+  border-bottom: 1px solid var(--secondaryLightColor);
+  color: var(--secondaryDarkColor);
+}
+
+.title {
+  font-size: 1.1rem;
+}
+
+.menuOption {
+  margin: var(--spacing3_33);
+  height: var(--contextMenuOptionHeight);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: var(--spacing3_33);
+  width: 100%;
+  height: 100%;
+  font-size: 1.1rem;
+  color: var(--blackColor);
+}
+
+.option svg {
+  height: 100%;
+  border: 2px solid var(--selectElementBorderColor);
+  background-color: var(--selectElementColor);
+}
+
+.optionName {
+  padding-left: var(--spacing5);
+}
+
+.bottomLine + .menuOption {
+  margin-top: calc(var(--spacing3_33) * 2 + var(--bottomLineHeight));
+}
+
+.bottomLine .option::after {
+  content: '';
+  display: block;
+  margin: var(--spacing3_33) var(--spacing3_33) var(--spacing3_33) 0;
+  width: 100%;
+  height: var(--bottomLineHeight);
+  background-color: var(--secondaryLightColor);
+}
+
+.menuOption:last-child .option::after {
+  display: none;
+}

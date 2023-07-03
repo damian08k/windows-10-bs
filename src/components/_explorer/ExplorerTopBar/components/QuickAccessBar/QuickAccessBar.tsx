@@ -1,8 +1,10 @@
+import { ContextMenu } from '_commons/ContextMenu/ContextMenu';
 import { ExplorerButton } from '_explorer/ExplorerButton/ExplorerButton';
 
 import { ReactComponent as ArrowEject } from 'assets/icons/arrow_eject.svg';
 import { ReactComponent as FileExplorerIcon } from 'assets/icons/file-explorer.svg';
 
+import { quickBarMenuOptions } from './data/contextMenuData';
 import { QuickAccessBarActions } from './QuickAccessBarActions/QuickAccessBarActions';
 
 import classes from './QuickAccessBar.module.css';
@@ -22,6 +24,7 @@ export const QuickAccessBar = () => {
           >
             <ArrowEject className={classes.arrowEjectIcon} />
           </ExplorerButton>
+          <ContextMenu title="Adjust Quick Access Toolbar" options={quickBarMenuOptions} />
         </div>
       </div>
       <h2 className={classes.explorerName}>File Explorer</h2>

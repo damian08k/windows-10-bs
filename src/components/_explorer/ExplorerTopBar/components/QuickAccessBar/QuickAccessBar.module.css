@@ -13,6 +13,10 @@
   font-weight: normal;
 }
 
+.quickAccessContainer {
+  position: relative;
+}
+
 .folderIconButton,
 .quickAccessContainer {
   display: flex;
@@ -39,10 +43,10 @@
 .arrowEjectButton {
   width: var(--arrowEjectionTopBarIconSize);
   height: 100%;
-  transform: rotate(180deg);
 }
 
 .arrowEjectIcon {
   height: 100%;
   width: var(--arrowEjectionTopBarIconSize);
+  transform: rotate(180deg);
 }
