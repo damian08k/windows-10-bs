@@ -30,7 +30,7 @@ export const ContextMenu = ({ title, options }: Props) => {
               })}
             >
               <button className={classes.option}>
-                {isIconVisible && icon}
+                <span className={classes.optionIcon}>{isIconVisible && icon}</span>
                 <span className={classes.optionName}>{name}</span>
               </button>
             </li>

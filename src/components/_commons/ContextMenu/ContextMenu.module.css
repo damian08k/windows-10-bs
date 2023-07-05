@@ -44,7 +44,14 @@
   background-color: var(--selectElementColor);
 }
 
+.optionIcon {
+  display: inline-block;
+  width: var(--contextMenuOptionHeight);
+}
+
 .optionName {
+  display: inline-block;
+  height: 100%;
   padding-left: var(--spacing5);
 }
 
@@ -52,7 +59,7 @@
   margin-top: calc(var(--spacing3_33) * 2 + var(--bottomLineHeight));
 }
 
-.bottomLine .option::after {
+.bottomLine::after {
   content: '';
   display: block;
   margin: var(--spacing3_33) var(--spacing3_33) var(--spacing3_33) 0;
@@ -61,6 +68,6 @@
   background-color: var(--secondaryLightColor);
 }
 
-.menuOption:last-child .option::after {
+.menuOption:last-child:after {
   display: none;
 }
