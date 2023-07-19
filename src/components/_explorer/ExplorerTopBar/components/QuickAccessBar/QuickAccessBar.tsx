@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { explorerActions } from 'store/slices/explorer.slice';
 
 import { MenuOptionIds } from 'types/components/common/contextMenu/menuOptionIds.type';
+import { MenuOptions } from 'types/components/common/contextMenu/menuOptions.type';
 import { TopBarIcons } from 'types/store/fileExplorerState.type';
 
 import { ContextMenu } from '_commons/ContextMenu/ContextMenu';
@@ -17,10 +19,26 @@ import { QuickAccessBarActions } from './QuickAccessBarActions/QuickAccessBarAct
 import classes from './QuickAccessBar.module.css';
 
 export const QuickAccessBar = () => {
+  const [menuOptions, setMenuOptions] = useState<MenuOptions[][]>(quickBarMenuOptions);
+
   const dispatch = useDispatch();
 
   const handleClick = (id: TopBarIcons) => {
     dispatch(explorerActions.toggleTopBarVisibleIcons(id));
+
+    const menuOptionsCopy = [...menuOptions];
+
+    for (let i = 0; i < menuOptionsCopy.length; i++) {
+      for (let j = 0; j < menuOptionsCopy[i].length; j++) {
+        if (
+          menuOptionsCopy[i][j].id === id &&
+          Object.prototype.hasOwnProperty.call(menuOptionsCopy[i][j], 'icon')
+        ) {
+          menuOptionsCopy[i][j].isIconVisible = !menuOptionsCopy[i][j].isIconVisible;
+          setMenuOptions(menuOptionsCopy);
+        }
+      }
+    }
   };
 
   return (
@@ -39,7 +57,7 @@ export const QuickAccessBar = () => {
           </ExplorerButton>
           <ContextMenu
             title="Adjust Quick Access Toolbar"
-            options={quickBarMenuOptions}
+            options={menuOptions}
             onClick={(id: MenuOptionIds) => handleClick(id as TopBarIcons)}
           />
         </div>

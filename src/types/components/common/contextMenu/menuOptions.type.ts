@@ -5,7 +5,7 @@ import { MenuOptionIds } from './menuOptionIds.type';
 export type MenuOptions = {
   id: MenuOptionIds;
   name: string;
-  icon?: ReactElement<SVGProps<SVGSVGElement>>;
   isIconVisible: boolean;
+  icon?: ReactElement<SVGProps<SVGSVGElement>>;
   submenu?: MenuOptions;
 };
