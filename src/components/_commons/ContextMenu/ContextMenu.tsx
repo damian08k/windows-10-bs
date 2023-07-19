@@ -1,3 +1,4 @@
+import { MenuOptionIds } from 'types/components/common/contextMenu/menuOptionIds.type';
 import { MenuOptions } from 'types/components/common/contextMenu/menuOptions.type';
 
 import { mergeClasses } from 'utils/mergeClasses';
@@ -10,9 +11,10 @@ import classes from './ContextMenu.module.css';
 type Props = {
   title?: string;
   options: MenuOptions[][];
+  onClick: (id: MenuOptionIds) => void;
 };
 
-export const ContextMenu = ({ title, options }: Props) => {
+export const ContextMenu = ({ title, options, onClick }: Props) => {
   return (
     <menu className={classes.root}>
       {title && (
@@ -21,7 +23,7 @@ export const ContextMenu = ({ title, options }: Props) => {
         </li>
       )}
       {options.map(category =>
-        category.map(({ name, icon, isIconVisible }, inx) => {
+        category.map(({ name, icon, isIconVisible, id }, inx) => {
           return (
             <li
               key={name}
@@ -29,7 +31,7 @@ export const ContextMenu = ({ title, options }: Props) => {
                 [classes.bottomLine]: inx === category.length - 1,
               })}
             >
-              <button className={classes.option}>
+              <button className={classes.option} onClick={() => onClick(id)}>
                 <span className={classes.optionIcon}>{isIconVisible && icon}</span>
                 <span className={classes.optionName}>{name}</span>
               </button>

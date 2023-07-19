@@ -1,3 +1,10 @@
+import { useDispatch } from 'react-redux';
+
+import { explorerActions } from 'store/slices/explorer.slice';
+
+import { MenuOptionIds } from 'types/components/common/contextMenu/menuOptionIds.type';
+import { TopBarIcons } from 'types/store/fileExplorerState.type';
+
 import { ContextMenu } from '_commons/ContextMenu/ContextMenu';
 import { ExplorerButton } from '_explorer/ExplorerButton/ExplorerButton';
 
@@ -10,6 +17,12 @@ import { QuickAccessBarActions } from './QuickAccessBarActions/QuickAccessBarAct
 import classes from './QuickAccessBar.module.css';
 
 export const QuickAccessBar = () => {
+  const dispatch = useDispatch();
+
+  const handleClick = (id: TopBarIcons) => {
+    dispatch(explorerActions.toggleTopBarVisibleIcons(id));
+  };
+
   return (
     <div className={classes.root}>
       <button className={classes.folderIconButton} aria-label="Open file explorer options">
@@ -24,7 +37,11 @@ export const QuickAccessBar = () => {
           >
             <ArrowEject className={classes.arrowEjectIcon} />
           </ExplorerButton>
-          <ContextMenu title="Adjust Quick Access Toolbar" options={quickBarMenuOptions} />
+          <ContextMenu
+            title="Adjust Quick Access Toolbar"
+            options={quickBarMenuOptions}
+            onClick={(id: MenuOptionIds) => handleClick(id as TopBarIcons)}
+          />
         </div>
       </div>
       <h2 className={classes.explorerName}>File Explorer</h2>

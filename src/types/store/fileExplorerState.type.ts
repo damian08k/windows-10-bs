@@ -4,7 +4,9 @@ export type TopBarIcons =
   | 'close'
   | 'properties'
   | 'folder'
-  | 'rename';
+  | 'rename'
+  | 'icons-position'
+  | 'minimalize-ribbon';
 
 export type FileExplorerState = {
   isExplorerOpen: boolean;

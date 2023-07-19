@@ -4,13 +4,13 @@ import { ReactComponent as CheckedIcon } from 'assets/icons/checkMark.svg';
 
 export const quickBarMenuOptions: MenuOptions[][] = [
   [
-    { name: 'Undo', icon: <CheckedIcon />, isIconVisible: true },
-    { name: 'Redo', icon: <CheckedIcon />, isIconVisible: true },
-    { name: 'Delete', icon: <CheckedIcon />, isIconVisible: true },
-    { name: 'Properties', icon: <CheckedIcon />, isIconVisible: true },
-    { name: 'New folder', icon: <CheckedIcon />, isIconVisible: true },
-    { name: 'Rename', icon: <CheckedIcon />, isIconVisible: true },
+    { id: 'arrow-undo', name: 'Undo', icon: <CheckedIcon />, isIconVisible: true },
+    { id: 'arrow-redo', name: 'Redo', icon: <CheckedIcon />, isIconVisible: true },
+    { id: 'close', name: 'Delete', icon: <CheckedIcon />, isIconVisible: true },
+    { id: 'properties', name: 'Properties', icon: <CheckedIcon />, isIconVisible: true },
+    { id: 'folder', name: 'New folder', icon: <CheckedIcon />, isIconVisible: true },
+    { id: 'rename', name: 'Rename', icon: <CheckedIcon />, isIconVisible: true },
   ],
-  [{ name: 'Show below Ribbon', isIconVisible: true }],
-  [{ name: 'Minimalize Ribbon', isIconVisible: true }],
+  [{ id: 'icons-position', name: 'Show below Ribbon', isIconVisible: true }],
+  [{ id: 'minimalize-ribbon', name: 'Minimalize Ribbon', isIconVisible: true }],
 ];
