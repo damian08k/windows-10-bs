@@ -14,31 +14,21 @@ import { ReactComponent as ArrowEject } from 'assets/icons/arrow_eject.svg';
 import { ReactComponent as FileExplorerIcon } from 'assets/icons/file-explorer.svg';
 
 import { quickBarMenuOptions } from './data/contextMenuData';
+import { updateMenuOptions } from './helpers/updateMenuOptions';
 import { QuickAccessBarActions } from './QuickAccessBarActions/QuickAccessBarActions';
 
 import classes from './QuickAccessBar.module.css';
 
 export const QuickAccessBar = () => {
   const [menuOptions, setMenuOptions] = useState<MenuOptions[][]>(quickBarMenuOptions);
-
   const dispatch = useDispatch();
 
   const handleClick = (id: TopBarIcons) => {
     dispatch(explorerActions.toggleTopBarVisibleIcons(id));
 
     const menuOptionsCopy = [...menuOptions];
-
-    for (let i = 0; i < menuOptionsCopy.length; i++) {
-      for (let j = 0; j < menuOptionsCopy[i].length; j++) {
-        if (
-          menuOptionsCopy[i][j].id === id &&
-          Object.prototype.hasOwnProperty.call(menuOptionsCopy[i][j], 'icon')
-        ) {
-          menuOptionsCopy[i][j].isIconVisible = !menuOptionsCopy[i][j].isIconVisible;
-          setMenuOptions(menuOptionsCopy);
-        }
-      }
-    }
+    updateMenuOptions(menuOptionsCopy, id);
+    setMenuOptions(menuOptionsCopy);
   };
 
   return (
