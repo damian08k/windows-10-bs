@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
+
+import { useOutsideClick } from 'hooks/useOutsideClick';
 
 import { explorerActions } from 'store/slices/explorer.slice';
 
@@ -20,7 +22,9 @@ import { QuickAccessBarActions } from './QuickAccessBarActions/QuickAccessBarAct
 import classes from './QuickAccessBar.module.css';
 
 export const QuickAccessBar = () => {
+  const contextMenuRef = useRef<HTMLDivElement>(null);
   const [menuOptions, setMenuOptions] = useState<MenuOptions[][]>(quickBarMenuOptions);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dispatch = useDispatch();
 
   const handleClick = (id: TopBarIcons) => {
@@ -31,6 +35,14 @@ export const QuickAccessBar = () => {
     setMenuOptions(menuOptionsCopy);
   };
 
+  const handleOpenMenu = () => {
+    if (!isMenuOpen) {
+      setIsMenuOpen(true);
+    }
+  };
+
+  useOutsideClick(contextMenuRef, () => setIsMenuOpen(false));
+
   return (
     <div className={classes.root}>
       <button className={classes.folderIconButton} aria-label="Open file explorer options">
@@ -38,10 +50,11 @@ export const QuickAccessBar = () => {
       </button>
       <div className={classes.quickAccessContainer}>
         <QuickAccessBarActions />
-        <div className={classes.arrowEjectButton}>
+        <div className={classes.arrowEjectButton} ref={contextMenuRef}>
           <ExplorerButton
             tooltip="Customize the Quick Access Toolbar"
             ariaLabel="Open a window allowing customization of the quick access bar"
+            onClick={handleOpenMenu}
           >
             <ArrowEject className={classes.arrowEjectIcon} />
           </ExplorerButton>
@@ -49,6 +62,7 @@ export const QuickAccessBar = () => {
             title="Adjust Quick Access Toolbar"
             options={menuOptions}
             onClick={(id: MenuOptionIds) => handleClick(id as TopBarIcons)}
+            isOpen={isMenuOpen}
           />
         </div>
       </div>
