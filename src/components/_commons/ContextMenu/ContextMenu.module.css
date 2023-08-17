@@ -9,7 +9,11 @@
   font-size: 1.1rem;
   background-color: var(--whiteColor);
   list-style-type: none;
-  /* visibility: visible; */
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .menuTitle {

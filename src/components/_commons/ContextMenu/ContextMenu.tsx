@@ -20,7 +20,13 @@ type Props = {
 export const ContextMenu = forwardRef<HTMLMenuElement, Props>(
   ({ isOpen, title, options, onClick }, menuRef) => {
     return isOpen ? (
-      <menu className={classes.root} ref={menuRef}>
+      <menu
+        className={mergeClasses(classes.root, {
+          [classes.visible]: isOpen,
+        })}
+        ref={menuRef}
+        aria-hidden={!isOpen}
+      >
         {title && (
           <li className={classes.menuTitle}>
             <h3 className={classes.title}>{title}</h3>
