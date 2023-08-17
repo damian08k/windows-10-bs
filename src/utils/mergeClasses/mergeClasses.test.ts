@@ -1,7 +1,7 @@
 import { mergeClasses } from 'utils/mergeClasses';
 
 describe('mergeClasses function', () => {
-  it('should returne merged classes as string', () => {
+  it('should return merged classes as string', () => {
     const result1 = mergeClasses('c1', 'c2', 'c3');
     const result2 = mergeClasses('c1', 'c2', 'c3', { c4: true, c5: true });
 

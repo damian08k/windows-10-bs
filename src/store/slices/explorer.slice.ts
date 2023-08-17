@@ -1,9 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { FileExplorerState } from 'types/store/fileExplorerState.type';
+import { FileExplorerState, TopBarIcons } from 'types/store/fileExplorerState.type';
 
 const initialExplorerState: FileExplorerState = {
-  isExplorerOpen: false,
+  isExplorerOpen: true,
+  topBarVisibleIcons: [],
 };
 
 const explorerSlice = createSlice({
@@ -13,8 +14,19 @@ const explorerSlice = createSlice({
     toggleExplorerVisibility(state, action: PayloadAction<boolean>) {
       state.isExplorerOpen = action.payload;
     },
+    toggleTopBarVisibleIcons(state, action: PayloadAction<TopBarIcons>) {
+      if (state.topBarVisibleIcons.includes(action.payload)) {
+        return {
+          ...state,
+          topBarVisibleIcons: state.topBarVisibleIcons.filter(id => id !== action.payload),
+        };
+      }
+
+      state.topBarVisibleIcons.push(action.payload);
+    },
   },
 });
 
 export const explorerActions = explorerSlice.actions;
+
 export default explorerSlice.reducer;

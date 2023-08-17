@@ -4,9 +4,15 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  border: 1px solid transparent;
 }
 
-.root:hover {
-  border: 1px solid var(--selectElementBorderColor);
+.root:disabled {
+  cursor: default;
+}
+
+.root:enabled:hover {
+  border-color: var(--selectElementBorderColor);
   background-color: var(--selectElementColor);
 }

@@ -1,16 +1,20 @@
 .root {
-  --arrowEjectionTopBarIconSize: 8px;
+  --arrowEjectionTopBarIconSize: 10px;
 
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: var(--spacing5);
   padding: var(--spacing5) var(--spacing10);
   height: var(--explorerTopBarHeight);
 }
 
 .explorerName {
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: normal;
+}
+
+.quickAccessContainer {
+  position: relative;
 }
 
 .folderIconButton,
@@ -22,7 +26,7 @@
 
 .folderIcon {
   height: 100%;
-  width: 20px;
+  width: var(--iconSizeDefault);
 }
 
 .folderIconButton::after,
@@ -37,12 +41,12 @@
 }
 
 .arrowEjectButton {
-  min-width: 10px;
+  width: var(--arrowEjectionTopBarIconSize);
   height: 100%;
-  transform: rotate(180deg);
 }
 
 .arrowEjectIcon {
   height: 100%;
   width: var(--arrowEjectionTopBarIconSize);
+  transform: rotate(180deg);
 }
