@@ -7,4 +7,5 @@ export type Actions = {
   icon: ReactElement<SVGProps<SVGSVGElement>>;
   title: string;
   description: string;
+  testId?: string;
 };

@@ -79,7 +79,7 @@ export default {
     '\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/__mocks__/fileMock.ts',
     '/\\.css$/': 'identity-obj-proxy',
-    '\\.svg': '<rootDir>/__mocks__/svgrMock.ts',
+    '\\.svg$': '<rootDir>/__mocks__/svgrMock.tsx',
     '^src/(.*)': '<rootDir>/src/$1',
     '^store/(.*)': '<rootDir>/src/store/$1',
     '^utils/(.*)': '<rootDir>/src/utils/$1',

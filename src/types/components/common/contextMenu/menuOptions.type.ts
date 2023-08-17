@@ -8,4 +8,5 @@ export type MenuOptions = {
   isIconVisible: boolean;
   icon?: ReactElement<SVGProps<SVGSVGElement>>;
   submenu?: MenuOptions;
+  testId?: string;
 };

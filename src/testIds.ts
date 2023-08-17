@@ -40,6 +40,28 @@ export const CALENDAR = {
 
 export const EXPLORER = {
   FILE_EXPLORER: 'file-explorer',
+  TOP_BAR: {
+    OPEN_CONTEXT_MENU: 'open-context-menu-button',
+    ACTIONS_AREA: 'actions-area',
+    CONTEXT_MENU_OPTIONS: {
+      UNDO: 'context-menu-undo',
+      REDO: 'context-menu-redo',
+      DELETE: 'context-menu-delete',
+      PROPERTIES: 'context-menu-properties',
+      NEW_FOLDER: 'context-menu-new-folder',
+      RENAME: 'context-menu-rename',
+      RIBBON_POSITION: 'context-menu-ribbon-position',
+      RIBBON_VISIBILITY: 'context-menu-ribbon-visibility',
+    },
+    ICONS: {
+      UNDO: 'undo-icon',
+      REDO: 'redo-icon',
+      DELETE: 'delete-icon',
+      PROPERTIES: 'properties-icon',
+      NEW_FOLDER: 'new-folder-icon',
+      RENAME: 'rename-icon',
+    },
+  },
 };
 
 export const SYSTEM_WINDOW = {

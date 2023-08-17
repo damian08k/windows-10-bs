@@ -7,9 +7,17 @@ type Props = {
   tooltip?: string;
   ariaLabel?: string;
   disabled?: boolean;
+  testId?: string;
 } & PropsWithChildren;
 
-export const ExplorerButton = ({ children, onClick, tooltip, ariaLabel, disabled }: Props) => {
+export const ExplorerButton = ({
+  children,
+  onClick,
+  tooltip,
+  ariaLabel,
+  disabled,
+  testId,
+}: Props) => {
   return (
     <button
       className={classes.root}
@@ -17,6 +25,7 @@ export const ExplorerButton = ({ children, onClick, tooltip, ariaLabel, disabled
       title={tooltip}
       aria-label={ariaLabel}
       disabled={disabled}
+      data-testid={testId}
     >
       {children}
     </button>

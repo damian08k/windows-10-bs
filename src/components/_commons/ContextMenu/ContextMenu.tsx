@@ -27,7 +27,7 @@ export const ContextMenu = forwardRef<HTMLMenuElement, Props>(
           </li>
         )}
         {options.map(category =>
-          category.map(({ name, icon, isIconVisible, id }, inx) => {
+          category.map(({ name, icon, isIconVisible, id, testId }, inx) => {
             return (
               <li
                 key={name}
@@ -35,7 +35,7 @@ export const ContextMenu = forwardRef<HTMLMenuElement, Props>(
                   [classes.bottomLine]: inx === category.length - 1,
                 })}
               >
-                <button className={classes.option} onClick={() => onClick(id)}>
+                <button className={classes.option} onClick={() => onClick(id)} data-testid={testId}>
                   <span className={classes.optionIcon}>{isIconVisible && icon}</span>
                   <span className={classes.optionName}>{name}</span>
                 </button>

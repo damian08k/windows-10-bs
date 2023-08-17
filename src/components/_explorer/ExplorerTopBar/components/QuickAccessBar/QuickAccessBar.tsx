@@ -11,6 +11,7 @@ import { TopBarIcons } from 'types/store/fileExplorerState.type';
 
 import { ContextMenu } from '_commons/ContextMenu/ContextMenu';
 import { ExplorerButton } from '_explorer/ExplorerButton/ExplorerButton';
+import { EXPLORER } from 'src/testIds';
 
 import { ReactComponent as ArrowEject } from 'assets/icons/arrow_eject.svg';
 import { ReactComponent as FileExplorerIcon } from 'assets/icons/file-explorer.svg';
@@ -55,6 +56,7 @@ export const QuickAccessBar = () => {
             tooltip="Customize the Quick Access Toolbar"
             ariaLabel="Open a window allowing customization of the quick access bar"
             onClick={handleOpenMenu}
+            testId={EXPLORER.TOP_BAR.OPEN_CONTEXT_MENU}
           >
             <ArrowEject className={classes.arrowEjectIcon} />
           </ExplorerButton>
