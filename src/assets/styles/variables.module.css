@@ -30,6 +30,7 @@
   --secondaryLightColor: rgb(216, 216, 216);
   --secondaryLightColor100: rgb(184, 184, 184);
   --secondaryLightColor200: rgb(155, 155, 155);
+  --secondaryLightColor300: rgb(245, 246, 247);
   --secondaryDarkColor: rgb(76, 76, 76);
   --secondaryDarkColor100: rgb(31, 31, 31);
   --secondaryDarkColor200: rgb(16, 16, 16);
@@ -56,6 +57,7 @@
   --taskbarHeight: 40px;
   --menuBarIconContainerSize: 50px;
   --explorerTopBarHeight: 25px;
+  --ribbonHeight: 80px;
 
   /* Icon Sizes */
   --iconSizeDefault: 20px;

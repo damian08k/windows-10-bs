@@ -1,0 +1,5 @@
+.root {
+  height: var(--ribbonHeight);
+  /* bg-color should be on ribbon content */
+  /* background-color: var(--secondaryLightColor300); */
+}

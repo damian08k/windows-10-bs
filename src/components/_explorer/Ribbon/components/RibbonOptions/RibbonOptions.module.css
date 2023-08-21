@@ -1,0 +1,42 @@
+.root {
+  --optionsListHeight: 18px;
+  --fileOptionWidth: 45px;
+
+  background-color: var(--whiteColor);
+}
+
+.optionsList {
+  display: flex;
+  height: var(--optionsListHeight);
+  list-style-type: none;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 var(--spacing10);
+  margin-right: var(--spacing2);
+  cursor: pointer;
+}
+
+.fileOption {
+  width: var(--fileOptionWidth);
+  margin-right: 0;
+  background-color: var(--primaryColor);
+}
+
+.fileOption:hover {
+  background-color: var(--primaryHoverColor);
+}
+
+.ribbonOption {
+  border: 1px solid transparent;
+  border-bottom: none;
+}
+
+.ribbonOption:hover {
+  border: 1px solid var(--secondaryLightColor);
+  border-bottom: none;
+  background-color: var(--secondaryLightColor300);
+}
