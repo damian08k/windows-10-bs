@@ -1,5 +1,4 @@
 .root {
-  --optionsListHeight: 18px;
   --fileOptionWidth: 45px;
 
   background-color: var(--whiteColor);
@@ -7,7 +6,6 @@
 
 .optionsList {
   display: flex;
-  height: var(--optionsListHeight);
   list-style-type: none;
 }
 
@@ -15,8 +13,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 var(--spacing10);
+  padding: var(--spacing2) var(--spacing10);
   margin-right: var(--spacing2);
+  font-size: 1.3rem;
   cursor: pointer;
 }
 
@@ -35,6 +34,7 @@
   border-bottom: none;
 }
 
+.selectedOption,
 .ribbonOption:hover {
   border: 1px solid var(--secondaryLightColor);
   border-bottom: none;

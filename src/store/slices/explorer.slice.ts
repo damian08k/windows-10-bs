@@ -1,10 +1,17 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { FileExplorerState, TopBarIcons } from 'types/store/fileExplorerState.type';
+import { FileExplorerState, RibbonOptions, TopBarIcons } from 'types/store/fileExplorerState.type';
+
+const initialRibbonOption: RibbonOptions[] = [
+  { option: 'Main tools', isSelected: true },
+  { option: 'Sharing', isSelected: false },
+  { option: 'View', isSelected: false },
+];
 
 const initialExplorerState: FileExplorerState = {
   isExplorerOpen: true,
   topBarVisibleIcons: [],
+  ribbonOptions: initialRibbonOption,
 };
 
 const explorerSlice = createSlice({
