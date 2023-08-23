@@ -1,5 +1,6 @@
 .root {
   --fileOptionWidth: 45px;
+  --fileOptionBackground: var(--primaryHoverColor);
 
   background-color: var(--whiteColor);
 }
@@ -13,30 +14,42 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
+}
+
+.option button {
   padding: var(--spacing2) var(--spacing10);
   margin-right: var(--spacing2);
-  font-size: 1.3rem;
-  cursor: pointer;
+  color: var(--blackColor);
+}
+
+.option button:disabled {
+  cursor: default;
 }
 
 .fileOption {
   width: var(--fileOptionWidth);
   margin-right: 0;
-  background-color: var(--primaryColor);
+  background-color: var(--fileOptionBackground);
 }
 
 .fileOption:hover {
-  background-color: var(--primaryHoverColor);
+  background-color: var(--primaryLightColor);
 }
 
-.ribbonOption {
+.ribbonOption button {
   border: 1px solid transparent;
   border-bottom: none;
 }
 
-.selectedOption,
-.ribbonOption:hover {
+.selectedOption button,
+.ribbonOption button:hover {
   border: 1px solid var(--secondaryLightColor);
   border-bottom: none;
   background-color: var(--secondaryLightColor300);
+}
+
+.ribbonOption:nth-of-type(2).selectedOption,
+.ribbonOption:nth-of-type(2):hover {
+  border-left: none;
 }

@@ -8,8 +8,10 @@ export type TopBarIcons =
   | 'icons-position'
   | 'minimalize-ribbon';
 
+export type RibbonOptionValues = 'Main tools' | 'Sharing' | 'View';
+
 export type RibbonOptions = {
-  option: string;
+  option: RibbonOptionValues;
   isSelected: boolean;
 };
 

@@ -1,4 +1,7 @@
-import { useAppSelector } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { explorerActions } from 'store/slices/explorer.slice';
+
+import { RibbonOptionValues } from 'types/store/fileExplorerState.type';
 
 import { mergeClasses } from 'utils/mergeClasses';
 
@@ -6,10 +9,18 @@ import classes from './RibbonOptions.module.css';
 
 export const RibbonOptions = () => {
   const ribbonOptions = useAppSelector(state => state.explorer.ribbonOptions);
+  const dispatch = useAppDispatch();
+
+  const handleOptionClick = (option: RibbonOptionValues) => {
+    dispatch(explorerActions.changeSelectedRibbonOption(option));
+  };
+
   return (
     <nav className={classes.root}>
       <ul className={classes.optionsList}>
-        <li className={mergeClasses(classes.option, classes.fileOption)}>File</li>
+        <li className={mergeClasses(classes.option, classes.fileOption)}>
+          <button>File</button>
+        </li>
         {ribbonOptions.map(({ option, isSelected }) => {
           return (
             <li
@@ -18,7 +29,9 @@ export const RibbonOptions = () => {
                 [classes.selectedOption]: isSelected,
               })}
             >
-              {option}
+              <button onClick={() => handleOptionClick(option)} disabled={isSelected}>
+                {option}
+              </button>
             </li>
           );
         })}
