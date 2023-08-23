@@ -19,6 +19,7 @@ describe('DesktopView', () => {
           explorer: {
             isExplorerOpen: false,
             topBarVisibleIcons: [],
+            ribbonOptions: [],
           },
         },
       });
@@ -37,6 +38,7 @@ describe('DesktopView', () => {
           explorer: {
             isExplorerOpen: true,
             topBarVisibleIcons: [],
+            ribbonOptions: [],
           },
         },
       });

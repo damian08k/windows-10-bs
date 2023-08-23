@@ -1,0 +1,4 @@
+.root {
+  height: var(--ribbonHeight);
+  background-color: var(--secondaryLightColor300);
+}
